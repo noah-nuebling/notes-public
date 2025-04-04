@@ -22,6 +22,8 @@ See this GitHub Issue Category:
 - Several people report that it happens after connecting their mouse (IIRC)
 - Some person suspected something about their external display and using it as a Dock? 
 - Several people report that they fix it by killing the app in Activity Monitor (IIRC)
+- One person reported that it goes away when they enable Logi Options+ alongside MMF
+  - Mr Han in [this mail](message:<OSRPR01MB120301C001EAE1A38C819F5919BAE2@OSRPR01MB12030.jpnprd01.prod.outlook.com>)
 - One person reported that they fix it by connecting another mouse (IIRC) 
     - (or switching the connection technology on their mouse to/from Bluetooth and back ? – I don't remember)
     - DANGER ZONE: I think I'm confusing things. I think M Dino? Was reporting the mouse-connection-fixes things 

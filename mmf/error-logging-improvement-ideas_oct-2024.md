@@ -316,6 +316,8 @@ Examples: (Chronological – use the last ones as reference)
 - Email: `message:<7AB8A438-1107-4913-9AB6-B3E8999B9762@gmail.com>`
 - Email: `message:<6DD683D8-AF06-4FC0-8D08-FF4D91E36439@gmail.com>`
 - [GitHub comment](https://github.com/noah-nuebling/mac-mouse-fix/issues/1313#issuecomment-2741564189)
+- Email to Cui Han: `message:<5F040B7D-D47A-4EB2-A184-C761017688B7@gmail.com>`
+- Email to Anemone: `message:<4218E8D9-26BE-4F56-8A4D-27E51970AD63@gmail.com>`
 
 Here's a template:
 
