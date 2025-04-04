@@ -311,13 +311,13 @@ First we can upload the debug build (e.g. to MegaUpload), and then we send the u
 (We need MegaUpload or similar, because Gmail doesn't allow attaching .app files – not even when zipped – due to security reasons.)
 
 Examples: (Chronological – use the last ones as reference)
-- Email: (`message:<A184CC1B-1128-4F49-BBB4-A4939504E2FE@gmail.com>`)
+- Email: `message:<A184CC1B-1128-4F49-BBB4-A4939504E2FE@gmail.com>`
 - [GitHub comment](https://github.com/noah-nuebling/mac-mouse-fix/issues/1299#issuecomment-2687638866)
 - Email: `message:<7AB8A438-1107-4913-9AB6-B3E8999B9762@gmail.com>`
 - Email: `message:<6DD683D8-AF06-4FC0-8D08-FF4D91E36439@gmail.com>`
 - [GitHub comment](https://github.com/noah-nuebling/mac-mouse-fix/issues/1313#issuecomment-2741564189)
-- Email to Cui Han: `message:<5F040B7D-D47A-4EB2-A184-C761017688B7@gmail.com>`
-- Email to Anemone: `message:<4218E8D9-26BE-4F56-8A4D-27E51970AD63@gmail.com>`
+- Email to Cui Han: [Apr 4 2025] `message:<5F040B7D-D47A-4EB2-A184-C761017688B7@gmail.com>`
+- Email to Anemone: [Apr 4 2025] `message:<4218E8D9-26BE-4F56-8A4D-27E51970AD63@gmail.com>`
 
 Here's a template:
 
