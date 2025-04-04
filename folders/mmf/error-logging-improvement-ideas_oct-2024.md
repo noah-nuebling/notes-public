@@ -1,8 +1,9 @@
 # Error Logging Improvements Ideas for Mac Mouse Fix 
-[Oct 2024]
+*Notes about future plans to improve the bug reporting and error logging systems for Mac Mouse Fix*\
+*[Oct 2024]*
 
 > [!NOTE]
-> This was the first note we put on GitHub, before we created the notes repo. 
+> This was the first note we put on GitHub, before we created the `notes` repo. 
 > 	This note used to live in its own repo at https://github.com/noah-nuebling/mac-mouse-fix-error-logging-improvement-ideas-october-2024/tree/main
 
 ### Background
