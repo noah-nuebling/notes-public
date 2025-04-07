@@ -168,3 +168,23 @@ This is a good lead. How can we move forward based on this?
            custom CFRunLoop. So we can put everything, including animations on one IO thread – very nice.
            For macOS 13 and older we can probably create a wrapper around CVDisplayLink that gives us the 
            same interface and keeps all its threading complexity contained. I really wanna implement that.
+
+## Theories pt 3
+
+Section from MOS Caldis comment I removed:
+
+---
+
+<details>
+<summary>Speculation about cause of bug</summary>
+
+I suspected the CVDisplayLink API is involved, since MMF 2, MMF 3 and MOS all use that, but only when smooth scrolling is enabled. However there are some reasons that speak against this:
+- CVDisplayLink is also used by many GUI apps, including Mac Mouse Fix's UI (for animations), and I've never heard of those breaking.
+- Also, @Caldis' fix of toggling accessibility and @mikicvi's report that the SmoothScroll app doesn't have the issue, might not fit with CVDisplayLink being the issue. 
+    - On the other hand, I've also seen reports of users on Reddit that said Mac Mouse Fix had the issue but MOS didn't for, so perhaps these observations are down to the sporadic and probabilistic nature of the bug.
+
+Another idea is that there's something specific about the way that MMF and MOS are using the CVDisplayLink API about the way it interacts with other APIs like  CGEventPost() which triggers the bug. I'm not sure. But it definitely looks to me like there's a bug inside of macOS causing this.
+
+</details>
+
+---

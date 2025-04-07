@@ -318,8 +318,10 @@ Examples: (Chronological – use the last ones as reference)
 - [GitHub comment](https://github.com/noah-nuebling/mac-mouse-fix/issues/1313#issuecomment-2741564189)
 - Email to Cui Han: [Apr 4 2025] `message:<5F040B7D-D47A-4EB2-A184-C761017688B7@gmail.com>`
 - Email to Anemone: [Apr 4 2025] `message:<4218E8D9-26BE-4F56-8A4D-27E51970AD63@gmail.com>`
+- Updated GitHub comment on 'Core' Issue [Apr 7 2024] [here](https://github.com/noah-nuebling/mac-mouse-fix/issues/1313#issuecomment-2741564189)
+    - (Plan to link everyone to this) 
 
-Here's a template:
+Here's a template: (Outdated)
 
 ```
 <FILL IN BEGINNING>
