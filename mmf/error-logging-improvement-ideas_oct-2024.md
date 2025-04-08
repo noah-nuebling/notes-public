@@ -145,9 +145,23 @@ I'm getting too tired to write stuff in detail, but here are a few more thoughts
 4. The user needs to retrieve the stored logs
 5. The user needs to send the retrieved logs to us alongside the timestamp
 6. The user needs to disable production and storage of full, verbose logs after they have sent the logs (as not to waste resources)\
-   -> 3 - 6. could all be turned into one or two steps for the user: Perhaps we could have a special status-bar-item while recording debug logs, and the user could click on that and then choose an option called: 'The Bug Just Happened!...' This would make a timestamp, then gather diagnostic data, and then automatically compose an email addressed to me with the diagnostic data as an attachment, and then turn the logging off. (We'd also have to inform the user about the privacy implications of sending the data, see Quinn's post [0] and the `sudo sysdiagnose` privacy message [11] for more). How could we implement step 4. (retrieving stored logs)? We could programmatically gather logs for the user using the `sudo sysdiagnose` command, this gathers extremely extensive diagnostic data and seems to be what Apple requests from users (and what Quinn recommends for debug hard-to-reproduce problems [0]). Alternatively, we can find some diagnostic data like crash reports directly in the library, and if we use another backend for CocoaLumberJack we could probably store logs in a custom file and then just read that. Sysdiagnose is super extensive, but its complications are that it takes a few minutes to gather the info, and it requires administrator priviledges. This wouldn't be the case for a different CocoaLumberJack backend I think, so that might be easier to implement. I can't really think of any other ways to do Step 5. (retrieving stored logs) (Update: Actually we could use `log show` or `log collect` or `OSLogStore` programmatically as alternatives. More on that below.) I believe implementing the status-bar-item I mentioned might be quite hard. Alternatively, we could give the user step by step instructions - Apple did this for me when I had iCloud issues. Here are their instructions: (Their instruction about taking a screenshot to gather a timestamp for the bug is pretty smart.)
+
+
+### Idea -> 3 - 6. could all be turned into one or two steps for the user
+
+Perhaps we could have a special statusbaritem while recording debug logs, and the user could click on that and then choose an option called: 'The Bug Just Happened!...' This would make a timestamp, then gather diagnostic data, and then automatically compose an email addressed to me with the diagnostic data as an attachment, and then turn the logging off. (We'd also have to inform the user about the privacy implications of sending the data, see Quinn's post [0] and the `sudo sysdiagnose` privacy message [11] for more). 
+    Update: [Apr 2025] sysdiagnose files are too large to send as email attachments, but we could upload them to some other file storage (Maybe `Netlify` blob, see below.)
+
+How could we implement step 4. (retrieving stored logs)? We could programmatically gather logs for the user using the `sudo sysdiagnose` command, this gathers extremely extensive diagnostic data and seems to be what Apple requests from users (and what Quinn recommends for debug hard-to-reproduce problems [0]). Alternatively, we can find some diagnostic data like crash reports directly in the library, and if we use another backend for CocoaLumberJack we could probably store logs in a custom file and then just read that. Sysdiagnose is super extensive, but its complications are that it takes a few minutes to gather the info, and it requires administrator priviledges. This wouldn't be the case for a different CocoaLumberJack backend I think, so that might be easier to implement. I can't really think of any other ways to do Step 5. (retrieving stored logs) (Update: Actually we could use `log show` or `log collect` or `OSLogStore` programmatically as alternatives. More on that below.) I believe implementing the statusbaritem I mentioned might be quite hard. Alternatively, we could give the user step by step instructions. See <# Sysdiagnose instructions that Apple sent me> below.
+
+### Sysdiagnose instructions that Apple sent me
+
+Apple sent me these instructions when I had iCloud issues. 
+(Their instruction about taking a screenshot to gather a timestamp for the bug is pretty smart.)
+
+```
    1. Download the logging profile onto your Mac from the URL address below.
-https://beta.apple.com/download/1017668
+      https://beta.apple.com/download/1017668
    2. Double click on the downloaded profile to install it. You will need to authenticate as your admin user.
    3. When the profile is installed (and you can see it installed in System Settings >Privacy & Security > Profiles), reboot your machine to make it take effectj.
    4. When you're logged back in, create a new note in Obsidian.
@@ -155,6 +169,19 @@ https://beta.apple.com/download/1017668
    6. Immediately after that, capture a new system diagnostics report by hitting Shift-Ctrl-Cmd-Opt-period to start.  The screen will flash white to show that it's started.
    7. When the sysdiagnose is complete (it may take a few minutes), Finder will open a window to the directory where the log file has been created in /var/tmp/. Attach that back to us, along with the screenshot.
    8. Turn off the extra logging by removing the debug logging profile in the Profiles pref pane, using the "-" button. Then reboot your machine again
+```
+
+### Update: [Apr 2025] About step 3. (Taking timestamp-screenshot)
+
+In  <# Sysdiagnose instructions that Apple sent me> they told me to trigger sysdiagnose, and then *immediately* take a screenshot. Is this really necessary? Won't the sysdiagnose contain enough info about when it was triggered?
+Test:  
+    Triggered sysdiagnose exactly at 11:08:00 using Shift-Ctrl-Cmd-Opt-period
+Results: 
+    - Resulting sysdiagnose's file's name contains `11-08-00`, and entries in sysdiagnose.log start at `11:08:00`
+    - system_logs.logarchive logs go up to 11:10 which is also when the sysdiagnose archive was created. (sysdiagnose.log says that creating the logarchive is the last thing sysdiagnose does)
+
+-> Taking screenshot immediately after triggering sysdiagnose seems entirely unnecessary
+    Not sure why Apple told me to do that
 
 ## Other
 
@@ -491,3 +518,57 @@ Inspecting screenshot timestamps:
         - Sub-second precision: I tested with Keka: .zip, and .tar.gz stripped sub-second information, while .7z kept it. Didn't test anything else.
   	- Timezones: Observation: `gstat` and other timestamp-viewers always converted the timestamps to my current system's timezone, even though examples outputs on the web from Linux users didn't seem to do that. I assume that's because the timestamps on my files don't contain timezone-info and are just stored in absolute time since 1970 or whatever..
   		- -> Idk if macOS never records timezone info in file-timestamps or if this info was also stripped by the archiving. (Didn't test.)
+
+# Update [Apr 2025] - Mid Term Solution - debugmode-toggle
+
+Also see: 
+    Src [1]: <# Idea -> 3 - 6. could all be turned into one or two steps for the user>
+
+The 'optimal solution' we planned earlier – A dedicated **debugmode-statusbaritem** – has downsides, therefore we plan a medium-term solution: **debugmode-toggle**. It would be:
+    - Relatively easy to implement
+    - Simplifies steps 1. and 6. (installing and uninstalling debug build) – already significant reduction of friction for users
+
+UI ideas for debugmode-toggle:
+    - Add 'Enable Debug Mode' toggle in 'Mac Mouse Fix' menubar item (next to the Apple Logo.). Perhaps hidden with Option modifier.
+    - When enabled, add checkbox at end of General tab that says '- [x] Enable Debug Mode'. User can easily disable it from there. Should blend in very nicely with rest of GeneralTab UI. Maybe we could add a little bug glyph to make it stick out more? The SFSymbols ladybug glyph is nice and cute.
+    - Maybe add secondary label below that checkbox 
+        - Brainstorm about secondary label:
+            - Could explain what debug mode is, how to collect and send logs, or why you should probably keep it disabled unless you're planning to submit a Bug Report. (Not sure what to include there.)
+            - Maybe it could just say 'Mac Mouse Fix is recording information for a Bug Report...' ... but that might imply that it'll automatically create a bug report or something.
+            - Maybe it could say "Recording Information that you can share in a [Bug Report](<link>)..."
+
+Should we name it 'Debug Mode'?
+    We might come up with something better. I feel like Debug Mode won't translate super well into other languages? But everybody has to have a term for software bugs so maybe it's ok.
+    Ideas:
+        - Diagnostic Mode
+        - '[x] Record Debug Information'
+            - (Might imply it's a one-time-action)
+
+How could we move from debugmode-toggle to debugmode-statusbaritem if debugmode-toggle isn't enough?
+    We'd have to make the following UI adjustments: 
+        Instead/additionally to `[x] Enable Debug Mode` toggle on General tab we'd have the debugmode-statusbaritem.
+        -> Should be easy to change.
+
+**Downsides** of debugmode-statusbaritem:
+
+    (Reminder: statusbaritem would automate/guide user through steps 2 - 6.: make timestamp when issue occurs, record issue in logs, collect logs, upload logs, disable debugmode)
+
+    - Quite hard to implement.
+    - Takes time to build and polish - possibly not worth it
+        - We don't seem to get many of these rare, hard-to-debug issues. And I assume that once we make things more single threaded with an IOThread, it should become even more stable. So it might not be worth spending so much time to make reporting experience better for those 2 or so hard-to-reproduce bugs we get a year. (Might be an understatement, my memory is bad.)
+    - After implementing debugmode-toggle, there might be simple ways of reducing friction even further, without switching to debugmode-statusbaritem
+        - Of the remaining steps that could be optimized after implementing a debugmode-toggle (3 - 5.), uploading seem the most friction-full.
+        - Uploading could be streamlined in other ways, e.g. by allowing uploads to Netlify blob directly on the Feedback Assistant page instead of relying on Mega.io upload links.
+    - Might itself be bug-prone.
+        - Running things in background is bug-prone
+            - Think about how much pain and macOS bugs we went through over the years to reliably enable 'Mac Mouse Fix Helper', we'd basically have to do the same thing for a hypothetical new 'Mac Mouse Fix Debug Mode Helper' process
+                ... Although I guess we could reuse the existing logic for 'Mac Mouse Fix Helper', or simply use the loginitem API which seems simpler but won't restart on crashes. (Crashes seem unlikely though)
+        - It's just a lot of steps with file-interactions, user interactions, using sysdiagnose clt and waiting for its response. Possible race-conditions. We could probably make it very stable, but it might require a lot of careful attention and work.
+    - Inflexible
+        - Kinda sets the process in stone. This might be bad if:
+            - we wanna change the process (e.g. upload to a different place) 
+            - if macOS changes (e.g. requires additional permissions to collect sysdiagnose or something) 
+            - if we find the process doesn't make sense for a significant percentage of the bugs we wanna record info about (E.g. if collecting timestamp proves useless for most cases). 
+                - I don't have enough experience with these bug reports to know for sure whether the process always makes sense. Might be able to come to conclusion by thinking hard.
+            - If it makes sense for users to notify me through different channels (If we already had conversation on GitHub/Email it probably makes sense to continue conversation on respective channel.)
+        -> I feel like all these problems aren't super bad / solvable when you think about them. But it does seem unwise to formalize the process too much before we have experience with how it works in practice – which is hard to acquire experience since people very rarely send us debug logs... Hopefully the debugmode-toggle will change that.
