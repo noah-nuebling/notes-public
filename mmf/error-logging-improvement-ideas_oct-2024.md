@@ -472,7 +472,8 @@ Perhaps we could also link users to Apple's PDF documents with sysdiagnose instr
         	    		- Blobs don't cost anything currently. Their developer said, that the plan is: "Customers get 100GB for free, and additional GBs will cost 9 cents a month"
             		  	  (Source: https://answers.netlify.com/t/blobs-pricing-and-limits/119907/2)
 					- -> Sounds totally good enough for our use case
-     			- <[Mar 2025] I'm currently not aware of other competitors to AWS, Vercel, Netlify, and I also didn't Google for any>
+     			- ([Mar 2025] I'm currently not aware of other competitors to AWS, Vercel, Netlify, and I also didn't Google for any)
+     			- ([Apr 2025] ... I think I became aware of Netlify and Vercel when I originally looked into AWS for lamda function in early 2024? Would be interesting what other alternatives we considered. Can't find any older notes mentioning Netlify or Vercel though.)
 
 	- Conclusion: [Mar 2025]
  		- Fine solution for now: Simply sharing our mega.nz upload links publicly and asking users to attach the 'Upload ID' to their bug report so we can correlate the uploaded files should work totally fine! 
@@ -500,7 +501,9 @@ Please 1. Upload your screenshot and the sysdiagnose archive (with the file exte
 
 (mega.nz doesn't support linebreaks [Mar 2025] so we used '||' instead.)
 
-## Notes from investigating first sysdiagnose we've been sent (Mar 17 2025)
+## Notes from investigating first sysdiagnose we've been sent [Mar 17 2025]
+
+(The sysdiagnose from M Dino)
 
 Inspecting screenshot timestamps:
 - Bad options:
@@ -516,13 +519,31 @@ Inspecting screenshot timestamps:
         	- Don't forget: Suffix `+0700` means: The timestamp is in the 'UTC + 7 hours' timezone. So to get UTC time, you have to *subtract* 7.
 - Sometimes we saw information missing from a file's timestamps:
         - Sub-second precision: I tested with Keka: .zip, and .tar.gz stripped sub-second information, while .7z kept it. Didn't test anything else.
-  	- Timezones: Observation: `gstat` and other timestamp-viewers always converted the timestamps to my current system's timezone, even though examples outputs on the web from Linux users didn't seem to do that. I assume that's because the timestamps on my files don't contain timezone-info and are just stored in absolute time since 1970 or whatever..
+  	- Timezones: Observation: `gstat` and other timestamp-viewers always converted the timestamps to my current system's timezone, even though examples outputs on the web from Linux users didn't seem to do that. I assume that's because the timestamps on my files don't contain timezone-info and are just stored in absolute time since 1970 or whatever.
   		- -> Idk if macOS never records timezone info in file-timestamps or if this info was also stripped by the archiving. (Didn't test.)
+
+## Learnings from trying the 'Short Term Solution' [Apr 8 2025]
+
+In the last few weeks I've been trying to collect logs about [this issue](./bug-investigation/scrolling-stops-intermittently_apr-2025.md) using the 'Short Term Solution' approach, but we've had very little success. We still didn't get any logs.
+I'm not sure why. Reasons I can think of:
+
+- I'm communicating in a bad way 
+    - I don't really know what to do better though. 
+        - I think I used to be more charming? But I can't force that, since I'm dead inside now.
+        - I could try to be more concise. Try my best not to waste people's time. With the one person that was willing to collect logs about this so far (https://github.com/noah-nuebling/mac-mouse-fix/issues/1339#issuecomment-2785241013), I was being very concise for my standards.
+- The steps are too much effort/mentally taxing.
+    - See 'Mid Term Solution' for ideas on improving that.
+- The privacy stuff turns ppl off 
+    - Maybe only collecting MMF logs instead of the whole sysdiagnose? 
+        - Pro: That would have less chance of containing sensitive data. 
+        - Contra: But it would also be harder to implement in a way that's easy-to-do for the user, since sysdiagnose has the nice shift-control-option-command-period shortcut.
+        - Contra: It would give us less data, making it harder to debug if the issue doesn't just stem from MMF but some interaction/bug with macOS/the environment. (Which I assume is often the case for these sporadic bugs.)
+- META: Naturally, ppl don't really give feedback about *why* they ghost you. So this is a bit hard to understand.
 
 # Update [Apr 2025] - Mid Term Solution - debugmode-toggle
 
 Also see: 
-    Src [1]: <# Idea -> 3 - 6. could all be turned into one or two steps for the user>
+    <# Idea -> 3 - 6. could all be turned into one or two steps for the user>
 
 The 'optimal solution' we planned earlier – A dedicated **debugmode-statusbaritem** – has downsides, therefore we plan a medium-term solution: **debugmode-toggle**. It would be:
     - Relatively easy to implement
@@ -572,3 +593,14 @@ How could we move from debugmode-toggle to debugmode-statusbaritem if debugmode-
                 - I don't have enough experience with these bug reports to know for sure whether the process always makes sense. Might be able to come to conclusion by thinking hard.
             - If it makes sense for users to notify me through different channels (If we already had conversation on GitHub/Email it probably makes sense to continue conversation on respective channel.)
         -> I feel like all these problems aren't super bad / solvable when you think about them. But it does seem unwise to formalize the process too much before we have experience with how it works in practice – which is hard to acquire experience since people very rarely send us debug logs... Hopefully the debugmode-toggle will change that.
+
+
+## Mid Term Solution pt 2
+[Apr 8 2025]
+
+Problem: I have long phases where I don't communicate. This makes it hard to collect logs, since we need to manually send tailor-made instructions to users for how to collect debug-logs.
+Solution ideas:
+    - Should maybe add instructions to MMF Feedback Assistant to allow users to proactively record and send sysdiagnose. Then we can perhaps collect sysdiagnose in our no-communication phases, and analyze them later. 
+        Though I'm not sure if we can actually effectively solve bugs without taylored-to-problem back-and-forth communication. (I just don't think I can do that consistently, though)
+    - Maybe set aside time regularly to communicate with users and ask them for debug logs.
+        - E.g. for the 'Scroll Stops Intermittently' issue, we could set aside time after macOS updates, since that's when the reports alwasy come in.
