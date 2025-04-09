@@ -347,43 +347,44 @@ Examples: (Chronological – use the last ones as reference)
 - Email to Anemone: [Apr 4 2025] `message:<4218E8D9-26BE-4F56-8A4D-27E51970AD63@gmail.com>`
 - Updated GitHub comment on 'Core' Issue [Apr 7 2024] [here](https://github.com/noah-nuebling/mac-mouse-fix/issues/1313#issuecomment-2741564189)
     - (Plan to link everyone to this) 
+- Email to iwangkk: [Apr 9 2025] `message:<3D3E054D-90A8-40B8-BBDA-95D6B40C9E94@gmail.com>`
 
-Here's a template: (Outdated)
+Here's a **template**: (Outdated)
 
-```
-<FILL IN BEGINNING>
+    ```
+    <FILL IN BEGINNING>
 
-I've created a special debug version of the app. What's special about it, is that it creates very detailed logs about everything it's doing. This will help track down what's happening when the issue occurs.
+    I've created a special debug version of the app. What's special about it, is that it creates very detailed logs about everything it's doing. This will help track down what's happening when the issue occurs.
 
-Here's what to do:
+    Here's what to do:
 
-1. Install, and enable the special debug build of Mac Mouse Fix
-    - Download link: <FILL IN LINK>
+    1. Install, and enable the special debug build of Mac Mouse Fix
+        - Download link: <FILL IN LINK>
 
-2. When the issue occurs:
-    a) Take a **screenshot** (Shift-Command-3) to record the current time.
-    b) Document the problem in the logs
-        - <FILL IN STEPS>
-    c) Collect the logs in a **sysdiagnose** file
-        - Press Shift-Control-Option-Command-Period
-        - The screen will flash white to show the sysdiagnose process has started.
-        - Wait a bit (up to 10 minutes) for completion.
-        - Once complete, the file will appear in Finder at `/private/var/tmp/sysdiagnose_[...].tar.gz`
+    2. When the issue occurs:
+        a) Take a **screenshot** (Shift-Command-3) to record the current time.
+        b) Document the problem in the logs
+            - <FILL IN STEPS>
+        c) Collect the logs in a **sysdiagnose** file
+            - Press Shift-Control-Option-Command-Period
+            - The screen will flash white to show the sysdiagnose process has started.
+            - Wait a bit (up to 10 minutes) for completion.
+            - Once complete, the file will appear in Finder at `/private/var/tmp/sysdiagnose_[...].tar.gz`
 
-3. Send me the files:
-    - Please upload both the **screenshot** and the **sysdiagnose** file to this link: <FILL IN LINK>
-    - (You can also send them another way, but the sysdiagnose file is typically too large for email.)
+    3. Send me the files:
+        - Please upload both the **screenshot** and the **sysdiagnose** file to this link: <FILL IN LINK>
+        - (You can also send them another way, but the sysdiagnose file is typically too large for email.)
 
-4. Disable logging
-    - After sending the files, you can switch back to a regular release of Mac Mouse Fix to stop the detailed logging. (Which takes extra CPU time and memory)
+    4. Disable logging
+        - After sending the files, you can switch back to a regular release of Mac Mouse Fix to stop the detailed logging. (Which takes extra CPU time and memory)
 
-Privacy Note:
-The sysdiagnose file contains detailed information about your system.
-Personal information is normally removed, but I think some might remain if there are certain bugs in the software on your system.
-I will not share your sysdiagnose file with anyone without your permission.
+    Privacy Note:
+    The sysdiagnose file contains detailed information about your system.
+    Personal information is normally removed, but I think some might remain if there are certain bugs in the software on your system.
+    I will not share your sysdiagnose file with anyone without your permission.
 
-<FILL IN ENDING>
-```
+    <FILL IN ENDING>
+    ```
 
 Perhaps we could also link users to Apple's PDF documents with sysdiagnose instructions which can be found at their profiles-and-logs page [10]
   
@@ -484,20 +485,20 @@ Perhaps we could also link users to Apple's PDF documents with sysdiagnose instr
 
 The description for a *personalized* file request could be this:
 
-```
-Please upload the screenshot you took & your sysdiagnose archive (whose file extension should be .tar.gz). Thank you!
-```
+    ```
+    Please upload your screenshot & your sysdiagnose file (whose file extension is .tar.gz). Thank you!
+    ```
 
-The description for a *public* file request could be this: 	(3 different variants for 3 different communication channels: Feedback Assistant, Email, GH Issue.) (Update: Actually, the email one might not make sense, since for those we can create personalized file requests.)
-```
-Please 1. Upload your screenshot and the sysdiagnose archive (with the file extension '.tar.gz') || 2. Copy the 'Upload ID' (shown below) and add it to your Bug Report. That way I'll know which files belong to which report. || Thank you!
-```
-```
-Please 1. Upload your screenshot and the sysdiagnose archive (with the file extension '.tar.gz') || 2. Copy the 'Upload ID' (shown below) and send it to me via Email. That way I'll know which files belong to which report. || Thank you!
-```
-```
-Please 1. Upload your screenshot and the sysdiagnose archive (with the file extension '.tar.gz') || 2. Copy the 'Upload ID' (shown below) and post it under our GitHub Issue. That way I'll know which files belong to which report. || Thank you very much!
-```
+    The description for a *public* file request could be this: 	(3 different variants for 3 different communication channels: Feedback Assistant, Email, GH Issue.) (Update: Actually, the email one might not make sense, since for those we can create personalized file requests.)
+    ```
+    Please 1. Upload your screenshot and the sysdiagnose archive (with the file extension '.tar.gz') || 2. Copy the 'Upload ID' (shown below) and add it to your Bug Report. That way I'll know which files belong to which report. || Thank you!
+    ```
+    ```
+    Please 1. Upload your screenshot and the sysdiagnose archive (with the file extension '.tar.gz') || 2. Copy the 'Upload ID' (shown below) and send it to me via Email. That way I'll know which files belong to which report. || Thank you!
+    ```
+    ```
+    Please 1. Upload your screenshot and the sysdiagnose archive (with the file extension '.tar.gz') || 2. Copy the 'Upload ID' (shown below) and post it under our GitHub Issue. That way I'll know which files belong to which report. || Thank you very much!
+    ```
 
 (mega.nz doesn't support linebreaks [Mar 2025] so we used '||' instead.)
 
