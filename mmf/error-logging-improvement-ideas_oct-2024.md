@@ -348,6 +348,7 @@ Examples: (Chronological – use the last ones as reference)
 - Updated GitHub comment on 'Core' Issue [Apr 7 2024] [here](https://github.com/noah-nuebling/mac-mouse-fix/issues/1313#issuecomment-2741564189)
     - (Plan to link everyone to this) 
 - Email to iwangkk: [Apr 9 2025] `message:<3D3E054D-90A8-40B8-BBDA-95D6B40C9E94@gmail.com>`
+- Email to Abel [Apr 11 2025] `message:<48C123DD-FB63-4D20-BE3D-DFACFACB93EB@gmail.com>`
 
 Here's a **template**: (Outdated)
 

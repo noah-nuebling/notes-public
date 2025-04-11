@@ -1,8 +1,7 @@
 # Merging master into feature-strings-catalog branch [Apr 2025]
 
-
 Post-merge-todos: 
-    (From commit message 0a3d69731535082522ac69732edaa80ba65ffada)
+        (Copied (and then extended) from commit message 0a3d69731535082522ac69732edaa80ba65ffada)
     - [x] Looks like there's still some stuff in the project.pbxproj that has 10.14.4 as deployment target.
         -> Check and probably update to 10.15.0
     - [x] Uncomment .h imports until it compiles (we commented some out since we weren't sure they were needed.)
@@ -38,7 +37,6 @@ Post-merge-todos:
             - EventLoggerForBrad
                 - We already moved over some stuff and it's split between SharedUtility.h and EventLoggerForBradMacros.h – maybe other files?
         -> I think it would be nice to merge everything useful into MMF now, and then we can forget about those other repos
-
 
 ## Commits 
 
