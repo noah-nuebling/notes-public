@@ -1,4 +1,4 @@
-# MMF General Todo [Mar 2025]
+# MMFF General Todo [Mar 2025]
 
 Small bugs that I should look into before the next release:
 
@@ -17,10 +17,13 @@ Small bugs that I should look into before the next release:
     - See this [mail](message:%3CCAMbYH-rYhZh-7MLEu+tZ10C1AA2-5vkQK9pS4b8bDdY6APUAAg@mail.gmail.com%3E)
     - See this [mail](message:%3CE4707C72-811C-4111-8D12-64E683334BC9@lozhnikov.com%3E)
 - [ ] Look into preventing jank when granting accessibility access
+    - [ ] Maybe improve MFMessagePort 
+      - IIRC the port calling uninitialized modules when accessibilty isn't granted caused crashes 
+      - Solution idea was to create whitelist of modules that may be called before accessibility is granted and ignore other messages.
 - [ ] Look into disabling "if you have problems enabling click here" messages
     - Ideas for updating:
         - Make it trigger later
-        - Make it say 'try waiting a bit or restarting the app, if problem persists click here' 
+        - Make it say 'try waiting a bit or restarting the app, if problem persists please file a [Bug Report](...)' 
             - Waiting a bit or restarting the app always fixes issues on newer macOS versions in my experience. Never had to reboot IIRC.
         - Don't link to outdated guide anymore.
         - Maybe reconsider the CPU usage tracking stuff?
@@ -29,8 +32,14 @@ Small bugs that I should look into before the next release:
     - Should be quite useful and relatively easy to implement 
       (I think we're already doing something similar to fix zooming delay in Chromium browsers)
 - [ ] Maybe implement the mouse-friendly App Switcher SHK which we learned about working on EventLoggerForBrad.
+- [ ] Cleanup GitHub repo
+    - Delete crowdin.yml (And make sure Crowdin doesn't regenerate it somehow)
+    - Delete the Codacity GitHub Marketplace app or what it's called.
 
 [Apr 2025]
 - [ ] Polish: The 'it had been disabled from the Menu Bar' toast's icon has the wrong color after switching system appearance while the app is open.
+- [ ] Polish: LicenseField: When you enter 413BAFD3-CCD84D9E-8D718567-A804E127413BAFD3-CCD84D9E-8D718567-A804E1 and then undo it / Cmd-X it, the placeholder text gets messed up (Observed [Apr 11 2025], right after merging master into feature-strings-catalog)
+- [ ] Polish: Add 'Activate License' link on the TrialNotification
+    - it often annoys me that it's not there (And I think we originally built it like that but turned it off for some reason.)
 - [x] Polish: The link to the MMF website still goes to mousefix.org (and is then redirected) instead of going directly to macmousefix.com.
     - ... Actually, I'm pretty sure we fixed that on the feature-strings-catalog branch.
