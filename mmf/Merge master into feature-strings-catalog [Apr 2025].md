@@ -29,11 +29,12 @@ Post-merge-todos:
             - -> Update: Too lazy to do this. I think wel'll find any bugs naturally during further development.
     - [ ] Merge EventLoggerForBrad side project
         - IIRC we postponed merging this into MMF just because that required us to change some code that feature-strings-catalog also changed – so we wanted to wait until master and feature-strings-catalog were merged. 
-    - [ ] /Move over/cleanup/get overview of/ utilities from recent 'side projects' (Before we forget about them)
+    - /Move over/cleanup/get overview of/ utilities from recent 'side projects' (Before we forget about them)
         Overview – merging of recent side projects:
-            - xcode-localization-screenshot-fix
-                - IIRC, we haven't moved over some really useful stuff like the block-based interface for objc KVO
-                - There's nothing to merge here except those utility functions
+            - [ ] objc-playground-2024
+                - Contains block-based KVO wrapper
+            - [x] xcode-localization-screenshot-fix
+                - DONE: Nothing to merge but some interesting stuff left in that repo. Made note about that inside mac-mouse-fix > `Automatic Localization Screenshots.md`
             - EventLoggerForBrad
                 - We already moved over some stuff and it's split between SharedUtility.h and EventLoggerForBradMacros.h – maybe other files?
         -> I think it would be nice to merge everything useful into MMF now, and then we can forget about those other repos
