@@ -43,3 +43,7 @@ Small bugs that I should look into before the next release:
     - it often annoys me that it's not there (And I think we originally built it like that but turned it off for some reason.)
 - [x] Polish: The link to the MMF website still goes to mousefix.org (and is then redirected) instead of going directly to macmousefix.com.
     - ... Actually, I'm pretty sure we fixed that on the feature-strings-catalog branch.
+
+- [ ] Make note about: opposite-tick to stop scrolling doesn't work properly in iOS apps and iPhone mirroring (stop-scrolling works with click-and-drag though so our event-generation must be wrong somehow.) 
+- [ ] Make note about: opposite-tick feels bad with quick-scroll modifier (Could probably be fixed by bringing up stop-speed of quickscroll which is lower than normal scroll IIRC)
+- [ ] Make note about: Swift Scroll and Precise scroll generally feel kinda bad when I try to use them in real situations.
