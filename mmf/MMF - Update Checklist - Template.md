@@ -11,8 +11,9 @@ Context:
         It also contains [[Obsidian Links]] which won't work here. Maybe I should move the linked notes into the mac-mouse-fix repo, too. 
 
     [Jun 7 2025] 
-        Copied this over from mac-mouse-fix repo into notes-public repo. I definitely plan to use this over Obsidian.
-            Reasoning: This is more like a personal note about my workflow – doesn't really belong into this Xcode project – also makes it harder to work with I think.
+        Copied this over from mac-mouse-fix repo into notes-public repo.
+            Reasoning: This is more like a personal note about my workflow – doesn't really belong into the mac-mouse-fix project.
+            Assurances: I've deleted the Xcode and Obsidian copies of this note, and moved all their contents here to `notes-public` [Jun 7 2025]
 
 ---
 
@@ -21,6 +22,10 @@ Context:
 Pushing an update, Make push ready, publishing, releasing, publishing routine
 
 The template: [[MMF - Update Checklist - Template]]
+
+> [!info]
+>  On Feb 17 2025 I copied this note from Obsidian into the mac-mouse-fix GitHub repo. Not sure if I'll keep updating this version or the GitHub one. (Update: See [Jun 7 2025] above.)
+>  I also `redacted` any sensitive info before publishing.
 
 > [!info]
 > When moving to Obsidian I couldn't find this note at first. Searched forever. Turns out it's because NotePlan displays notes based on note title, and Obsidian displays them based on filename. Also, NotePlan uses the **initial title** of the note as filename. When you update the title of the note in NotePlan, the filename doesn't change - keep this in mind when searching for notes in the future.
@@ -48,7 +53,7 @@ The template: [[MMF - Update Checklist - Template]]
 		- [ ] Make sure `IS_HELPER` and `IS_MAIN_APP` flags are set correctly.
 
 - Signing
-	* [ ] Make sure you sign all targets with the 'Noah Nuebling' team, which is associated with the `redacted`.developer@`redacted`.com Apple ID instead of the 'Noah Nbling' team which is associated with my personal-email Apple ID
+	- [ ] Make sure you sign all targets with the 'Noah Nuebling' team, which is associated with the `redacted`.developer@`redacted`.com Apple ID instead of the 'Noah Nbling' team which is associated with my personal-email Apple ID
 	- [ ] Make sure you're not revoking any old certificates. 
 		- See [[MMF - Signing Issues - Jan 2022]]
 		- Also see [[MMF - Bug - Mac Mouse Fix will damage your computer]]
@@ -141,3 +146,4 @@ The template: [[MMF - Update Checklist - Template]]
 	- Make sure in-app update notes look correct
 	- Make sure the config is retained after update.
 	- Make sure the version numbers showed in the app are correct.
+  
