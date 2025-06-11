@@ -38,7 +38,7 @@ The template: [[MMF - Update Checklist - Template]]
 	- [ ] make sure the updating / replacing of the config file actually works
 
 - Licensing
-	- [ ] Update fallback_licenseinfo_config.json to mac-mouse-fix-website
+	- [ ] Update fallback_licenseinfo_config.json to mac-mouse-fix-website (https://macmousefix.com/licenseinfo/config.json)
 
 - Build Settings
 	- Adjust compiler flags 
@@ -116,7 +116,7 @@ The template: [[MMF - Update Checklist - Template]]
 - [ ] Push local changes after the final build - and before publishing the GH release!
 	- So that the GH release links to the correct source code commit with the right build number.
 - [ ] Update appcasts:
-	- Checkout update-feed branch
+	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
 	- ((Pull new release tags)) Edit: ./update does that automatically now
 	- Run ./update
 
@@ -144,6 +144,7 @@ The template: [[MMF - Update Checklist - Template]]
 - [ ] Test if updating from the previous version works properly
 	- Make sure the previous version has accessibility enabled and works properly before updating
 	- Make sure in-app update notes look correct
+  - Maybe also check if _German_ in-app update notes look correct. (Our AI update-note-translation system.)
 	- Make sure the config is retained after update.
 	- Make sure the version numbers showed in the app are correct.
   
