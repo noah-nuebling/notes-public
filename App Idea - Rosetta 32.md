@@ -40,7 +40,14 @@ Intel x86_64 Instruction Reference:
     - Reference manual: https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
         -> Looks like there are on the order of 1000 instructions [Jun 3 2025] (Based on: I checked the A-L section and it had 240 instructions and there were 3 more sections)
         -> But also looks like there is major overlap between x86_32 and x86_64, which should make translation much easier.
---- 
+
+Other interesting links:
+    - Apple's macOS 64-bit Transition Guide: 
+        - https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/64bitPorting/transition/transition.html
+        - [ ] Read
+
+
+--
 
 Dump of libraries used by COD: Modern Warfare 2 [Jun 4 2025]
 
