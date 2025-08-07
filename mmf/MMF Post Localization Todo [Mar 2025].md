@@ -47,9 +47,17 @@ Small bugs that I should look into before the next release:
 - [x] Polish: The link to the MMF website still goes to mousefix.org (and is then redirected) instead of going directly to macmousefix.com.
     - ... Actually, I'm pretty sure we fixed that on the feature-strings-catalog branch.
 
+[Jul 2025]
+- [ ] Feedback Assistant has issue. Evidence:
+    - https://github.com/noah-nuebling/mac-mouse-fix/issues/1463 "The form for bugs failed. So writing it manually"
+    - https://github.com/noah-nuebling/mac-mouse-fix/issues/1462 "Also the web report have a small error, I cannot submit because it doesn't allow me to enter version :(" 
+
+
 [Aug 2025]
 - [ ] Turn off the superfast scrolling for the MX Master freespinning wheel.
+- [ ] 
 
+[Not sure when I added these]
 - [ ] Make note about: opposite-tick to stop scrolling doesn't work properly in iOS apps and iPhone mirroring (stop-scrolling works with click-and-drag though so our event-generation must be wrong somehow.) 
 - [ ] Make note about: opposite-tick feels bad with quick-scroll modifier (Could probably be fixed by bringing up stop-speed of quickscroll which is lower than normal scroll IIRC)
 - [ ] Make note about: Swift Scroll and Precise scroll generally feel kinda bad when I try to use them in real situations.
