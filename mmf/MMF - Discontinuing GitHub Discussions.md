@@ -2,6 +2,7 @@
 # Moving Guides from Discussions to .md files (And probably disabling Discussions entirely)
 
 (Formerly _dailynote_2025.07.30.md)
+(This is a subtask of `MMF Localization Todo (Fall 2024)`)
 
 Why disable Discussions:
 - IIRC, the idea behind Discussions was that the comments help in these ways:
@@ -26,6 +27,7 @@ TODO:
 - [ ] Maybe add link between MMF 3 and MMF 2 Guides
 - [ ] Translate to German
     - And polish the English text while you're at it.
+- [ ] Make sure the new .xcstrings files are all exported in our .xcloc bundles
 
 - [ ] Maybe write (vibecode?) a script that extracts all the info from Discussions into a text files before we shut it down. Just so it's not completely lost to history.
     - Probably have to use graphQL API (?)

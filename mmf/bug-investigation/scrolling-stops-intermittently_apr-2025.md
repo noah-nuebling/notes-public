@@ -403,6 +403,14 @@ Based on this, my best theory is that there are two issues:
 1. Some bug in macOS that happens after updates which affects both MOS and Mac Mouse Fix
 2. Some bug that occurs intermittently and only affects Mac Mouse Fix. Might stem from MMF or macOS.
 
+UPDATE: [Aug 2025]
+    I haven't been actively thinking about this for a while, but a few days ago  this sprang into my mind:
+        >> The culprit HAS to be failure of the code that creates new CVDisplayLinks <<
+        > Since the non-smooth scrolling still works, it's obviously about the CVDisplayLink. Since the CVDisplayLink is started/stopped on every scroll, it has to be about creation of the CVDisplayLink. The times when people report the issue occuring coincides with when a new CVDisplayLink is created. (I think)
+            > So what we could do is put extra validation into the code that starts the displayLink (-[setUpNewDisplayLinkWithActiveDisplays]) and crash the app if it fails. (Event in release builds.) (That should immediately improve user experience, and give us better chance of diagnostics (in form of crash reports.))
+                Validation ideas: Validate that we're running on the right thread, validate the return codes, validate the created displayLink. (But keep in mind that over-validation could make things less robust for users.)
+        > How did I not think of this earlier??? It seems so obvious now. I'm slightly retarded.
+    Update 2: I checked inside MOS, and they also don't have any recovery mechanism in case CVDisplayLinkCreateWithActiveCGDisplays() or CVDisplayLinkSetOutputCallback() fails! That supports our theory.
 
 ## Pre-Claude conclusion
 
