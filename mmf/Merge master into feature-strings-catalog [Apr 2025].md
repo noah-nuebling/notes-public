@@ -31,8 +31,9 @@ Post-merge-todos:
         - IIRC we postponed merging this into MMF just because that required us to change some code that feature-strings-catalog also changed – so we wanted to wait until master and feature-strings-catalog were merged. 
     - /Move over/cleanup/get overview of/ utilities from recent 'side projects' (Before we forget about them)
         Overview – merging of recent side projects:
-            - [ ] objc-playground-2024
+            - [x] objc-playground-2024
                 - Contains block-based KVO wrapper
+                - (Merged in commit 01ea97887a8cbaa9859076b729d2dd7120d0110b)
             - [x] xcode-localization-screenshot-fix
                 - DONE: Nothing to merge but some interesting stuff left in that repo. Made note about that inside mac-mouse-fix > `Automatic Localization Screenshots.md`
             - EventLoggerForBrad

@@ -9,7 +9,7 @@ Small bugs that I should look into before the next release:
 - [x] Look into issue where scrolling stops intermittently
     - See this [note](..//notes-public/mmf/bug-investigation/scrolling-stops-intermittently_apr-2025.md)
     - [ ] Maybe address inconsistencies/errors we found in SwitchMaster.swift and DisplayLink.m while investigating this. (Made notes about them in the source code.)
-- [ ] Look into Stylus interference - might be easy to fix
+- [x] Look into Stylus interference - might be easy to fix
     - See this [GitHub Issue](https://github.com/noah-nuebling/mac-mouse-fix/issues/1301)
 - [ ] Look into bug where there are dozens of windows about some url permission error (got an email about that from Brendon recently) - at least write a code comment
     - See this [mail](message:%3C643376E2-ABD0-4D95-83B9-4D0193A3CEEE@icloud.com%3E)
@@ -47,3 +47,8 @@ Small bugs that I should look into before the next release:
 - [ ] Make note about: opposite-tick to stop scrolling doesn't work properly in iOS apps and iPhone mirroring (stop-scrolling works with click-and-drag though so our event-generation must be wrong somehow.) 
 - [ ] Make note about: opposite-tick feels bad with quick-scroll modifier (Could probably be fixed by bringing up stop-speed of quickscroll which is lower than normal scroll IIRC)
 - [ ] Make note about: Swift Scroll and Precise scroll generally feel kinda bad when I try to use them in real situations.
+
+[Jul 2025]
+    - [ ] Feedback Assistant has issue. Evidence:
+        - https://github.com/noah-nuebling/mac-mouse-fix/issues/1463 "The form for bugs failed. So writing it manually"
+        - https://github.com/noah-nuebling/mac-mouse-fix/issues/1462 "Also the web report have a small error, I cannot submit because it doesn't allow me to enter version :(" 
