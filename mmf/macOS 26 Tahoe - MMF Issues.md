@@ -17,6 +17,7 @@ Beta 2:
                 - This works under Sequoia
                 - [x] Feedback FB18785755
                 - [x] Update: Apple Fixed in Beta 5
+            - Text while capturing shortcut doesn't line up perfectly with text in popup button (It did under Sequoia)
         - General Tab
             - Enabled Switch plays very janky animation on startup
             - [x] Feedback FB18794304 (It's a bug in NSSwitch that I couldn't find any workaround for.)

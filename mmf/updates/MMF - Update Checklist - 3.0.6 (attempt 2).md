@@ -66,7 +66,7 @@ The template: [[MMF - Update Checklist - Template]]
 	- [x] Make sure Sparkle appcast URLs are correct
 
 - Build & Export
-	- [x] **Clean build folder** before final build
+	- [x]] **Clean build folder** before final build
 		- Note that this will reset the build configuration
 		- This is still recommended even when using 'Archive' according to this [SO Post](https://stackoverflow.com/a/19202343/10601702)
 	- [x] If not prerelease: Make sure to build the Release configuration
@@ -113,36 +113,36 @@ The template: [[MMF - Update Checklist - Template]]
 	- Make sure to have free line above `- bulleted lists` and `## Headings`
 		- Otherwise it won't display properly in the Sparkle Update Window
 	- Make sure to include the version string at the top of the content because it looks better in Sparkle. See [2.2.0 release notes](https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/2.2.0)
-- [ ] Zip the .app before uploading. Name it 'MacMouseFixApp.zip'
-- [ ] Also upload dSYMs.zip so you can symbolicate crash reports
+- [x] Zip the .app before uploading. Name it 'MacMouseFixApp.zip'
+- [x] Also upload dSYMs.zip so you can symbolicate crash reports
 	- dSYMs folder is inside .xcarchive for the build which you can find from the Xcode Organizer.
-- [ ] Push local changes after the final build - and before publishing the GH release!
+- [x] Push local changes after the final build - and before publishing the GH release!
 	- So that the GH release links to the correct source code commit with the right build number.
-- [ ] Update appcasts:
+- [x] Update appcasts:
 	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
 	- ((Pull new release tags)) Edit: ./update does that automatically now
 	- Run ./update
 
 **Update stuff**
-- [ ] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
+- [x] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
 	- The redirection-service has an mmf2-latest link which needs to be updated, when we publish a new mmf2 version.
 
 **Other Places** (We don't reallyyy care about these sites, and other ppl update them for us.)
-- [ ] x Update Mac Update Listing
-- [ ] x Update Cnet Listing
-- [ ] x Update alternativeto listing
+- [x] x Update Mac Update Listing
+- [x] x Update Cnet Listing
+- [x] x Update alternativeto listing
 
 **Website** (Only relevant pre Sparkle - with Sparkle we don't need to update the Website at all)
 /maindownload-app/:
-* [ ] x Update 'updatenotes-app.zip'
+* [x] x Update 'updatenotes-app.zip'
 	- Update 'updatenotes-source/updatenotes-app/index.html'
 	- Run the 'updatenotes-source/install' script to zip stuff up and put in the right place
-- [ ] x Update 'maindownload-app/bundleversion-app'
-- [ ] x Update 'maindownload-app/MacMouseFixApp.zip'
+- [x] x Update 'maindownload-app/bundleversion-app'
+- [x] x Update 'maindownload-app/MacMouseFixApp.zip'
 
 **Testing**
 
-- [ ] Test if version downloaded from GitHub download works properly
+- [x] Test if version downloaded from GitHub download works properly
 - [ ] Test on older macOS
 - [ ] Test if updating from the previous version works properly
 	- Make sure the previous version has accessibility enabled and works properly before updating

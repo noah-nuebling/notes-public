@@ -52,3 +52,9 @@ Low Level TODO:
         - (but the deprecation notice at the top of `Granting Accessibility Access` kinda already does that job. Maybe make a note in the code somehwere?)
         - (Reasoning for removal: I haven't ever seen the bug since we installed the automatic fix in 2.2.2, and there haven't been any (on-topic) comments on the Guide since then.)
 - [x] Maybe move `Mac Mouse Fix 2 vs 3.md` into the 3.0.0 release notes.
+
+--- 
+
+Other TODO: [Aug 10 2025]       ((Not sure this TODO belongs here?))
+    - [ ] Maybe add `Command-Scroll doesn't work?` to `Readme.md > Questions`. 
+        (People ask about this pretty often. I think it's due to Logitech Options interference?)
