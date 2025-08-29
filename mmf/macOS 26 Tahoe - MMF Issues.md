@@ -6,18 +6,27 @@ Beta 2:
         - Buttons Tab
             - Line underneath button-group-rows is has wrong color
                 - [ ] Fix
+                    - Fixed for MMF 2 in ac5113c96 [Aug 28 2025]
             - When scrolling line underneath button-group-rows out-of-view, the line gets duplicated over and over [Tahoe Beta 3] [Jul 12 2025]
                 - [ ] Fix
             - '+'-field has bad color
                 - [ ] Fix
+                - Note: [Aug 2025] In MMF 2 it looks fine - there we're just using NSBoxPrimary IIRC. (Why did we ever move away from that?)
             - Minus-Buttons are too wide. 
                 - [x] Feedback FB18750469
                 - Couldn't fix. They render at a wider width than they are set to in IB.
+                - Update: [Aug 2025] [Beta 8] You can fix it using NSSegmentedControl with one segment. It looks just as we desire!
+                    - See `Repro-Buttons-Too-Wide` project.
+                    - See `RemapTableButton *` in the MMF source code
+                    - See followup feedback: FB19958973
+                - [ ] Use NSSegmentedControl if Apple doesn't fix it
             - Keycap Symbols for " Exclusive Keys" don't show up in popupbuttons.
                 - This works under Sequoia
                 - [x] Feedback FB18785755
                 - [x] Update: Apple Fixed in Beta 5
             - Text while capturing shortcut doesn't line up perfectly with text in popup button (It did under Sequoia)
+            - Popup buttons text stays black even when the row they are on is selected, and has a dark-blue background. (Very low contrast.) (This is easier to test in MMF 2)
+                - [x] Feedback FB19948784
         - General Tab
             - Enabled Switch plays very janky animation on startup
             - [x] Feedback FB18794304 (It's a bug in NSSwitch that I couldn't find any workaround for.)
