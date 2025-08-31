@@ -1,0 +1,10 @@
+
+
+## Getting a stack trace in lldb when Xcode is broken [Aug 2025]
+
+Init $fp like this:
+    `e void *$fp = (void *)$x29`
+
+Now alternate these two commands to print out the stack trace, starting at the caller of the current function:
+    `image lookup -a *(((void**)$fp)+1)`
+    `e $fp = *((void **)$fp)`
