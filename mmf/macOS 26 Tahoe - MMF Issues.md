@@ -10,7 +10,7 @@ Beta 2:
             - When scrolling line underneath button-group-rows out-of-view, the line gets duplicated over and over [Tahoe Beta 3] [Jul 12 2025]
                 - [ ] Fix
             - '+'-field has bad color
-                - [ ] Fix
+                - [x] Fixed in e71c97531c70056b54dedb05112970f1c799a2b5
                 - Note: [Aug 2025] In MMF 2 it looks fine - there we're just using NSBoxPrimary IIRC. (Why did we ever move away from that?)
             - Minus-Buttons are too wide. 
                 - [x] Feedback FB18750469
@@ -30,6 +30,8 @@ Beta 2:
         - General Tab
             - Enabled Switch plays very janky animation on startup
             - [x] Feedback FB18794304 (It's a bug in NSSwitch that I couldn't find any workaround for.)
+            - Fixed now [Sep 2 2025] but now the Switch jankily switches to glass while holding down left click on it
+                - [ ] Fix
         - Menu Bar Item
             - The Icon next to 'Scrolling' is squished.
             - [x] Fix 0d26e9bb66cb3368adbdd930212303e98a002c59
@@ -90,6 +92,9 @@ Beta 2:
                     - Seems like it can be fixed by disabling our `-applicationShouldTerminateAfterLastWindowClosed: YES` override – But I feel like that's something Apple should solve
                 - Animate IN: 
                     - Apple Problem. Notes.app also doesn't have an IN animation. (Except if the window is opened while the app is already running)
+            - When opening the window, I often observed it flash at a larger size first [Sep 2 2025]
+                - [ ] Fix
+                - (Idea: Maybe related to the selected-tab-restoration?)
         - Bad menubar performance
             - Clicking "Window" menubar jankily flashes the glassy background first, before loading-in content
             - Moving cursor around to different menubar items lags and doesn't feel responsive.
