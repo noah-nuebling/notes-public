@@ -138,6 +138,10 @@ Issues that don't affect MMF (yet)
     - SFSymbols exported from SFSymbols.app and then imported into Xcode get rendered at wrong size unless you choose "Export for Xcode 14" or older. (See the readme/notes we wrote in MMF.)
         - [x] Feedback FB18759197 and FB18759496
 
+Non-visual issues: [Sep 2025] (Doesn't belong here)
+    - If there's a strange helper not started by launchd, then MMF will just not enable and not kill the strange helper.
+        - [ ] Fix
+
 Trivia:
     - Based on Xcode view debugger, it seems NSButton is a wrapper around SwiftUI in Tahoe (Ew). That might explain the autolayout jank on the cancel button on the LicenseSheet.
     - The Xcode view debugger doesn't work properly on SwiftUI :| ... I don't wanna be an Apple developer anymore

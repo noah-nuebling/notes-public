@@ -1,0 +1,88 @@
+
+
+[Sep 9 2025] 
+    Context: I wrote a bunch of TODOs and notes in **recent commits** on the feature-strings-catalog branch
+    Purpose: I'm now consolidating them into this note. 
+    Backlink: This note is referenced by this commit: abbfe0f4a2ced970ca07426b1954a1b4a54bf2cc
+
+The TODOs and context are for the purpose of:
+
+>> Continuing to write the **CapturedButtonsMMF3.md document**
+	    and improving / finishing the new MMF localization system. <<
+
+(Note: The commits below aren't quite accurate anymore because I reorganized and edited the TODOs [Sep 9 2025])
+
+---
+
+# TODOs / context from recent commits:
+
+1. fda78fcccc106744b95e5b2967713b651f9d80e7
+
+	Higher-level-todo in **notes-public > `MMF - Discontinuing GitHub Discussions.md`**
+
+2. 45e5db3cc0caf547e0a7d65aa6c4eff817b6ee80
+
+	Added outline of our plan for writing the CapturedButtonsMMF3.md document at
+	the **top of the CapturedButtonsMMF3.md template**
+
+3. 77dcfae0c19c1f2bccd1a0bb1b9dc7601f0eed2c
+
+     Updated TODO:
+
+    1. [x] Make other documents than Support.md use insert_docnames()
+    2. [x] Go through all the other docs and fix up the title and footer for the
+        new context they live in
+    3. [x] Move the 'CompareVersion2And3.md' text into the 3.0.0 update notes.
+    4. [x] Write the 'Captured Mouse Buttons' Guide for MMF 3
+           Also ended up writing CapturedScrollWheels.md!
+    5. [x] Backport all the text for `CapturedButtonsMMF3.md` and `CapturedScrollWheels.md` from German to English,
+            and polish the text and stuff.
+    6. [x] Do final grammer check and editing on everything.
+            - [x] Check that all the links work in all the languages.
+    7. [ ] Take care of the the `{url}` localizer hint in plstrings.
+
+    - [x] Generate the screenshots programmatically, so that we
+        can localize them (and so we can easily update them when
+        the design of MMF / macOS changes.)
+
+
+4. 47cf388b8fef3f5d9be59c7db17d75164de85f7d
+
+    - [ ] TODO: Pull the 3.0.6 changes from master after we're done writing the documents.
+
+ 5. New TODOs (Don't appear in previous commits)
+
+ 	Stuff I noticed while taking the CapturedButtonsMMF3.md screenshots:
+ 		- [ ] Fix CaptureToasts.m capitalization and pluralization in German
+ 		- [ ] Revert the 'greyed out subtitle' style for the CaptureToasts
+ 		    – Consistency with the other Toasts is more important
+ 		- [ ] Localization issues:
+ 			- [ ] In some of the translations we added, the screens are super
+ 			    wide due to where the linebreaks are set in the translated text
+ 			- [ ] Some of the French text is super long (I don't think it should be
+ 			    much longer than German?)
+ 	Other
+    - [x] Programmatically insert images into CapturedButtonsMMF3.md instead of having localizers type HTML
+ 		- [ ] Edit the Readme Q&A to link the CapturedButtonsMMF3.md instead of
+ 		    duplicating the information.
+ 			  (Blender Orbiting section – maybe others?)
+
+
+7. Added [Sep 9 2025] (and after)
+
+    - [ ] Add links to CapturedScrollWheels.md
+        - [ ] Inside MMF
+        - [ ] In Support.md
+        - [ ] In CapturedButtonsMMF3.md
+    - [x] Add localizer hints for the 2 localizable guides
+        - [ ] Maybe link to the images for context?
+     - We defined the localizer hints in the .xcstrings files instead of the .md templates!
+        - [ ] Either move localizer hints to .md templates, or to .xcstrings files across all .xcstrings files in the repo
+        - [ ] Make it an assert failure to define the localizer hints in the 'wrong' place. (Or at least make sure they aren't getting silently overriden by the 'other place.')
+
+---
+
+(Not sure if putting TODOs and context into git commits like this is any good,
+    but it's interesting to experiment :))
+    ... Update: [Sep 2025] It's not that good because you can't edit the TODOs later to check them off.
+    I think it's sometimes good for capturing project context and thoughts on a whim – but not so much for stuff you plan to edit.

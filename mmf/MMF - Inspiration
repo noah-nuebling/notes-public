@@ -1,5 +1,9 @@
 
 
+- [Sep 2025] The card on craft.do uses this nice CSS shadow:
+    - box-shadow: rgba(31, 34, 37, 0.03) 0px 0px 0px 1px, rgba(0, 0, 0, 0.08) 0px 8px 20px 0px, rgba(0, 0, 0, 0.04) 0px 8px 12px -6px;
+    - Link: https://www.craft.do/maccatalyst-guide/b/E5612C51-5340-45F8-ADEE-CFD5B858F9D6/Engineering
+
 - [Aug 2025] https://x.com/daniellockyer/status/1960039983550541849?s=46
     - This twitter thread is about how Logitech Options sucks and how they use LinearMouse instead. 
     - Nobody mentions MMF :'(
