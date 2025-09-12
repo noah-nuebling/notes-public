@@ -5,7 +5,7 @@ Beta 2:
     - MMF Views:
         - Buttons Tab
             - Line underneath button-group-rows is has wrong color
-                - [ ] Fix
+                - [x] Fix 
                     - Fixed for MMF 2 in ac5113c96 [Aug 28 2025]
             - When scrolling line underneath button-group-rows out-of-view, the line gets duplicated over and over [Tahoe Beta 3] [Jul 12 2025]
                 - [ ] Fix
@@ -27,6 +27,8 @@ Beta 2:
             - Text while capturing shortcut doesn't line up perfectly with text in popup button (It did under Sequoia)
             - Popup buttons text stays black even when the row they are on is selected, and has a dark-blue background. (Very low contrast.) (This is easier to test in MMF 2)
                 - [x] Feedback FB19948784
+            - [ ] The 'Launchpad' option needs to be renamed
+                - Think we worked on that in the `tahoe-symbols` branch
         - General Tab
             - Enabled Switch plays very janky animation on startup
             - [x] Feedback FB18794304 (It's a bug in NSSwitch that I couldn't find any workaround for.)
@@ -95,6 +97,7 @@ Beta 2:
             - When opening the window, I often observed it flash at a larger size first [Sep 2 2025]
                 - [ ] Fix
                 - (Idea: Maybe related to the selected-tab-restoration?)
+                - (I think I only saw this on feature-strings-catalog?)
         - Bad menubar performance
             - Clicking "Window" menubar jankily flashes the glassy background first, before loading-in content
             - Moving cursor around to different menubar items lags and doesn't feel responsive.
@@ -144,7 +147,7 @@ Issues that don't affect MMF (yet)
         - [x] Feedback FB18759197 and FB18759496
 
 Non-visual issues: [Sep 2025] (Doesn't belong here)
-    - If there's a strange helper not started by launchd, then MMF will just not enable and not kill the strange helper.
+    - If there's a strange helper not started by launchd, then MMF will just not enable and not kill the strange helper – This sometimes annoyed us while running the automated screenshot stuff.
         - [ ] Fix
 
 Trivia:

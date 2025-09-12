@@ -33,12 +33,12 @@ The template: [[MMF - Update Checklist - Template]]
 **App**
 
 - Config file
-	- [ ] set the right configVersion
-	- [ ] make sure default_config is the same as config
-	- [ ] make sure the updating / replacing of the config file actually works
+	- [x] set the right configVersion
+	- [x] make sure default_config is the same as config
+	- [x] make sure the updating / replacing of the config file actually works
 
 - Licensing
-	- [ ] Update fallback_licenseinfo_config.json to mac-mouse-fix-website (https://macmousefix.com/licenseinfo/config.json)
+	- [x] Update fallback_licenseinfo_config.json to mac-mouse-fix-website (https://macmousefix.com/licenseinfo/config.json)
 
 - Build Settings
 	- Adjust compiler flags 
@@ -48,50 +48,50 @@ The template: [[MMF - Update Checklist - Template]]
 			- For `Swift`, modify Xcode build setting: `Active Compilation Conditions`
 				- Example: `NDEBUG`        (No need for "=1" like with C)
 			- (All this stuff only applies to MMF 3. MMF 2 only has the DEBUG flag and nothing else as of Sep 2024.)
-		- [ ] Remove development flags such as `FORCE_EXPIRED` 
+		- [x] Remove development flags such as `FORCE_EXPIRED` 
     		- (We're leaving `NO_FILTER` always-on as of [Jul 2025])
-		- [ ] Make sure `NDEBUG=1`/`NDEBUG` flag is set on release builds. (That prevents assert() from crashing the app). 
-		- [ ] Make sure `IS_HELPER` and `IS_MAIN_APP` flags are set correctly.
+		- [x] Make sure `NDEBUG=1`/`NDEBUG` flag is set on release builds. (That prevents assert() from crashing the app). 
+		- [x] Make sure `IS_HELPER` and `IS_MAIN_APP` flags are set correctly.
 
 - Signing
-	- [ ] Make sure you sign all targets with the 'Noah Nuebling' team, which is associated with the `redacted`.developer@`redacted`.com Apple ID instead of the 'Noah Nbling' team which is associated with my personal-email Apple ID
-	- [ ] Make sure you're not revoking any old certificates. 
+	- [x] Make sure you sign all targets with the 'Noah Nuebling' team, which is associated with the `redacted`.developer@`redacted`.com Apple ID instead of the 'Noah Nbling' team which is associated with my personal-email Apple ID
+	- [x] Make sure you're not revoking any old certificates. 
 		- See [[MMF - Signing Issues - Jan 2022]]
 		- Also see [[MMF - Bug - Mac Mouse Fix will damage your computer]]
 		- Hint: Import the code signing identity from Apple Notes into Xcode, it should contain the certificate and prevent creation of new certificates / revoking of old certificate (I hope??)
 - Other
-	- [ ] Set the correct MMF version number and version string in the Xcode project
+	- [x] Set the correct MMF version number and version string in the Xcode project
 		- Examples: "3.0.0 Beta 7", 21988
-	- [ ] Set the correct version string(s) in the prefpane info.plist
-	- [ ] Make sure Sparkle appcast URLs are correct
+	- [x] Set the correct version string(s) in the prefpane info.plist
+	- [x] Make sure Sparkle appcast URLs are correct
 
 - Build & Export
-  - [ ] Install latest Xcode version
+  - [x] Install latest Xcode version
       - Not actually sure this is necessary – I guess to avoid bugs in the toolchain?
-	- [ ] **Clean build folder** before final build
+	- [x] **Clean build folder** before final build
 		- Note that this will reset the build configuration
 		- This is still recommended even when using 'Archive' according to this [SO Post](https://stackoverflow.com/a/19202343/10601702)
-	- [ ] If not prerelease: Make sure to build the Release configuration
+	- [x] If not prerelease: Make sure to build the Release configuration
 		- So that it's fast, and assert() doesn't crash
-	- [ ] If prerelease: Make sure to either build Debug configuration, or include 'beta' or 'alpha' (case insensitive) in the short bundle version
+	- [x] If prerelease: Make sure to either build Debug configuration, or include 'beta' or 'alpha' (case insensitive) in the short bundle version
 		- So that `runningPreRelease()` works right
 		- Update: Under MMF 3, using Swift we started using Release configuration because Debug is very very slow.
-	- [ ] Make sure to build for Apple Silicon / Intel
+	- [x] Make sure to build for Apple Silicon / Intel
 		- Does that automatically when building for Release. See Xcode > Build Settings > Architectures
 		- Doesn't do this automatically when building for Debug (not even when building using the "Archive" option). Choose "Any Mac (Apple Silicon, Intel)" next to the build scheme.
-	- [ ] Use the "Archive" option to export. (This will still use the build scheme and architecture configured in the Xcode menu bar)
-	- [ ] Choose 'Direct Distribution' in the Organizer to notarize the app.
-	- [ ] To get the app bundle after Notarizing, use the 'Export Notarized App' button in the Organizer. 
+	- [x] Use the "Archive" option to export. (This will still use the build scheme and architecture configured in the Xcode menu bar)
+	- [x] Choose 'Direct Distribution' in the Organizer to notarize the app.
+	- [x] To get the app bundle after Notarizing, use the 'Export Notarized App' button in the Organizer. 
 		- For 3.0.2 I got the app bundle directly from the .xcarchive via Finder, and I think that [broke things](https://github.com/noah-nuebling/mac-mouse-fix/issues/871). 
-	- [ ] Get dSYMs folder directly from the .xcarchive via Finder.
+	- [x] Get dSYMs folder directly from the .xcarchive via Finder.
 		- Find the .xcarchive by going to the Xcode Organizer and right-clicking the archive in question.
 
 - Pre-Sparkle (we added sparkle in 2.0.0 iirc)
-	- [ ] Set the base remote url in the app to [kMFWebsiteAddress]/maindownload/
+	- [x] Set the base remote url in the app to [kMFWebsiteAddress]/maindownload/
 
 **Post-archive check**
-- [ ] Make sure the app launches and works ok.
-- [ ] Make sure the version numbers shown in the app are correct.
+- [x] Make sure the app launches and works ok.
+- [x] Make sure the version numbers shown in the app are correct.
 
 **GitHub**
 
@@ -116,32 +116,32 @@ The template: [[MMF - Update Checklist - Template]]
 	- Make sure to have free line above `- bulleted lists` and `## Headings`
 		- Otherwise it won't display properly in the Sparkle Update Window
 	- Make sure to include the version string at the top of the content because it looks better in Sparkle. See [2.2.0 release notes](https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/2.2.0)
-- [ ] Zip the .app before uploading. Name it 'MacMouseFixApp.zip'
-- [ ] Also upload dSYMs.zip so you can symbolicate crash reports
+- [x] Zip the .app before uploading. Name it 'MacMouseFixApp.zip'
+- [x] Also upload dSYMs.zip so you can symbolicate crash reports
 	- dSYMs folder is inside .xcarchive for the build which you can find from the Xcode Organizer.
-- [ ] Push local changes after the final build - and before publishing the GH release!
+- [x] Push local changes after the final build - and before publishing the GH release!
 	- So that the GH release links to the correct source code commit with the right build number.
-- [ ] Update appcasts:
+- [x] Update appcasts:
 	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
 	- ((Pull new release tags)) Edit: ./update does that automatically now
 	- Run ./update
 
 **Update stuff**
-- [ ] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
+- [x] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
 	- The redirection-service has an mmf2-latest link which needs to be updated, when we publish a new mmf2 version.
 
 **Other Places** (We don't reallyyy care about these sites, and other ppl update them for us.)
-- [ ] x Update Mac Update Listing
-- [ ] x Update Cnet Listing
-- [ ] x Update alternativeto listing
+- [x] x Update Mac Update Listing
+- [x] x Update Cnet Listing
+- [x] x Update alternativeto listing
 
 **Website** (Only relevant pre Sparkle - with Sparkle we don't need to update the Website at all)
 /maindownload-app/:
-* [ ] x Update 'updatenotes-app.zip'
+* [x] x Update 'updatenotes-app.zip'
 	- Update 'updatenotes-source/updatenotes-app/index.html'
 	- Run the 'updatenotes-source/install' script to zip stuff up and put in the right place
-- [ ] x Update 'maindownload-app/bundleversion-app'
-- [ ] x Update 'maindownload-app/MacMouseFixApp.zip'
+- [x] x Update 'maindownload-app/bundleversion-app'
+- [x] x Update 'maindownload-app/MacMouseFixApp.zip'
 
 **Testing**
 
@@ -153,5 +153,11 @@ The template: [[MMF - Update Checklist - Template]]
   - Maybe also check if _German_ in-app update notes look correct. (Our AI update-note-translation system.)
 	- Make sure the config is retained after update.
 	- Make sure the version numbers showed in the app are correct.
-- [ ] Make sure the trial notification wasn't broken
-- [ ] Make sure that buying and activating a license wasn't broken.
+  
+
+Custom TODO:
+    - [x] Test updating, with custom settings
+        - [x] Also on older macOS version
+
+    - [x] Give free licenses to #1539 and the other people who had the broken TrialNotification
+        - ... Only 2 people after all – one on GitHub and one on Email.
