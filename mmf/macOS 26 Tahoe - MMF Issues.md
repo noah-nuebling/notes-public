@@ -45,13 +45,16 @@ Beta 2:
             - MMF Icon and Accessibility Icon are both round instead of Square!
         - Toasts
             - Looks outdated. Little dark now (Update: ... color does match menus)
-            - [ ] Fix
+            - [ ] Fix 
+                - (Idea: Maybe make them glassy with larger corner radius like native notifications?)
+                - (Idea: Maybe make them pill-shaped like system Toasts?)
     - General
         - App Icon
             - [ ] Liquid Glassify
         - Menu Bar Item
             - Update the icon. (Remember the outline is based on the battery icon outline, which is now more bright and vibrant under Tahoe)
-            - [ ] Update
+                - [ ] Update
+            - Tahoe now has System Settings for hiding menu bar items. Do we need any special handling for this? Display user feedback?)
         - All NSPopUpButtons
             - When the pbutton has an item selected that has an image, that looks bad – image is rendered too close to text. (This doesn't happen on macOS Sequoia.)
             - [x] Feedback 
