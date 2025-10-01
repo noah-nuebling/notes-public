@@ -27,12 +27,11 @@ TODO:
 - [x] Maybe add link between MMF 3 and MMF 2 Guides
 - [x] Translate to German
     - And polish the English text while you're at it.
-- [ ] Make sure the new .xcstrings files are all exported in our .xcloc bundles
 
 - [x] Maybe write (vibecode?) a script that extracts all the info from Discussions into a text files before we shut it down. Just so it's not completely lost to history.
     - Probably have to use graphQL API (?)
 
-- [ ] Go through version-2 and feature-strings-catalog branches and replace all mac-mouse-fix/discussions links with redirect.macmousefix.com/ links. 
+- [x] Go through version-2 and feature-strings-catalog branches and replace all mac-mouse-fix/discussions links with redirect.macmousefix.com/ links. 
     - (IIRC we have links to Discussions overview, to Guides overview, and to specific Guides. Plus in the Readme we have links to specific Discussion answers I gave.)
 
 - Transition Plan
@@ -48,14 +47,9 @@ See: [This Claude Discussion](https://claude.ai/share/680a78bd-9edb-4300-95ff-af
 
 Low Level TODO:
 - Cleanup `Granting Accessibility Access`
-    - [ ] Remove help links from accessibility sheet on both version-2 and feature-strings-catalog
-    - [ ] Maybe document the reason for the removal 
-        - (but the deprecation notice at the top of `Granting Accessibility Access` kinda already does that job. Maybe make a note in the code somehwere?)
+    - [x] Remove help links from accessibility sheet on both version-2 and feature-strings-catalog
+    - [x] Maybe document the reason for the removal 
+        - (but the deprecation notice (> [!NOTE]) at the top of `AccessibilityAccess.md` kinda already does that job. Maybe make a note in the code somehwere?)
         - (Reasoning for removal: I haven't ever seen the bug since we installed the automatic fix in 2.2.2, and there haven't been any (on-topic) comments on the Guide since then.)
+        - Update: Documented in Links.m IIRC.
 - [x] Maybe move `Mac Mouse Fix 2 vs 3.md` into the 3.0.0 release notes.
-
---- 
-
-Other TODO: [Aug 10 2025]       ((Not sure this TODO belongs here?))
-    - [ ] Maybe add `Command-Scroll doesn't work?` to `Readme.md > Questions`. 
-        (People ask about this pretty often. I think it's due to Logitech Options interference?)
