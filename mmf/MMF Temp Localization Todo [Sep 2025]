@@ -3,7 +3,7 @@
 [Sep 9 2025] 
     Context: I wrote a bunch of TODOs and notes in **recent commits** on the feature-strings-catalog branch
     Purpose: I'm now consolidating them into this note. 
-    Backlink: This note is referenced by this commit: abbfe0f4a2ced970ca07426b1954a1b4a54bf2cc
+    Backlink: This note is referenced by this commit: 8498fa0bec00b45c5c01c2f93b4bea62a19e757d
 
 The TODOs and context are for the purpose of:
 
@@ -11,6 +11,12 @@ The TODOs and context are for the purpose of:
 	    and improving / finishing the new MMF localization system. <<
 
 (Note: The commits below aren't quite accurate anymore because I reorganized and edited the TODOs [Sep 9 2025])
+
+[Sep 27 2025]
+    This is a subtask of `MMF - Discontinuing GitHub Discussions`
+
+[Sep 30 2025]
+    DONENENENENENENE. 
 
 ---
 
@@ -39,7 +45,7 @@ The TODOs and context are for the purpose of:
             and polish the text and stuff.
     6. [x] Do final grammer check and editing on everything.
             - [x] Check that all the links work in all the languages.
-    7. [ ] Take care of the the `{url}` localizer hint in plstrings.
+    7. [x] Take care of the the `{url}` localizer hint in plstrings.
 
     - [x] Generate the screenshots programmatically, so that we
         can localize them (and so we can easily update them when
@@ -52,33 +58,40 @@ The TODOs and context are for the purpose of:
 
  5. New TODOs (Don't appear in previous commits)
 
- 	Stuff I noticed while taking the CapturedButtonsMMF3.md screenshots:
- 		- [ ] Fix CaptureToasts.m capitalization and pluralization in German
- 		- [ ] Revert the 'greyed out subtitle' style for the CaptureToasts
+ 	Stuff I noticed while taking the CapturedButtonsMMF3.md screenshots: (In-App UI issues)
+ 		- [x] Fix CaptureToasts.m capitalization and pluralization in German
+ 		- [x] Revert the 'greyed out subtitle' style for the CaptureToasts
  		    – Consistency with the other Toasts is more important
- 		- [ ] Localization issues:
- 			- [ ] In some of the translations we added, the screens are super
+        - ... I instead moved all the Toasts to the 'greyed out subtitle style [Sep 27 2025] (Kinda fell down a rabbit hole there. Maybe a bit too deep. But Toasts are nicer now.)
+ 		- [x] Localization issues:
+ 			- [x] In some of the translations we added, the screens are super
  			    wide due to where the linebreaks are set in the translated text
- 			- [ ] Some of the French text is super long (I don't think it should be
+ 			- [x] Some of the French text is super long (I don't think it should be
  			    much longer than German?)
+                ... Whadamigonna do about this? Just checked it off.
  	Other
     - [x] Programmatically insert images into CapturedButtonsMMF3.md instead of having localizers type HTML
- 		- [ ] Edit the Readme Q&A to link the CapturedButtonsMMF3.md instead of
+ 		- [x] Edit the Readme Q&A to link the CapturedButtonsMMF3.md instead of
  		    duplicating the information.
  			  (Blender Orbiting section – maybe others?)
 
 
 7. Added [Sep 9 2025] (and after)
 
-    - [ ] Add links to CapturedScrollWheels.md
-        - [ ] Inside MMF
-        - [ ] In Support.md
-        - [ ] In CapturedButtonsMMF3.md
+    - [x] Add links to CapturedScrollWheels.md
+        - [x] Inside MMF
+        - [x] In Support.md
+        - [x] In CapturedButtonsMMF3.md
     - [x] Add localizer hints for the 2 localizable guides
-        - [ ] Maybe link to the images for context?
+        - [xxx] Maybe link to the images for context?
      - We defined the localizer hints in the .xcstrings files instead of the .md templates!
-        - [ ] Either move localizer hints to .md templates, or to .xcstrings files across all .xcstrings files in the repo
-        - [ ] Make it an assert failure to define the localizer hints in the 'wrong' place. (Or at least make sure they aren't getting silently overriden by the 'other place.')
+        - [xxx] Either move localizer hints to .md templates, or to .xcstrings files across all .xcstrings files in the repo
+        - [x] Make it an assert failure to define the localizer hints in the 'wrong' place. (Or at least make sure they aren't getting silently overriden by the 'other place.')
+
+8. Added [Sep 17 2025] (and after) ((in-app issues))
+
+    - [x] 'taste' should be capitalized in all German strings
+    - [x] When taking screenshots of the UI using testTakeScreenshots_Documentation(), all the button names are lowercase in German, even when they appear at the start of a line.
 
 ---
 
