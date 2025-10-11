@@ -29,6 +29,7 @@ Beta 2:
                 - [x] Feedback FB19948784
             - [ ] The 'Launchpad' option needs to be renamed
                 - Think we worked on that in the `tahoe-symbols` branch
+                - [ ] In MMF 2 also 
         - General Tab
             - Enabled Switch plays very janky animation on startup
             - [x] Feedback FB18794304 (It's a bug in NSSwitch that I couldn't find any workaround for.)
@@ -49,9 +50,12 @@ Beta 2:
     - General
         - App Icon
             - [ ] Liquid Glassify
+            - [ ] Support Darkmode
         - Menu Bar Item
             - Update the icon. (Remember the outline is based on the battery icon outline, which is now more bright and vibrant under Tahoe)
-            - [ ] Update
+                - [ ] Update Icon
+            - [ ] Maybe support situation where the Menu Bar Item is disabled in System Settings?
+            - [ ] Is there a new API for the control center toggles? Should you use that?
         - All NSPopUpButtons
             - When the pbutton has an item selected that has an image, that looks bad – image is rendered too close to text. (This doesn't happen on macOS Sequoia.)
             - [x] Feedback 
