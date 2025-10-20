@@ -9,8 +9,11 @@ While translating the German .xcloc file and then submitting it: (Simulating the
             - Shows (useless) sidebar by default after opening the .xcloc file (on my macOS Tahoe install - I don't remember it doing that when testing last year in 2024?)
         - The quicklook window is cumbersome to work with with (no kb shortcut, hard to resize, resets position, becomes blank when editing the string)
         - No universal search (can only search in a single file) (at least I couldn't get it to work.) (That's pretty bad I think.)
+        - Can't directly control the string state (just automatically changes to 'translated' if you do any edits) (This is pretty bad)
+
         - It's a bit easy to loose the Finder window after using 'Compress xcloc files.xcloc' (Maybe the NSAlert should have a 'Reveal in Finder' button?)
-        - Very long localizable string (`software.libraries`) in Acknowledgements.md was hard to audit - should be shorter. 
+
+        - Very long localizable string (`software.libraries`) in Acknowledgements.md was hard to audit - should be shorter. Should generally avoid very long strings in .xcloc file.
 
     TODOs:
         - [xxx] Mark all the 'pluralizable' strings as ok or don't translate (they shouldn't be translated)
