@@ -32,3 +32,7 @@ While translating the German .xcloc file and then submitting it: (Simulating the
         - [x] Remove "I landed on"
         - [x] Improve thankyou messages (See _dailynote_2025.10.20.md)
         - [ ] Maybe write feedback to Apple about lacking Xcode .xcloc editing experience (See above) [Oct 20 2025]
+        
+        
+        Other:
+        - [ ] Remove the 'Ask the community' string from MMF.
