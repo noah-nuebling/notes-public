@@ -270,9 +270,13 @@
 //          Remove _Nullable - who cares
 //          Remove NS prefixes – NSArray -> Array. Less ugly. More appealing to noobs.
 //          Move NSArray (now just 'Array' out of Foundation and into a standard library (or just make Foundation the standard library) 
+//          Make a repl / JIT
+//              For C generally. LLDB already has an C/objc interpreter, I'd assume gdb as well. Should be possible.
+//              -> Nice to have for ascripting language 
 //          Provide the standard library open source and cross-platform, so that objc actually becomes viable to use outside of Apple ecosystem. 
 //              I think it could be a viable choice on linux over Python for scripting with some performance requirements. 
-//              (built into clang/gcc, fast, can call C APIs directly, automatic memory management, generic list and syntax sugar like Python)
+//              (built into clang/gcc, fast, can call C APIs directly, automatic memory management, generic list and syntax sugar like Python. 
+//              Basically anyone with a c compiler gets this nice scripting environment for C that can call all the system APIs natively and has a repl and stuff. – That's actually compelling I think.)
 //          Dot syntax: [[obj thingWithThing: thing andThing: otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
 //              -> Solves only real painpoint with current objc method calls: Having to add `[` *on the left* of the `obj` when you wanna chain a method call (on its *right*).
 //              -> Absolutely no abstraction or ambiguity about what the selector string at runtime is.
