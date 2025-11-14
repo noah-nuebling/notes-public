@@ -1,0 +1,259 @@
+
+///
+/// Swuft aka objc3
+///     Attempt at python-y-fying objc while keeping objc semantics
+///     - objc 3.0
+///     - What Swift should have been
+///     Details:
+///         - Strict superset of plain C, 
+///             with simple, consistent extensions
+///         - Language extensions on C:
+///             - Method calls look like `obj.do_thing(arg1=xyz, arg2=zyx)` instead of `[obj doThingWithArg1:xyz arg2: zyx]`
+///                 -> `.` is totally unambiguous in this context I think - so no issues interfering with C.
+///                 Backward compat: `obj.do_thing(arg1=xyz, arg2=zyx)` would get imported into objc as [obj do_thing_arg1: xyz arg2: zyx]      (the selector in the objc runtim in both cases is (do_thing_arg1:arg2:))
+///                 Forward compat: `[obj doThingWithArg1:xyz arg2: zyx]` imported into Swuft as obj.doThingWithArg1(xyz, arg2=zyx)
+///                     -> Selector transformation rules for Swuft: 
+///                         - `Last underscore before first `:` in the selector` becomes `opening parens`    
+///                         -  `:` becomes `=`                                            (We could also use `:` in swuft directly to simplify things further – might make things slightly less readable – but removing a special-case is good.)
+///                         -> These rules creates discrepancy between selector names in objc runtime and how they are used in Swuft. 
+///                             (Although the discrepancy would follow very simple, predictable rules, unlike Swift. Plus objc-style selectors and swuft-style selectors could still be used easily and consistently 
+///                                 from either language, and you could just slowly introduce new swuft-style methods, and mark the old ones as 'superseeded for swuft' and hide them from autocomlete or something.)
+///             - string literals, number literals, dict literals etc are the same as objc 2.0 (prefixed with @)
+///             - Converting primitives to objects is the same as objc 2.0 (E.g. @(some_int))
+///             - Has automatic reference counting for blocks and objects like objc 2.0
+///             - Has auto keyword for type-inference
+///                 (C already has __auto_type, this is just a rename)
+///             - All objects prefixed with @. E.g. `NSString *` -> `@str`
+///                 - Might seem noisy, but this way you can leave out the `*` since @ already indicates a reference type
+///             - Maybe add `?` for optionals 
+///                     and enable compiler warnings by default for when you accidentally convert sth optional into a non-optional type. (Similar to Swift but implemented in a lightweight way on the linter level, 
+///                     rather than deeply integrated into the syntax with iflet and so on.)
+///             - Ideas: 
+///                     (That I'm not sure are worth making the language more complicated for)
+///                 - Idea: Objects can be initialized with @obj(arg=xyz) (Similar to Swift)
+///                     - Could either be magic syntax sugar for [[NSObject alloc] initWithArg: xyz] or a new __init__(t1 arg1, t2 arg2, ...) 'dunder method' (like python) -- I think I like the dunder method approach, to keep things transparent and opt-in.
+///                     - @obj.alloc().init() is annoying but @obj.new() wouldn't be too bad -> Maybe this could be addressed at the library level
+//                  - Idea: dunder methods / Operator overloading
+///                     - You could overload operators like >, <, ==, !=, +=, ... to work on objects. E.g. == could call NSObject's isEqual: 
+//                          Contra: if you have very short method names for common ops like .eq(), .add(), it's not that bigga difference and removes some semantic clarity and simplicity... 
+///                         ... But still might be a good idea. You could do @>, @<, @==, ..., but I feel like that's not much more readable than method-calls. @> looks like a fish or something.
+///                         To flexibly support this, you could add special methods to @obj (NSObject) like __eq__, __lt__, etc. which map to the operators (Just like Python 'dunder methods')
+///                             or you could just map the standard NSObject method names (`isEqual:` etc.) to the operators... That seems simpler with no concrete downsides I can think of. 
+///                             (Although it feels a bit wrong somehow. Maybe too much 'magic'. I think I like the transparency of dunder methods.)
+///                 - Idea: Builtin dataclasses
+///                     - Just like Python @dataclass decorator, (or MFDataClass, maybe a bit easier to use) – not sure how to implement this, but would be very valuable to create essentially 'struct with 
+///                         runtime reflection and automatic serialization, automatic __eq__ implementation, and autogenerated initializer'
+///                         Since we already have the `@prop` directive doing magic codegen in the compiler (like objc2.0 alredy does for @property) (Although I don't know if I like that). We could also magically codegen 
+///                         initializers for 'dataclasses' maybe? ... Not sure how to implement this but sth like dataclasses would be nice. 
+///                             (MFDataClass is implemented with objc-runtime-reflection and macros for some compile-time codegen of initializers. 
+///                                     In python you'd probably do this all at runtime. That's probably also possible in the objc runtime but then you don't get autocomplete for the initializers I suppose? 
+///                                     – I do think you want some compile-time generation here, but compiler-magic feels bad. Maybe just stick with C macros? Or add more powerful compile-time-execution at some point?)
+///                 - Idea: Built-in ways for to-object-conversion
+///                     E.g. calling [obj description] in regular objc is akin to converting to a string. In python you'd use str(obj). 
+///                     Perhaps we could extend C casting (which already does conversions for simple things like int->float to do object conversions – so you'd do (@str)obj.
+///                     ... But this feels a bit magical, and C casting auto-conversions only seem to work for very primitive types (E.g. (char *)53 doesn't do a complex conversion to a string.) ... Don't actually understand what the philosophy behind C casting design is.
+///                     But maybe you could add, as a library feature, some converting initializers like @str(obj), @str(int=n), @str(uint64=n), ...
+///                 - Idea: Ideas for other python syntax sugar:
+///                     - Could support slicing and subscripting just like python (__getitem__ dunder method)
+///                     - Could support list comprehensions
+///                 - Idea: String interpolation like python: E.g. @f"Meaning of %{str_life}: %{str_fourtytwo}"
+///                     Otherwise we could just do `.format()` without any language extensions – as described below
+///                 - Id        ea: Could introduce a more convenient for-loop
+///                     - The `loopc()` used below is a pure C macro I use in my projects and feels convenient enough for me, for the common case of looping through all elements in a list. But other ppl might find that weird.
+///                     Objc 2.0 for...in feels too inflexible and magical for a languages feature imo. Maybe you could introduce something pythony or just add sth like loopc to the stdlib and keep control-flow sytnax in pure C.
+///                 - Idea: Repl
+///                     - Then it could be a full-on python competitor perhaps. 
+///                     - Probably hard to implement
+///                     - ... But JIT/interpreter could also be leveraged for powerful compile-time-execution in theory.
+///                         - If you do crazy compiler stuff, maybe you could also prove that a method is never rerouted, and therefore make its dispatch static... That's that 'micro optimization' stuff that I think hurts Swift and CPP though.
+///                     
+///         - Changes to Apple's libraries:
+///             - Object & method naming abbreviated, in the spirit of C/Python
+///             - @str can be formatted with `.format`. E.g. @"Meaning of life: %d".format(42)
+///             - Methods added globally to @obj (NSObject) in categories are namespaced with prefixes indicating their method family.
+///                 E.g. valueForKey: -> kvc_get()
+///             - Abbreviations of commonly used methods:
+///                 - isEqual: -> eq()
+///                 - description -> desc()
+///                 - containsObject: -> contains()
+///                 - objectAtIndex: -> at()
+///                 - lastObject: -> last()
+///                 -> Alternatively/(additionally?) you could support python-style dunder methods like: __eq__, __str__ __repr__, __contains__, __getitem__
+///                     
+///             -Idea:  Maybe add talloc() (temp-allocator) which by default gets cleared once per runLoop (Whereever NSAutoreleasePool is cleared) 
+///                 – that way you could perhaps use lower level C stuff much more painlessly. (E.g. when returning a C string or C array from a function)
+///                     ... But why not just wrap the C string / C array in an object in those cases? Should have almost 0 overhead (an objc instance is just syntax sugar over a malloced struct AFAIK) -> Feel like there's no need for talloc.
+///         - Problems:
+///             - Not sure how to declare a method with unnamed params
+///
+///     Summary:
+///         - 95% of the benefits here over existing objc are simply from renaming Apple's library methods to be more concise, and adopting a more 'mainstream' method-call syntax.
+
+
+/// --- MARK: [MFDataClass description] in different languages
+
+/// Swuft
+
+- @str description() {
+
+    @str content = @"";
+    @arr<@str> propnames = self.class().all_propnames();
+    if (propnames.count() > 0) {
+    
+        /// Check for circular refs
+        ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
+        auto thread_local visited = @mutarr();
+        auto s = @((uintptr_t)self);
+        bool found_circref = visited.contains(s);
+        visited.add(s);
+        defer {
+            assert(visited.last().eq(s));
+            visited.pop();
+        }
+        
+        /// Get description of props
+        if ((0))
+            content = self.asplist(secure=False).desc();
+        else if (found_circref)
+            content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
+        else {
+            auto _content = @mutstr();
+            loopc(i, propnames.count()) {
+                @str name = propnames.at(i);
+                @str? value = self.kvc_get(name).desc();
+                _content.append(@"%@: %@".format(name, value));
+                bool notlast = (i < propnames.count() - 1);
+                if (notlast)
+                    _content.append(@"\n");
+            }
+            content = _content;
+        }
+    }
+}
+
+
+/// Rough Python equivalent
+
+- description(self):
+
+    content = ""
+    propNames = type(self).all_propnames()
+    if propNames.count() > 0:
+    
+        # Check for circular refs
+        #     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
+        tloc = threading.local() 
+        tloc.visited = []
+        s = id(self)
+        found_circref = (s in tloc.visited)
+        tloc.visited += s
+        defer:
+            assert tloc.visited[-1] == s
+            tloc.visited.pop()
+        
+        # Get description of props
+        if 0:
+            content = str(self.asplist(secure=False))
+        elif found_circref:
+            content = "<This object has appeared in the description before. Stopping here to prevent infinite recursion.>"
+        else:
+            _content = "";
+            
+            for i, name in enumerate(propNames):
+                value: str|None = str(self[name])
+                _content += f"\(name): \(value)"
+                notlast = (i < propNames.count() - 1);
+                if notlast:
+                    _content += "\n"
+
+            content = _content;
+
+/// Original objc:
+
+- (NSString *) description {
+
+    NSString *content = @"";
+    NSArray<NSString *> *propNames = [self.class allPropertyNames];
+    if (propNames.count > 0) {
+    
+        /// Check for circular refs
+        ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
+        NSMutableArray *const visitedObjects = threadobject([[NSMutableArray alloc] init]);
+        NSNumber *s = @((uintptr_t)self); /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
+        BOOL didFindCircularRef = [visitedObjects containsObject: s];
+        [visitedObjects addObject: s];
+        MFDefer ^{
+            assert([[visitedObjects lastObject] isEqual: s]);
+            [visitedObjects removeLastObject];
+        };
+        
+        /// Get description of props
+        if ((0))
+            content = [self asPlistWithRequireSecureCoding: NO].description;
+        else if (didFindCircularRef)
+            content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
+        else {
+            NSMutableString *_content = [NSMutableString string];
+            
+            for (int i = 0; i < propNames.count; i++) {
+                NSString *name = propNames[i];
+                NSString *_Nullable value = [[self valueForKey: name] description]; /// If this is nil, NSString will just insert "(null)" iirc || `-description` is the recursive call that might cause infinite loops if there are circular refs
+                [_content appendFormat:@"%@: %@", name, value];
+                bool isNotLast = (i < propNames.count - 1);
+                if (isNotLast) {
+                    [_content appendString:@"\n"];
+                }
+            }
+            content = _content;
+        }
+    }
+}
+
+/// --- MARK: class definition in different languages
+
+/// Swuft
+
+@class @CustomString;        /// Class forward-declaration
+
+@class @CustomString : @str { /// Class declaration
+
+    /// Implicitly public ivar
+    @str ivar;                            
+    
+    /// Ivar with access modifier
+    @private   @str  ivar_str_private;
+    @protected @num  ivar_num_protected;
+    @public    @dict ivar_dict_public;
+
+    /// Properties
+    ///     -> Simply add @prop before the ivar to autogenerate a getter and setter
+    @prop NSInteger ivar;
+    @prop(atomic=0, readonly=0, copy_on_set=0, getter=getterName, setter=setterName) NSInteger prop;    /// Fully specified @prop directive – the arguments are mostly named boolean flags, unlike confusing objc 2.0 args
+    @prop @obj? __weak object;                                                                          /// Ownership and nullability are expressed as part of type-system, not part of the @prop directive (like objc 2.0) – this is consistent with the rest of the language
+
+
+    /// Method declarations
+    ///     -> They appear inside the { } together with the ivars, not inside @interface/@end like objc 2.0
+    + @str do_other_thing(int a1, @str a2);
+        /// Can be invoked with @CustomString.do_thing(a1=..., a2=...)
+
+    - @str do_thing(@obj plist, nsplistpickle_fmt format, nsplistpickle_options options, @nserror err) { /// The class declaration can directly contain method *definitions* (useful e.g. if it appears in a .m file instead of a .h file)
+        /// Can be invoked with ((@CustomString)obj).do_thing(plist=..., format=..., options=..., err=...)
+        ...
+    }
+}
+
+@class @CustomString { /// Class definition – This would usually go in the .m file
+
+    + @str do_other_thing(int a1, @str a2) { /// Definition of previous declaration
+        ...
+    }
+}
+
+/// Python
+
+    /// Too lazy to write
+
+/// ObjC
+
+    /// Too lazy to write
