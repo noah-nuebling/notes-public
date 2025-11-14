@@ -298,7 +298,7 @@
 //                  etc.
 //                  Maybe even add Python-like list/dict/set comprehensions.
 //                  -> Make working with basic collections super easy and expressive. 
-//                  Sugar would be implemented with new protocols that define methods like [subObjectWithRange:step:] (This one would be called by the slicing sugar)
+//                  Sugar would be implemented with new protocols that define methods like [subObjectWithLower:upper:step:] (This one would be called by the slicing sugar)
 //          Keep the long method names on lesser used APIs like NSImage or whatever 
 //              -> Those actually benefit from the explicitness.
 //          
@@ -307,7 +307,7 @@
 //          
 
 
-/// Original objc:
+/// Swuft 2.0
 
 - (String *) description {
 
