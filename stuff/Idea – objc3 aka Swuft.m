@@ -326,13 +326,13 @@
     
         /// Check for circular refs
         ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
-        auto visitedObjects = threadobject(Array.[new]);
+        thread_local auto visitedObjects = Array.[new];
         auto *s = @((uintptr_t)self); /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-        BOOL didFindCircularRef = visitedObjects.[containsObject: s];
-        visitedObjects.[addObject: s];
+        bool didFindCircularRef = s in visitedObjects;
+        visitedObjects += @[s];
         defer {
-            assert(visitedObjects.[lastObject].[isEqual: s]);
-            visitedObjects.[removeLastObject];
+            assert(visitedObjects[-1] == s);
+            del visitedObjects.[removeLastObject];
         };
         
         /// Get description of props
