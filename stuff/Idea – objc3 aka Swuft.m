@@ -285,7 +285,10 @@
 //              -> Still matches common notation for methods: `-[theMethod:andSomeArgs:]`
 //              -> No ambiguity or overlap with 'native' C syntax.
 //          Change generics syntax from `NSArray<String *> *` to `Array [String *] *`
-//              -> Looks nicer and is more reminiscent / consistent to the thing that you do with the object
+//              -> Looks nicer and is more reminiscent / consistent with how you use the object.(You call a .[method] on the Array * to get a String * out of it). 
+//                  This matches with native C design where declaration syntax follows usage syntax.
+//          Make it customary to use space after `:` in selectors. Instead of`obj.[thingWithThing:thing andThing:otherThing]`, you'd do `obj.[thingWithThing: thing andThing: otherThing]` 
+//              -> This looks prettier and closer to how other languages format syntax involving `:`. Plus it's easier to grok at a glance.
 //          Keep being a C superset - C is great. 
 //              - C is the native language of the system. You can call native UNIX C APIs like link, stat, etc and 
 //                  wrap the results in @() to avoid manual memory management and put them into superfast dynamic collections 
