@@ -268,7 +268,10 @@
 ///         Add auto (already in objc via macro)
 //          Remove const – who cares
 //          Remove _Nullable - who cares
-//          Remove NS prefixes – less ugly? More appealing to noobs?
+//          Remove NS prefixes – NSArray -> Array. Less ugly. More appealing to noobs.
+//          Move NSArray (now just 'Array' out of Foundation and into a standard library (or just make Foundation the standard library) 
+//          Provide the standard library open source and cross-platform, so that objc actually becomes viable to use outside of Apple ecosystem.
+//          Keep being a C superset - C is great. C is the native language of the system. You can call native UNIX C APIs like link, stat, etc and wrap the results in @() to avoid a
 //          No more 'NSMutableArray' just Array - who cares about mutability? Not worth the complexity.
 //          Dot syntax: [[obj thingWithThing: thing andThing: otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
 //              -> Solves only real painpoint with current objc method calls: Having to add `[` *before* the callee obj when you wanna chain a method call on its right.
@@ -277,8 +280,19 @@
 //          for range(propNames.count)
 //             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. (Like python range())
 //          defer -> That's nice I guess.
-//          Just use .[new] to create new instances (This isn't common in current objc because in the 2000s they were crazy and preferred [[Class alloc] init] because more verbose = more 'explicit'better?
-//          Syntax sugar on objects, like += to append to strings / arrays
+//          Just use .[new] to create new instances 
+//              (This isn't common in current objc because in the 2000s they were crazy 
+//              and preferred [[Class alloc] init] because more verbose = more 'explicit' = better or something? 
+//              Also [new] had to be autoreleased before ARC, but [array] didn't so that was preferred for convenience. 
+//              But with ARC, you should just use .[new] everywhere.)
+//          Syntax sugar on objects, 
+//              like:
+//                  += to append to strings / arrays. 
+//                  substring/subarray sugar with python slicing syntax like `auto subarr = arr[2:10:-1];`
+//              Would be implemented the sugar with new protocols that define methods like [subObjectWithRange:step:] (which would be called for slicing syntax)
+//      
+//          
+//          
 
 
 /// Original objc:
