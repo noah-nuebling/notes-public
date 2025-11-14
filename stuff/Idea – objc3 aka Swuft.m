@@ -314,6 +314,9 @@
 //                  Sugar would be implemented with new protocols that define methods like [sliceWithLower:upper:step:]
 //          Keep the long method names on lesser used APIs like NSImage or whatever 
 //              -> Those actually benefit from the explicitness.
+//          Fix ARC to work with thread_local. 
+//          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be like C struct declaration / designated initializer syntax with small delta. 
+//              (We already implemented this in current objc with the MFSimpleDataClass in mac-mouse-fix.)
 
 
 /// Swuft 2.0
@@ -328,11 +331,11 @@
         ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
         thread_local auto visitedObjects = Array.[new];
         auto *s = @((uintptr_t)self); /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-        bool didFindCircularRef = s in visitedObjects;
-        visitedObjects += @[s];
+        bool didFindCircularRef = visitedObjects.[containsObject: s];
+        visitedObjects.[addObject: s];
         defer {
-            assert(visitedObjects[-1] == s);
-            del visitedObjects[-1];
+            assert(visitedObjects.[lastObject].[isEqual: s]);
+            visitedObjects.[removeLastObject];
         };
         
         /// Get description of props
