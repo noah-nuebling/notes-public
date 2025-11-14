@@ -269,8 +269,16 @@
 //          Remove const – who cares
 //          Remove _Nullable - who cares
 //          Remove NS prefixes – less ugly? More appealing to noobs?
+//          No more 'NSMutableArray' just Array - who cares about mutability? Not worth the complexity.
 //          Dot syntax: [[obj thingWithThing: thing andThing: otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
-//              -> Solves only real painpoint with current objc method calls: Having to edit the 
+//              -> Solves only real painpoint with current objc method calls: Having to add `[` *before* the callee obj when you wanna chain a method call on its right.
+//              -> Absolutely no abstraction or ambiguity about what the selector string is.
+//              -> No ambiguity or overlap with 'native' C syntax.
+//          for range(propNames.count)
+//             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. (Like python range())
+//          defer -> That's nice I guess.
+//          Just use .[new] to create new instances (This isn't common in current objc because in the 2000s they were crazy and preferred [[Class alloc] init] because more verbose = more 'explicit'better?
+//          Syntax sugar on objects, like += to append to strings / arrays
 
 
 /// Original objc:
@@ -283,11 +291,11 @@
     
         /// Check for circular refs
         ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
-        auto visitedObjects = threadobject(MutableArray.[new]);
+        auto visitedObjects = threadobject(Array.[new]);
         auto *s = @((uintptr_t)self); /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
         BOOL didFindCircularRef = visitedObjects.[containsObject: s];
         visitedObjects.[addObject: s];
-        MFDefer ^{
+        defer {
             assert(visitedObjects.[lastObject].[isEqual: s]);
             visitedObjects.[removeLastObject];
         };
@@ -300,7 +308,7 @@
         else {
             auto _content = String.[string];
             
-            for (int i = 0; i < propNames.count; i++) {
+            for range(propNames.count) {
                 auto name = propNames[i];
                 auto value = self.[valueForKey: name].[description]; /// If this is nil, NSString will just insert "(null)" iirc || `-description` is the recursive call that might cause infinite loops if there are circular refs
                 _content.[appendFormat: @"%@: %@", name, value];
