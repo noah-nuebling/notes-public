@@ -268,34 +268,38 @@
 ///         Add auto (already in objc via macro)
 //          Remove const – who cares
 //          Remove _Nullable - who cares
+//          No more 'NSMutableArray' just Array - who cares about mutability? Not worth the complexity.
 //          Remove NS prefixes – NSArray -> Array. Less ugly. More appealing to noobs.
-//          Move NSArray (now just 'Array' out of Foundation and into a standard library (or just make Foundation the standard library) 
+//          Move NSArray (now just 'Array') out of Foundation and into a standard library (or just make Foundation the standard library) 
 //          Make a repl / JIT
 //              For C generally. LLDB already has an C/objc interpreter, I'd assume gdb as well. Should be possible.
-//              -> Nice to have for ascripting language 
+//              -> Nice to have for a scripting language 
 //          Provide the standard library open source and cross-platform, so that objc actually becomes viable to use outside of Apple ecosystem. 
 //              I think it could be a viable choice on linux over Python for scripting with some performance requirements. 
 //              (built into clang/gcc, fast, can call C APIs directly, automatic memory management, generic list and syntax sugar like Python. 
-//              Basically anyone with a c compiler gets this nice scripting environment for C that can call all the system APIs natively and has a repl and stuff. – That's actually compelling I think.)
+//              Basically anyone with a c compiler gets this nice dynamic scripting environment for 
+//              C that can call all the system APIs natively and has a repl and is fast and stuff. – That's actually useful for Linux programmers I think.)
 //          Dot syntax: [[obj thingWithThing: thing andThing: otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
 //              -> Solves only real painpoint with current objc method calls: Having to add `[` *on the left* of the `obj` when you wanna chain a method call (on its *right*).
 //              -> Absolutely no abstraction or ambiguity about what the selector string at runtime is.
+//              -> Still matches common notation for methods: `-[theMethod:andSomeArgs:]`
 //              -> No ambiguity or overlap with 'native' C syntax.
+//          Change generics syntax from `NSArray<String *> *` to `Array [String *] *`
+//              -> Looks nicer and is more reminiscent / consistent to the thing that you do with the object
 //          Keep being a C superset - C is great. 
 //              - C is the native language of the system. You can call native UNIX C APIs like link, stat, etc and 
 //                  wrap the results in @() to avoid manual memory management and put them into superfast dynamic collections 
-//                  like NSDictionary (aka Dictionary) for javascript-like expressiveness.
+//                  like NSDictionary (now Dictionary) for javascript-like expressiveness.
 //                  – this makes for a great and super fast scripting language.
 //              - Make unboxing even easier. Add protocol for .[size] and .[unbox: &buffer] methods to copy collection contents into a C array super easily.
 //              -> Lean into the strengths of being a C superset.
-//          No more 'NSMutableArray' just Array - who cares about mutability? Not worth the complexity.
 //          for range(i, propNames.count)
 //             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. (Like python range())
 //          defer -> That's nice I guess.
 //          Just use .[new] to create new instances 
 //              (This isn't common in current objc because in the 2000s they were crazy 
 //              and preferred [[Class alloc] init] because more verbose = more 'explicit' = better or something? 
-//              Also .[new] had to be autoreleased before ARC, but [array] didn't so that was preferred for convenience. 
+//              Also [new] had to be autoreleased before ARC, but [array] didn't so that was preferred for convenience. 
 //              But with ARC, you should just use .[new] everywhere.)
 //          Syntax sugar on objects, 
 //              like:
@@ -304,7 +308,7 @@
 //                  etc.
 //                  Maybe even add Python-like list/dict/set comprehensions.
 //                  -> Make working with basic collections super easy and expressive. 
-//                  Sugar would be implemented with new protocols that define methods like [subObjectWithLower:upper:step:] (This one would be called by the slicing sugar)
+//                  Sugar would be implemented with new protocols that define methods like [sliceWithLower:upper:step:]
 //          Keep the long method names on lesser used APIs like NSImage or whatever 
 //              -> Those actually benefit from the explicitness.
 
@@ -314,7 +318,7 @@
 - (String *) description {
 
     auto content = @"";
-    Array<String *> *propNames = self.class.[allPropertyNames];
+    Array [String *] *propNames = self.class.[allPropertyNames];
     if (propNames.count > 0) {
     
         /// Check for circular refs
