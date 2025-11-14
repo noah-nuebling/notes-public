@@ -257,3 +257,59 @@
 /// ObjC
 
     /// Too lazy to write
+
+/// ----------------
+
+
+/// Update: [Nov 2025] Most of changes are basically not worth it. Objc is already fine. It just looks ugly.
+///     Let me try another attempt of cleaning up the objc syntax with fewer changes and with my current tastes:
+
+///     (Changes:)
+///         Add auto (already in objc via macro)
+//          Remove const – who cares
+//          Remove _Nullable - who cares
+//          Remove NS prefixes – less ugly? More appealing to noobs?
+//          Dot syntax: [[obj thingWithThing: thing andThing: otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
+//              -> Solves only real painpoint with current objc method calls: Having to edit the 
+
+
+/// Original objc:
+
+- (String *) description {
+
+    auto content = @"";
+    Array<String *> *propNames = self.class.[allPropertyNames];
+    if (propNames.count > 0) {
+    
+        /// Check for circular refs
+        ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
+        auto visitedObjects = threadobject(MutableArray.[new]);
+        auto *s = @((uintptr_t)self); /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
+        BOOL didFindCircularRef = visitedObjects.[containsObject: s];
+        visitedObjects.[addObject: s];
+        MFDefer ^{
+            assert(visitedObjects.[lastObject].[isEqual: s]);
+            visitedObjects.[removeLastObject];
+        };
+        
+        /// Get description of props
+        if ((0))
+            content = self.[asPlistWithRequireSecureCoding: NO].[description];
+        else if (didFindCircularRef)
+            content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
+        else {
+            auto _content = String.[string];
+            
+            for (int i = 0; i < propNames.count; i++) {
+                auto name = propNames[i];
+                auto value = self.[valueForKey: name].[description]; /// If this is nil, NSString will just insert "(null)" iirc || `-description` is the recursive call that might cause infinite loops if there are circular refs
+                _content.[appendFormat: @"%@: %@", name, value];
+                bool isNotLast = (i < propNames.count - 1);
+                if (isNotLast) {
+                    _content += @"\n";
+                }
+            }
+            content = _content;
+        }
+    }
+}
