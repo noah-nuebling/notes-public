@@ -285,7 +285,7 @@
 //              - Make unboxing even easier. Add protocol for .[size] and .[unbox: &buffer] methods to copy collection contents into a C array super easily.
 //              -> Lean into the strengths of being a C superset.
 //          No more 'NSMutableArray' just Array - who cares about mutability? Not worth the complexity.
-//          for range(propNames.count)
+//          for range(i, propNames.count)
 //             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. (Like python range())
 //          defer -> That's nice I guess.
 //          Just use .[new] to create new instances 
@@ -303,10 +303,6 @@
 //                  Sugar would be implemented with new protocols that define methods like [subObjectWithLower:upper:step:] (This one would be called by the slicing sugar)
 //          Keep the long method names on lesser used APIs like NSImage or whatever 
 //              -> Those actually benefit from the explicitness.
-//          
-//      
-//          
-//          
 
 
 /// Swuft 2.0
@@ -336,7 +332,7 @@
         else {
             auto _content = String.[string];
             
-            for range(propNames.count) {
+            for range(i, propNames.count) {
                 auto name = propNames[i];
                 auto value = self.[valueForKey: name].[description]; /// If this is nil, NSString will just insert "(null)" iirc || `-description` is the recursive call that might cause infinite loops if there are circular refs
                 _content.[appendFormat: @"%@: %@", name, value];
