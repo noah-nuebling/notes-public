@@ -332,7 +332,7 @@
         visitedObjects += @[s];
         defer {
             assert(visitedObjects[-1] == s);
-            del visitedObjects.[removeLastObject];
+            del visitedObjects[-1];
         };
         
         /// Get description of props
