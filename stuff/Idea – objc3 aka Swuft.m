@@ -288,13 +288,13 @@
 //              -> Looks nicer and is more reminiscent / consistent with how you use the object.(You call a .[method] on the Array * to get a String * out of it). 
 //                  This matches with native C design where declaration syntax follows usage syntax.
 //          Make it customary to use space after `:` in selectors. Instead of`obj.[thingWithThing:thing andThing:otherThing]`, you'd do `obj.[thingWithThing: thing andThing: otherThing]` 
-//              -> This looks prettier and closer to how other languages format syntax involving `:`. Plus it's easier to grok at a glance.
+//              -> This looks prettier and closer to how other languages (including Swift) format syntax involving `:`. Plus it's easier to grok at a glance.
 //          Keep being a C superset - C is great. 
 //              - C is the native language of the system. You can call native UNIX C APIs like link, stat, etc and 
 //                  wrap the results in @() to avoid manual memory management and put them into superfast dynamic collections 
 //                  like NSDictionary (now Dictionary) for javascript-like expressiveness.
 //                  – this makes for a great and super fast scripting language.
-//              - Make unboxing even easier. Add protocol for .[size] and .[unbox: &buffer] methods to copy collection contents into a C array super easily.
+//              - Make unboxing even easier. Add protocol for .[sizeof] and .[unbox: &buffer] methods to copy collection contents into a C array super easily.
 //              -> Lean into the strengths of being a C superset.
 //          for range(i, propNames.count)
 //             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. (Like python range())
@@ -316,7 +316,7 @@
 //              -> Those actually benefit from the explicitness.
 //          Fix ARC to work with thread_local. 
 //          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be super small delta from C struct declaration / designated initializer. 
-//              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass.)
+//              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
 
 
 /// Swuft 2.0
