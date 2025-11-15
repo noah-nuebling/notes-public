@@ -379,12 +379,13 @@
 //          Replace `[NSString stringWithFormat: @"%@", obj]` -> `@"%@".[format: obj]`
 //          Remove arbitrary restrictions from anonymous structs to allow multiple return values:
 //              `struct { auto x; int y; } result = f();`
-//              `struct { auto x, y; } result = f();` 
-//              `struct { auto x, y; } = f();` 
+//              `struct { auto x, y; } result     = f();` 
+//              `struct { auto x, y; }            = f();` 
 //                  This would insert x and y directly into the enclosing scope. 
 //                      consistent with that microsoft extension where you can do this:
 //                      `struct A { int a, b; }`
 //                      `struct B { struct A; int c, d; }`
+//              `struct { x; int y; }            = f();`  /// Assign to x if it already exists in-scope - this one is a bit weird.
 
     /// Swuft 2.0
 
