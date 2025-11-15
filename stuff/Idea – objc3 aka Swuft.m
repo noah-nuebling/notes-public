@@ -323,8 +323,8 @@
 //                          Those things seem maybe too related to split up like this?
 //                  Could have parallel 'unboxing cast' feature:
 //                      uint64_t i = @(uint64_t)myBoxedNumber;
-//                      (vs `int i = [myBoxedNumber unsignedLongLongValue];`)
-//                      -> The @() syntax then generally means 'convert between object<->primitive'
+//                      uint64_t i = [myBoxedNumber unsignedLongLongValue]; /// current objc
+//                      -> The @() syntax then generally means 'convert between object<->primitive' – which I think is powerful and simple.
 //          for range(i, propNames.count)
 //             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. 
 //              (Work like python range())
@@ -353,16 +353,19 @@
 //              Say how you don't have to malloc anything, you don't have to do pointer arithmetic, there are no footguns, you get refcounted objects 
 //              for everything and they are super fast and convenient and easy.
 //              You *can* also use C APIs, but you can just box the return values immediately, so there is no error-prone malloc / free / realloc you have to do. 
-//                  (And that's very fast, too, so for most applications there's never a reason not to do this)
+//                  (And that's very fast, too, so for most applications there's never a reason not to have your heap memory managed by ARC.)
 //              While it may not have a complicated compile-time prover that you're doing nothing wrong, the language is simple and lean and understandabe, and designed 
 //                  so it's hard to do anything wrong by accident. (Worst case, you leak some memory but that's not the end of the 
 //                  world and easy to fix, with our Apple Instruments TM Suite)
 //              It's a C superset, so you still get the full power and speed of C when you need it. But for heap allocations, buffers 
 //                  and ownership, the most tedious and error prone parts of C – you can just box things in objects 
 //                  – it will most likely be more than fast enough anything you'll ever wanna do.
-//              -> This is the pitch for low-level / system programmers to pitch as an alternative to C or Rust for command-line tools or scripting etc. 
+//                      (Maybe have some sugar for a boxed, typed, arc-managed C-buffer? 
+//                      NSMutableData is already almost that – just lacks typing cause lightweight generics don't support C-types)
+//              -> This is the pitch for low-level / system programmers as an alternative to C or Rust for command-line tools or scripting etc. 
 //                  Regular app devs live in the world of AppKit/UIKit anyways, and so don't even have to worry about calling C APIs very much I guess, 
-//                  although, some of them are actually nice to use and useful, so maybe it would be nice to help app-devs be more comfortable using them, too?
+//                  although, some of them are actually nice to use and useful, so maybe it would be nice to help app-devs be more comfortable using them 
+//                  directly, too, instead of higher-level wrappers?
 //          List comprehensions:
 //              Idea: 
 //                  @[<loop-body-expression-evaluating-to-object> <loop-header>]
@@ -385,7 +388,8 @@
 //                      consistent with that microsoft extension where you can do this:
 //                      `struct A { int a, b; }`
 //                      `struct B { struct A; int c, d; }`
-//              `struct { x; int y; }            = f();`  /// Assign to x if it already exists in-scope - this one is a bit weird.
+//              `struct { x; int y; }            = f();`  /// Assign to x if it already exists in-scope 
+//                                                        ///      - this one is a bit weird, cause now it's not really standard struct syntax anymore?
 
     /// Swuft 2.0
 
