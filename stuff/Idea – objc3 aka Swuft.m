@@ -323,7 +323,7 @@
 //              -> Lean into the strengths of being a C superset.
 
 //              Weird idea 'boxing cast': Make boxing syntax look like C-cast: `@(str)` -> `@(auto) str`
-//                  Nice thing is this could take params for boxing C arrays / buffers.
+//                  Interesting thing is this could take params for boxing C arrays / buffers.
 //                      char *:
 //                          char *heapStringFromCAPI;
 //                          auto obj = @(__free String *) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
@@ -338,7 +338,7 @@
 //                  
 //                      -> Not sure this is too magical, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
 //                      -> Weird: It's strange that the element size is inferred from the c type but the element count is specified in the @(boxed cast). 
-//                          Those things seem maybe too related to split up like this?
+//                          Those things seem maybe too related to split up like this? ... no its fine scrap that.
 //                  Could have parallel 'unboxing cast' feature:
 //                      uint64_t i = @(uint64_t)myBoxedNumber;
 //                      uint64_t i = [myBoxedNumber unsignedLongLongValue]; /// current objc
@@ -385,6 +385,7 @@
 //                  Regular app devs live in the world of AppKit/UIKit anyways, and so don't even have to worry about calling C APIs very much I guess, 
 //                  although, some of them are actually nice to use and useful, so maybe it would be nice to help app-devs be more comfortable using them 
 //                  directly, too, instead of higher-level wrappers?
+//              -> You don't need a wrapper when you can just wrap anything yourself in 1 line of code and call ALL the C APIs your system offers.
 //          List comprehensions:
 //              Idea: 
 //                  @[<loop-body-expression-evaluating-to-object> <loop-header>]
