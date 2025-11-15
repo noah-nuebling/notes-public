@@ -105,13 +105,12 @@ Here's a copy-paste of the core pattern:
 
     // Bind view <- model
     observeMultiple([[model, 'firstName'], [model, 'lastName']], () => {
-    model.fullName = `${model.firstName} ${model.lastName}`;
-    mfqs('.fullname-display').textContent = model.fullName;
+        model.fullName = `${model.firstName} ${model.lastName}`;
+        mfqs('.fullname-display').textContent = model.fullName;
     });
 
     // Bind model <- view
-    mfqs('.firstname-input').addEventListener('input', 
-    e => model.firstName = e.target.value);
+    mfqs('.firstname-input').addEventListener('input',  e => model.firstName = e.target.value);
     ```
 
     // 4. Styling Options
@@ -131,24 +130,14 @@ Here's a copy-paste of the core pattern:
     Option B: @scope (Same code-locality as inline CSS but allows comments and styling of dynamically created child elements)
 
     ```javascript
-    function Card({ title }) {
     let html = `
         <style> @scope {
-        :scope { background: gray; padding: 20px; }
-        img { border: 5px solid black; }
+            h3  { background: gray; padding: 20px; }
+            img { border: 5px solid black; }
         } </style>
         <h3>${title}</h3>
         <img src="photo.jpg">
-    `;
-    
-    html = wrapInCustomElement(html, {
-        mounted() {
-        // Any interactive behavior here
-        }
-    });
-    
-    return html;
-    }
+    `
     ```
 
     Option C: Imperative styling. (Bit more verbose, but acceptable in reusable components I think. Allows comments. Allows complex conditional logic.)
@@ -195,8 +184,8 @@ Here's a copy-paste of the core pattern:
     mfqs('.lastname').addEventListener('input', e => model.lastName = e.target.value);
 
     observeMultiple([[model, 'firstName'], [model, 'lastName']], () => {
-    model.fullName = `${model.firstName} ${model.lastName}`;
-    mfqs('.fullname').textContent = model.fullName;
+        model.fullName = `${model.firstName} ${model.lastName}`;
+        mfqs('.fullname').textContent = model.fullName;
     });
     ```
 
@@ -212,7 +201,7 @@ Here's a copy-paste of the core pattern:
 
     - `wrapInCustomElement()` could be easily extended to provide an `unmounted()` callback if needed (disconnectedCallback()) to clean up ram from a video or something like that.
     - Where should state live? I'd have state live outside the components inside a centralized 'model' (perhaps one per page or whatever makes sense) which is then synced with the view states via observation. You could also store state on components by capturing variables (or storing props on `this`) inside `wrapInCustomElement() { mounted() {.... }}` Might be useful for component-internal/transient stuff like hover or animation states.
-    - This pattern doesn't have a solution for dynamic lists (when the number of child elements depends on the model). In Cocoa you'd use a special component – NSTableView/NSOutlineView. We could probably create simple mflist() component with similar API. Initially it could just rerender the whole list every time, later we could optimize if needed (lazy loading, recycling - but we’ll probably never need this). Or we could also write simple inline code that regenerates the whole list‘s innerHTML whenever the model updates.
+    - This pattern doesn't have a solution for dynamic lists (when the number of child elements depends on the model). In Cocoa you'd use a special component – NSTableView/NSOutlineView. We could probably create simple mflist(item => return htmlElement(item)) that works like NSTableView. Initially it could just rerender the whole list every time, later we could optimize if needed (lazy loading, recycling of HTMLElements - but we’ll probably never need this). Or we could also write simple inline code that regenerates the whole list‘s innerHTML whenever the model updates.
     - `observe()` doesn't support 'deep reactivity', that means you can't watch array insertions / removals. Could switch from Object.defineProperty to Proxy to get deep observation, or create a custom mflist component for dynamic lists when needed (see above)
     - Conditional rendering can be done by simply observing the model and setting `display: none`.
 
