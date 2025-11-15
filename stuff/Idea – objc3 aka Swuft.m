@@ -381,6 +381,7 @@
 //                  while ((entry = readdir(dir))) 
 //                      files.[addObject: @(String *)entry->d_name];
 //          Replace `[NSString stringWithFormat: @"%@", obj]` -> `@"%@".[format: obj]`
+//              ... Honestly stringf(@"%@", obj) is still more readable with more args.
 //          Remove arbitrary restrictions from anonymous structs to allow multiple return values:
 //              `struct { auto x; int y; } result = f();`
 //              `struct { auto x, y; } result     = f();` 
@@ -417,20 +418,6 @@
                 else if (didFindCircularRef)
                     content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                 else {
-                    /**
-                    @"%@: %@".(format: name, self.(valueForKey: name))
-                    @"%@: %@".[format: name, self.[valueForKey: name]]
-                    
-                    [@"%@: %@" format: name, [self valueForKey: name]]
-                    
-                    @"%@: %@".format(name, self.value(forKey: name))
-
-                    @"%@: %@" [format: name, self [valueForKey: name]]
-
-                    stringf(@"%@: %@", name, self.[valueForKey: name])
-                    */
-
-
                     content = @[
                         @"%@: %@".[format: name, self.[valueForKey: name]]
                         for (String *name in propNames)
