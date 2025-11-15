@@ -538,13 +538,6 @@
             ]]
             validateWith: [schema load: @"doc.xsd"]];
 
-            // smalltalk
-            parser [parseDocument: loader [
-                fetchURL:   config [get: @"url"] 
-                withAuth:   credentials [tokenFor: service current]
-                andTimeout: settings [get: @"timeout"] intValue
-            ] 
-            [validateWith: schema [load: @"doc.xsd"]];
 
             // Dot-bracket
             parser.[parseDocument: loader.[
@@ -553,6 +546,14 @@
                 andTimeout: settings.[get: @"timeout"].[intValue]
             ]]
             .[validateWith: schema.[load: @"doc.xsd"]];
+
+            // smalltalk-objc
+            parser [parseDocument: loader [
+                fetchURL:   config [get: @"url"] 
+                withAuth:   credentials [tokenFor: service current]
+                andTimeout: settings [get: @"timeout"] intValue
+            ]]
+            [validateWith: schema [load: @"doc.xsd"]];
 
             // Swift
             parser.parseDocument(loader.fetch(
