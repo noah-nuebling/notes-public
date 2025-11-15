@@ -530,6 +530,7 @@
 
             /**
 
+            // Current objc
             [[parser parseDocument: [loader 
                 fetchURL:   [config get: @"url"] 
                 withAuth:   [credentials tokenFor: [service current]]
@@ -537,11 +538,28 @@
             ]]
             validateWith: [schema load: @"doc.xsd"]];
 
+            // smalltalk
             parser [parseDocument: loader [
                 fetchURL:   config [get: @"url"] 
                 withAuth:   credentials [tokenFor: service current]
                 andTimeout: settings [get: @"timeout"] intValue
             ] 
             [validateWith: schema [load: @"doc.xsd"]];
+
+            // Dot-bracket
+            parser.[parseDocument: loader.[
+                fetchURL:   config.[get: @"url"] 
+                withAuth:   credentials.[tokenFor: service.[current]]
+                andTimeout: settings.[get: @"timeout"].[intValue]
+            ]]
+            .[validateWith: schema.[load: @"doc.xsd"]];
+
+            // Swift
+            parser.parseDocument(loader.fetch(
+                url:     config.get("url"),
+                auth:    credentials.token(for: service.current),
+                timeout: settings.get("timeout").intValue
+            ))
+            .validate(with: schema.load("doc.xsd"))
 
             */
