@@ -376,6 +376,7 @@
 //                  Array [String *] *files = Array.[new];
 //                  while ((entry = readdir(dir))) 
 //                      files.[addObject: @(String *)entry->d_name];
+//          Replace `[NSString stringWithFormat: @"%@", obj]` -> `@"%@".[format: obj]`
 
     /// Swuft 2.0
 
@@ -402,15 +403,11 @@
                 else if (didFindCircularRef)
                     content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                 else {
-
-                    for range(i, propNames.[count]) {
-                        auto name = propNames[i];
-                        auto value = self.[valueForKey: name].[description]; 
-                        content.[appendFormat: @"%@: %@", name, value];
-                        bool isNotLast = (i < propNames.[count] - 1);
-                        if (isNotLast)
-                            content.[appendString: @"\n"];
-                    }
+                    content = @[
+                        @"%@: %@".[format: name, self.[valueForKey: name]]
+                        for (String *name in propNames)
+                    ]
+                    .[componentsJoinedByString: @"\n"];
                 }
             }
         }
