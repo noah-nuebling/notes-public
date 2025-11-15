@@ -528,7 +528,8 @@
                 // manual JSON construction...
                 printf("{\"path\": \"/etc\", \"files\": [");
                 for (int i = 0; i < count; i++) {
-                    printf("\"%s\"%s", names[i], i < count - 1 ? ", " : "");
+                    if (i) printf(",");
+                    printf(names[i]);
                     free(names[i]);
                 }
                 printf("], \"count\": %d}\n", count);
