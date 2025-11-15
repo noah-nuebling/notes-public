@@ -4,17 +4,18 @@ with 50 lines of helper functions
 give you the same ergonomics as React 
 with none of the downsides (almost 2000 dependencies!)
 
-In this Claude conversation you can see the core pattern, 
-plus ideas for pitches / promoting on GitHub
-Plus ideas for replacing tailwind
-Plus explanation of Zustand
-Plus conventions for publishing component libraries.
-[Nov 2025]
+In this Claude conversation you can see 
+    TOC: 
+        the core pattern
+        plus ideas for pitches / promoting on GitHub
+        Plus ideas for replacing tailwind
+        Plus explanation of Zustand
+        Plus conventions for publishing component libraries.
+    [Nov 2025]
 
-https://claude.ai/share/46378e9c-1097-4875-b4f6-6ca55fc1eed2
+    https://claude.ai/share/46378e9c-1097-4875-b4f6-6ca55fc1eed2
 
 Here's a copy-paste of the core pattern:
-
 
 
     //1. Templating (Simple → Interactive)
@@ -63,13 +64,13 @@ Here's a copy-paste of the core pattern:
     
     if (!xComponentIsInitialized) {
         class CustomElement extends HTMLElement {
-        connectedCallback() {
-            const id = this.dataset.instanceId;
-            if (id && instanceCallbacks.has(id)) {
-            instanceCallbacks.get(id).call(this);
-            instanceCallbacks.delete(id);
+            connectedCallback() {
+                const id = this.dataset.instanceId;
+                if (id && instanceCallbacks.has(id)) {
+                    instanceCallbacks.get(id).call(this);
+                    instanceCallbacks.delete(id);
+                }
             }
-        }
         }
         customElements.define('x-component', CustomElement);
     }
