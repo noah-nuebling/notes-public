@@ -484,10 +484,10 @@
                 auto info = @{ 
                     @"path": @"/etc", 
                     @"files": files, 
-                    @"count": @(auto)files.[count];
+                    @"count": @(auto)(files count);
                 };
                 
-                printf("%s\n", @(char *)info.[toJSON]);
+                printf("%s\n", @(char *)(info toJSON);
             }
         
         /// Python
@@ -528,7 +528,7 @@
             }
 
 
-            /**
+            /** Deeply nested calls:
 
             // Current objc
             [[parser parseDocument: [loader 
