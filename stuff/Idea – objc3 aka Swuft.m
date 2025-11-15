@@ -280,14 +280,21 @@
 //              (built into clang/gcc, fast, can call C APIs like stat() directly without ffi, automatic memory management, generic lists, syntax sugar like Python. 
 //              Basically anyone with a c compiler gets this nice dynamic scripting environment for 
 //              C that can call all the UNIX file/system APIs natively and has a repl and is fast and stuff. – That's actually useful for Linux programmers I think.)
-//          Dot syntax: [[obj thingWithThing:thing andThing:otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
-//              -> Solves only real painpoint with current objc method calls: Having to add `[` *on the left* of the `obj` when you wanna chain a method call (on its *right*).
-//              -> Absolutely no abstraction or ambiguity about what the selector string at runtime is.
-//              -> Still matches common notation for methods: `-[thingWithThing:andThing:]`
-//              -> No ambiguity or overlap with 'native' C syntax.
-//              -> 'Feels' sort of natural I think. Space is no longer a 'method call' operator. It's `.` like normal language. 
-//                  Dot is also easier to parse visual when method chaining. Using [] for selectors feels 'natural' because it's 
-//                  commonly used to look up something on an object via a key (array/dict), and you *are* looking up the method by selector-string -> Checks out.
+//          Method-calls: 
+//              Dot-syntax: 
+//                  Old: [[obj thingWithThing:thing andThing:otherThing] description]
+//                  New: obj.[thingWithThing: thing andThing: otherThing].[description]
+//                  -> Solves only real painpoint with current objc method calls: 
+//                          Having to add `[` *on the left* of the `obj` when you wanna chain a method call (on its *right*).
+//                  -> Absolutely no abstraction or ambiguity about what the selector string at runtime is.
+//                  -> Still matches common notation for methods: `-[thingWithThing:andThing:]`
+//                  -> No ambiguity or overlap with 'native' C syntax.
+//                  -> 'Feels' sort of natural I think. Space is no longer a 'method call' operator. It's `.` like normal language. 
+//                      Dot is also easier to parse visual when method chaining. Using [] for selectors feels 'natural' because it's 
+//                      commonly used to look up something on an object via a key (array/dict), and you 
+//                      *are* looking up the method by selector-string -> Checks out.
+//              Full-smalltalk:
+//                  
 //          Change generics syntax from `NSArray<String *> *` to `Array [String *] *`
 //              -> Looks nicer and is more reminiscent / consistent with how you use the object.(You call a .[method] on the `Array *` to get a `String *` out of it). 
 //                  This matches with native C design where declaration syntax follows usage syntax.
@@ -398,31 +405,31 @@
         - (String *) description {
 
             auto content = @"";
-            Array [String *] *propNames = self.[class].[allPropertyNames];
+            Array [String *] *propNames = self class allPropertyNames;
             if (propNames.count > 0) {
             
                 /// Check for circular refs
                 ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
-                thread_local auto visitedObjects = Array.[new];
+                thread_local auto visitedObjects = Array new;
                 auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-                bool didFindCircularRef = visitedObjects [containsObject: s];
-                visitedObjects.[addObject: s];
+                bool didFindCircularRef = visitedObjects [containsObject: self];
+                visitedObjects [addObject: s];
                 defer {
-                    assert(visitedObjects [lastObject] [isEqual: s]);
-                    visitedObjects.[removeLastObject];
+                    assert(visitedObjects lastObject [isEqual: s]);
+                    visitedObjects removeLastObject;
                 };
                 
                 /// Get description of props
                 if ((0))
-                    content = self.[asPlistWithRequireSecureCoding: NO].[description];
+                    content = self [asPlistWithRequireSecureCoding: NO] description;
                 else if (didFindCircularRef)
                     content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                 else {
                     content = @[
-                        @"%@: %@".[format: name, self.[valueForKey: name]]
+                        @"%@: %@" [format: name, self [valueForKey: name]]
                         for (String *name in propNames)
                     ]
-                    .[componentsJoinedByString: @"\n"];
+                    [componentsJoinedByString: @"\n"];
                 }
             }
         }
@@ -445,10 +452,10 @@
                 auto info = @{ 
                     @"path": @"/etc", 
                     @"files": files, 
-                    @"count": @(auto)files.[count] 
+                    @"count": @(auto)(files count);
                 };
                 
-                printf("%s\n", @(char *)info.[toJSON]);
+                printf("%s\n", @(char *)(info toJSON));
             }
         
         /// Python
