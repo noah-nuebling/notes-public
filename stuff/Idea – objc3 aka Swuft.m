@@ -315,7 +315,8 @@
 //          Keep the long method names on lesser used APIs like NSImage or whatever 
 //              -> Those actually benefit from the explicitness.
 //          Fix ARC to work with thread_local. 
-//          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be super small delta from C struct declaration / designated initializer. 
+//          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be 
+//              super small delta from C struct declaration / designated initializer. 
 //              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
 
 
@@ -324,17 +325,17 @@
 - (String *) description {
 
     auto content = @"";
-    Array [String *] *propNames = self.class.[allPropertyNames];
+    Array [String *] *propNames = self.[class.allPropertyNames];
     if (propNames.count > 0) {
     
         /// Check for circular refs
         ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
         thread_local auto visitedObjects = Array.[new];
         auto *s = @((uintptr_t)self); /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-        bool didFindCircularRef = visitedObjects.[contains: s];
-        visitedObjects.[add: s];
+        bool didFindCircularRef = visitedObjects.[containsObject: s];
+        visitedObjects.[addObject: s];
         defer {
-            assert(visitedObjects.[lastObject].[equals: s]);
+            assert(visitedObjects.[lastObject].[isEqual: s]);
             visitedObjects.[removeLastObject];
         };
         
@@ -346,11 +347,11 @@
         else {
             auto _content = String.[string];
             
-            for range(i, propNames.count) {
+            for range(i, propNames.[count]) {
                 auto name = propNames[i];
                 auto value = self.[valueForKey: name].[description]; /// If this is nil, NSString will just insert "(null)" iirc || `-description` is the recursive call that might cause infinite loops if there are circular refs
                 _content.[appendFormat: @"%@: %@", name, value];
-                bool isNotLast = (i < propNames.count - 1);
+                bool isNotLast = (i < propNames.[count] - 1);
                 if (isNotLast)
                     _content.[appendString: @"\n"];
             }
