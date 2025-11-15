@@ -282,8 +282,8 @@
 //              C that can call all the UNIX file/system APIs natively and has a repl and is fast and stuff. – That's actually useful for Linux programmers I think.)
 //          Method-calls: 
 //              Dot-syntax: 
-//                  Old: [[obj thingWithThing:thing andThing:otherThing] description]
-//                  New: obj.[thingWithThing: thing andThing: otherThing].[description]
+//                  Old: auto x = [[[obj thingWithThing:thing andThing:otherThing] description] UTF8String]
+//                  New: auto x = obj.[thingWithThing: thing andThing: otherThing].[description].[UTF8String]
 //                  -> Solves only real painpoint with current objc method calls: 
 //                          Having to add `[` *on the left* of the `obj` when you wanna chain a method call (on its *right*).
 //                  -> Absolutely no abstraction or ambiguity about what the selector string at runtime is.
@@ -294,6 +294,11 @@
 //                      commonly used to look up something on an object via a key (array/dict), and you 
 //                      *are* looking up the method by selector-string -> Checks out.
 //              Full-smalltalk:
+//                  auto x = obj [thingWithThing: thing andThing: otherThing] description UTF8String;
+//                  -> ULTRA clean
+//                      -> Objc go from the ugliest langauge to the prettiest language.
+//                  -> Can't think of a reason why this won't parse
+//                  -> Why didn't they do this when they originally created objc??
 //                  
 //          Change generics syntax from `NSArray<String *> *` to `Array [String *] *`
 //              -> Looks nicer and is more reminiscent / consistent with how you use the object.(You call a .[method] on the `Array *` to get a `String *` out of it). 
