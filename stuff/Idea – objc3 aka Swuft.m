@@ -385,7 +385,9 @@
 //                  Regular app devs live in the world of AppKit/UIKit anyways, and so don't even have to worry about calling C APIs very much I guess, 
 //                  although, some of them are actually nice to use and useful, so maybe it would be nice to help app-devs be more comfortable using them 
 //                  directly, too, instead of higher-level wrappers?
-//              -> You don't need a wrapper when you can just wrap anything yourself in 1 line of code and call ALL the C APIs your system offers.
+//              -> You don't need a wrapper when you can just wrap anything yourself in 1 line of code and call ALL the C APIs your system offers, 
+//                      with scripting-language-like convenience.
+//                      (Also auto completion is better and man pages are easier to read than Python docs, so you might be *more* productive)
 //          List comprehensions:
 //              Idea: 
 //                  @[<loop-body-expression-evaluating-to-object> <loop-header>]
@@ -400,7 +402,7 @@
 //                  while ((entry = readdir(dir))) 
 //                      files.[addObject: @(String *)entry->d_name];
 //          Replace `[NSString stringWithFormat: @"%@", obj]` -> `@"%@".[format: obj]`
-//              ... Honestly stringf(@"%@", obj) is still more readable with more args.
+//              ... Honestly stringf(@"%@", obj) is still more readable when you have more args.
 //          Remove arbitrary restrictions from anonymous structs to allow multiple return values:
 //              `struct { auto x; int y; } result = f();`
 //              `struct { auto x, y; } result     = f();` 
@@ -424,13 +426,13 @@
                 
                     /// Check for circular refs
                     ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
-                    thread_local auto visitedObjects = Array.[new];
+                    thread_local auto visited = Array.[new];
                     auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-                    bool didFindCircularRef = visitedObjects.[containsObject: self];
-                    visitedObjects.[addObject: s];
+                    bool didFindCircularRef = visited.[contains: self];
+                    visited.[addObject: s];
                     defer {
-                        assert(visitedObjects.[lastObject].[isEqual: s]);
-                        visitedObjects.[removeLastObject];
+                        assert(visited[last].[isEqual: s]);
+                        visited.[removeLast];
                     };
                     
                     /// Get description of props
