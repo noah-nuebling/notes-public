@@ -276,13 +276,13 @@
 //              -> Nice to have for a scripting language 
 //          Provide the standard library open source and cross-platform, so that objc actually becomes viable to use outside of Apple ecosystem. 
 //              I think it could be a viable choice on linux over Python for scripting with some performance requirements. 
-//              (built into clang/gcc, fast, can call C APIs directly, automatic memory management, generic list and syntax sugar like Python. 
+//              (built into clang/gcc, fast, can call C APIs like stat() directly without ffi, automatic memory management, generic list and syntax sugar like Python. 
 //              Basically anyone with a c compiler gets this nice dynamic scripting environment for 
 //              C that can call all the system APIs natively and has a repl and is fast and stuff. – That's actually useful for Linux programmers I think.)
-//          Dot syntax: [[obj thingWithThing: thing andThing: otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
+//          Dot syntax: [[obj thingWithThing:thing andThing:otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
 //              -> Solves only real painpoint with current objc method calls: Having to add `[` *on the left* of the `obj` when you wanna chain a method call (on its *right*).
 //              -> Absolutely no abstraction or ambiguity about what the selector string at runtime is.
-//              -> Still matches common notation for methods: `-[theMethod:andSomeArgs:]`
+//              -> Still matches common notation for methods: `-[thingWithThing:andThing:]`
 //              -> No ambiguity or overlap with 'native' C syntax.
 //          Change generics syntax from `NSArray<String *> *` to `Array [String *] *`
 //              -> Looks nicer and is more reminiscent / consistent with how you use the object.(You call a .[method] on the Array * to get a String * out of it). 
@@ -315,8 +315,8 @@
 //          Keep the long method names on lesser used APIs like NSImage or whatever 
 //              -> Those actually benefit from the explicitness.
 //          Fix ARC to work with thread_local. 
-//          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be like C struct declaration / designated initializer syntax with small delta. 
-//              (We already implemented this in current objc with the MFSimpleDataClass in mac-mouse-fix.)
+//          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be super small delta from C struct declaration / designated initializer. 
+//              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass.)
 
 
 /// Swuft 2.0
@@ -351,9 +351,8 @@
                 auto value = self.[valueForKey: name].[description]; /// If this is nil, NSString will just insert "(null)" iirc || `-description` is the recursive call that might cause infinite loops if there are circular refs
                 _content.[appendFormat: @"%@: %@", name, value];
                 bool isNotLast = (i < propNames.count - 1);
-                if (isNotLast) {
-                    _content += @"\n";
-                }
+                if (isNotLast)
+                    _content.[appendString: @"\n"];
             }
             content = _content;
         }
