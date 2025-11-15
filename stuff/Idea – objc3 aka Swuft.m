@@ -298,6 +298,9 @@
 //                  -> ULTRA clean
 //                      -> Objc go from the ugliest langauge to the prettiest language.
 //                  -> Can't think of a reason why this won't parse
+//                      Note: If you port pure smalltalk to C, 
+//                          then `obj parseThing: thing. description` is ambiguous because `thing.description` is struct-member-access.
+//                          But we solve that by simply wrapping methods with args in []
 //                  -> Why didn't they do this when they originally created objc??
 //                  
 //          Change generics syntax from `NSArray<String *> *` to `Array [String *] *`
