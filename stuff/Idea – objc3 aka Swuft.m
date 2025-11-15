@@ -319,15 +319,16 @@
 //              super small delta from C struct declaration / designated initializer. 
 //              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
 //          Weird idea: Make boxing syntax look like C-cast: @(str) -> @(auto) str
-//              Nice thing is this could apply to 
+//              Nice thing is this could take params making it usable for C arrays / buffers, making C-API interop pretty pain-free.
 //                  char *:
 //                      char *heapStringFromCAPI;
-//                      Strign *obj = @(auto, free) heapStringFromCAPI;
+//                      Strign *obj = @(auto, free) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
 //                  int *:
-//                      Array [Number *] *boxedInts = @(auto, free, size(int n)) getHeapInts(&n);
+//                      Array [Number *] *boxedInts = @(auto, free, size(int n)) getHeapInts(&n); /// `int n` only exists for this expression.
 //                  int[];
 //                      int stackStuff[10] = ...;
-//                      Array [Number *] *obj = @(auto) stackStuff;
+//                      Array [Number *] *obj = @(auto) stackStuff; // Just infers the size automatically
+//              -> This is a bit magical / high-level, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
 
 
 /// Swuft 2.0
