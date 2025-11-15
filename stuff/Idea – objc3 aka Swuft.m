@@ -365,40 +365,66 @@
 //                  although, some of them are actually nice to use and useful, so maybe it would be nice to help app-devs be more comfortable using them, too?
 //              
 
-/// Swuft 2.0
+    /// Swuft 2.0
 
-- (String *) description {
+        - (String *) description {
 
-    auto content = @"";
-    Array [String *] *propNames = self.[class].[allPropertyNames];
-    if (propNames.count > 0) {
-    
-        /// Check for circular refs
-        ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
-        thread_local auto visitedObjects = Array.[new];
-        auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-        bool didFindCircularRef = visitedObjects.[containsObject: s];
-        visitedObjects.[addObject: s];
-        defer {
-            assert(visitedObjects.[lastObject].[isEqual: s]);
-            visitedObjects.[removeLastObject];
-        };
-        
-        /// Get description of props
-        if ((0))
-            content = self.[asPlistWithRequireSecureCoding: NO].[description];
-        else if (didFindCircularRef)
-            content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
-        else {
+            auto content = @"";
+            Array [String *] *propNames = self.[class].[allPropertyNames];
+            if (propNames.count > 0) {
+            
+                /// Check for circular refs
+                ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
+                thread_local auto visitedObjects = Array.[new];
+                auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
+                bool didFindCircularRef = visitedObjects.[containsObject: s];
+                visitedObjects.[addObject: s];
+                defer {
+                    assert(visitedObjects.[lastObject].[isEqual: s]);
+                    visitedObjects.[removeLastObject];
+                };
+                
+                /// Get description of props
+                if ((0))
+                    content = self.[asPlistWithRequireSecureCoding: NO].[description];
+                else if (didFindCircularRef)
+                    content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
+                else {
 
-            for range(i, propNames.[count]) {
-                auto name = propNames[i];
-                auto value = self.[valueForKey: name].[description]; 
-                content.[appendFormat: @"%@: %@", name, value];
-                bool isNotLast = (i < propNames.[count] - 1);
-                if (isNotLast)
-                    content.[appendString: @"\n"];
+                    for range(i, propNames.[count]) {
+                        auto name = propNames[i];
+                        auto value = self.[valueForKey: name].[description]; 
+                        content.[appendFormat: @"%@: %@", name, value];
+                        bool isNotLast = (i < propNames.[count] - 1);
+                        if (isNotLast)
+                            content.[appendString: @"\n"];
+                    }
+                }
             }
         }
-    }
-}
+
+
+    /// Swuft vs Python vs C for UNIX scripting
+
+        /// Swuft
+            #import <Foundation.h>
+
+            int main() {
+                DIR *dir = opendir("/etc");
+                defer closedir(dir);
+                struct dirent *entry;
+                
+                auto files = @[ @(String *) entry->d_name while ((entry = readdir(dir))) ];
+                auto info = @{ @"path": @"/etc", @"files": files, @"count": @(auto) files.[count] };
+                
+                printf("%s\n", info.[toJSON].[UTF8String]);
+            }
+        
+        /// Python
+            import os, json
+
+            files = os.listdir("/etc")
+            info = {"path": "/etc", "files": files, "count": len(files)}
+            print(json.dumps(info))
+
+        
