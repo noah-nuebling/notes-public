@@ -308,7 +308,7 @@
 //                  Nice thing is this could take params for boxing C arrays / buffers.
 //                      char *:
 //                          char *heapStringFromCAPI;
-//                          String *obj = @(__free auto) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
+//                          auto obj = @(__free String *) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
 //                      int *:
 //                          Array [Number *] *boxedInts = @(__count(int n) __free auto) (int *)getHeapInts(&n); 
 //                              -> `int n` only exists for the scope after @()
@@ -341,7 +341,8 @@
 //                  etc.
 //                  Maybe even add Python-like list/dict/set comprehensions.
 //                  -> Make working with basic collections super easy and expressive. 
-//                  Sugar would be implemented with new protocols that define methods like [sliceWithLower:upper:step:] which anyone could adopt.
+//                  Sugar would be implemented with new protocols that define methods like [sliceWithLower:upper:step:] which anyone could adopt. 
+//                      Maybe they should have underscores to mark them as 'sugar methods' so they're easy to spot and don't conflict. (Python does this)
 //          Keep the long method names on lesser used APIs like NSImage or whatever 
 //              -> Those actually benefit from the explicitness.
 //          Fix ARC to work with thread_local. 
