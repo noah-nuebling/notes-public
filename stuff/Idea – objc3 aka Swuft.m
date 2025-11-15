@@ -320,12 +320,14 @@
 //              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
 //          Weird idea: Make boxing syntax look like C-cast: @(str) -> @(auto) str
 //              Nice thing is this could apply to 
-//              stack buffers: 
-//                  int stackStuff[10]; 
-//                  Array [Number *] *obj = @(auto) stackStuff;
-//              or even auto-free heap buffers:
-//                  int stackStuff[10]; 
-//                  Array [Number *] *obj = @(auto) stackStuff;
+//                  char *:
+//                      char *heapStringFromCAPI;
+//                      Strign *obj = @(auto, free) heapStringFromCAPI;
+//                  int *:
+//                      Array [Number *] *boxedInts = @(auto, free, size(int n)) getHeapInts(&n);
+//                  int[];
+//                      int stackStuff[10] = ...;
+//                      Array [Number *] *obj = @(auto) stackStuff;
 
 
 /// Swuft 2.0
