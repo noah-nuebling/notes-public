@@ -421,30 +421,25 @@
             - (String *) description {
 
                 auto content = @"";
-                Array [String *] *propNames = self.[class].[allPropertyNames];
+                Array [String *] *propNames = self.[class].[propNames];
                 if (propNames.count > 0) {
                 
-                    /// Check for circular refs
-                    ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
                     thread_local auto visited = Array.[new];
-                    auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-                    bool didFindCircularRef = visited.[contains: self];
-                    visited.[addObject: s];
+                    auto *s = @(auto)(uintptr_t)self;
+                    bool found_circref = visited.[contains: self];
+                    visited.[add: s];
                     defer {
-                        assert(visited[last].[isEqual: s]);
+                        assert(visited.[last].[equals: s]);
                         visited.[removeLast];
                     };
                     
-                    /// Get description of props
                     if ((0))
-                        content = self.[asPlistWithRequireSecureCoding: NO].[description];
-                    else if (didFindCircularRef)
+                        content = self.[asPlist_SecureCoding: NO].[description];
+                    else if (found_circref)
                         content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                     else {
                         
-                        content = 
-                            @[stringf(@"%@: %@", name, self.[valueForKey: name]) for (String *name in propNames)] 
-                            .[componentsJoinedByString: @"\n"];
+                        content = @[stringf(@"%@: %@", name, self.[kvc_get: name]) for (String *name in propNames)].[joinedBy: @"\n"];
                     }
                 }
             }
@@ -454,30 +449,25 @@
             - (String *) description {
 
                 auto content = @"";
-                Array [String *] *propNames = self class allPropertyNames;
+                Array [String *] *propNames = self class propNames;
                 if (propNames.count > 0) {
                 
-                    /// Check for circular refs
-                    ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
-                    thread_local auto visitedObjects = Array new;
-                    auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-                    bool didFindCircularRef = visitedObjects [containsObject: self];
-                    visitedObjects [addObject: s];
+                    thread_local auto visited = Array new;
+                    auto *s = @(auto)(uintptr_t)self;
+                    bool found_circref = visited [contains: self];
+                    visited [add: s];
                     defer {
-                        assert(visitedObjects lastObject [isEqual: s]);
-                        visitedObjects removeLastObject;
+                        assert(visited last [isEqual: s]);
+                        visited removeLast;
                     };
                     
-                    /// Get description of props
                     if ((0))
-                        content = self [asPlistWithRequireSecureCoding: NO] description;
-                    else if (didFindCircularRef)
+                        content = self [asPlist_SecureCoding: NO] description;
+                    else if (found_circref)
                         content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                     else {
                         
-                        content = 
-                            @[stringf(@"%@: %@", name, self [valueForKey: name]) for (String *name in propNames)] 
-                            [componentsJoinedByString: @"\n"];
+                        content = @[stringf(@"%@: %@", name, self [kvc_get: name]) for (String *name in propNames)] [joinedBy: @"\n"];
                     }
                 }
             }
@@ -487,7 +477,6 @@
 
         /// Swuft
         ///     (Uses the same APIs as C and is probably within 10% performance!!)
-            #import <Foundation.h>
 
             int main() {
                 
