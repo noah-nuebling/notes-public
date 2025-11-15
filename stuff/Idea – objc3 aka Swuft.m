@@ -407,7 +407,38 @@
 
     /// Swuft 2.0
 
-        - (String *) description {
+        /// FULL smalltalk:
+            - (String *) description {
+
+                auto content = @"";
+                Array [String *] *propNames = self class allPropertyNames;
+                if (propNames.count > 0) {
+                
+                    /// Check for circular refs
+                    ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
+                    thread_local auto visitedObjects = Array new;
+                    auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
+                    bool didFindCircularRef = visitedObjects [containsObject: self];
+                    visitedObjects [addObject: s];
+                    defer {
+                        assert(visitedObjects lastObject [isEqual: s]);
+                        visitedObjects removeLastObject;
+                    };
+                    
+                    /// Get description of props
+                    if ((0))
+                        content = self [asPlistWithRequireSecureCoding: NO] description;
+                    else if (didFindCircularRef)
+                        content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
+                    else {
+                        
+                        content = 
+                            @[stringf(@"%@: %@", name, self [valueForKey: name]) for (String *name in propNames)] 
+                            [componentsJoinedByString: @"\n"];
+                    }
+                }
+            }
+        /// Dot-syntax
 
             auto content = @"";
             Array [String *] *propNames = self class allPropertyNames;
@@ -431,10 +462,9 @@
                     content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                 else {
                     
-                    content = @[
-                        @"%@: %@" [format: name, self [valueForKey: name]]
-                        for (String *name in propNames)
-                    ] [componentsJoinedByString: @"\n"];
+                    content = 
+                        @[stringf(@"%@: %@", name, self [valueForKey: name]) for (String *name in propNames)] 
+                        [componentsJoinedByString: @"\n"];
                 }
             }
         }
@@ -443,14 +473,13 @@
     /// Swuft vs Python vs C for UNIX scripting
 
         /// Swuft
-        ///     (Uses the same APIs as C and is probably with 10% performance!!)
+        ///     (Uses the same APIs as C and is probably within 10% performance!!)
             #import <Foundation.h>
 
             int main() {
                 
                 DIR *dir = opendir("/etc");
                 defer closedir(dir);
-                
                 struct dirent *entry;
                 auto files = @[ @(String *)entry->d_name while ((entry = readdir(dir))) ]; /// This is so elegant!!
 
