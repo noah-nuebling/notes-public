@@ -296,13 +296,29 @@
 //                  – this makes for a great and super fast scripting language.
 //              - Make unboxing even easier. Add protocol for .[sizeof] and .[unbox: &buffer] methods to copy collection contents into a C array super easily.
 //              -> Lean into the strengths of being a C superset.
+
+//              Weird idea 'boxing cast': Make boxing syntax look like C-cast: `@(str)` -> `@(auto) str`
+//                  Nice thing is this could take params for boxing C arrays / buffers.
+//                      char *:
+//                          char *heapStringFromCAPI;
+//                          String *obj = @(__free auto) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
+//                      int *:
+//                          Array [Number *] *boxedInts = @(__count(int n) __free auto) (int *)getHeapInts(&n); /// `int n;` only exists for this expression. 
+//                                                                                                              ///  Could also declare `int n;` above and then just pass n
+//                      int[];
+//                          int stackStuff[10] = ...;
+//                          Array [Number *] *obj = @(auto) stackStuff; // Just infers the size automatically
+//                  
+//                      -> Not sure this is too magical, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
+//                      -> Weird: It's strange that the element size is inferred from the c type but the element count is specified in the @(boxed cast). 
+//                          Those things seem maybe too related to split up like this?
 //          for range(i, propNames.count)
 //             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. (Like python range())
 //          defer -> That's nice I guess.
 //          Just use .[new] to create new instances 
 //              (This isn't common in current objc because in the 2000s they were crazy 
 //              and preferred [[Class alloc] init] because more verbose = more 'explicit' = better or something? 
-//              Also [new] had to be autoreleased before ARC, but [array] didn't so that was preferred for convenience. 
+//              Also -[new] had to be autoreleased before ARC, but -[array] didn't so that was preferred for convenience. 
 //              But with ARC, you should just use .[new] everywhere.)
 //          Syntax sugar on objects, 
 //              like:
@@ -311,29 +327,13 @@
 //                  etc.
 //                  Maybe even add Python-like list/dict/set comprehensions.
 //                  -> Make working with basic collections super easy and expressive. 
-//                  Sugar would be implemented with new protocols that define methods like [sliceWithLower:upper:step:]
+//                  Sugar would be implemented with new protocols that define methods like [sliceWithLower:upper:step:] which anyone could adopt.
 //          Keep the long method names on lesser used APIs like NSImage or whatever 
 //              -> Those actually benefit from the explicitness.
 //          Fix ARC to work with thread_local. 
 //          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be 
 //              super small delta from C struct declaration / designated initializer. 
 //              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
-//          Weird idea: Make boxing syntax look like C-cast: `@(str)` -> `@(auto) str`
-//              Nice thing is this could take params for boxing C arrays / buffers.
-//                  char *:
-//                      char *heapStringFromCAPI;
-//                      String *obj = @(__free auto) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
-//                  int *:
-//                      Array [Number *] *boxedInts = @(__count(int n) __free auto) (int *)getHeapInts(&n); /// `int n;` only exists for this expression. 
-//                                                                                                          ///  Could also declare `int n;` above and then just pass n
-//                  int[];
-//                      int stackStuff[10] = ...;
-//                      Array [Number *] *obj = @(auto) stackStuff; // Just infers the size automatically
-//              
-//                  -> Not sure this is too magical, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
-//                  -> Weird: It's strange that the element size is inferred from the c type but the element count is specified in the @(boxed cast). 
-//                      Those things seem too related to split up like this.
-
 
 /// Swuft 2.0
 
