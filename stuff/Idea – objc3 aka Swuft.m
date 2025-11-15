@@ -324,7 +324,7 @@
 //                      char *heapStringFromCAPI;
 //                      String *obj = @(auto, free) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
 //                  int *:
-//                      Array [Number *] *boxedInts = @(auto, count(int n), free) getHeapInts(&n); /// `int n;` only exists for this expression. 
+//                      Array [Number *] *boxedInts = @(auto, cleanup(free), count(int n)) getHeapInts(&n); /// `int n;` only exists for this expression. 
 //                                                                                                 ///  Could also declare `int n;` above and then just pass n
 //                  int[];
 //                      int stackStuff[10] = ...;
