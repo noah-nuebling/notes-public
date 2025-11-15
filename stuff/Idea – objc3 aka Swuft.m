@@ -285,12 +285,18 @@
 //              -> Absolutely no abstraction or ambiguity about what the selector string at runtime is.
 //              -> Still matches common notation for methods: `-[thingWithThing:andThing:]`
 //              -> No ambiguity or overlap with 'native' C syntax.
+//              -> 'Feels' sort of natural I think. Space is no longer a 'method call' operator. It's `.` like normal language. 
+//                  Dot is also easier to parse visual when method chaining. Using [] for selectors feels 'natural' because it's 
+//                  commonly used to look up something on an object via a key (array/dict), and you *are* looking up the method by selector-string -> Checks out.
 //          Change generics syntax from `NSArray<String *> *` to `Array [String *] *`
-//              -> Looks nicer and is more reminiscent / consistent with how you use the object.(You call a .[method] on the Array * to get a String * out of it). 
+//              -> Looks nicer and is more reminiscent / consistent with how you use the object.(You call a .[method] on the `Array *` to get a `String *` out of it). 
 //                  This matches with native C design where declaration syntax follows usage syntax.
-//          Make it customary to use space after `:` in selectors. Instead of`obj.[thingWithThing:thing andThing:otherThing]`, you'd do `obj.[thingWithThing: thing andThing: otherThing]` 
-//              -> This looks prettier and closer to how other languages (including Swift) format syntax involving `:`. Plus it's easier to grok at a glance.
+//          Make it customary to use space after `:` in selectors. 
+//              `[obj thingWithThing:thing andThing:otherThing]` vs
+//              `obj.[thingWithThing: thing andThing: otherThing]` 
+//              -> This looks prettier and closer to how other languages (including Swift) format syntax involving `:`. And it's easier to grok at a glance.
 //          Keep being a C superset - C is great. 
+//              - C is fast and simple and lets you understand what the computer is actually doing.
 //              - C is the native language of the system. You can call native UNIX C APIs like link, stat, etc and 
 //                  wrap the results in @() to avoid manual memory management and put them into superfast dynamic collections 
 //                  like NSDictionary (now Dictionary) for javascript-like expressiveness.
@@ -304,8 +310,10 @@
 //                          char *heapStringFromCAPI;
 //                          String *obj = @(__free auto) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
 //                      int *:
-//                          Array [Number *] *boxedInts = @(__count(int n) __free auto) (int *)getHeapInts(&n); /// `int n;` only exists for this expression. 
-//                                                                                                              ///  Could also declare `int n;` above and then just pass n
+//                          Array [Number *] *boxedInts = @(__count(int n) __free auto) (int *)getHeapInts(&n); 
+//                              -> `int n` only exists for the scope after @()
+//                              -> Can also declare `int n` beforehand and use __count(n)
+//                              -> Same semantics as `for (int i = 0;;)` -> not too weird.
 //                      int[];
 //                          int stackStuff[10] = ...;
 //                          Array [Number *] *obj = @(auto) stackStuff; // Just infers the size automatically
