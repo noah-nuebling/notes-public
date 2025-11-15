@@ -322,14 +322,15 @@
 //              Nice thing is this could take params making it usable for C arrays / buffers, making C-API interop pretty pain-free.
 //                  char *:
 //                      char *heapStringFromCAPI;
-//                      String *obj = @(auto, free) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
+//                      String *obj = @(__free auto) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
 //                  int *:
-//                      Array [Number *] *boxedInts = @(auto, cleanup(free), count(int n)) getHeapInts(&n); /// `int n;` only exists for this expression. 
-//                                                                                                 ///  Could also declare `int n;` above and then just pass n
+//                      Array [Number *] *boxedInts = @(__count(int n) __free auto) getHeapInts(&n); /// `int n;` only exists for this expression. 
+//                                                                                                   ///  Could also declare `int n;` above and then just pass n
 //                  int[];
 //                      int stackStuff[10] = ...;
 //                      Array [Number *] *obj = @(auto) stackStuff; // Just infers the size automatically
-//              -> This is a bit magical / high-level, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
+//              
+//                  -> This is a bit magical / high-level, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
 
 
 /// Swuft 2.0
