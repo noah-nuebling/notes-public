@@ -365,15 +365,15 @@
 //                  although, some of them are actually nice to use and useful, so maybe it would be nice to help app-devs be more comfortable using them, too?
 //          List comprehensions:
 //              Idea: 
-//                  @[<loop-body-expression-of-type-object> <loop-header>]
+//                  @[<loop-body-expression-evaluating-to-object> <loop-header>]
 //                  (Would work with any C loop header – for, while, do-while)
 //              Example:
 //                  struct dirent *entry;
-//                  auto files = @[ @(String *)entry->d_name while ((entry = readdir(dir))) ]; /// This is so elegant!!
+//                  Array [String *] *files = @[ @(String *)entry->d_name while ((entry = readdir(dir))) ]; /// This is so elegant!!
 //                  
 //              Equivalent without list-comprehension:
 //                  struct dirent *entry;
-//                  auto files = Array.[new];
+//                  Array [String *] *files = Array.[new];
 //                  while ((entry = readdir(dir))) 
 //                      files.[addObject: @(String *)entry->d_name];
 
