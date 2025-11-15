@@ -413,7 +413,7 @@
                 
                 /// Get description of props
                 if ((0))
-                    content = self asPlistWithRequireSecureCoding: NO. description ;
+                    content = self[asPlistWithRequireSecureCoding: NO][description];
                 else if (didFindCircularRef)
                     content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                 else {
