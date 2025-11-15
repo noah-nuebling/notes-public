@@ -262,13 +262,14 @@
 
 
 /// Update: [Nov 2025] Most of changes are basically not worth it. Objc is already fine. It just looks ugly.
-///     Let me try another attempt of cleaning up the objc syntax with fewer changes and with my current tastes:
+///     Let me try another attempt of cleaning up the objc syntax with fewer changes and with my current tastes which favor simplicity and consistency more:
 
 ///     (Changes:)
 ///         Add auto (already in objc via macro)
 //          Remove const – who cares
 //          Remove _Nullable - who cares
-//          No more 'NSMutableArray' just Array - who cares about mutability? Not worth the complexity.
+//          No more 'NSMutableArray' just Array - who cares about mutability? Not worth the complexity. 
+//              It's all NSCFArray or whatever under the hood anyway, so no speed penalty I think.
 //          Remove NS prefixes – NSArray -> Array. Less ugly. More appealing to noobs.
 //          Move NSArray (now just 'Array') out of Foundation and into a standard library (or just make Foundation the standard library) 
 //          Make a repl / JIT
@@ -276,9 +277,9 @@
 //              -> Nice to have for a scripting language 
 //          Provide the standard library open source and cross-platform, so that objc actually becomes viable to use outside of Apple ecosystem. 
 //              I think it could be a viable choice on linux over Python for scripting with some performance requirements. 
-//              (built into clang/gcc, fast, can call C APIs like stat() directly without ffi, automatic memory management, generic list and syntax sugar like Python. 
+//              (built into clang/gcc, fast, can call C APIs like stat() directly without ffi, automatic memory management, generic lists, syntax sugar like Python. 
 //              Basically anyone with a c compiler gets this nice dynamic scripting environment for 
-//              C that can call all the system APIs natively and has a repl and is fast and stuff. – That's actually useful for Linux programmers I think.)
+//              C that can call all the UNIX file/system APIs natively and has a repl and is fast and stuff. – That's actually useful for Linux programmers I think.)
 //          Dot syntax: [[obj thingWithThing:thing andThing:otherThing] description] -> obj.[thingWithThing: thing andThing: otherThing].[description]
 //              -> Solves only real painpoint with current objc method calls: Having to add `[` *on the left* of the `obj` when you wanna chain a method call (on its *right*).
 //              -> Absolutely no abstraction or ambiguity about what the selector string at runtime is.
