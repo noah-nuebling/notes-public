@@ -417,8 +417,20 @@
                 else if (didFindCircularRef)
                     content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                 else {
+
+                    @"%@: %@".(format: name, self.(valueForKey: name))
+
+                    @"%@: %@".[format: name, self.[valueForKey: name]]
+                    
+                    [@"%@: %@" format: name, [self valueForKey: name]]
+                    
+                    @"%@: %@" [format: name, self [valueForKey: name]]
+
+                    stringf(@"%@: %@", name, self.[valueForKey: name])
+
+
                     content = @[
-                        @"%@: %@".[format: name, value]
+                        @"%@: %@".[format: name, self.[valueForKey: name]]
                         for (String *name in propNames)
                     ]
                     .[componentsJoinedByString: @"\n"];
