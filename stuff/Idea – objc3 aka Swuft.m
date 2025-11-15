@@ -526,3 +526,22 @@
                 printf("], \"count\": %d}\n", count);
                 free(names);
             }
+
+
+            /**
+
+            [[parser parseDocument: [loader 
+                fetchURL:   [config get: @"url"] 
+                withAuth:   [credentials tokenFor: [service current]]
+                andTimeout: [[settings get: @"timeout"] intValue]]
+            ]]
+            validateWith: [schema load: @"doc.xsd"]];
+
+            parser [parseDocument: loader [
+                fetchURL:   config [get: @"url"] 
+                withAuth:   credentials [tokenFor: service current]
+                andTimeout: settings [get: @"timeout"] intValue
+            ] 
+            [validateWith: schema [load: @"doc.xsd"]];
+
+            */
