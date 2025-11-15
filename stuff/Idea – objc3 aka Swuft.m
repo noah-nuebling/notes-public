@@ -318,19 +318,21 @@
 //          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be 
 //              super small delta from C struct declaration / designated initializer. 
 //              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
-//          Weird idea: Make boxing syntax look like C-cast: @(str) -> @(auto) str
-//              Nice thing is this could take params making it usable for C arrays / buffers, making C-API interop pretty pain-free.
+//          Weird idea: Make boxing syntax look like C-cast: `@(str)` -> `@(auto) str`
+//              Nice thing is this could take params for boxing C arrays / buffers.
 //                  char *:
 //                      char *heapStringFromCAPI;
 //                      String *obj = @(__free auto) heapStringFromCAPI; // heapStringFromCAPI is freed and set to NULL after this.
 //                  int *:
-//                      Array [Number *] *boxedInts = @(__count(int n) __free auto) getHeapInts(&n); /// `int n;` only exists for this expression. 
-//                                                                                                   ///  Could also declare `int n;` above and then just pass n
+//                      Array [Number *] *boxedInts = @(__count(int n) __free auto) (int *)getHeapInts(&n); /// `int n;` only exists for this expression. 
+//                                                                                                          ///  Could also declare `int n;` above and then just pass n
 //                  int[];
 //                      int stackStuff[10] = ...;
 //                      Array [Number *] *obj = @(auto) stackStuff; // Just infers the size automatically
 //              
-//                  -> This is a bit magical / high-level, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
+//                  -> Not sure this is too magical, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
+//                  -> Weird: It's strange that the element size is inferred from the c type but the element count is specified in the @(boxed cast). 
+//                      Those things seem too related to split up like this.
 
 
 /// Swuft 2.0
