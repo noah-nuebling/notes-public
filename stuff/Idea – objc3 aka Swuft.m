@@ -321,8 +321,13 @@
 //                      -> Not sure this is too magical, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
 //                      -> Weird: It's strange that the element size is inferred from the c type but the element count is specified in the @(boxed cast). 
 //                          Those things seem maybe too related to split up like this?
+//                  Could have parallel 'unboxing cast' feature:
+//                      uint64_t i = @(uint64_t)myBoxedNumber;
+//                      (vs `int i = [myBoxedNumber unsignedLongLongValue];`)
+//                      -> The @() syntax then generally means 'convert between object<->primitive'
 //          for range(i, propNames.count)
-//             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. (Like python range())
+//             Just a convenience macro. Could do this in current objc, too. looks nicer than the 'loopc' macros I'm using in MMF, but could work the same. 
+//              (Work like python range())
 //          defer -> That's nice I guess.
 //          Just use .[new] to create new instances 
 //              (This isn't common in current objc because in the 2000s they were crazy 
@@ -371,7 +376,7 @@
         /// Check for circular refs
         ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
         thread_local auto visitedObjects = Array.[new];
-        auto *s = @((uintptr_t)self); /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
+        auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
         bool didFindCircularRef = visitedObjects.[containsObject: s];
         visitedObjects.[addObject: s];
         defer {
@@ -385,17 +390,15 @@
         else if (didFindCircularRef)
             content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
         else {
-            auto _content = String.[string];
-            
+
             for range(i, propNames.[count]) {
                 auto name = propNames[i];
-                auto value = self.[valueForKey: name].[description]; /// If this is nil, NSString will just insert "(null)" iirc || `-description` is the recursive call that might cause infinite loops if there are circular refs
-                _content.[appendFormat: @"%@: %@", name, value];
+                auto value = self.[valueForKey: name].[description]; 
+                content.[appendFormat: @"%@: %@", name, value];
                 bool isNotLast = (i < propNames.[count] - 1);
                 if (isNotLast)
-                    _content.[appendString: @"\n"];
+                    content.[appendString: @"\n"];
             }
-            content = _content;
         }
     }
 }
