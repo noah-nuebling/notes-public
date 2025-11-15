@@ -424,22 +424,33 @@
 
             int main() {
                 
-                DIR *dir = opendir("/etc");
-                defer closedir(dir);
+                Array *files;
+                {
+                    DIR *dir = opendir("/etc");
+                    defer closedir(dir);
+                    
+                    struct dirent *entry;
+                    files = @[ @(String *)entry->d_name while ((entry = readdir(dir))) ]; /// This is so elegant!!
+                }
+
+                auto info = @{ 
+                    @"path": @"/etc", 
+                    @"files": files, 
+                    @"count": @(auto)files.[count] 
+                };
                 
-                struct dirent *entry;
-                auto files = @[ @(String *)entry->d_name while ((entry = readdir(dir))) ]; /// This is so elegant!!
-                
-                auto info = @{ @"path": @"/etc", @"files": files, @"count": @(auto)files.[count] };
-                
-                printf("%s\n", info.[toJSON].[UTF8String]);
+                printf("%s\n", @(char *)info.[toJSON]);
             }
         
         /// Python
             import os, json
 
             files = os.listdir("/etc")
-            info = {"path": "/etc", "files": files, "count": len(files)}
+            info = {
+                "path": "/etc", 
+                "files": files, 
+                "count": len(files)
+            }
             print(json.dumps(info))
 
         /// C
