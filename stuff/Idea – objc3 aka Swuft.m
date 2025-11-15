@@ -334,6 +334,18 @@
 //          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be 
 //              super small delta from C struct declaration / designated initializer. 
 //              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
+//          Advertise as 'memory-safe in practice' or 'pragmatically memory-safe'.
+//              -> Safely and conveniently use super-fast C APIs.
+//              Say how you don't have to malloc anything, you don't have to do pointer arithmetic, there are no footguns, you get refcounted objects 
+//              for everything and they are super fast and convenient and easy.
+//              You *can* also use C APIs, but you can just box the return values immediately, so there is no error-prone malloc / free / realloc you have to do. 
+//                  (And that's very fast, too, so for most applications there's never a reason not to do this)
+//              While it may not have a complicated compile-time prover that you're doing nothing wrong, the language is simple and lean and understandabe, and designed 
+//                  it's hard to do anything wrong by accident. (Worst case, you leak some memory but that's not the end of the 
+//                  world and easy to fix, with our Apple Instruments TM Suite)
+//              It's a C superset 
+//                  
+//              
 
 /// Swuft 2.0
 
