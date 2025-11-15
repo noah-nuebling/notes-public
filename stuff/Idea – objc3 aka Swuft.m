@@ -405,16 +405,16 @@
                 ///     This prevents infinite loops if there are circular references in the datastructure. But [NSDictionary -description] seems to just infinite-loop in this case... Maybe this was overkill.
                 thread_local auto visitedObjects = Array.[new];
                 auto *s = @(auto)(uintptr_t)self; /// We cast self to an NSNumber so that we effectively do pointer-based equality checking instead of using the full `-isEqual` implementation.
-                bool didFindCircularRef = visitedObjects.[containsObject: s];
+                bool didFindCircularRef = visitedObjects [containsObject: s];
                 visitedObjects.[addObject: s];
                 defer {
-                    assert(visitedObjects.[lastObject].[isEqual: s]);
+                    assert(visitedObjects [lastObject] [isEqual: s]);
                     visitedObjects.[removeLastObject];
                 };
                 
                 /// Get description of props
                 if ((0))
-                    content = self[asPlistWithRequireSecureCoding: NO][description];
+                    content = self.[asPlistWithRequireSecureCoding: NO].[description];
                 else if (didFindCircularRef)
                     content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                 else {
