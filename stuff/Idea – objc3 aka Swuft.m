@@ -318,6 +318,14 @@
 //          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be 
 //              super small delta from C struct declaration / designated initializer. 
 //              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
+//          Weird idea: Make boxing syntax look like C-cast: @(str) -> @(auto) str
+//              Nice thing is this could apply to 
+//              stack buffers: 
+//                  int stackStuff[10]; 
+//                  Array [Number *] *obj = @(auto) stackStuff;
+//              or even auto-free heap buffers:
+//                  int stackStuff[10]; 
+//                  Array [Number *] *obj = @(auto) stackStuff;
 
 
 /// Swuft 2.0
@@ -325,7 +333,7 @@
 - (String *) description {
 
     auto content = @"";
-    Array [String *] *propNames = self.[class.allPropertyNames];
+    Array [String *] *propNames = self.[class].[allPropertyNames];
     if (propNames.count > 0) {
     
         /// Check for circular refs
