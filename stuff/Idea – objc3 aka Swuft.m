@@ -341,10 +341,11 @@
 //              You *can* also use C APIs, but you can just box the return values immediately, so there is no error-prone malloc / free / realloc you have to do. 
 //                  (And that's very fast, too, so for most applications there's never a reason not to do this)
 //              While it may not have a complicated compile-time prover that you're doing nothing wrong, the language is simple and lean and understandabe, and designed 
-//                  it's hard to do anything wrong by accident. (Worst case, you leak some memory but that's not the end of the 
+//                  so it's hard to do anything wrong by accident. (Worst case, you leak some memory but that's not the end of the 
 //                  world and easy to fix, with our Apple Instruments TM Suite)
-//              It's a C superset 
-//                  
+//              It's a C superset, so you still get the full power and speed of C when you need it. But for heap allocations, buffers 
+//                  and ownership, the most tedious and error prone parts of C – you can just box things in objects 
+//                  – it will most likely be more than fast enough anything you'll ever wanna do.
 //              
 
 /// Swuft 2.0
