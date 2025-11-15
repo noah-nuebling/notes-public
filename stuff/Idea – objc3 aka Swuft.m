@@ -302,9 +302,6 @@
 //                          then `obj parseThing: thing. description` is ambiguous because `thing.description` is struct-member-access.
 //                          But we solve that by simply wrapping methods with args in []
 //                  -> Why didn't they do this when they originally created objc??
-//                  -> After staring at this a bit ... I don't like it. It's elegant in isolation, but too visually sparse, and looks weird in the context of C. 
-//                          `.` for chaining is legitimately nice because it creates connection but also spacing and you can spot it immediately. Makes structure easy to grok visually.
-//                      .[selector] has its own beauty because it feels like its telling you exactly what's going on under the hood, while also looking visually decently cool.
 //                  
 //          Change generics syntax from `NSArray<String *> *` to `Array [String *] *`
 //              -> Looks nicer and is more reminiscent / consistent with how you use the object.(You call a .[method] on the `Array *` to get a `String *` out of it). 
@@ -454,10 +451,10 @@
                 
                     thread_local auto visited = Array new;
                     auto *s = @(auto)(uintptr_t)self;
-                    bool found_circref = visited [contains: self];
+                    bool found_circref = visited [contains: s];
                     visited [add: s];
                     defer {
-                        assert(visited last [isEqual: s]);
+                        assert(visited last [equals: s]);
                         visited removeLast;
                     };
                     
@@ -466,7 +463,6 @@
                     else if (found_circref)
                         content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                     else {
-                        
                         content = @[stringf(@"%@: %@", name, self [kvc_get: name]) for (String *name in propNames)] [joinedBy: @"\n"];
                     }
                 }
