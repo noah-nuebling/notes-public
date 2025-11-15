@@ -363,7 +363,19 @@
 //              -> This is the pitch for low-level / system programmers to pitch as an alternative to C or Rust for command-line tools or scripting etc. 
 //                  Regular app devs live in the world of AppKit/UIKit anyways, and so don't even have to worry about calling C APIs very much I guess, 
 //                  although, some of them are actually nice to use and useful, so maybe it would be nice to help app-devs be more comfortable using them, too?
-//              
+//          List comprehensions:
+//              Idea: 
+//                  @[<loop-body-expression-of-type-object> <loop-header>]
+//                  (Would work with any C loop header – for, while, do-while)
+//              Example:
+//                  struct dirent *entry;
+//                  auto files = @[ @(String *)entry->d_name while ((entry = readdir(dir))) ]; /// This is so elegant!!
+//                  
+//              Equivalent without list-comprehension:
+//                  struct dirent *entry;
+//                  auto files = Array.[new];
+//                  while ((entry = readdir(dir))) 
+//                      files.[addObject: @(String *)entry->d_name];
 
     /// Swuft 2.0
 
@@ -407,15 +419,18 @@
     /// Swuft vs Python vs C for UNIX scripting
 
         /// Swuft
+        ///     (Uses the same APIs as C and is probably with 10% performance!!)
             #import <Foundation.h>
 
             int main() {
+                
                 DIR *dir = opendir("/etc");
                 defer closedir(dir);
-                struct dirent *entry;
                 
-                auto files = @[ @(String *) entry->d_name while ((entry = readdir(dir))) ];
-                auto info = @{ @"path": @"/etc", @"files": files, @"count": @(auto) files.[count] };
+                struct dirent *entry;
+                auto files = @[ @(String *)entry->d_name while ((entry = readdir(dir))) ]; /// This is so elegant!!
+                
+                auto info = @{ @"path": @"/etc", @"files": files, @"count": @(auto)files.[count] };
                 
                 printf("%s\n", info.[toJSON].[UTF8String]);
             }
@@ -427,4 +442,32 @@
             info = {"path": "/etc", "files": files, "count": len(files)}
             print(json.dumps(info))
 
-        
+        /// C
+        ///     (Written by Claude, may be more verbose than necessary to prove a point)
+            #include <dirent.h>
+            #include <stdlib.h>
+            #include <string.h>
+            #include <stdio.h>
+
+            int main() {
+                DIR *dir = opendir("/etc");
+                struct dirent *entry;
+                char **names = NULL;
+                int count = 0;
+                
+                while ((entry = readdir(dir))) {
+                    names = realloc(names, (count + 1) * sizeof(char *));
+                    names[count] = strdup(entry->d_name);
+                    count++;
+                }
+                closedir(dir);
+                
+                // manual JSON construction...
+                printf("{\"path\": \"/etc\", \"files\": [");
+                for (int i = 0; i < count; i++) {
+                    printf("\"%s\"%s", names[i], i < count - 1 ? ", " : "");
+                    free(names[i]);
+                }
+                printf("], \"count\": %d}\n", count);
+                free(names);
+            }
