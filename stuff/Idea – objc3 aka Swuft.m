@@ -334,7 +334,7 @@
 //          Builtin dataclass with automatic .[description], serialization etc would be nice. Syntax should be 
 //              super small delta from C struct declaration / designated initializer. 
 //              (We already implemented this in current objc in mac-mouse-fix with the MFSimpleDataClass and minimal macros.)
-//          Advertise as 'memory-safe in practice' or 'pragmatically memory-safe'.
+//          Advertise as 'memory-safe in practice' or 'pragmatically memory-safe' C superset.
 //              -> Safely and conveniently use super-fast C APIs.
 //              Say how you don't have to malloc anything, you don't have to do pointer arithmetic, there are no footguns, you get refcounted objects 
 //              for everything and they are super fast and convenient and easy.
@@ -346,6 +346,9 @@
 //              It's a C superset, so you still get the full power and speed of C when you need it. But for heap allocations, buffers 
 //                  and ownership, the most tedious and error prone parts of C – you can just box things in objects 
 //                  – it will most likely be more than fast enough anything you'll ever wanna do.
+//              -> This is the pitch for low-level / system programmers to pitch as an alternative to C or Rust for command-line tools or scripting etc. 
+//                  Regular app devs live in the world of AppKit/UIKit anyways, and so don't even have to worry about calling C APIs very much I guess, 
+//                  although, some of them are actually nice to use and useful, so maybe it would be nice to help app-devs be more comfortable using them, too?
 //              
 
 /// Swuft 2.0
