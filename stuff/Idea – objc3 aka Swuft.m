@@ -334,6 +334,7 @@
 //                          Array [Number *] *obj = @(auto) stackStuff; // Just infers the size automatically
 //                  
 //                      -> Not sure this is too magical, but might be useful enough for calling C APIs to be worth it for a 'UNIX-native system-scripting language'.
+//                      -> Maybe just make a macro for the C-buffer boxing? It's basically just boxing each element and putting them in an Array *. 
 //                      -> Weird: It's strange that the element size is inferred from the c type but the element count is specified in the @(boxed cast). 
 //                          Those things seem maybe too related to split up like this? ... no its fine scrap that.
 //                  Could have parallel 'unboxing cast' feature:
