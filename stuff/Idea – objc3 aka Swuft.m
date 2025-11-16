@@ -437,7 +437,8 @@
                         content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                     else {
                         
-                        content = @[stringf(@"%@: %@", name, self.[kvc_get: name]) for (String *name in propNames)].[joinedBy: @"\n"];
+                        content = @[stringf(@"%@: %@", name, self.[kvc_get: name]) for (String *name in propNames)]
+                        .[joinedBy: @"\n"];
                     }
                 }
             }
@@ -547,6 +548,14 @@
                 andTimeout: settings.[get: @"timeout"].[intValue]
             ]]
             .[validateWith: schema.[load: @"doc.xsd"]];
+
+            // Dot-parens
+            parser.(parseDocument: loader.(
+                fetchURL:   config.(get: @"url")
+                withAuth:   credentials.(tokenFor: service.(current))
+                andTimeout: settings.(get: @"timeout").(intValue)
+            ]]
+            .(validateWith: schema.(load: @"doc.xsd"));
 
             // smalltalk-objc
             parser [parseDocument: loader [
