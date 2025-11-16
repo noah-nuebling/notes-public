@@ -420,7 +420,7 @@
 
                 auto content = @"";
                 Array [String *] *propNames = self.[class].[propNames];
-                if (propNames.count > 0) {
+                if (propNames.[count] > 0) {
                 
                     thread_local auto visited = Array.[new];
                     auto *s = @(auto)(uintptr_t)self;
@@ -437,8 +437,9 @@
                         content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                     else {
                         
-                        content = @[stringf(@"%@: %@", name, self.[kvc_get: name]) for (String *name in propNames)]
-                        .[joinedBy: @"\n"];
+                        content = 
+                            @[stringf(@"%@: %@", name, self.[kvc_get: name]) for (String *name in propNames)]
+                            .[joinedBy: @"\n"];
                     }
                 }
             }
@@ -449,7 +450,7 @@
 
                 auto content = @"";
                 Array [String *] *propNames = self class propNames;
-                if (propNames.count > 0) {
+                if (propNames count > 0) {
                 
                     thread_local auto visited = Array new;
                     auto *s = @(auto)(uintptr_t)self;
@@ -465,7 +466,9 @@
                     else if (found_circref)
                         content = @"<This object has appeared in the description before. Stopping here to prevent infinite recursion.>";
                     else {
-                        content = @[stringf(@"%@: %@", name, self [kvc_get: name]) for (String *name in propNames)] [joinedBy: @"\n"];
+                        content = 
+                            @[stringf(@"%@: %@", name, self [kvc_get: name]) for (String *name in propNames)] 
+                            [joinedBy: @"\n"];
                     }
                 }
             }
@@ -486,10 +489,10 @@
                 auto info = @{ 
                     @"path": @"/etc", 
                     @"files": files, 
-                    @"count": @(auto)(files count);
+                    @"count": @(auto)(files.[count]);
                 };
                 
-                printf("%s\n", @(char *)(info toJSON);
+                printf("%s\n", @(char *)(info.[toJSON]);
             }
         
         /// Python
@@ -549,14 +552,6 @@
             ]]
             .[validateWith: schema.[load: @"doc.xsd"]];
 
-            // Dot-parens
-            parser.(parseDocument: loader.(
-                fetchURL:   config.(get: @"url")
-                withAuth:   credentials.(tokenFor: service.(current))
-                andTimeout: settings.(get: @"timeout").(intValue)
-            ]]
-            .(validateWith: schema.(load: @"doc.xsd"));
-
             // smalltalk-objc
             parser [parseDocument: loader [
                 fetchURL:   config [get: @"url"] 
@@ -572,5 +567,14 @@
                 timeout: settings.get("timeout").intValue
             ))
             .validate(with: schema.load("doc.xsd"))
+
+            // Dot-parens
+            //      (Look too similar to function-call I think? `.(intValue)` looks like intValue is the rvalue)
+            parser.(parseDocument: loader.(
+                fetchURL:   config.(get: @"url")
+                withAuth:   credentials.(tokenFor: service.(current))
+                andTimeout: settings.(get: @"timeout").(intValue)
+            ]]
+            .(validateWith: schema.(load: @"doc.xsd"));
 
             */
