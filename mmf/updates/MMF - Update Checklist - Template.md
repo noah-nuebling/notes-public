@@ -126,6 +126,12 @@ The template: [[MMF - Update Checklist - Template]]
 	- ((Pull new release tags)) Edit: ./update does that automatically now
 	- Run ./update
 
+**Translation Files**
+
+- [ ] `./run uploadstrings` in the master branch
+    - (Tip: Maybe on a second computer cause this takes a while to take the screenshots)
+    - (Note: If this gets annoying, looking into automating with GitHub Actions runner.)
+
 **Update stuff**
 - [ ] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
 	- The redirection-service has an mmf2-latest link which needs to be updated, when we publish a new mmf2 version.
