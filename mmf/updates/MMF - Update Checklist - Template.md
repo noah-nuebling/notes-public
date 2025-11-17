@@ -128,9 +128,10 @@ The template: [[MMF - Update Checklist - Template]]
 
 **Translation Files**
 
+- [ ] If new UI added – Consider updating `LocalizationScreenshots.swift` to cover it.
 - [ ] `./run uploadstrings` in the master branch
-    - (Tip: Maybe on a second computer cause this takes a while to take the screenshots)
-    - (Note: If this gets annoying, looking into automating with GitHub Actions runner.)
+    - (Tip: Maybe on a second computer cause this takes a while)
+    - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
 **Update stuff**
 - [ ] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
