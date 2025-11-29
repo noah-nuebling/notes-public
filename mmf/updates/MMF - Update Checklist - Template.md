@@ -91,7 +91,7 @@ Export:
 	- [ ] If prerelease: Make sure to either build Debug configuration, or include 'beta' or 'alpha' (case insensitive) in the short bundle version
 		- So that `runningPreRelease()` works right
 		- Update: Under MMF 3, using Swift we started using Release configuration because Debug is very very slow.
-	- [ ] Remove the Ar
+	- [ ] Remove args from `Edit Scheme... > Arguments`
   - [ ] Make sure to build for Apple Silicon / Intel
 		- Does that automatically when building for Release. See Xcode > Build Settings > Architectures
 		- Doesn't do this automatically when building for Debug (not even when building using the "Archive" option). Choose "Any Mac (Apple Silicon, Intel)" next to the build scheme.
