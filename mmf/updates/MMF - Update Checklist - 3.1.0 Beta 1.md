@@ -29,6 +29,7 @@ The template: [[MMF - Update Checklist - Template]]
 
 Import: 
     - [x] Import & review .xcloc files people have sent us
+        - [ ] Add applyHardcodedTabWidth() entry
     - [x] Add credits to the Acknowledgements
     - [ ] Send translators a feedback request. (After publishing update – if it's a beta?)
 
