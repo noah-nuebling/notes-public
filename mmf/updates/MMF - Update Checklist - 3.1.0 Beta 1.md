@@ -88,19 +88,19 @@ Export:
 	- [x] Make sure to build for Apple Silicon / Intel
 		- Does that automatically when building for Release. See Xcode > Build Settings > Architectures
 		- Doesn't do this automatically when building for Debug (not even when building using the "Archive" option). Choose "Any Mac (Apple Silicon, Intel)" next to the build scheme.
-	- [ ] Use the "Archive" option to export. (This will still use the build scheme and architecture configured in the Xcode menu bar)
-	- [ ] Choose 'Direct Distribution' in the Organizer to notarize the app.
-	- [ ] To get the app bundle after Notarizing, use the 'Export Notarized App' button in the Organizer. 
+	- [x] Use the "Archive" option to export. (This will still use the build scheme and architecture configured in the Xcode menu bar)
+	- [x] Choose 'Direct Distribution' in the Organizer to notarize the app.
+	- [x] To get the app bundle after Notarizing, use the 'Export Notarized App' button in the Organizer. 
 		- For 3.0.2 I got the app bundle directly from the .xcarchive via Finder, and I think that [broke things](https://github.com/noah-nuebling/mac-mouse-fix/issues/871). 
-	- [ ] Get dSYMs folder directly from the .xcarchive via Finder.
+	- [x] Get dSYMs folder directly from the .xcarchive via Finder.
 		- Find the .xcarchive by going to the Xcode Organizer and right-clicking the archive in question.
 
 - Pre-Sparkle (we added sparkle in 2.0.0 iirc)
-	- [ ] Set the base remote url in the app to [kMFWebsiteAddress]/maindownload/
+	- [x] Set the base remote url in the app to [kMFWebsiteAddress]/maindownload/
 
 **Post-archive check**
-- [ ] Make sure the app launches and works ok.
-- [ ] Make sure the version numbers shown in the app are correct.
+- [x] Make sure the app launches and works ok.
+- [x] Make sure the version numbers shown in the app are correct.
 
 **GitHub**
 
