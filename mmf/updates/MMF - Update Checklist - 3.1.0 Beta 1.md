@@ -23,37 +23,30 @@ Pushing an update, Make push ready, publishing, releasing, publishing routine
 
 The template: [[MMF - Update Checklist - Template]]
 
-> [!info]
->  On Feb 17 2025 I copied this note from Obsidian into the mac-mouse-fix GitHub repo. Not sure if I'll keep updating this version or the GitHub one. (Update: See [Jun 7 2025] above.)
->  I also `redacted` any sensitive info before publishing.
-
-> [!info]
-> When moving to Obsidian I couldn't find this note at first. Searched forever. Turns out it's because NotePlan displays notes based on note title, and Obsidian displays them based on filename. Also, NotePlan uses the **initial title** of the note as filename. When you update the title of the note in NotePlan, the filename doesn't change - keep this in mind when searching for notes in the future.
-
 **Translation Files**
 
 (Should maybe do this more frequently than publishing updates [Nov 2025])
 
 Import: 
-    - [ ] Import & review .xcloc files people have sent us
-    - [ ] Add credits to the Acknowledgements
-    - [ ] Send translators a feedback request.
+    - [x] Import & review .xcloc files people have sent us
+    - [x] Add credits to the Acknowledgements
+    - [ ] Send translators a feedback request. (After publishing update – if it's a beta?)
 
 Export:
-    - [ ] If new UI added – Consider updating `LocalizationScreenshots.swift` to cover it.
-    - [ ] `./run uploadstrings` in the master branch
+    - [x] If new UI added – Consider updating `LocalizationScreenshots.swift` to cover it.
+    - [ ] `./run uploadstrings` on the master branch
         - (Tip: Maybe on a second computer cause this takes a while)
         - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
 **App**
 
 - Config file
-	- [ ] set the right configVersion
-	- [ ] make sure default_config is the same as config
-	- [ ] make sure the updating / replacing of the config file actually works
+	- [x] set the right configVersion
+	- [x] make sure default_config is the same as config
+	- [x] make sure the updating / replacing of the config file actually works
 
 - Licensing
-	- [ ] Update fallback_licenseinfo_config.json to mac-mouse-fix-website (https://macmousefix.com/licenseinfo/config.json)
+	- [x] Update fallback_licenseinfo_config.json to mac-mouse-fix-website (https://macmousefix.com/licenseinfo/config.json)
 
 - Build Settings
 	- Adjust compiler flags 
@@ -63,25 +56,25 @@ Export:
 			- For `Swift`, modify Xcode build setting: `Active Compilation Conditions`
 				- Example: `NDEBUG`        (No need for "=1" like with C)
 			- (All this stuff only applies to MMF 3. MMF 2 only has the DEBUG flag and nothing else as of Sep 2024.)
-		- [ ] Remove development flags such as `FORCE_EXPIRED` 
+		- [x] Remove development flags such as `FORCE_EXPIRED` 
     		- (We're leaving `NO_FILTER` always-on as of [Jul 2025])
-		- [ ] Make sure `NDEBUG=1`/`NDEBUG` flag is set on release builds. (That prevents assert() from crashing the app). 
-		- [ ] Make sure `IS_HELPER` and `IS_MAIN_APP` flags are set correctly.
+		- [x] Make sure `NDEBUG=1`/`NDEBUG` flag is set on release builds. (That prevents assert() from crashing the app). 
+		- [x] Make sure `IS_HELPER` and `IS_MAIN_APP` flags are set correctly.
 
 - Signing
-	- [ ] Make sure you sign all targets with the 'Noah Nuebling' team, which is associated with the `redacted`.developer@`redacted`.com Apple ID instead of the 'Noah Nbling' team which is associated with my personal-email Apple ID
-	- [ ] Make sure you're not revoking any old certificates. 
+	- [x] Make sure you sign all targets with the 'Noah Nuebling' team, which is associated with the `redacted`.developer@`redacted`.com Apple ID instead of the 'Noah Nbling' team which is associated with my personal-email Apple ID
+	- [x] Make sure you're not revoking any old certificates. 
 		- See [[MMF - Signing Issues - Jan 2022]]
 		- Also see [[MMF - Bug - Mac Mouse Fix will damage your computer]]
 		- Hint: Import the code signing identity from Apple Notes into Xcode, it should contain the certificate and prevent creation of new certificates / revoking of old certificate (I hope??)
 - Other
-	- [ ] Set the correct MMF version number and version string in the Xcode project
+	- [x] Set the correct MMF version number and version string in the Xcode project
 		- Examples: "3.0.0 Beta 7", 21988
-	- [ ] Set the correct version string(s) in the prefpane info.plist
-	- [ ] Make sure Sparkle appcast URLs are correct
+	- [x] Set the correct version string(s) in the prefpane info.plist
+	- [x] Make sure Sparkle appcast URLs are correct
 
 - Build & Export
-  - [ ] Install latest Xcode version
+  - [x] Install latest Xcode version
       - Not actually sure this is necessary – I guess to avoid bugs in the toolchain?
 	- [ ] **Clean build folder** before final build
 		- Note that this will reset the build configuration
