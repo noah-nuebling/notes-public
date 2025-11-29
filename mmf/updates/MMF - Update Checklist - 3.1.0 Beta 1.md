@@ -76,15 +76,15 @@ Export:
 - Build & Export
   - [x] Install latest Xcode version
       - Not actually sure this is necessary – I guess to avoid bugs in the toolchain?
-	- [ ] **Clean build folder** before final build
+	- [x] **Clean build folder** before final build
 		- Note that this will reset the build configuration
 		- This is still recommended even when using 'Archive' according to this [SO Post](https://stackoverflow.com/a/19202343/10601702)
-	- [ ] If not prerelease: Make sure to build the Release configuration
+	- [x] If not prerelease: Make sure to build the Release configuration
 		- So that it's fast, and assert() doesn't crash
-	- [ ] If prerelease: Make sure to either build Debug configuration, or include 'beta' or 'alpha' (case insensitive) in the short bundle version
+	- [x] If prerelease: Make sure to either build Debug configuration, or include 'beta' or 'alpha' (case insensitive) in the short bundle version
 		- So that `runningPreRelease()` works right
 		- Update: Under MMF 3, using Swift we started using Release configuration because Debug is very very slow.
-	- [ ] Make sure to build for Apple Silicon / Intel
+	- [x] Make sure to build for Apple Silicon / Intel
 		- Does that automatically when building for Release. See Xcode > Build Settings > Architectures
 		- Doesn't do this automatically when building for Debug (not even when building using the "Archive" option). Choose "Any Mac (Apple Silicon, Intel)" next to the build scheme.
 	- [ ] Use the "Archive" option to export. (This will still use the build scheme and architecture configured in the Xcode menu bar)
