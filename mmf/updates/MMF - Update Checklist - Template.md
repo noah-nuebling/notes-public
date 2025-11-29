@@ -30,6 +30,19 @@ The template: [[MMF - Update Checklist - Template]]
 > [!info]
 > When moving to Obsidian I couldn't find this note at first. Searched forever. Turns out it's because NotePlan displays notes based on note title, and Obsidian displays them based on filename. Also, NotePlan uses the **initial title** of the note as filename. When you update the title of the note in NotePlan, the filename doesn't change - keep this in mind when searching for notes in the future.
 
+**Translation Files**
+
+Import:
+    - [ ] Import & review .xcloc files people have sent us
+    - [ ] Add credits to the Acknowledgements
+    - [ ] Send translators a feedback request.
+
+Export:
+    - [ ] If new UI added – Consider updating `LocalizationScreenshots.swift` to cover it.
+    - [ ] `./run uploadstrings` in the master branch
+        - (Tip: Maybe on a second computer cause this takes a while)
+        - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
+
 **App**
 
 - Config file
@@ -125,13 +138,6 @@ The template: [[MMF - Update Checklist - Template]]
 	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
 	- ((Pull new release tags)) Edit: ./update does that automatically now
 	- Run ./update
-
-**Translation Files**
-
-- [ ] If new UI added – Consider updating `LocalizationScreenshots.swift` to cover it.
-- [ ] `./run uploadstrings` in the master branch
-    - (Tip: Maybe on a second computer cause this takes a while)
-    - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
 **Update stuff**
 - [ ] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
