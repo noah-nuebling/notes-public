@@ -36,6 +36,7 @@ The template: [[MMF - Update Checklist - Template]]
 
 Import: 
     - [ ] Import & review .xcloc files people have sent us
+    - [ ] Run testTakeScreenshots_Documentation
     - [ ] Add credits to the Acknowledgements
     - [ ] Send translators a feedback request.
 
