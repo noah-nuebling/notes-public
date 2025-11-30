@@ -44,6 +44,8 @@ Export:
     - [ ] `./run uploadstrings` in the master branch
         - (Tip: Maybe on a second computer cause this takes a while)
         - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
+        - (Note: Currently have to manually build 'App' scheme first [Nov 2025]) 
+            - (Background: The Localization Screenshot Taker doesn't auto-build to speed up iteration times - but that creates a footgun here – I think at least)
 
 **App**
 
@@ -111,7 +113,7 @@ Export:
 
 **GitHub**
 
-- [x] Write update notes
+-[ ] Write update notes
   - Writing style:
       - [Jul 2025] Being detailed and honest about documenting exactly what things changed is nice and useful, and interesting to some, but try to put *user impact* first and *technical details* second, so the things people are more likely to care about are more easily accessible / skimmable.
       - [Nov 2025] Whatever, technical details are cool, if you made an impressive thing and you're excited about it!
@@ -120,7 +122,7 @@ Export:
 			- `git log --perl-regexp --author="^(?!github-actions)"`
 	- If you want to preserve single linebreaks in update notes, use `\` at the end of the line
 		- In GitHub they are automatically preserved 
-    		- [x] META TODO → Make it so linebreaks are preserved in the updateNotes without `\`. pandocs `--wrap=preserve` doesn't work for me.
+    		- [ ] META TODO → Make it so linebreaks are preserved in the updateNotes without `\`. pandocs `--wrap=preserve` doesn't work for me.
 	- Lists with several indentation levels look a little weird with the current css. Better to avoid them. 
 		- (Or fix the CSS) Edit: fixed the CSS
 	- Links to issues of the form `#94` don't work. `[Normal markdown links](abcd)` do work though.
@@ -133,10 +135,10 @@ Export:
 	- Make sure to have free line above `- bulleted lists` and `## Headings`
 		- Otherwise it won't display properly in the Sparkle Update Window
 	- Make sure to include the version string at the top of the content because it looks better in Sparkle. See [2.2.0 release notes](https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/2.2.0)
-- [x] Zip the .app before uploading. Name it 'MacMouseFixApp.zip'
-- [x] Also upload dSYMs.zip so you can symbolicate crash reports
+- [ ] Zip the .app before uploading. Name it 'MacMouseFixApp.zip'
+- [ ] Also upload dSYMs.zip so you can symbolicate crash reports
 	- dSYMs folder is inside .xcarchive for the build which you can find from the Xcode Organizer.
-- [x] Push local changes after the final build - and before publishing the GH release!
+- [ ] Push local changes after the final build - and before publishing the GH release!
 	- So that the GH release links to the correct source code commit with the right build number.
 - [ ] Update appcasts:
 	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
