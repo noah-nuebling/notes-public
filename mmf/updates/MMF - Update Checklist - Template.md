@@ -36,13 +36,13 @@ The template: [[MMF - Update Checklist - Template]]
 
 Import: 
     - [ ] Import & review .xcloc files people have sent us
-    - [ ] Run testTakeScreenshots_Documentation
     - [ ] Add credits to the Acknowledgements
     - [ ] Send translators a feedback request.
 
 Export:
-    - [ ] If new UI added – Consider updating `LocalizationScreenshots.swift` to cover it.
-    - [ ] `./run uploadstrings` in the master branch
+    - [ ] Run testTakeScreenshots_Documentation()
+    - [ ] If new UI added – Consider updating `testTakeScreenshots_Localization()` to cover it.
+    - [ ] `./run uploadstrings` in the master branch (Will run testTakeScreenshots_Localization())
         - (Tip: Maybe on a second computer cause this takes a while)
         - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
         - (Note: Currently have to manually build 'App' scheme first [Nov 2025]) 
