@@ -40,10 +40,11 @@ Import:
     - [ ] Send translators a feedback request.
 
 Publish:
-    - [ ] Run testTakeScreenshots_Documentation()
     - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
+    - [ ] Run testTakeScreenshots_Documentation()
+
     - [ ] If new UI added – Consider updating `testTakeScreenshots_Localization()` to cover it.
-    - [ ] `./run uploadstrings` in the master branch (Will run testTakeScreenshots_Localization())
+    - [ ] `./run uploadstrings` on the master branch (Will run testTakeScreenshots_Localization())
         - (Tip: Maybe on a second computer cause this takes a while)
         - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
         - (Note: Currently have to manually build 'App' scheme first [Nov 2025]) 
