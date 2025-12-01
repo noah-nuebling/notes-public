@@ -39,8 +39,9 @@ Import:
     - [ ] Add credits to the Acknowledgements
     - [ ] Send translators a feedback request.
 
-Export:
+Publish:
     - [ ] Run testTakeScreenshots_Documentation()
+    - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
     - [ ] If new UI added – Consider updating `testTakeScreenshots_Localization()` to cover it.
     - [ ] `./run uploadstrings` in the master branch (Will run testTakeScreenshots_Localization())
         - (Tip: Maybe on a second computer cause this takes a while)
