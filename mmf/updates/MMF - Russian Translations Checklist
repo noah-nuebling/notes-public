@@ -9,6 +9,7 @@ Core:
         Import: 
             - Import .xcloc files
                 - [x] Using Xcode, inside In mac-mouse-fix
+                - [ ] Update applyHardcodedTabWidth()
 
             - Update Markdown files:
                 - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
