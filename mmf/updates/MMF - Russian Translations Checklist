@@ -19,7 +19,6 @@ Core:
 
         - Update Markdown files:
             - [ ] Run testTakeScreenshots_Documentation()
-                - [ ] Probably switch to light-mode for the screenshots
             - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
 
         - Update Translation Guide
