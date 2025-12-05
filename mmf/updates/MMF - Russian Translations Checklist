@@ -1,0 +1,27 @@
+
+
+**Translation Files**
+
+(Should maybe do this more frequently than publishing updates [Nov 2025])
+
+Import: 
+    - [ ] Import .xcloc files in Xcode
+    - [ ] Add credits to the Acknowledgements
+    - [ ] Send translators a feedback request.
+
+Publish:
+    - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
+    - [ ] Run testTakeScreenshots_Documentation()
+
+    - [ ] If new UI added – Consider updating `testTakeScreenshots_Localization()` to cover it.
+    - [ ] `./run uploadstrings` on the master branch (Will run testTakeScreenshots_Localization())
+        - (Tip: Maybe on a second computer cause this takes a while)
+        - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
+        - (Note: Currently have to manually build 'App' scheme first [Nov 2025]) 
+            - (Background: The Localization Screenshot Taker doesn't auto-build to speed up iteration times - but that creates a footgun here – I think at least)
+
+Review: 
+    - [ ] Built app
+    - [ ] Localization screenshots
+    - [ ] Markdown docs (Readme.md etc.)
+    - [ ] Website
