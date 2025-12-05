@@ -6,25 +6,31 @@
 
 Core:
     Mac Mouse Fix.xcloc
-        Import: 
-            - Import .xcloc files
-                - [x] Using Xcode, inside In mac-mouse-fix
-                - [ ] Update applyHardcodedTabWidth()
 
-            - Update Markdown files:
-                - [ ] Run testTakeScreenshots_Documentation()
-                    - [ ] Probably switch to light-mode for the screenshots
-                - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
+        Prep/Other:
+        - [ ] If new UI added – Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
+        - [ ] Before running testTakeScreenshots_XXX – Don't forget to manually build the 'App' scheme (Command-B)!
+            - Because currently, the app is not built automatically to make iterations faster. [Dec 2025]
+        - [ ] Probably switch to **lightmode** for the screenshots
 
-            - Update Translation Guide
-            - [ ] `./run uploadstrings` on the master branch (Will run testTakeScreenshots_Localization())
-                - (Tip: Maybe on a second computer cause this takes a while)
-                - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
-                - (Note: Currently have to manually build 'App' scheme first [Nov 2025]) 
-                    - (Background: The Localization Screenshot Taker doesn't auto-build to speed up iteration times - but that creates a footgun here – I think at least)
+        - Import .xcloc files
+            - [x] Using Xcode, inside In mac-mouse-fix
+            - [ ] Update applyHardcodedTabWidth()
 
-            - Publish App update
-                - [ ] 
+        - Update Markdown files:
+            - [ ] Run testTakeScreenshots_Documentation()
+                - [ ] Probably switch to light-mode for the screenshots
+            - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
+
+        - Update Translation Guide
+        - [ ] `./run uploadstrings` on the master branch (Will run testTakeScreenshots_Localization())
+            - (Tip: Maybe on a second computer cause this takes a while)
+            - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
+            - (Note: Currently have to manually build 'App' scheme first [Nov 2025]) 
+                - (Background: The Localization Screenshot Taker doesn't auto-build to speed up iteration times - but that creates a footgun here – I think at least)
+
+        - Publish App update
+            - [ ] 
 
     Mac Mouse Fix Website.xcloc
 
