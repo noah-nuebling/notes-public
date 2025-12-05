@@ -6,22 +6,41 @@
 
 Import: 
     - [ ] Import .xcloc files in Xcode
-    - [ ] Add credits to the Acknowledgements
-    - [ ] Send translators a feedback request.
+        - [ ] In mac-mouse-fix
+        - [ ] In mac-mouse-fix-website
 
-Publish:
-    - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
-    - [ ] Run testTakeScreenshots_Documentation()
+    - Update website
+        - [ ] `pnpm upload`
 
-    - [ ] If new UI added – Consider updating `testTakeScreenshots_Localization()` to cover it.
+    - Update app
+        - [ ] 
+
+    - Update Markdown files:
+        - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
+        - [ ] Run testTakeScreenshots_Documentation()
+
+    - Update Translation Guide
     - [ ] `./run uploadstrings` on the master branch (Will run testTakeScreenshots_Localization())
         - (Tip: Maybe on a second computer cause this takes a while)
         - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
         - (Note: Currently have to manually build 'App' scheme first [Nov 2025]) 
             - (Background: The Localization Screenshot Taker doesn't auto-build to speed up iteration times - but that creates a footgun here – I think at least)
 
+    Other:
+      - [ ] If new UI added – Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
+
+Add credits
+    - [ ] Add credits to the Acknowledgements
+    - [ ] Add credits to Update Notes
+
+
+Publish:
+    
+
 Review: 
     - [ ] Built app
     - [ ] Localization screenshots
     - [ ] Markdown docs (Readme.md etc.)
     - [ ] Website
+
+    - [ ] Send translators a review request
