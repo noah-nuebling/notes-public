@@ -18,7 +18,7 @@ Core:
             - [ ] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
-            - [ ] Run testTakeScreenshots_Documentation()
+            - [ ] Run testTakeScreenshots_Documentation()   
             - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
 
         - Update Translation Guide
