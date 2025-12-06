@@ -2,6 +2,15 @@
 
 **Translation Files**
 
+MULTIPLE LANGUAGES:
+    (Apply this to all the langs we added recently [Dec 2025])
+    - [ ] 🇧🇷 Brazilian Portuguese
+    - [ ] 🇫🇷 French
+    - [ ] 🇹🇷 Turkish
+    - [ ] 🇨🇿 Czech
+    - [ ] 🇷🇺 Russian
+    - [ ] 🇨🇳 Chinese (Added website translation recently)
+
 (Should maybe do this more frequently than publishing updates [Nov 2025])
 
 Core:
@@ -9,7 +18,7 @@ Core:
 
         Prep/Other:
         - If **new UI added** 
-            – [ ] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
+            – [x] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
         - Before **testTakeScreenshots_XXX()** 
             - [x] Before running, don't forget to manually build the 'App' scheme (Command-B)!
                 - Because currently, the app is not built automatically to make iterations faster. [Dec 2025]
@@ -17,12 +26,12 @@ Core:
 
         - Import .xcloc files
             - [x] Using Xcode, inside In mac-mouse-fix
-            - [ ] Update applyHardcodedTabWidth()
+            - [x] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
-            - [ ] Run testTakeScreenshots_Documentation()
+            - [x] Run testTakeScreenshots_Documentation()
             - [x] Rebuild all the docs 
-                - `./run build-markdown --document '.*' --no-api`
+                - ./run build-markdown --document '.*' --no-api
                     - --no-api if you don't wanna wait for Gumroad data downloads.
 
         - Update Translation Guide
@@ -54,6 +63,7 @@ Other:
 Review: 
     - [ ] Built app
     - [ ] Localization screenshots
+    - [ ] Documentation screenshots
     - [ ] Markdown docs (Readme.md etc.)
     - [ ] Website
 
