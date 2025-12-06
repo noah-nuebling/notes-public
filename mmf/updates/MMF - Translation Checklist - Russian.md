@@ -19,7 +19,9 @@ Core:
 
         - Update Markdown files:
             - [ ] Run testTakeScreenshots_Documentation()   
-            - [ ] `./run build-markdown` on ALL the docs (Acknowledgements.md / Readme.md / Support.md / CapturedButtonsMMF3.md / ...)
+            - [ ] Rebuild all the docs 
+                - `./run build-markdown --document '.*' --no-api`
+                    - --no-api if you don't wanna wait for Gumroad data downloads.
 
         - Update Translation Guide
         - [ ] `./run uploadstrings` on the master branch (Will run testTakeScreenshots_Localization())
