@@ -19,6 +19,8 @@ Core:
         Prep/Other:
         - If **new UI added** 
             – [x] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
+        - If Xcloc Editor has updated
+            - [ ] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
         - Before **testTakeScreenshots_XXX()** 
             - [x] Probably switch to **lightmode** for the screenshots
 
@@ -29,7 +31,7 @@ Core:
         - Update Markdown files:
             - [x] Run ScreenshotTaker XCUITest in Xcode
                 - >>> func testTakeScreenshots_Documentation()
-                - Modify 'onlyTestLanguages' at the top to only update one specific locales. [Dec 2025]
+                - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
             - [x] Rebuild all the docs
                 - >>> ./run build-markdown --document '.*' --no-api
                     - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
