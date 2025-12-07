@@ -30,12 +30,12 @@ Core:
 
         - Update Markdown files:
             - [x] Run testTakeScreenshots_Documentation()
-            - [x] Rebuild all the docs 
+            - [x] Rebuild all the docs
                 - ./run build-markdown --document '.*' --no-api
-                    - --no-api if you don't wanna wait for Gumroad data downloads.
+                    - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md
 
         - Update Translation Guide
-        - [ ] `./run uploadstrings` on the master branch (Will run testTakeScreenshots_Localization())
+        - [ ] `./run uploadstrings ` on the master branch (Will run testTakeScreenshots_Localization())
             - (Tip: Maybe on a second computer cause this takes a while)
             - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
             - (Note: Currently have to manually build 'App' scheme first [Nov 2025] – See "Before **testTakeScreenshots_XXX()**" above) [Dec 2025]
