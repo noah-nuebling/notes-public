@@ -27,15 +27,18 @@ Core:
             - [x] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
-            - [x] Run testTakeScreenshots_Documentation()
+            - [x] Run ScreenshotTaker XCUITest in Xcode
+                - >>> func testTakeScreenshots_Documentation()
+                - Modify 'onlyTestLanguages' at the top to only update one specific locales. [Dec 2025]
             - [x] Rebuild all the docs
-                - ./run build-markdown --document '.*' --no-api
-                    - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will regenerate Acknowledgements.md with the latest data later.
+                - >>> ./run build-markdown --document '.*' --no-api
+                    - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
         - Update Translation Guide
-        - [ ] `./run uploadstrings --only-update-locale xx` on the master branch 
-            - (Will run testTakeScreenshots_Localization())
-            - If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
+        - [ ] Run uploadstrings on the master branch 
+            - >>> ./run uploadstrings --only-update-locale xx
+            -> (Will run func testTakeScreenshots_Localization() automatically)
+            -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
                 - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
                 - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
