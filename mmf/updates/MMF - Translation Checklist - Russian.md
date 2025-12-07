@@ -20,8 +20,6 @@ Core:
         - If **new UI added** 
             – [x] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
         - Before **testTakeScreenshots_XXX()** 
-            - [x] Before running, don't forget to manually build the 'App' scheme (Command-B)!
-                - Because currently, the app is not built automatically to make iterations faster. [Dec 2025]
             - [x] Probably switch to **lightmode** for the screenshots
 
         - Import .xcloc files
@@ -32,13 +30,14 @@ Core:
             - [x] Run testTakeScreenshots_Documentation()
             - [x] Rebuild all the docs
                 - ./run build-markdown --document '.*' --no-api
-                    - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md
+                    - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will regenerate Acknowledgements.md with the latest data later.
 
         - Update Translation Guide
-        - [ ] `./run uploadstrings ` on the master branch (Will run testTakeScreenshots_Localization())
-            - (Tip: Maybe on a second computer cause this takes a while)
-            - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
-            - (Note: Currently have to manually build 'App' scheme first [Nov 2025] – See "Before **testTakeScreenshots_XXX()**" above) [Dec 2025]
+        - [ ] `./run uploadstrings --only-update-locale xx` on the master branch 
+            - (Will run testTakeScreenshots_Localization())
+            - If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
+                - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
+                - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
         - Publish App update
             - [ ] 
