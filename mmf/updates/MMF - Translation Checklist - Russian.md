@@ -38,8 +38,7 @@ Core:
         - [ ] `./run uploadstrings` on the master branch (Will run testTakeScreenshots_Localization())
             - (Tip: Maybe on a second computer cause this takes a while)
             - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
-            - (Note: Currently have to manually build 'App' scheme first [Nov 2025]) 
-                - (Background: The Localization Screenshot Taker doesn't auto-build to speed up iteration times - but that creates a footgun here – I think at least)
+            - (Note: Currently have to manually build 'App' scheme first [Nov 2025] – See "Before **testTakeScreenshots_XXX()**" above) [Dec 2025]
 
         - Publish App update
             - [ ] 
