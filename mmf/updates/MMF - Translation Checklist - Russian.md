@@ -37,7 +37,7 @@ Core:
                     - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
         - Update Translation Guide
-        - [ ] Run uploadstrings on the master branch 
+        - [x] Run uploadstrings on the master branch 
             - >>> ./run uploadstrings --only-update-locale xx
             -> (Will run func testTakeScreenshots_Localization() automatically)
             -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
