@@ -1,7 +1,7 @@
 
 MULTIPLE LANGUAGES: (Apply The Translation Checklist to all the langs we added recently [Dec 2025])
 
-Languages we've already added:
+Languages we've already added: [Dec 9 2025]
     - [x] 🇷🇺 Russian 
         [Dec 9 2025] 
         Done until Vyacheslav answers to review.
@@ -32,11 +32,11 @@ Languages we've already added:
         - Should answer LeonRogan (Email), though.
 
 
-Languages we haven't added, yet:
+Languages we haven't added, yet: [Dec 9 2025]
     - Polish:
-        - Jakub (Email) has sent translations, and Pawel (Email) announced he will send translations – Should I link them together so they can coordinate?
+        - Jakub (Email) has sent translations, and Pawel (Email) announced he will send translations – Should I put them in the same email thread together, so they can coordinate?
     - Spanish: 
         - Look at @manghidev (GitHub) translations.
 
 References:
-    - Review email to Vyacheslav: message:
+    - Review-email to Vyacheslav (Russian Translator): message:<11AAFDBE-0F64-46CB-A62E-71FD844ADF86@gmail.com>
