@@ -9,26 +9,26 @@ Core:
 
         Prep/Other:
         - If **new UI added** 
-            – [x] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
+            – [ ] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
         - If Xcloc Editor has updated
             - [ ] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
         - Before **testTakeScreenshots_XXX()** 
-            - [x] Probably switch to **lightmode** for the screenshots
+            - [ ] Probably switch to **lightmode** for the screenshots
 
         - Import .xcloc files
-            - [x] Using Xcode, inside In mac-mouse-fix
-            - [x] Update applyHardcodedTabWidth()
+            - [ ] Using Xcode, inside In mac-mouse-fix
+            - [ ] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
-            - [x] Run ScreenshotTaker XCUITest in Xcode
+            - [ ] Run ScreenshotTaker XCUITest in Xcode
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
-            - [x] Rebuild all the docs
+            - [ ] Rebuild all the docs
                 - >>> ./run build-markdown --document '.*' --no-api
                     - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
         - Update Translation Guide
-        - [x] Run uploadstrings on the master branch 
+        - [ ] Run uploadstrings on the master branch 
             - >>> ./run uploadstrings --only-update-locale xx
             -> (Will run func testTakeScreenshots_Localization() automatically)
             -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
@@ -47,7 +47,7 @@ Core:
             - [ ] `pnpm upload`
 
 Add credits
-    - [x] Add credits to the Acknowledgements
+    - [ ] Add credits to the Acknowledgements
     - [ ] Add credits to Update Notes
 
 Other:

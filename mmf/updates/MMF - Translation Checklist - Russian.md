@@ -2,15 +2,6 @@
 
 **Translation Files**
 
-MULTIPLE LANGUAGES:
-    (Apply this to all the langs we added recently [Dec 2025])
-    - [ ] 🇧🇷 Brazilian Portuguese
-    - [ ] 🇫🇷 French
-    - [ ] 🇹🇷 Turkish
-    - [ ] 🇨🇿 Czech
-    - [ ] 🇷🇺 Russian
-    - [ ] 🇨🇳 Chinese (Added website translation recently)
-
 (Should maybe do this more frequently than publishing updates [Nov 2025])
 
 Core:
