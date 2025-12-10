@@ -56,9 +56,9 @@ Other:
 
 Review: 
     - [ ] Built app
-    - [ ] Localization screenshots
-    - [ ] Documentation screenshots
-    - [ ] Markdown docs (Readme.md etc.)
+    - [ ] Localization screenshots          (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
+    - [ ] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
+        - [ ] Documentation screenshots         
     - [ ] Website
 
     - [x] Send translators a review request

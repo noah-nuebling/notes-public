@@ -7,11 +7,9 @@ Core:
 
         Prep/Other:
         - If **new UI added** 
-            – [ ] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
+            – [x] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
         - If Xcloc Editor has updated
-            - [ ] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
-        - Before **testTakeScreenshots_XXX()** 
-            - [ ] Probably switch to **lightmode** for the screenshots
+            - [x] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
 
         - Import .xcloc files
             - [ ] Using Xcode, inside In mac-mouse-fix
@@ -21,6 +19,7 @@ Core:
             - [ ] Run ScreenshotTaker XCUITest in Xcode
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
+                - [ ] Probably switch to **lightmode** for the screenshots
             - [ ] Rebuild all the docs
                 - >>> ./run build-markdown --document '.*' --no-api
                     - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
