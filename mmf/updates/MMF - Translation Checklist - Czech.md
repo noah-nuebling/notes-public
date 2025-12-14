@@ -12,8 +12,8 @@ Core:
             - [x] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
 
         - Import .xcloc files
-            - [ ] Using Xcode, inside In mac-mouse-fix
-            - [ ] Update applyHardcodedTabWidth()
+            - [x] Using Xcode, inside In mac-mouse-fix
+            - [x] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
             - [ ] Run ScreenshotTaker XCUITest in Xcode
