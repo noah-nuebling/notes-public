@@ -16,11 +16,11 @@ Core:
             - [x] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
-            - [ ] Run ScreenshotTaker XCUITest in Xcode
+            - [x] Run ScreenshotTaker XCUITest in Xcode
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
                 - [ ] Probably switch to **lightmode** for the screenshots
-            - [ ] Rebuild all the docs
+            - [x] Rebuild all the docs
                 - >>> ./run _buildmd --document '.*(?<!Acknowledgements\.md)$'
                     - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
