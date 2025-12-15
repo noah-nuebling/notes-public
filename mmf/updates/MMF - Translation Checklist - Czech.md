@@ -33,7 +33,9 @@ Core:
                 - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
         - Publish App update
-            - 
+            - Full release: `MMF - Update Checklist - Template.md`
+            - Small update: (Adding new translations to existing release)
+                >>> Run `z mac-mouse-fix-update-feed; ./update` after attaching new MacMouseFixApp.zip -> otherwise Sparkle signature will fail.
 
     Mac Mouse Fix Website.xcloc
 
