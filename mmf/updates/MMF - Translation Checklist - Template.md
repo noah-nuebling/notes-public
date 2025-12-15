@@ -25,8 +25,8 @@ Core:
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
             - [ ] Rebuild all the docs
-                - >>> ./run build-markdown --document '.*' --no-api
-                    - --no-api if you don't wanna wait for Gumroad data downloads for Acknowledgements.md – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
+                - >>> ./run _buildmd --document '.*(?<!Acknowledgements\.md)$'
+                    - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
         - Update Translation Guide
         - [ ] Run uploadstrings on the master branch 
