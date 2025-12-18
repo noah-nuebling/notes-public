@@ -17,7 +17,8 @@ Core:
              - [ ] Probably do `testTakeScreenshots_Localization()` on large monitor (tall menus on action table are cut off on M1 MBA [Dec 2025]) (Could perhaps solve by programmatically moving window up?)
 
         - Import .xcloc files
-            - [ ] Using Xcode, inside In mac-mouse-fix
+            - [ ] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
+                - [ ] Resolve warnings
             - [ ] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
@@ -42,7 +43,8 @@ Core:
     Mac Mouse Fix Website.xcloc
 
         - Import .xcloc files
-            - [ ] Using Xcode, inside mac-mouse-fix-website
+            - [ ] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
+                - [ ] Resolve warnings
         
         - Update website
             - [ ] `pnpm upload`
