@@ -59,7 +59,7 @@ Other:
     - [ ] Send 10 MMF licenses to translator (?)
 
 Review: 
-    - [ ] Built app                         (See: Xcode > Archive)
+    - [ ] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/.../MacMouseFixApp.zip / Xcode > Archive)
     - [ ] Localization screenshots          (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638)
     - [ ] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
         - [ ] Documentation screenshots         
