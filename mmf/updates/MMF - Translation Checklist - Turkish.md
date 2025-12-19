@@ -46,9 +46,11 @@ Core:
         - Import .xcloc files
             - [ ] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
                 - >>> ./run importstrings2 --xcloc-path ... --only-comment-mismatches
-                - [ ] Review mismatches
+                - [x] Review mismatches
         
         - Update website
+            - [ ] `pnpm dev`
+                - [ ] Review
             - [ ] `pnpm upload`
 
 Add credits
