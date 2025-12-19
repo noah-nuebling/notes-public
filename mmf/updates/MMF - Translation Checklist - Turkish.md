@@ -20,7 +20,7 @@ Core:
             - [x] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
                 - >>> ./run importstrings2 --xcloc-path ... --only-comment-mismatches
                 - [x] Review mismatches
-            - [ ] Update applyHardcodedTabWidth()
+            - [x] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
             - [ ] Run ScreenshotTaker XCUITest in Xcode
