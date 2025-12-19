@@ -9,7 +9,7 @@ Core:
 
         Prep/Other:
         - If **new UI added** 
-            – [x] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
+            – [ ] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
         - If Xcloc Editor has updated
             - [ ] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
         - Before **testTakeScreenshots_XXX()** 
@@ -27,7 +27,7 @@ Core:
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
             - [ ] Rebuild all the docs
-                - >>> ./run _buildmd --document '.*(?<!Acknowledgements\.md)$'
+                - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
         - Update Translation Guide
@@ -38,8 +38,11 @@ Core:
                 - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
                 - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
-        - Publish App update
-            - 
+        - [ ] Publish App update
+            - See `MMF - Update Checklist - Template.md`
+                - [ ] If you udpate existing release instead of creating a new one – still don't forget to run:
+                    - >>> z mac-mouse-fix-update-feed; ./update;
+                    - (Otherwise Sparkle signature will break)
 
     Mac Mouse Fix Website.xcloc
 
@@ -49,6 +52,8 @@ Core:
                 - [ ] Review mismatches
         
         - Update website
+            - [ ] `pnpm dev`
+                - [ ] Review
             - [ ] `pnpm upload`
 
 Add credits
@@ -66,5 +71,3 @@ Review:
     - [ ] Website                           (See: https://macmousefix.com/)
 
     - [ ] Send translators a review request
-
-    (See `MMF - Translation Checklists Overview [Dec 2025].md` for previous review requests)
