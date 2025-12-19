@@ -26,8 +26,8 @@ Core:
             - [x] Run ScreenshotTaker XCUITest in Xcode
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
-            - [ ] Rebuild all the docs
-                - >>> ./run _buildmd --document '.*(?<!Acknowledgements\.md)$'
+            - [x] Rebuild all the docs
+                - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
         - Update Translation Guide
