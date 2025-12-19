@@ -23,7 +23,7 @@ Core:
             - [x] Update applyHardcodedTabWidth()
 
         - Update Markdown files:
-            - [ ] Run ScreenshotTaker XCUITest in Xcode
+            - [x] Run ScreenshotTaker XCUITest in Xcode
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
             - [ ] Rebuild all the docs
