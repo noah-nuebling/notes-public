@@ -66,3 +66,5 @@ Review:
     - [ ] Website                           (See: https://macmousefix.com/)
 
     - [ ] Send translators a review request
+
+    (See `MMF - Translation Checklists Overview [Dec 2025].md` for previous review requests)

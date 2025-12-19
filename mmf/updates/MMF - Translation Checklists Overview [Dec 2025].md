@@ -5,7 +5,7 @@ Languages we've already added: [Dec 9 2025]
     - [x] 🇷🇺 Russian 
         [Dec 9 2025] 
         Done until Vyacheslav answers to review.
-    - [ ] 🇨🇿 Czech
+    - [x] 🇨🇿 Czech
         [Dec 9 2025]
         - Send Petr Pavlik a review-request
     - [ ] 🇹🇷 Turkish
