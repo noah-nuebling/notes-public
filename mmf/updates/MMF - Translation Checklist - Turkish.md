@@ -39,7 +39,7 @@ Core:
                 - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
         - Publish App update
-            - 
+            - [ ] 
 
     Mac Mouse Fix Website.xcloc
 
