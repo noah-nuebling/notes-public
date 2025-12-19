@@ -38,8 +38,11 @@ Core:
                 - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
                 - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
-        - Publish App update
-            - [ ] 
+        - [ ] Publish App update
+            - See `MMF - Update Checklist - Template.md`
+              - If you udpate existing release instead of creating a new one – still don't forget to run:
+                  - >>> z mac-mouse-fix-update-feed; ./update;
+              - (Otherwise Sparkle signature will break)
 
     Mac Mouse Fix Website.xcloc
 
@@ -49,13 +52,13 @@ Core:
                 - [x] Review mismatches
         
         - Update website
-            - [ ] `pnpm dev`
-                - [ ] Review
-            - [ ] `pnpm upload`
+            - [x] `pnpm dev`
+                - [x] Review
+            - [x] `pnpm upload`
 
 Add credits
     - [x] Add credits to the Acknowledgements
-    - [ ] Add credits to Update Notes
+    - [x] Add credits to Update Notes
 
 Other:
     - [ ] Send 10 MMF licenses to translator (?)
