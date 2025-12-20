@@ -19,8 +19,8 @@ Core:
         - Import .xcloc files
             - [x] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
                 - >>> ./run importstrings2 --only-comment-mismatches --xcloc-path ...
-                - [ ] Review mismatches
-            - [ ] Update applyHardcodedTabWidth()
+                - [x] Review mismatches
+            - [ ] Update func applyHardcodedTabWidth()
 
         - Update Markdown files:
             - [ ] Run ScreenshotTaker XCUITest in Xcode
