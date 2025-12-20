@@ -41,3 +41,4 @@ Languages we haven't added, yet: [Dec 9 2025]
 References:
     - Review-email to Vyacheslav (Russian Translator):  message:<11AAFDBE-0F64-46CB-A62E-71FD844ADF86@gmail.com>
     - Review-email to Petr (Polish Translator):         message:<196B3F8F-4ECC-4772-A222-044563FC1488@gmail.com>
+    - Review-email to Eren (Turkish Translator):        message:

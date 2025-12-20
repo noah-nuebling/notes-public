@@ -61,7 +61,7 @@ Add credits
     - [x] Add credits to Update Notes
 
 Other:
-    - [ ] Send 10 MMF licenses to translator (?)
+    - [x] Send 10 MMF licenses to translator (?)
 
 Review: 
     - [ ] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/.../MacMouseFixApp.zip / Xcode > Archive)
