@@ -9,12 +9,12 @@ Core:
 
         Prep/Other:
         - If **new UI added** 
-            – [ ] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
+            – [x] Consider updating `testTakeScreenshots_Localization()` to cover it before running `./run uploadstrings`
         - If Xcloc Editor has updated
             - [x] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
         - Before **testTakeScreenshots_XXX()** 
-            - [ ] Probably switch to **lightmode** for the screenshots
-            - [ ] Probably do `testTakeScreenshots_Localization()` on large monitor (tall menus on action table are cut off on M1 MBA [Dec 2025]) (Could perhaps solve by programmatically moving window up?)
+            - [x] Probably switch to **lightmode** for the screenshots
+            - [x] Probably do `testTakeScreenshots_Localization()` on large monitor (tall menus on action table are cut off on M1 MBA [Dec 2025]) (Could perhaps solve by programmatically moving window up?)
 
         - Import .xcloc files
             - [x] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
@@ -47,14 +47,14 @@ Core:
     Mac Mouse Fix Website.xcloc
 
         - Import .xcloc files
-            - [ ] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
+            - [x] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
                 - >>> ./run importstrings2 --only-comment-mismatches --xcloc-path ...
-                - [ ] Review mismatches
+                - [x] Review mismatches
         
         - Update website
-            - [ ] `pnpm dev`
-                - [ ] Review
-            - [ ] `pnpm upload`
+            - [x] `pnpm dev`
+                - [x] Review
+            - [x] `pnpm upload`
 
 Add credits
     - [ ] Add credits to the Acknowledgements
