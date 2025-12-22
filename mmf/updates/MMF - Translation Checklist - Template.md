@@ -64,11 +64,15 @@ Other:
     - [ ] Send 10 MMF licenses to translator (?)
 
 Review: 
-    - [ ] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/.../MacMouseFixApp.zip / Xcode > Archive)
-    - [ ] Localization screenshots          (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638)
-    - [ ] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
-        - [ ] Documentation screenshots         
-    - [ ] Website                           (See: https://macmousefix.com/)
+    Updated things:
+        - [ ] Built app                         (See: Xcode > Archive / https://github.com/noah-nuebling/mac-mouse-fix/releases/download/xxx/MacMouseFixApp.zip)
+        - [ ] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
+            - [ ] Documentation screenshots
+        - [ ] Website                           (See: https://macmousefix.com/)
+        
+        - [ ] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638)
+                                                (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip
+        - [ ] Localization screenshots (Contained in the translation files.)
 
     - [ ] Send translators a review request
 

@@ -38,9 +38,9 @@ Core:
                 - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
                 - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
-        - [ ] Publish App update
+        - [x] Publish App update
             - See `MMF - Update Checklist - Template.md`
-                - [ ] If you udpate existing release instead of creating a new one – still don't forget to run:
+                - [x] If you udpate existing release instead of creating a new one – still don't forget to run:
                     - >>> z mac-mouse-fix-update-feed; ./update;
                     - (Otherwise Sparkle signature will break)
 
@@ -57,17 +57,22 @@ Core:
             - [x] `pnpm upload`
 
 Add credits
-    - [ ] Add credits to the Acknowledgements
-    - [ ] Add credits to Update Notes
+    - [x] Add credits to the Acknowledgements
+    - [x] Add credits to Update Notes
 
 Other:
     - [ ] Send 10 MMF licenses to translator (?)
 
 Review: 
-    - [ ] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/.../MacMouseFixApp.zip / Xcode > Archive)
-    - [ ] Localization screenshots          (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638)
-    - [ ] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
-        - [ ] Documentation screenshots         
-    - [ ] Website                           (See: https://macmousefix.com/)
+
+    Updated things:
+        - [ ] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/xxx/MacMouseFixApp.zip / Xcode > Archive)
+        - [ ] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
+            - [ ] Documentation screenshots
+        - [ ] Website                           (See: https://macmousefix.com/)
+        
+        - [ ] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638)
+                                                (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip
+            - [ ] Localization screenshots (Contained in the translation files.)
 
     - [ ] Send translators a review request
