@@ -41,6 +41,7 @@ Languages we haven't added, yet: [Dec 9 2025]
         - Jakub (Email) has sent translations, and Pawel (Email) announced he will send translations – Should I put them in the same email thread together, so they can coordinate?
 
 References:
-    - Review-email to Vyacheslav (Russian Translator):  message:<11AAFDBE-0F64-46CB-A62E-71FD844ADF86@gmail.com>
-    - Review-email to Petr (Polish Translator):         message:<196B3F8F-4ECC-4772-A222-044563FC1488@gmail.com>
-    - Review-email to Eren (Turkish Translator):        message:
+    - Review-email to Vyacheslav (Russian Translator):      message:<11AAFDBE-0F64-46CB-A62E-71FD844ADF86@gmail.com>
+    - Review-email to Petr (Polish Translator):             message:<196B3F8F-4ECC-4772-A222-044563FC1488@gmail.com>
+    - Review-email to Eren (Turkish Translator):            message:
+    - Review-message to @manghidev (Spanish Translator):    https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3682776565
