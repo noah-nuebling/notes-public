@@ -71,8 +71,8 @@ Review:
             - [ ] Documentation screenshots
         - [ ] Website                           (See: https://macmousefix.com/)
         
-        - [ ] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638)
-                                                (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip
-            - [ ] Localization screenshots (Contained in the translation files.)
+        - [ ] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip)
+            - (Which can be downloaded from the [Translation Guide](https://github.com/noah-nuebling/mac-mouse-fix/issues/1638))
+        - [ ] Localization screenshots (Contained in the translation files.)
 
     - [ ] Send translators a review request
