@@ -23,16 +23,16 @@ Add credits
     - [x] Add credits to Update Notes
 
 Other:
-    - [ ] Send 10 MMF licenses to translator (?)
+    - [x] Send 10 MMF licenses to translator (?)
 
 Review: 
     Updated things:
-        - [ ] Website                           (See: https://macmousefix.com/)
+        - [x] Website                           (See: https://macmousefix.com/)
         
-        - [ ] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip)
+        - [x] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip)
             - (Which can be downloaded from the [Translation Guide](https://github.com/noah-nuebling/mac-mouse-fix/issues/1638))
 
-    - [ ] Send translators a review request
+    - [x] Send translators a review request
 
     REFERENCE: 
         MMF - Translation Checklists Overview [Dec 2025].md

@@ -4,7 +4,7 @@ MULTIPLE LANGUAGES: (Apply The Translation Checklist to all the langs we added r
 Languages we've already added: [Dec 9 2025]
     - [x] 🇷🇺 Russian 
         [Dec 9 2025] 
-        Done until Vyacheslav answers to review.
+        - [ ] Respond to Vjacheslav. 
     - [x] 🇨🇿 Czech
         [Dec 9 2025]
         - [ ] Send Petr Pavlik a review-request
@@ -34,12 +34,15 @@ Languages we've already added: [Dec 9 2025]
         - @manghidev (GitHub)
             - [x] Add
             - [x] Review request
+    - [ ] 🇵🇱 Polish:
+            - Jakub (Email) (Website translations)
+                -  [ ] Add
+                -  [ ] Review request
+            - Pawel (Email) announced he will send translations – Should I put him in the same email thread together with Jajub, so they can coordinate?
+                - [ ] Inform about Jakub's work
 
 
 Languages we haven't added, yet: [Dec 9 2025]
-    - Polish:
-        - Jakub (Email) has sent translations, and Pawel (Email) announced he will send translations – Should I put them in the same email thread together, so they can coordinate?
-            - [ ] TODODODODODODO (Bookmark [Dec 23 2025]) –> Keep looking into Jakub's stuff. (Imported in 4a0ac15b1bdafd549fc95b8a38abbdaab1207ce2, but haven't properly reviewed, yet – And all strings end with semicolons.)
 
 References:
     - Review-email to Vyacheslav (Russian Translator):      message:<11AAFDBE-0F64-46CB-A62E-71FD844ADF86@gmail.com>
