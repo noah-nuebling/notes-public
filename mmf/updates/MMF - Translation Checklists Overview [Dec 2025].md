@@ -2,45 +2,51 @@
 MULTIPLE LANGUAGES: (Apply The Translation Checklist to all the langs we added recently [Dec 2025])
 
 Languages we've already added: [Dec 9 2025]
-    - [x] 🇷🇺 Russian 
+    - 🇷🇺 Russian 
         [Dec 9 2025] 
         - [ ] Respond to Vjacheslav. 
-    - [x] 🇨🇿 Czech
+    - 🇨🇿 Czech
         [Dec 9 2025]
         - [ ] Send Petr Pavlik a review-request
-    - [x] 🇹🇷 Turkish
+    - 🇹🇷 Turkish
         [Dec 9 2025]
         - Add Eren Tomurcuk's new files (Email)
         - Send review-request:
             - [ ] @hasanbeder (GitHub) (original translator)
             - [ ] **Eren Tomurcuk** (Email)
-    - [ ] 🇧🇷 Brazilian Portuguese
+    - 🇧🇷 Brazilian Portuguese
         [Dec 9 2025]
         - [xxx] Integrate @AdaoNull (GitHub) files
             - Declined their contribution cause it was small [Dec 22 2025]          (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3683952551)
         - Send review request 
             - [ ] **Eduardo Rodrigues** (Email)
-    - [ ] 🇫🇷 French
+    - 🇫🇷 French
         [Dec 9 2025] 
             - [xxx] Integrate @arthurbret (GitHub) files
                 - Declined their contribution cause it was small [Dec 22 2025]      (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3683900499)
             - Send review-request:
                 - [ ] original translator Dimitri (GitHub, Pull request) a review-request.
-    - [ ] 🇨🇳 Chinese (Added website translation recently)
+    - 🇨🇳 Chinese (Added website translation recently)
         [Dec 9 2025] 
         - I integrated things and sent them the website for review IIRC.
         - [ ] Should answer LeonRogan (Email), though.
-    - [ ] 🇪🇸 
+    - 🇪🇸 Spanish
         - @manghidev (GitHub)
             - [x] Add
             - [x] Review request
-    - [ ] 🇵🇱 Polish:
+    - 🇵🇱 Polish:
             - Jakub (Email) (Website translations)
                 -  [ ] Add
                 -  [ ] Review request
             - Pawel (Email) announced he will send translations – Should I put him in the same email thread together with Jajub, so they can coordinate?
                 - [ ] Inform about Jakub's work
 
+
+Other ideas:
+    Add to Questions section of translation_guide.md:
+        - [ ] 'Edit xliff file directly?' 
+        - [ ] 'Initial translations for a language should be larger chunks?'
+    - [ ] Run ./uploadstrings
 
 Languages we haven't added, yet: [Dec 9 2025]
 
