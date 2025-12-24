@@ -18,10 +18,10 @@ Core:
             - [ ] Probably do `testTakeScreenshots_Localization()` on large monitor (tall menus on action table are cut off on M1 MBA [Dec 2025]) (Could perhaps solve by programmatically moving window up?)
 
         - Import .xcloc files
-            - [ ] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
+            - [x] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
                 - >>> ./run importstrings2 --only-comment-mismatches --xcloc-path ...
-                - [ ] Review mismatches
-            - [] Update: func applyHardcodedTabWidth()
+                - [x] Review mismatches
+            - [ ] Update: func applyHardcodedTabWidth()
 
         - Update Markdown files:
             - [ ] Run ScreenshotTaker XCUITest in Xcode
