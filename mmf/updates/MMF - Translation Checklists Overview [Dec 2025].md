@@ -46,6 +46,7 @@ Other ideas:
     Add to Questions section of translation_guide.md:
         - [ ] 'Edit xliff file directly?' 
         - [ ] 'Initial translations for a language should be larger chunks?'
+    - [ ] Say thanks to the Brazilian translator on GitHub who complimented (but we rejected their submission, sorry :'()
     - [ ] Run ./uploadstrings
 
 Languages we haven't added, yet: [Dec 9 2025]
