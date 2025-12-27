@@ -32,7 +32,7 @@ Core:
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
         - Update Translation Guide
-        - [ ] Run uploadstrings on the master branch 
+        - [x] Run uploadstrings on the master branch 
             - >>> ./run uploadstrings --only-update-locale xx
             -> (Will run func testTakeScreenshots_Localization() automatically)
             -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
@@ -58,8 +58,8 @@ Core:
             - [ ] `pnpm upload`
 
 Add credits
-    - [ ] Add credits to the Acknowledgements
-    - [ ] Add credits to Update Notes
+    - [x] Add credits to the Acknowledgements
+    - [x] Add credits to Update Notes
 
 Other:
     - [ ] Send 10 MMF licenses to translator (?)
