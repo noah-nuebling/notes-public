@@ -66,14 +66,14 @@ Other:
 
 Review: 
     Updated things:
-        - [ ] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/xxx/MacMouseFixApp.zip / Xcode > Archive)
-        - [ ] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
-            - [ ] Documentation screenshots
+        - [x] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/xxx/MacMouseFixApp.zip / Xcode > Archive)
+        - [xxx] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
+            - [x] Documentation screenshots
         - [ ] Website                           (See: https://macmousefix.com/)
         
         - [ ] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip)
             - (Which can be downloaded from the [Translation Guide](https://github.com/noah-nuebling/mac-mouse-fix/issues/1638))
-        - [ ] Localization screenshots (Contained in the translation files.)
+        - [x] Localization screenshots (Contained in the translation files.)
 
     - [ ] Send translators a review request
 
