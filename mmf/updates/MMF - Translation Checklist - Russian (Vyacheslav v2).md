@@ -39,9 +39,9 @@ Core:
                 - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
                 - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
-        - [ ] Publish App update
+        - [x] Publish App update
             - See `MMF - Update Checklist - Template.md`
-                - [ ] If you update existing release instead of creating a new one – still don't forget to run:
+                - [x] If you update existing release instead of creating a new one – still don't forget to run:
                     - >>> z mac-mouse-fix-update-feed; ./update;
                     - (Otherwise Sparkle signature will break)
 
