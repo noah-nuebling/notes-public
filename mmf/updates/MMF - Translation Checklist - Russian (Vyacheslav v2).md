@@ -48,14 +48,14 @@ Core:
     Mac Mouse Fix Website.xcloc
 
         - Import .xcloc files
-            - [ ] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
+            - [x] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
                 - >>> ./run importstrings2 --only-comment-mismatches --xcloc-path ...
-                - [ ] Review mismatches
+                - [x] Review mismatches
         
         - Update website
-            - [ ] `pnpm dev`
-                - [ ] Review
-            - [ ] `pnpm upload`
+            - [x] `pnpm dev`
+                - [x] Review
+            - [x] `pnpm upload`
 
 Add credits
     - [x] Add credits to the Acknowledgements
@@ -69,9 +69,9 @@ Review:
         - [x] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/xxx/MacMouseFixApp.zip / Xcode > Archive)
         - [xxx] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
             - [x] Documentation screenshots
-        - [ ] Website                           (See: https://macmousefix.com/)
+        - [x] Website                           (See: https://macmousefix.com/)
         
-        - [ ] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip)
+        - [x] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip)
             - (Which can be downloaded from the [Translation Guide](https://github.com/noah-nuebling/mac-mouse-fix/issues/1638))
         - [x] Localization screenshots (Contained in the translation files.)
 
