@@ -7,13 +7,14 @@ Languages we've already added: [Dec 9 2025]
         - [x] Respond to Vjacheslav. 
     - 🇨🇿 Czech
         [Dec 9 2025]
-        - [ ] Send Petr Pavlik a review-request
+        - [x] Send Petr Pavlik a review-request
     - 🇹🇷 Turkish
         [Dec 9 2025]
         - Add Eren Tomurcuk's new files (Email)
         - Send review-request:
-            - [ ] @hasanbeder (GitHub) (original translator)
-            - [ ] **Eren Tomurcuk** (Email)
+            - [x] @hasanbeder (GitHub) (original translator)
+            - [x] **Eren Tomurcuk** (Email)
+              - [ ] Answer them and stuff
     - 🇧🇷 Brazilian Portuguese
         [Dec 9 2025]
         - [xxx] Integrate @AdaoNull (GitHub) files
