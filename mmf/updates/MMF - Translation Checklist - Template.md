@@ -58,6 +58,10 @@ Core:
 
 Add credits
     - [ ] Add credits to the Acknowledgements
+        - To stop _buildmd.py from failing, the []({urls}) need to match in all languages:
+            - [ ] Manually add the new entry to all the translations of `2: translations`.
+            - [ ] Update the surrounding urls
+                - >>> ./run updateackurls;
     - [ ] Add credits to Update Notes
 
 Other:

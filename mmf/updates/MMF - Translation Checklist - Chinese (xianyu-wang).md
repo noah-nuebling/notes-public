@@ -26,7 +26,7 @@ Core:
             - [x] Run ScreenshotTaker XCUITest in Xcode
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
-            - [ ] Rebuild all the docs
+            - [x] Rebuild all the docs
                 - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
@@ -57,7 +57,11 @@ Core:
             - [ ] `pnpm upload`
 
 Add credits
-    - [ ] Add credits to the Acknowledgements
+    - [x] Add credits to the Acknowledgements
+        - To stop _buildmd.py from failing, the []({urls}) need to match in all languages:
+            - [x] Manually add the new entry to all the translations of `2: translations`.
+            - [x] Update the surrounding urls
+                - >>> ./run updateackurls;
     - [ ] Add credits to Update Notes
 
 Other:
