@@ -40,7 +40,7 @@ Languages we've already added: [Dec 9 2025]
                 -  [x] Add
                 -  [x] Review request
             - Pawel (Email) announced he will send translations – Should I put him in the same email thread together with Jajub, so they can coordinate?
-                - [ ] Inform about Jakub's work
+                - [x] Inform about Jakub's work
 
 
 Other ideas:
