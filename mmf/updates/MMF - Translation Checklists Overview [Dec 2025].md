@@ -49,7 +49,6 @@ Other ideas:
         - [xxx] 'Initial translations for a language should be larger chunks?'
             - Not adding this. I don't have a 'clear policy' on this, yet. It's kinda understandable that minimal effort won't be accepted. Text already speaks of 'if your incomplete translations are accepted, you will get credits'. 
     - [x] Say thanks to the Brazilian translator on GitHub who complimented (but we rejected their submission, sorry :'()
-    - [ ] Run ./uploadstrings
 
 Languages we haven't added, yet: [Dec 9 2025]
 
