@@ -26,7 +26,7 @@ Languages we've already added: [Dec 9 2025]
             - [xxx] Integrate @arthurbret (GitHub) files
                 - Declined their contribution cause it was small [Dec 22 2025]      (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3683900499)
             - Send review-request:
-                - [ ] original translator Dimitri (GitHub, Pull request) a review-request.
+                - [x] original translator Dimitri (GitHub, Pull request) a review-request.
     - 🇨🇳 Chinese (Added website translation recently)
         [Dec 9 2025] 
         - I integrated things and sent them the website for review IIRC.
@@ -37,8 +37,8 @@ Languages we've already added: [Dec 9 2025]
             - [x] Review request
     - 🇵🇱 Polish:
             - Jakub (Email) (Website translations)
-                -  [ ] Add
-                -  [ ] Review request
+                -  [x] Add
+                -  [x] Review request
             - Pawel (Email) announced he will send translations – Should I put him in the same email thread together with Jajub, so they can coordinate?
                 - [ ] Inform about Jakub's work
 
