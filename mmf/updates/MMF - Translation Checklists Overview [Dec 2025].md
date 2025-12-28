@@ -20,7 +20,7 @@ Languages we've already added: [Dec 9 2025]
         - [xxx] Integrate @AdaoNull (GitHub) files
             - Declined their contribution cause it was small [Dec 22 2025]          (See: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3683952551)
         - Send review request 
-            - [ ] **Eduardo Rodrigues** (Email)
+            - [x] **Eduardo Rodrigues** (Email)
     - 🇫🇷 French
         [Dec 9 2025] 
             - [xxx] Integrate @arthurbret (GitHub) files
