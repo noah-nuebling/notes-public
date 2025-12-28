@@ -4,7 +4,7 @@ MULTIPLE LANGUAGES: (Apply The Translation Checklist to all the langs we added r
 Languages we've already added: [Dec 9 2025]
     - 🇷🇺 Russian 
         [Dec 9 2025] 
-        - [ ] Respond to Vjacheslav. 
+        - [x] Respond to Vjacheslav. 
     - 🇨🇿 Czech
         [Dec 9 2025]
         - [ ] Send Petr Pavlik a review-request
@@ -29,7 +29,7 @@ Languages we've already added: [Dec 9 2025]
     - 🇨🇳 Chinese (Added website translation recently)
         [Dec 9 2025] 
         - I integrated things and sent them the website for review IIRC.
-        - [ ] Should answer LeonRogan (Email), though.
+        - [x] Should answer LeonRogan (Email), though.
     - 🇪🇸 Spanish
         - @manghidev (GitHub)
             - [x] Add
