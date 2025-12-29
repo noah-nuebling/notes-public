@@ -32,7 +32,7 @@ Core:
 
         - [x] App update
             - See `MMF - Update Checklist - Template.md`
-                - [ ] If you update existing release instead of creating a new one – still don't forget to run:
+                - [x] If you update existing release instead of creating a new one – still don't forget to run:
                     - >>> z mac-mouse-fix-update-feed; ./update;
                     - (Otherwise Sparkle signature will break)
 
