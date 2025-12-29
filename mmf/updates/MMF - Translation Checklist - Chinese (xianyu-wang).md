@@ -30,7 +30,7 @@ Core:
                 - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
-        - [ ] Publish App update
+        - [ ]   App update
             - See `MMF - Update Checklist - Template.md`
                 - [ ] If you update existing release instead of creating a new one – still don't forget to run:
                     - >>> z mac-mouse-fix-update-feed; ./update;
@@ -39,14 +39,14 @@ Core:
     Mac Mouse Fix Website.xcloc
 
         - Import .xcloc files
-            - [ ] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
+            - [x] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
                 - >>> ./run importstrings2 --only-comment-mismatches --xcloc-path ...
-                - [ ] Review mismatches
+                - [x] Review mismatches
         
         - Update website
-            - [ ] `pnpm dev`
-                - [ ] Review
-            - [ ] `pnpm upload`
+            - [x] `pnpm dev`
+                - [x] Review
+            - [x] `pnpm upload`
 
 Add credits
     - [x] Add credits to the Acknowledgements
