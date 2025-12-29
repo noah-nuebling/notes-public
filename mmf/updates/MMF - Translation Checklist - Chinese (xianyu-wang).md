@@ -30,7 +30,7 @@ Core:
                 - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
-        - [ ] App update
+        - [x] App update
             - See `MMF - Update Checklist - Template.md`
                 - [ ] If you update existing release instead of creating a new one – still don't forget to run:
                     - >>> z mac-mouse-fix-update-feed; ./update;
@@ -54,7 +54,7 @@ Add credits
             - [x] Manually add the new entry to all the translations of `2: translations`.
             - [x] Update the surrounding urls
                 - >>> ./run updateackurls;
-    - [ ] Add credits to Update Notes
+    - [x] Add credits to Update Notes
 
 
 - Update Translation Guide
@@ -73,7 +73,6 @@ Review:
         - [ ] Built app                         (See: https://github.com/noah-nuebling/mac-mouse-fix/releases/download/xxx/MacMouseFixApp.zip / Xcode > Archive)
         - [ ] Markdown docs (Readme.md etc.)    (See: https://github.com/noah-nuebling/mac-mouse-fix/tree/master/Markdown/LocalizedDocuments)
             - [ ] Documentation screenshots
-        - [ ] Website                           (See: https://macmousefix.com/)
         
         - [ ] Translation Files                 (See: https://github.com/noah-nuebling/mac-mouse-fix-localization-file-hosting/releases/download/arbitrary-tag/MacMouseFixTranslations.xxx.zip)
             - (Which can be downloaded from the [Translation Guide](https://github.com/noah-nuebling/mac-mouse-fix/issues/1638))
