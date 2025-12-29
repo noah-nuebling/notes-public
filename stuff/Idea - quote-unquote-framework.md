@@ -4,6 +4,9 @@ with 50 lines of helper functions
 give you the same ergonomics as React 
 with none of the downsides (almost 2000 dependencies!)
 
+Started implementing this in repo:
+    
+
 In this Claude conversation you can see 
     TOC: 
         the core pattern

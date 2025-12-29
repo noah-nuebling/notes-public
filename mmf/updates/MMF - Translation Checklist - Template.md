@@ -8,8 +8,10 @@ Core:
     Mac Mouse Fix.xcloc
 
         Prep/Other:
-            - If **new UI** added: 
+            - If **MMF UI** added/changed: 
                 - [ ] Consider updating `testTakeScreenshots_Localization()` to cover the new UI before running `./run uploadstrings`
+                - [ ] Make sure `testTakeScreenshots_Localization()` doesn't cut off tall menus on small M1 MBA screen 
+                    - Nothing's cut off as of [Dec 2025]
             - If Xcloc Editor has changed:
                 - [ ] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
 
@@ -55,7 +57,7 @@ Add credits
 
 Update Translation Guide
 - [ ] Run uploadstrings on the master branch 
-    - >>> ./run uploadstrings --only-update-locale xx
+    - >>> ./run uploadstrings --only-update-locale xx [--recycle-screenshots]
     -> (Will run func testTakeScreenshots_Localization() automatically)
     -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
         - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
