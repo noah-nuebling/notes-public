@@ -58,7 +58,7 @@ Add credits
 
 
 - Update Translation Guide
-- [ ] Run uploadstrings on the master branch 
+- [x] Run uploadstrings on the master branch 
     - >>> ./run uploadstrings --only-update-locale xx
     -> (Will run func testTakeScreenshots_Localization() automatically)
     -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
