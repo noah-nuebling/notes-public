@@ -13,7 +13,7 @@ Core:
         - If Xcloc Editor has updated
             - [x] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
         - Before **testTakeScreenshots_XXX()** 
-            - [ ] Probably switch to **lightmode** for the screenshots
+            - [x] Probably switch to **lightmode** for the screenshots
             - [x] Probably do `testTakeScreenshots_Localization()` on large monitor (tall menus on action table are cut off on M1 MBA [Dec 2025]) (Could perhaps solve by programmatically moving window up?)
 
         - Import .xcloc files
@@ -29,14 +29,6 @@ Core:
             - [x] Rebuild all the docs
                 - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
-
-        - Update Translation Guide
-        - [ ] Run uploadstrings on the master branch 
-            - >>> ./run uploadstrings --only-update-locale xx
-            -> (Will run func testTakeScreenshots_Localization() automatically)
-            -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
-                - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
-                - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
         - [ ] Publish App update
             - See `MMF - Update Checklist - Template.md`
@@ -63,6 +55,15 @@ Add credits
             - [x] Update the surrounding urls
                 - >>> ./run updateackurls;
     - [ ] Add credits to Update Notes
+
+
+- Update Translation Guide
+- [ ] Run uploadstrings on the master branch 
+    - >>> ./run uploadstrings --only-update-locale xx
+    -> (Will run func testTakeScreenshots_Localization() automatically)
+    -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
+        - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
+        - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
 Other:
     - [ ] Send 10 MMF licenses to translator (?)

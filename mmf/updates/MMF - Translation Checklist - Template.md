@@ -30,14 +30,6 @@ Core:
                 - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
-        - Update Translation Guide
-        - [ ] Run uploadstrings on the master branch 
-            - >>> ./run uploadstrings --only-update-locale xx
-            -> (Will run func testTakeScreenshots_Localization() automatically)
-            -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
-                - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
-                - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
-
         - [ ] Publish App update
             - See `MMF - Update Checklist - Template.md`
                 - [ ] If you update existing release instead of creating a new one – still don't forget to run:
@@ -63,6 +55,14 @@ Add credits
             - [ ] Update the surrounding urls
                 - >>> ./run updateackurls;
     - [ ] Add credits to Update Notes
+
+Update Translation Guide
+- [ ] Run uploadstrings on the master branch 
+    - >>> ./run uploadstrings --only-update-locale xx
+    -> (Will run func testTakeScreenshots_Localization() automatically)
+    -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
+        - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
+        - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
 Other:
     - [ ] Send 10 MMF licenses to translator (?)
