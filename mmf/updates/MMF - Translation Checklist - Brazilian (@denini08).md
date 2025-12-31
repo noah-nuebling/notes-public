@@ -16,9 +16,9 @@ Core:
                 - [x] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
 
         - Import .xcloc files
-            - [ ] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
+            - [x] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
                 - >>> ./run importstrings2 --only-comment-mismatches --xcloc-path ...
-                - [ ] Review mismatches
+                - [x] Review mismatches
             - [ ] Update: func applyHardcodedTabWidth()
 
         - Update Markdown files:
