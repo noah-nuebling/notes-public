@@ -43,9 +43,9 @@ Core:
                 - [x] Review mismatches
         
         - Update website
-            - [ ] `pnpm dev`
-                - [ ] Review
-            - [ ] `pnpm upload`
+            - [x] `pnpm dev`
+                - [x] Review
+            - [x] `pnpm upload`
 
 Add credits
     - [ ] Add credits to the Acknowledgements
