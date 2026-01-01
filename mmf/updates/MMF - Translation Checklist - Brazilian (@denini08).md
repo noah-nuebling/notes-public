@@ -65,6 +65,8 @@ Update Translation Guide
 
 Other:
     - [ ] Send 10 MMF licenses to translator (?)
+    - [ ] >>> Ask if they built on the other translator's work (which we rejected)
+        - [ ] If so, add credits!
 
 Review: 
     Updated things:
