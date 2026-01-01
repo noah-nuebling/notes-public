@@ -29,7 +29,7 @@ Core:
                 - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
-        - [ ] Publish App update
+        - [x] Publish App update
             - See `MMF - Update Checklist - Template.md`
                 - [ ] If you update existing release instead of creating a new one – still don't forget to run:
                     - >>> z mac-mouse-fix-update-feed; ./update;
