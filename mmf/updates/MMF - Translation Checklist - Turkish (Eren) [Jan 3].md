@@ -1,8 +1,5 @@
 
-
-**Translation Files**
-
-(Should maybe do this more frequently than publishing updates [Nov 2025])
+Src: This email by Eren: `message:<Ohyjpa_--F-9@tuta.io>`
 
 Core:
     Mac Mouse Fix.xcloc

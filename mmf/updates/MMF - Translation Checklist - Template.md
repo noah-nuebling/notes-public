@@ -1,9 +1,4 @@
 
-
-**Translation Files**
-
-(Should maybe do this more frequently than publishing updates [Nov 2025])
-
 Core:
     Mac Mouse Fix.xcloc
 
