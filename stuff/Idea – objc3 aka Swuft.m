@@ -599,9 +599,12 @@
     (int) setA: (int a) andB: (NSString *b);        /// Version A – clean – Visual separation between selector and other stuff via parens
     - int [setA: (int a) andB: (NSString *b)];      /// Version B – decl follows use - consistent with C – consistent with traditional `-[selector:]` notation which I think is found in the runtime and stuff.
     -[(int) setA: (int a) andB: (NSString *b)];     /// Version C
-    int setA: (int a) andB: (NSString *b);          /// Version D - minimal – leading type make it look more like C function decl.
+    - int [setA: int a andB: NSString *b];           /// Version D - Brackets with no parens. Very consistent with traditional/runtime notation. Less noise than parens + brackets
+    int setA: (int a) andB: (NSString *b);          /// Version E - minimal – leading type make it look more like C function decl.
     
+
     @class int setX: (int x) andY: (NSString *y);   /// Class method
+    + int setX: (int x) andY: (NSString *y);        /// Alternative
 }
 
 @class @implementation ABC { /** Implementation is optional (if class only has ivars?) Or maybe you can mix declarations and implementations without a @implementation keyword? But where will the compiler auto-generate the @property methods? */
@@ -619,7 +622,7 @@
         if (i < 0) i = (int)self.[count] + i;
         return self.[subarrayWithRange: NSMakeRange(0, i)];
     }
-    - (NSArray<T> *)from: (int) i to: (int) j {
+    - NSArray<T> *from: (int i) to: (int j) {
         if (i < 0) i = (int)self.[count] + i;
         if (j < 0) j = (int)self.[count] + j;
         return self.[subarrayWithRange: NSMakeRange(i, j-i)];
