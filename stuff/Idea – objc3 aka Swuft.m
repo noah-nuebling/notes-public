@@ -585,8 +585,12 @@
 // Addition [Mar 2026] 
 //
 // Possible class syntax:
-//    – Idea: stay much closer to C struct / function syntax. Allow inline definitions. Allow starting by just defining C struct and swapping `struct` for `@class`. 
-// Also see recent quicknote.
+//      – Ideas: 
+//          - Small delta from corresponding C struct / function syntax. 
+//              - (Note how you can start by just defining C struct and swapping `struct` for `@class`.)
+//          - Allow inline declarations of objects in functions (Just like structs) 
+//          - Make implementation the default 'behavior' of the syntax. Make forward declarations (interfaces) a special case / variation.
+//      Also see recent quicknote.
 
 @class ABC {
     int rawIvar;
@@ -599,7 +603,7 @@
     (int) setA: (int a) andB: (NSString *b);        /// Version A – clean – Visual separation between selector and other stuff via parens
     - int [setA: (int a) andB: (NSString *b)];      /// Version B – decl follows use - consistent with C – consistent with traditional `-[selector:]` notation which I think is found in the runtime and stuff.
     -[(int) setA: (int a) andB: (NSString *b)];     /// Version C
-    - int [setA: int a andB: NSString *b];           /// Version D - Brackets with no parens. Very consistent with traditional/runtime notation. Less noise than parens + brackets
+    - int [setA: int a andB: NSString *b];          /// Version D - Brackets with no parens. Very consistent with traditional/runtime notation. Less noise than parens + brackets. Problem: selector doesn't stand out without parens - feels noisy.
     int setA: (int a) andB: (NSString *b);          /// Version E - minimal – leading type make it look more like C function decl.
     
 
@@ -607,7 +611,7 @@
     + int setX: (int x) andY: (NSString *y);        /// Alternative
 }
 
-@class @implementation ABC { /** Implementation is optional (if class only has ivars?) Or maybe you can mix declarations and implementations without a @implementation keyword? But where will the compiler auto-generate the @property methods? */
+@class @implementation ABC { /** Implementation is optional (if class only has ivars?) Or maybe you can mix declarations and implementations without a @implementation keyword? But where will the compiler auto-generate the @property methods? There has to be one specific compilation unit, I think. */
     int a { return a; } /// Does this overlap with C? Maybe add a @method keyword?
     @method int setA: (int a_) andB: (NSString *b_) { a = a_; b = b_; }
     @class @method int setX: (int x) andY: (NSString *y) { globals.x = x; globals.y = y; }
