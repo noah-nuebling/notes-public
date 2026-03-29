@@ -578,3 +578,34 @@
             .(validateWith: schema.(load: @"doc.xsd"));
 
             */
+
+
+---
+
+
+// Addition [Mar 2026] 
+//
+// Possible class syntax:
+//    – Idea: stay much closer to C struct / function syntax. Allow inline definitions. Allow starting by just defining C struct and swapping `struct` for `@class`. 
+// Also see recent quicknote.
+
+@class ABC {
+    @property int a;
+    @property NSString b;
+    @property id c;
+    
+    int someFunction(int x, id y, NSButton *z);
+    
+    (int) setA: (int a) andB: (NSString *b);        /// Version A – clean – Visual separation between selector and other stuff via parens
+    - int [setA: (int a) andB: (NSString *b)];      /// Version B – decl follows use - consistent with C – consistent with traditional `-[selector:]` notation which I think is found in the runtime and stuff.
+    -[(int) setA: (int a) andB: (NSString *b)];     /// Version C
+    int setA: (int a) andB: (NSString *b);          /// Version D - minimal – leading type make it look more like C function decl.
+    
+    @class int setX: (int x) andY: (NSString *y);   /// Class method
+}
+
+@class @implementation ABC { /** Implementation is optional (if class only has ivars?) */
+    @method int a { return a; } /// Does this overlap with C? Maybe add a @method keyword?
+    @method int setA: (int a_) andB: (NSString *b_) { a = a_; b = b_; }
+    @class @method int setX: (int x) andY: (NSString *y) { globals.x = x; globals.y = y; }
+}
