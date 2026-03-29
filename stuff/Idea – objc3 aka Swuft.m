@@ -582,7 +582,6 @@
 
 ---
 
-
 // Addition [Mar 2026] 
 //
 // Possible class syntax:
@@ -590,6 +589,7 @@
 // Also see recent quicknote.
 
 @class ABC {
+    int rawIvar;
     @property int a;
     @property NSString b;
     @property id c;
@@ -604,7 +604,7 @@
     @class int setX: (int x) andY: (NSString *y);   /// Class method
 }
 
-@class @implementation ABC { /** Implementation is optional (if class only has ivars?) */
+@class @implementation ABC { /** Implementation is optional (if class only has ivars?) Or maybe you can mix declarations and implementations without a @implementation keyword? But where will the compiler auto-generate the @property methods? */
     @method int a { return a; } /// Does this overlap with C? Maybe add a @method keyword?
     @method int setA: (int a_) andB: (NSString *b_) { a = a_; b = b_; }
     @class @method int setX: (int x) andY: (NSString *y) { globals.x = x; globals.y = y; }
