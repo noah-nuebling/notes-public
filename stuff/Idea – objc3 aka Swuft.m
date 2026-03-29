@@ -636,6 +636,7 @@
     NSArray<T> *[from: (int i) to: (int j)]; /// Another variation
     - (NSArray<T> *) from: (int i) to: (int j); /// Parens for everything outside selector – very close to current syntax.
     - (NSArray<T> *)from:(int)i to:(int)j; /// Current syntax - actually not too bad in comparison. Downsides: Casting syntax for types makes passing blocks more complicated. Whitespace visually a bit unbalanced. Different things inside/outside parens is a bit visually noisy. Why is it like this? you can omit types in parens and default to id – but noone seems to use that anymore. (Learned this looking a an OPENSTEP era blog post)
-    
+    - (NSArray<T> *) from: (int) i to: (int) j; /// Current syntax with smalltalk-like spaces.
+
 }
 arr.[from: a to: b];
