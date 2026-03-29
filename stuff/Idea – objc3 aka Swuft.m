@@ -589,7 +589,7 @@
 //          - Small delta from corresponding C struct / function syntax. 
 //              - (Note how you can start by just defining C struct and swapping `struct` for `@class`.)
 //          - Allow inline declarations of objects in functions (Just like structs) 
-//          - Make implementation the default 'behavior' of the syntax. Make forward declarations (interfaces) (what goes into headers) a special case / variation.
+//          - Make implementation the default 'behavior' of the syntax. Make forward declarations (interfaces) (what goes into headers) a special case / variation. (Just like C function syntax works)
 //      Also see recent quicknote.
 
 @class ABC {
@@ -632,7 +632,7 @@
         return self.[subarrayWithRange: NSMakeRange(i, j-i)];
     }
 
-    - NSArray<T> *[from: int i to: int j]; /// Alternative syntax - beautifully follows C 'decl follows use' idea but visually uglier and harder to parse I think.
+    - int [from: (int i) to: (int j)]; /// Alternative syntax - beautifully follows C 'decl follows use' idea but visually uglier and harder to parse I think.
     - (NSArray<T> *) from: (int i) to: (int j); /// Parens for everything outside selector – very close to current syntax.
     - (NSArray<T> *)from:(int)i to:(int)j; /// Current syntax - actually not too bad in comparison. Downsides: Casting syntax for types makes passing blocks more complicated. Whitespace visually a bit unbalanced. Different things inside/outside parens is a bit visually noisy. Why is it like this? you can omit types in parens and default to id – but noone seems to use that anymore. (Learned this looking a an OPENSTEP era blog post)
     
