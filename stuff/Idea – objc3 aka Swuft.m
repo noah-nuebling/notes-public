@@ -611,15 +611,15 @@
 }
 
 @extend NSArray<T> {
-    @method NSArray<T> *from: (int i) {
+    - NSArray<T> *from: (int i) {
         if (i < 0) i = (int)self.[count] + i;
-        return self.[subarrayWithRange: NSMakeRange(i, self.count - i)];
+        return self.[subarrayWithRange: NSMakeRange(i, self.[count] - i)];
     }
-    NSArray<T> *to: (int i) {
+    - NSArray<T> *to: (int i) {
         if (i < 0) i = (int)self.[count] + i;
         return self.[subarrayWithRange: NSMakeRange(0, i)];
     }
-    NSArray<T> *from: (int i) to: (int j) {
+    - NSArray<T> *from: (int i) to: (int j) {
         if (i < 0) i = (int)self.[count] + i;
         if (j < 0) j = (int)self.[count] + j;
         return self.[subarrayWithRange: NSMakeRange(i, j-i)];
