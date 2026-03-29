@@ -605,7 +605,18 @@
 }
 
 @class @implementation ABC { /** Implementation is optional (if class only has ivars?) Or maybe you can mix declarations and implementations without a @implementation keyword? But where will the compiler auto-generate the @property methods? */
-    @method int a { return a; } /// Does this overlap with C? Maybe add a @method keyword?
+    int a { return a; } /// Does this overlap with C? Maybe add a @method keyword?
     @method int setA: (int a_) andB: (NSString *b_) { a = a_; b = b_; }
     @class @method int setX: (int x) andY: (NSString *y) { globals.x = x; globals.y = y; }
+}
+
+@extend NSArray<T> {
+    - (NSArray<T> *) from:(int)i {
+        if (i < 0) i = (int)self.[count] + i;
+        return self.[subarrayWithRange: NSMakeRange(i, self.count - i)];
+    }
+    NSArray<T> *to: (int i) {
+        if (i < 0) i = (int)self.[count] + i;
+        return self.[subarrayWithRange: NSMakeRange(0, i)];
+    }
 }
