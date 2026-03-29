@@ -631,5 +631,10 @@
         if (j < 0) j = (int)self.[count] + j;
         return self.[subarrayWithRange: NSMakeRange(i, j-i)];
     }
+    - NSArray<T> *[from: int i to: int j] { /// Alternative syntax – conceptural connection to call-site and C 'decl follows use' idea but visually uglier and harder to parse.
+        if (i < 0) i = (int)self.[count] + i;
+        if (j < 0) j = (int)self.[count] + j;
+        return self.[subarrayWithRange: NSMakeRange(i, j-i)];
+    }
 }
 arr.[from: a to: b];
