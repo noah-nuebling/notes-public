@@ -589,7 +589,7 @@
 //          - Small delta from corresponding C struct / function syntax. 
 //              - (Note how you can start by just defining C struct and swapping `struct` for `@class`.)
 //          - Allow inline declarations of objects in functions (Just like structs) 
-//          - Make implementation the default 'behavior' of the syntax. Make forward declarations (interfaces) a special case / variation.
+//          - Make implementation the default 'behavior' of the syntax. Make forward declarations (interfaces) (what goes into headers) a special case / variation.
 //      Also see recent quicknote.
 
 @class ABC {
@@ -631,7 +631,7 @@
         if (j < 0) j = (int)self.[count] + j;
         return self.[subarrayWithRange: NSMakeRange(i, j-i)];
     }
-    - NSArray<T> *[from: int i to: int j] { /// Alternative syntax – conceptural connection to call-site and C 'decl follows use' idea but visually uglier and harder to parse.
+    - NSArray<T> *[from: int i to: int j] { /// Alternative syntax - beautifully follows C 'decl follows use' idea but visually uglier and harder to parse I think.
         if (i < 0) i = (int)self.[count] + i;
         if (j < 0) j = (int)self.[count] + j;
         return self.[subarrayWithRange: NSMakeRange(i, j-i)];
