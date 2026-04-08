@@ -647,18 +647,13 @@ arr.[from: a to: b];
     Syntax ideas: 
         - Using @(a, b, c) for array literals might be elegant since it matches old-style plists and .[description], plus it doesn't visually 'collide' with method call brackets. 
             To avoid conflicts, the 'boxing cast' syntax from above could be changed:
-                @(String *)entry->d_name
+                @(String *)entry->d_name        (we also used `@(auto)entry->d_name` above)
                 -> 
-                (__box String *)entry->d_name
+                (__box String *)entry->d_name   (or `(__box auto)entry->d_name` I guess)?
             This would be consistent with existing __bridge keyword (Though I'm not totally sure if that is optimal)
         - Idea: Using class identifiers as class objects without .[self], so you can write obj.[isKindOfClass: NSArray], instead of obj.[isKindOfClass: NSArray.[self]]
         - Above, we propose two ways of shortening API names: introducing secondary, shorter naming convention for additional 'shorthand' APIs that sacrifice consistency / clarity for shortness, or overloading C operators for objects, e.g. `a == b` would desugar to a.[isEqual: b]. 
             -> Currently I'm leaning more towards overloading C operators – making the API names shorter often doesn't really improve readability because my brain parses [objectAtIndex:] as one 'token' anyways, just like '[at:]', plus it introduces the 'two naming schemes' thing which might be hard to execute well especially in a larger organization.
-        - I think generally, some of the ideas above are not worth the complexity – if we were working on this for real we should iterate and distill and only keep the ideas that are really worth the 'complexity cost'.
-            - `[Number *]` for generics feels like a weird deviation that is not more in-line with C syntax – maybe `NSString *[NSArray *] arr` (for an NSArray containing NSString *) would make more sense since the 'return type' is always on the left in C type decls? Or maybe sticking with <> is ok.
-            - I mind the long identifers less now. I don't find arr.[subarrayFromIndex: 10 toIndex: -10] a lot worse than arr[10:-10] right now. Consistency, semantic simplicity, feel important, and subarrayFromIndex: parses as one 'token' in my brain anyways, I think.
-            - The @(person.name for (auto person in people) if (person.[age] > 18)) 'list comprehension syntax even feels sort of unnecessary – it feels fancy, it's flexible – but outside the Python command-line where one liners offer significant ergonomics advantages – why not just write a for loop? Is it really pragmatic to have this? 
-                - (Still a much better design / alternative to map/filter/reduce though)
     Program organization:
         - People dislike header files – I think with small updates to clang you could avoid them in practise for most apps (better unity build support):
             - Allow using function/class/methods that are declared BELOW in the source text 
@@ -669,5 +664,15 @@ arr.[from: a to: b];
                 - I heard that unreal engine already does this
             - Developers could choose themselves whether to #import or #include all the source code files in the main.m file or whether they want to use a unity build instead. 
                 - Maybe you could also build some clang / Xcode magic where all the source code files are handed to clang and then it compiles them as one big compilation unit – but I haven't thought about how you could do this well or whether the complexity / obfuscation would be worth the ergonomics.
+    On ideas above
+        - Our ideas evolved over time – later ideas override the ones above 
+            – I think generally, some of the ideas above are not worth the complexity – if we were working on this for real we should iterate and distill and only keep the ideas that are really worth the 'complexity cost'.
+            - `[Number *]` for generics feels like a weird deviation that is not more in-line with C syntax – maybe `NSString *[NSArray *] arr` (for an NSArray containing NSString *) would make more sense since the 'return type' is always on the left in C type decls? Or maybe sticking with <> is ok.
+            - I mind the long identifers less now. I don't find arr.[subarrayFromIndex: 10 toIndex: -10] a lot worse than arr[10:-10] right now. Consistency, semantic simplicity, feel important, and subarrayFromIndex: parses as one 'token' in my brain anyways, I think.
+            - The `@(person.name for (auto person in people) if (person.[age] > 18))` 'list comprehension syntax even feels sort of unnecessary – it feels fancy, it's flexible – but outside the Python command-line where one liners offer significant ergonomics advantages – why not just write a for loop? Is it really pragmatic to have this? 
+                - (Still a much more flexible and ergonomic design than map/filter/reduce though!)
+                - I'm generally more focused on the app-development usecase over 'Unix scripting' or being a Python alternative – that's what Objective-C is really used for and what Apple should have focused on with their updates. 
+            - I'd stick with prefixed identifiers for the stdlib / Foundation -> NSString over String and so on
+                -> Pragmatically, it's fine – greppable, Googlable, still easy-to-type, adds context, only two more characters, still registers as 'one token' in my brain. 
 
 */
