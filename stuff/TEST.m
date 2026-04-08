@@ -25,16 +25,16 @@
   }
 
 // Trying to simplify Swuft-style:
-NSData *[NSArray *] fetchAll: (NSString *[NSArray *] urls) { // Putting the name in the parens along with the type simplifies block args a bit || Not sure about the new `NSData *[NSArray *]` syntax, but I wanted to see what it looks like.
+NSData *[NSArray *] fetchAll: (NSString *[NSArray *] urls) { // Putting the name in the parens along with the type simplifies block args a bit (Update: I removed the completion block arg – so you can't see this anymore)|| Not sure about the new `NSData *[NSArray *]` syntax, but I wanted to see what it looks like.
     
     auto group = NSThreadGroup.[new]; // New primitive in the stdlib
     
     auto results = @(NSNull.[null] for range(i, urls.count)); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now.
 
-    for (NSURL *url in urls) { // Didn't change this much – just used dot-bracket syntax
+    for range(i, urls.count) { // Didn't change this too much – just used dot-bracket syntax
         group.[enter];
-        NSURLSession.[sharedSession].[dataTaskWithURL: url completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
-            @synchronized(results) results[idx] = data ?: NSNull.[null]; /// Where does the idx come from? I kept the logic
+        NSURLSession.[sharedSession].[dataTaskWithURL: urls[i] completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
+            @synchronized(results) results[i] = data ?: NSNull.[null];
             group.[leave];
         }];
     }
