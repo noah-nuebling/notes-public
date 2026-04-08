@@ -656,12 +656,14 @@ arr.[from: a to: b];
             -> Currently I'm leaning more towards overloading C operators – making the API names shorter often doesn't really improve readability because my brain parses [objectAtIndex:] as one 'token' anyways, just like '[at:]', plus it introduces the 'two naming schemes' thing which might be hard to execute well especially in a larger organization.
         - I think generally, some of the ideas above are not worth the complexity – if we were working on this for real we should iterate and distill and only keep the ideas that are really worth the 'complexity cost'.
     Program organization:
-        - People dislike header files – I think with small updates to clang you could avoid them in practise for most apps (in favor or unity builds):
+        - People dislike header files – I think with small updates to clang you could avoid them in practise for most apps (better unity build support):
             - Allow using function/class/methods that are declared BELOW in the source text 
                 - objc already allows this for c functions declared inside @implementation – so the compiler can already do this
                 - Now you basically killed the need for any forward declarations – which is what header files basically contain. -> So you can just put all the source code in a big compilation unit and compile it – just like Swift or other languages.
-            - 
-
-
+            - Support incremental builds of #included source code files
+                -> Now you can build unity builds just as incrementally as normal builds
+                - I heard that unreal engine already does this
+            - Developers could choose themselves whether to #import or #include all the source code files in the main.m file or whether they want to use a unity build instead. 
+                - Maybe you could also build some clang / Xcode magic where all the source code files are handed to clang and then it compiles them as one big compilation unit – but I haven't thought about how you could do this well or whether the complexity / obfuscation would be worth the ergonomics.
 
 */
