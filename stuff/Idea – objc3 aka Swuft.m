@@ -617,7 +617,7 @@
     @class @method int setX: (int x) andY: (NSString *y) { globals.x = x; globals.y = y; }
 }
 
-@extend NSArray<T> {
+@category NSArray<T> {
     - NSArray<T> *from: (int i) {
         if (i < 0) i = (int)self.[count] + i;
         return self.[subarrayWithRange: NSMakeRange(i, self.[count] - i)];
@@ -668,7 +668,10 @@ arr.[from: a to: b];
                 - Maybe you could also build some clang / Xcode magic where all the source code files are handed to clang and then it compiles them as one big compilation unit – but I haven't thought about how you could do this well or whether the complexity / obfuscation would be worth the ergonomics.
         - Instead of doing @dataclass, I'm leaning towards
             - Making classes very easy to create anywhere (just like C structs)
-            - Maybe adding runtime helper functions to quickly add 'dataclass' functionality
+            - Maybe adding runtime helper functions to quickly add 'dataclass' functionality, so you could write, e.g.:
+                - NSString *description { return NSAutomaticRuntimeDescription(self); }
+                - NSString *hash { return NSAutomaticRuntimeHash(self); }
+                - NSString *isEqual: (id other) { return NSAutomaticRuntimeEquals(self, other); }
     On ideas above
         - Our ideas evolved over time – later ideas override the ones above 
         – I think generally, some of the ideas above are not worth the complexity – if we were working on this for real we should iterate and distill and only keep the ideas that are really worth the 'complexity cost'.
@@ -716,9 +719,9 @@ arr.[from: a to: b];
 
                 auto group = NSThreadGroup.[new]; // New primitive in the stdlib
                 
-                auto results = @(NSNull.[null] for range(i, urls.count)); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now.
+                auto results = @(NSNull.[null] for range(i, urls.[count])); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm used to using in objc for some code – not sure it should be part of objc 3? Not super 'pragmatic' feeling. But the case is so common that maybe there's an argument for it? Let's go with it for now.
 
-                for range(i, urls.count) { // Didn't change this too much – just used dot-bracket syntax
+                for range(i, urls.[count]) {
                     group.[enter];
                     NSURLSession.[sharedSession].[dataTaskWithURL: urls[i] completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
                         @synchronized(results) results[i] = data ?: NSNull.[null];
