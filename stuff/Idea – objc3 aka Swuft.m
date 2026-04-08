@@ -713,7 +713,7 @@ arr.[from: a to: b];
         }
 
         // Trying to simplify Swuft-style:
-        NSData *[NSArray *] fetchAll: (NSString *[NSArray *urls]) completion: (void (^completion)(NSArray *)) { // Putting the name in the parens along with the type simplifies block args a bit (Update: I removed the completion block arg – so you can't see this anymore) (Update2: Added it back.)|| Not sure about the new `NSData *[NSArray *url]` syntax. Kinda cursed, but I wanted to see what it looks like.
+        NSData *[NSArray *] fetchAll: (NSString *(NSArray *)urls.[]) completion: (void (^completion)(NSArray *)) { // Putting the name in the parens along with the type makes block-args at bit less weird / confusing || Not sure about the new `NSData *(NSArray *)url.[]` syntax. Kinda cursed, but I wanted to see what it looks like.
             
             NSThread.[detachThreadWithBlock: ^void () { 
 
@@ -733,20 +733,17 @@ arr.[from: a to: b];
             }];
         }
 
-        // If you really wanted to make it more concise, you could add NSThreadGroup support into the NSURLSession API. (Like you'd have to to support `async-await` keywords, too)
-        //      ... Ok this buys you basically nothing – is this shorter with async-await?
-        NSData *[NSArray *] fetchAll: (NSString *[NSArray *urls]) completion: (void (^completion)(NSArray *)) {
+        // Or with a blocking API and multiple return-values:
+        NSData *[NSArray *] fetchAll: (NSString *(NSArray *)urls.[]) completion: (void (^completion)(NSArray *)) {
             
             NSThread.[detachThreadWithBlock: ^void () { 
-                
-                auto results = @(NSNull.[null] for range(i, urls.count)); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now.
-                
+                auto results = @(NSNull.[null] for range(i, urls.[count]));
+
                 auto group = NSThreadGroup.[new];
-                for range(i, urls.count) { // Didn't change this too much – just used dot-bracket syntax
-                    NSURLSession.[sharedSession].[dataTaskWithURL: urls[i] threadGroup: group completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
-                        @synchronized(results) results[i] = data ?: NSNull.[null];
-                    }];
-                }
+                for range(i, urls.[count]) group.[performBlock: ^void () {
+                    struct { NSData *data; NSURLResponse *response; NSError *error; } = NSURLSession.[sharedSession].[dataTaskWithURL: urls[i]].[start]; 
+                    @synchronized(results) if (data) results[i] = data;
+                }];
                 group.[wait];
                 completion(results);
             }];
