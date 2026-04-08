@@ -713,7 +713,7 @@ arr.[from: a to: b];
         }
 
         // Trying to simplify Swuft-style:
-        NSData *[NSArray *] fetchAll: (NSString *(NSArray *)urls.[]) completion: (void (^completion)(NSArray *)) { // Putting the name in the parens along with the type makes block-args at bit less weird / confusing || Not sure about the new `NSData *(NSArray *)url.[]` syntax. Kinda cursed, but I wanted to see what it looks like.
+        - void fetchAll: (NSString *(NSArray *url).[]) completion: (void (^completion)(NSArray *)) { // Putting the name in the parens along with the type makes block-args at bit less weird / confusing || Not sure about the new `NSData *(NSArray *url).[]` syntax. Kinda cursed, but I wanted to see what it looks like.
             
             NSThread.[detachThreadWithBlock: ^void () { 
 
@@ -724,7 +724,7 @@ arr.[from: a to: b];
                 for range(i, urls.[count]) {
                     group.[enter];
                     NSURLSession.[sharedSession].[dataTaskWithURL: urls[i] completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
-                        @synchronized(results) results[i] = data ?: NSNull.[null];
+                        @synchronized(results) if (data) results[i] = data;
                         group.[leave];
                     }];
                 }
@@ -733,18 +733,16 @@ arr.[from: a to: b];
             }];
         }
 
-        // Or with a blocking API and multiple return-values:
-        NSData *[NSArray *] fetchAll: (NSString *(NSArray *)urls.[]) completion: (void (^completion)(NSArray *)) {
+        // Or with a blocking API and struct-return-desctructuring:
+        - NSData *(NSArray *).[] fetchAll: (NSString *(NSArray *url).[]) {
             
-            NSThread.[detachThreadWithBlock: ^void () { 
-                auto results = @(NSNull.[null] for range(i, urls.[count]));
+            auto results = @(NSNull.[null] for range(i, urls.[count]));
 
-                auto group = NSThreadGroup.[new];
-                for range(i, urls.[count]) group.[performBlock: ^void () {
-                    struct { NSData *data; NSURLResponse *response; NSError *error; } = NSURLSession.[sharedSession].[dataTaskWithURL: urls[i]].[start]; 
-                    @synchronized(results) if (data) results[i] = data;
-                }];
-                group.[wait];
-                completion(results);
+            auto group = NSThreadGroup.[new];
+            for range(i, urls.[count]) group.[performBlock: ^void () {
+                struct { NSData *data; NSURLResponse *response; NSError *error; } = NSURLSession.[sharedSession].[dataTaskWithURL: urls[i]].[launch]; /// Struct-return-destructuring syntax – perhaps a little out there for a realistic mid 2000s objc upgrade scenario.
+                @synchronized(results) if (data) results[i] = data;
             }];
+            group.[wait]; /// Wait synchronously. Caller can dispatch to background thread if needed – Perhaps you could add a convenience function for that to the stdlib.
+            return results;
         }
