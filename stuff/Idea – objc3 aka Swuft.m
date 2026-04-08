@@ -655,6 +655,7 @@ arr.[from: a to: b];
         - Above, we propose two ways of shortening API names: introducing secondary, shorter naming convention for additional 'shorthand' APIs that sacrifice consistency / clarity for shortness, or overloading C operators for objects, e.g. `a == b` would desugar to a.[isEqual: b]. 
             -> Currently I'm leaning more towards overloading C operators – making the API names shorter often doesn't really improve readability because my brain parses [objectAtIndex:] as one 'token' anyways, just like '[at:]', plus it introduces the 'two naming schemes' thing which might be hard to execute well especially in a larger organization.
             Side-idea -> We could make all the C operators desugar to special method calls when used on objects – if you want to use them on the object pointers (E.g. pointer-equality-check) you'd cast to (void *) first.
+        - Maybe `obj.[prop]` / `obj.[prop: x]` as the convention for getter / setter pairs could give the same readability / scannability benefits of current objc obj.prop / obj.prop = x; syntax in objc 2.0 without the weird magical semantics exception. (Just regular method-call syntax)
     Program organization:
         - People dislike header files – I think with small updates to clang you could avoid them in practise for most apps (better unity build support):
             - Allow using function/class/methods that are declared BELOW in the source text 
