@@ -644,13 +644,24 @@ arr.[from: a to: b];
 
 /*
     Addition [Apr 2026] 
-    - Using @(a, b, c) for array literals might be elegant since it matches old-style plists and .[description], plus it doesn't visually 'collide' with method call brackets. 
-        To avoid conflicts, the 'boxing cast' syntax from above could be changed:
-            @(String *)entry->d_name
-            -> 
-            (__box String *)entry->d_name
-        This would be consistent with existing __bridge keyword (Though I'm not totally sure if that is optimal)
-    - Idea: Using class identifiers as class objects without .[self], so you can write obj.[isKindOfClass: NSArray], instead of obj.[isKindOfClass: NSArray.[self]]
-    
+    Syntax ideas: 
+        - Using @(a, b, c) for array literals might be elegant since it matches old-style plists and .[description], plus it doesn't visually 'collide' with method call brackets. 
+            To avoid conflicts, the 'boxing cast' syntax from above could be changed:
+                @(String *)entry->d_name
+                -> 
+                (__box String *)entry->d_name
+            This would be consistent with existing __bridge keyword (Though I'm not totally sure if that is optimal)
+        - Idea: Using class identifiers as class objects without .[self], so you can write obj.[isKindOfClass: NSArray], instead of obj.[isKindOfClass: NSArray.[self]]
+        - Above, we propose two ways of shortening API names: introducing secondary, shorter naming convention for additional 'shorthand' APIs that sacrifice consistency / clarity for shortness, or overloading C operators for objects, e.g. `a == b` would desugar to a.[isEqual: b]. 
+            -> Currently I'm leaning more towards overloading C operators – making the API names shorter often doesn't really improve readability because my brain parses [objectAtIndex:] as one 'token' anyways, just like '[at:]', plus it introduces the 'two naming schemes' thing which might be hard to execute well especially in a larger organization.
+        - I think generally, some of the ideas above are not worth the complexity – if we were working on this for real we should iterate and distill and only keep the ideas that are really worth the 'complexity cost'.
+    Program organization:
+        - People dislike header files – I think with small updates to clang you could avoid them in practise for most apps (in favor or unity builds):
+            - Allow using function/class/methods that are declared BELOW in the source text 
+                - objc already allows this for c functions declared inside @implementation – so the compiler can already do this
+                - Now you basically killed the need for any forward declarations – which is what header files basically contain. -> So you can just put all the source code in a big compilation unit and compile it – just like Swift or other languages.
+            - 
+
+
 
 */
