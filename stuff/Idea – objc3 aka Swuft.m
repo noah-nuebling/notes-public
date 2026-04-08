@@ -687,7 +687,7 @@ arr.[from: a to: b];
 
     // Example code to demonstrate my current idea of Swuft
 
-        // Standard objc 2.0:
+        // Standard objc 2.0: (maybe a bit extra verbose)
         - (void)fetchAll:(NSArray<NSURL *> *)urls completion:(void(^)(NSArray *))completion {
             dispatch_group_t group = dispatch_group_create();
             NSMutableArray *results = [NSMutableArray arrayWithCapacity:urls.count];
@@ -743,6 +743,6 @@ arr.[from: a to: b];
                 struct { NSData *data; NSURLResponse *response; NSError *error; } = NSURLSession.[sharedSession].[dataTaskWithURL: urls[i]].[launch]; /// Struct-return-destructuring syntax – perhaps a little out there for a realistic mid 2000s objc upgrade scenario.
                 @synchronized(results) if (data) results[i] = data;
             }];
-            group.[wait]; /// Wait synchronously. Caller can dispatch to background thread if needed – Perhaps you could add a convenience function for that to the stdlib.
+            group.[wait]; /// Wait synchronously. Caller can dispatch to background thread if needed – Perhaps you could add a convenience function for that to the stdlib. (In a Cocoa GUI app, you'd usually start this from the main thread and then have the result be handled on the main thread – so maybe this is a bad design)
             return results;
         }
