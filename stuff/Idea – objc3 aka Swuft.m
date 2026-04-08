@@ -666,6 +666,9 @@ arr.[from: a to: b];
                 - I heard that unreal engine already does this
             - Developers could choose themselves whether to #import or #include all the source code files in the main.m file or whether they want to use a unity build instead. 
                 - Maybe you could also build some clang / Xcode magic where all the source code files are handed to clang and then it compiles them as one big compilation unit – but I haven't thought about how you could do this well or whether the complexity / obfuscation would be worth the ergonomics.
+        - Instead of doing @dataclass, I'm leaning towards
+            - Making classes very easy to create anywhere (just like C structs)
+            - Maybe adding runtime helper functions to quickly add 'dataclass' functionality
     On ideas above
         - Our ideas evolved over time – later ideas override the ones above 
         – I think generally, some of the ideas above are not worth the complexity – if we were working on this for real we should iterate and distill and only keep the ideas that are really worth the 'complexity cost'.
@@ -676,71 +679,72 @@ arr.[from: a to: b];
                 - (Still a much more flexible and ergonomic design than map/filter/reduce though!)
                 - I'm generally more focused on the app-development usecase over 'Unix scripting' or being a Python alternative – that's what Objective-C is really used for and what Apple should have focused on with their updates. 
             - I'd stick with prefixed identifiers for the stdlib / Foundation -> NSString over String and so on
-                -> Pragmatically, it's fine – greppable, Googlable, still easy-to-type, adds context, only two more characters, still registers as 'one token' in my brain. 
-            - 
+                -> Pragmatically, it's fine – greppable, Googlable, still easy-to-type, adds context, only two more characters, still registers as 'one token' in my brain.
 */
 
-// Claude's version:
-  - (void)fetchAll:(NSArray<NSURL *> *)urls completion:(void(^)(NSArray *))completion {
-      dispatch_group_t group = dispatch_group_create();
-      NSMutableArray *results = [NSMutableArray arrayWithCapacity:urls.count];
+    // Example code to demonstrate my current idea of Swuft
 
-      for (NSUInteger i = 0; i < urls.count; i++) {
-          [results addObject:[NSNull null]];
-      }
+        // Standard objc 2.0:
+        - (void)fetchAll:(NSArray<NSURL *> *)urls completion:(void(^)(NSArray *))completion {
+            dispatch_group_t group = dispatch_group_create();
+            NSMutableArray *results = [NSMutableArray arrayWithCapacity:urls.count];
 
-      [urls enumerateObjectsUsingBlock:^(NSURL *url, NSUInteger idx, BOOL *stop) {
-          dispatch_group_enter(group);
-          [[NSURLSession sharedSession] dataTaskWithURL:url
-              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-              @synchronized(results) {
-                  results[idx] = data ?: [NSNull null];
-              }
-              dispatch_group_leave(group);
-          }];
-      }];
+            for (NSUInteger i = 0; i < urls.count; i++) {
+                [results addObject:[NSNull null]];
+            }
 
-      dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-          completion(results);
-      });
-  }
+            [urls enumerateObjectsUsingBlock:^(NSURL *url, NSUInteger idx, BOOL *stop) {
+                dispatch_group_enter(group);
+                [[NSURLSession sharedSession] dataTaskWithURL:url
+                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                    @synchronized(results) {
+                        results[idx] = data ?: [NSNull null];
+                    }
+                    dispatch_group_leave(group);
+                }];
+            }];
 
-// Trying to simplify Swuft-style:
-NSData *[NSArray *] fetchAll: (NSString *[NSArray *urls]) completion: (void (^completion)(NSArray *)) { // Putting the name in the parens along with the type simplifies block args a bit (Update: I removed the completion block arg – so you can't see this anymore) (Update2: Added it back.)|| Not sure about the new `NSData *[NSArray *url]` syntax. Kinda cursed, but I wanted to see what it looks like.
-    
-    NSThread.[detachThreadWithBlock: ^void () { 
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                completion(results);
+            });
+        }
 
-        auto group = NSThreadGroup.[new]; // New primitive in the stdlib
-        
-        auto results = @(NSNull.[null] for range(i, urls.count)); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now.
+        // Trying to simplify Swuft-style:
+        NSData *[NSArray *] fetchAll: (NSString *[NSArray *urls]) completion: (void (^completion)(NSArray *)) { // Putting the name in the parens along with the type simplifies block args a bit (Update: I removed the completion block arg – so you can't see this anymore) (Update2: Added it back.)|| Not sure about the new `NSData *[NSArray *url]` syntax. Kinda cursed, but I wanted to see what it looks like.
+            
+            NSThread.[detachThreadWithBlock: ^void () { 
 
-        for range(i, urls.count) { // Didn't change this too much – just used dot-bracket syntax
-            group.[enter];
-            NSURLSession.[sharedSession].[dataTaskWithURL: urls[i] completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
-                @synchronized(results) results[i] = data ?: NSNull.[null];
-                group.[leave];
+                auto group = NSThreadGroup.[new]; // New primitive in the stdlib
+                
+                auto results = @(NSNull.[null] for range(i, urls.count)); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now.
+
+                for range(i, urls.count) { // Didn't change this too much – just used dot-bracket syntax
+                    group.[enter];
+                    NSURLSession.[sharedSession].[dataTaskWithURL: urls[i] completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
+                        @synchronized(results) results[i] = data ?: NSNull.[null];
+                        group.[leave];
+                    }];
+                }
+                group.[wait];
+                completion(results);
             }];
         }
-        group.[wait];
-        completion(results);
-    }];
-}
 
-// If you really wanted to make it more concise, you could add NSThreadGroup support into the NSURLSession API. (Like you'd have to to support `async-await` keywords, too)
-//      ... Ok this buys you basically nothing – is this shorter with async-await?
-NSData *[NSArray *] fetchAll: (NSString *[NSArray *urls]) completion: (void (^completion)(NSArray *)) {
-    
-    NSThread.[detachThreadWithBlock: ^void () { 
-        
-        auto results = @(NSNull.[null] for range(i, urls.count)); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now.
-        
-        auto group = NSThreadGroup.[new];
-        for range(i, urls.count) { // Didn't change this too much – just used dot-bracket syntax
-            NSURLSession.[sharedSession].[dataTaskWithURL: urls[i] threadGroup: group completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
-                @synchronized(results) results[i] = data ?: NSNull.[null];
+        // If you really wanted to make it more concise, you could add NSThreadGroup support into the NSURLSession API. (Like you'd have to to support `async-await` keywords, too)
+        //      ... Ok this buys you basically nothing – is this shorter with async-await?
+        NSData *[NSArray *] fetchAll: (NSString *[NSArray *urls]) completion: (void (^completion)(NSArray *)) {
+            
+            NSThread.[detachThreadWithBlock: ^void () { 
+                
+                auto results = @(NSNull.[null] for range(i, urls.count)); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now.
+                
+                auto group = NSThreadGroup.[new];
+                for range(i, urls.count) { // Didn't change this too much – just used dot-bracket syntax
+                    NSURLSession.[sharedSession].[dataTaskWithURL: urls[i] threadGroup: group completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
+                        @synchronized(results) results[i] = data ?: NSNull.[null];
+                    }];
+                }
+                group.[wait];
+                completion(results);
             }];
         }
-        group.[wait];
-        completion(results);
-    }];
-}
