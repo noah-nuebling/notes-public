@@ -25,7 +25,7 @@
   }
 
 // Trying to simplify Swuft-style:
-NSData *[NSArray *] fetchAll: (NSString *[NSArray *] urls) completion: (void ^completion(NSArray *)) { // Putting the name in the parens along with the type simplifies block args a bit (Update: I removed the completion block arg – so you can't see this anymore) (Update2: Added it back.)|| Not sure about the new `NSData *[NSArray *]` syntax, but I wanted to see what it looks like.
+NSData *[NSArray *] fetchAll: (NSString *[NSArray *urls]) completion: (void (^completion)(NSArray *)) { // Putting the name in the parens along with the type simplifies block args a bit (Update: I removed the completion block arg – so you can't see this anymore) (Update2: Added it back.)|| Not sure about the new `NSData *[NSArray *url]` syntax. Kinda cursed, but I wanted to see what it looks like.
     
     NSThread.[detachThreadWithBlock: ^void () { 
 
