@@ -1,5 +1,5 @@
 
-Claude's version:
+// Claude's version:
   - (void)fetchAll:(NSArray<NSURL *> *)urls completion:(void(^)(NSArray *))completion {
       dispatch_group_t group = dispatch_group_create();
       NSMutableArray *results = [NSMutableArray arrayWithCapacity:urls.count];
@@ -24,20 +24,20 @@ Claude's version:
       });
   }
 
-Trying to simplify Swuft-style:
-- void fetchAll: (NSString *[NSArray *] urls) completion: (void ^completion(NSArray *)) { // Putting the name in the parens along with the type simplifies block args a bit
-    auto group = [NSThreadGroup new]; // New primitive in the stdlib
-    NSArray *results = [NSArray new]; // NSArray is mutable, NSMutableArray is deprecated / an alias
+// Trying to simplify Swuft-style:
+NSData *[NSArray *] fetchAll: (NSString *[NSArray *] urls) { // Putting the name in the parens along with the type simplifies block args a bit || Not sure about the new `NSData *[NSArray *]` syntax, but I wanted to see what it looks like.
+    
+    auto group = NSThreadGroup.[new]; // New primitive in the stdlib
+    
+    auto results = @(NSNull.[null] for range(i, urls.count)); // Creates an NSArray. NSArray is mutable, NSMutableArray is deprecated / an alias || range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now.
 
-    for range(i, urls.count) results += [NSNull null]; // range() is a very simple macro I'm already using in objc for some code – not sure it should be part of objc 3? Let's go with it for now || `+=` might desugar to __add_object__ or something. Also not sure if worth adding.
-
-    for (NSURL *url in urls)
+    for (NSURL *url in urls) { // Didn't change this much – just used dot-bracket syntax
+        group.[enter];
         NSURLSession.[sharedSession].[dataTaskWithURL: url completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
-            @synchronized(results) results[idx] = data ?: [NSNull null];
-            dispatch_group_leave(group);
+            @synchronized(results) results[idx] = data ?: NSNull.[null]; /// Where does the idx come from? I kept the logic
+            group.[leave];
         }];
-
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        completion(results);
-    });
+    }
+    group.[wait];
+    return results; /// The return semantics are simplified to just be blocking – not sure that's a fair comparison? I don't understand when you'd use the original semantics.
 }
