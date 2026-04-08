@@ -644,7 +644,13 @@ arr.[from: a to: b];
 
 /*
     Addition [Apr 2026] 
-
+    - Using @(a, b, c) for array literals might be elegant since it matches old-style plists and .[description], plus it doesn't visually 'collide' with method call brackets. 
+        To avoid conflicts, the 'boxing cast' syntax from above could be changed:
+            @(String *)entry->d_name
+            -> 
+            (__box String *)entry->d_name
+        This would be consistent with existing __bridge keyword (Though I'm not totally sure if that is optimal)
+    - Idea: Using class identifiers as class objects without .[self], so you can write obj.[isKindOfClass: NSArray], instead of obj.[isKindOfClass: NSArray.[self]]
     
 
 */
