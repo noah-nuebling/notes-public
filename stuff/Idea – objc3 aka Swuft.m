@@ -655,6 +655,9 @@ arr.[from: a to: b];
         - Above, we propose two ways of shortening API names: introducing secondary, shorter naming convention for additional 'shorthand' APIs that sacrifice consistency / clarity for shortness, or overloading C operators for objects, e.g. `a == b` would desugar to a.[isEqual: b]. 
             -> Currently I'm leaning more towards overloading C operators – making the API names shorter often doesn't really improve readability because my brain parses [objectAtIndex:] as one 'token' anyways, just like '[at:]', plus it introduces the 'two naming schemes' thing which might be hard to execute well especially in a larger organization.
         - I think generally, some of the ideas above are not worth the complexity – if we were working on this for real we should iterate and distill and only keep the ideas that are really worth the 'complexity cost'.
+            - `[Number *]` for generics feels like a weird deviation that is not more in-line with C syntax – maybe `NSString *[NSArray *] arr` (for an NSArray containing NSString *) would make more sense since the 'return type' is always on the left in C type decls? Or maybe sticking with <> is ok.
+            - I mind the long identifers less now. I don't find arr.[subarrayFromIndex: 10 toIndex: -10] a lot worse than arr[10:-10] right now. Consistency, semantic simplicity, feel important, and subarrayFromIndex: parses as one 'token' in my brain anyways, I think.
+            - The @(person.name for (auto person in people) if (person.[age] > 18)) 'list comprehension syntax even feels sort of unnecessary
     Program organization:
         - People dislike header files – I think with small updates to clang you could avoid them in practise for most apps (better unity build support):
             - Allow using function/class/methods that are declared BELOW in the source text 
