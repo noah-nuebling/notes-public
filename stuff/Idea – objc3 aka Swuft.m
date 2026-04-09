@@ -661,6 +661,11 @@ arr.[from: a to: b];
             - Allow using function/class/methods that are declared BELOW in the source text 
                 - objc already allows this for c functions declared inside @implementation – so the compiler can already do this
                 - Now you basically killed the need for any forward declarations – which is what header files basically contain. -> So you can just put all the source code in a big compilation unit and compile it – just like Swift or other languages.
+            - @public keyword
+                - To support the unity build case –> make implementations private by default and allow prefixing with @public
+                - To support header-file usecase –> make forward decls (which would go into header files – and I think nowhere else?(??)) public by default. 
+                -> You get greppability of public interface in either case.
+                -> C functions would always be public to the entire program in unity build I guess? Maybe that's fine.
             - Support incremental builds of #included source code files
                 -> Now you can build unity builds just as incrementally as normal builds
                 - I heard that unreal engine already does this
