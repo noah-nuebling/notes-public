@@ -48,12 +48,12 @@ Core:
 
         - Import .xcloc files
             Steps:
-                1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix.xcloc'
-                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix.xcloc'
+                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Spanish @manghidev/Mac Mouse Fix.xcloc'
+                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Spanish @manghidev/Mac Mouse Fix.xcloc'
                 3. Update: func applyHardcodedTabWidth()
             - [x] Japanese
             - [x] Vietnamese
-            - [ ] French
+            - [x] French
             - [ ] Spanish
             - [ ] Simplified Chinese
             - [ ] Ukrainian
@@ -65,8 +65,8 @@ Core:
 
         - Import .xcloc files
             Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix Website.xcloc'
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix Website.xcloc'
+                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Spanish @manghidev/Mac Mouse Fix Website.xcloc'
+                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Spanish @manghidev/Mac Mouse Fix Website.xcloc'
             - [x] Japanese
             - [x] Vietnamese
             - [x] French
@@ -148,6 +148,9 @@ Update Translation Guide
     - [ ] Turkish
     - [ ] Norwegian
     - [ ] Brazilian Portuguese
+
+- [ ] Mark the root nodes of all the Localizable strings (whose children are translated) as translated
+    
 
 - [ ] Publish App update
     - See `MMF - Update Checklist - Template.md`
