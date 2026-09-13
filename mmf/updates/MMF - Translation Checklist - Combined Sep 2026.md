@@ -48,14 +48,14 @@ Core:
 
         - Import .xcloc files
             Steps:
-                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Simplified Chinese @djzhao627/Mac Mouse Fix.xcloc'
-                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Simplified Chinese @djzhao627/Mac Mouse Fix.xcloc'
+                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Ukrainian @denysocheck/Mac Mouse Fix.xcloc'
+                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Ukrainian @denysocheck/Mac Mouse Fix.xcloc'
                 3. Update: func applyHardcodedTabWidth()
             - [x] Japanese
             - [x] Vietnamese
             - [x] French
             - [x] Spanish
-            - [ ] Simplified Chinese
+            - [x] Simplified Chinese
             - [ ] Ukrainian
             - [ ] Turkish
             - [ ] Norwegian
@@ -71,7 +71,7 @@ Core:
             - [x] Vietnamese
             - [x] French
             - [x] Spanish
-            - [ ] Simplified Chinese
+            - [xxx] Simplified Chinese
             - [ ] Ukrainian
             - [ ] Turkish
             - [ ] Norwegian
