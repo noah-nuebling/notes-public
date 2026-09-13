@@ -46,11 +46,11 @@ Core:
 
         - Import .xcloc files
             Steps:
-                1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix.xcloc'
-                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix.xcloc'
+                1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
+                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path ...
                 3. Update: func applyHardcodedTabWidth()
             - [x] Japanese
-            - [ ] Vietnamese
+            - [x] Vietnamese
             - [ ] French
             - [ ] Spanish
             - [ ] Simplified Chinese
@@ -59,40 +59,14 @@ Core:
             - [ ] Norwegian
             - [ ] Brazilian Portuguese
 
-        - Update Markdown files:
-            - Run ScreenshotTaker XCUITest in Xcode
-                Steps:
-                    1. Modify 'onlyUpdateLocales' at the to
-                    2. >>> func testTakeScreenshots_Documentation()
-                - [x] Japanese
-                - [ ] Vietnamese
-                - [ ] French
-                - [ ] Spanish
-                - [ ] Simplified Chinese
-                - [ ] Ukrainian
-                - [ ] Turkish
-                - [ ] Norwegian
-                - [ ] Brazilian Portuguese
-            - Rebuild all the docs
-                >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
-                - [x] Japanese
-                - [ ] Vietnamese
-                - [ ] French
-                - [ ] Spanish
-                - [ ] Simplified Chinese
-                - [ ] Ukrainian
-                - [ ] Turkish
-                - [ ] Norwegian
-                - [ ] Brazilian Portuguese
-
     Mac Mouse Fix Website.xcloc
 
         - Import .xcloc files
             Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path /Users/Noah/Downloads/translate_japanese/Mac\ Mouse\ Fix\ Website.xcloc
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path /Users/Noah/Downloads/translate_japanese/Mac\ Mouse\ Fix\ Website.xcloc
+                >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix Website.xcloc'
+                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix Website.xcloc'
             - [x] Japanese
-            - [ ] Vietnamese
+            - [x] Vietnamese
             - [ ] French
             - [ ] Spanish
             - [ ] Simplified Chinese
@@ -105,6 +79,32 @@ Core:
             Steps:
             - [ ] `pnpm dev`
             - [ ] `pnpm upload`
+
+        - Update Markdown files:
+            - Run ScreenshotTaker XCUITest in Xcode
+                Steps:
+                    1. Modify 'onlyUpdateLocales' at the top
+                    2. >>> func testTakeScreenshots_Documentation()
+                - [x] Japanese
+                - [ ] Vietnamese
+                - [ ] French
+                - [ ] Spanish
+                - [ ] Simplified Chinese
+                - [ ] Ukrainian
+                - [ ] Turkish
+                - [ ] Norwegian
+                - [ ] Brazilian Portuguese
+            - Rebuild the docs
+                >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
+                - [x] Japanese
+                - [ ] Vietnamese
+                - [ ] French
+                - [ ] Spanish
+                - [ ] Simplified Chinese
+                - [ ] Ukrainian
+                - [ ] Turkish
+                - [ ] Norwegian
+                - [ ] Brazilian Portuguese
 
 Add credits
     - Add credits to the Acknowledgements
