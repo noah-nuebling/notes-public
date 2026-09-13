@@ -25,7 +25,7 @@ Submissions (We haven't integrated, yet)
         - Turkish Samim Kel: message:<CAG9To-p8EkFgxsaF1uLE=L2d-u8fs_dZ7iDxJQ5OB1U3t7vQhw@mail.gmail.com>
         - Ukrainian @denysocheck: message:<78FD2C3A-E753-4DE7-AB3E-76D184334DC2@gmail.com>
     Pull requests:
-        Simplified Chinese @JunhangWu: https://github.com/noah-nuebling/mac-mouse-fix/pull/1836
+        - Simplified Chinese @JunhangWu: https://github.com/noah-nuebling/mac-mouse-fix/pull/1836
 
 Locale list (for copy-pasting)
     - [xxx] Vietnamese
@@ -56,7 +56,7 @@ Core:
             - [x] French
             - [x] Spanish
             - [x] Simplified Chinese
-            - [ ] Ukrainian
+            - [x] Ukrainian
             - [ ] Turkish
             - [ ] Norwegian
             - [ ] Brazilian Portuguese
@@ -65,14 +65,14 @@ Core:
 
         - Import .xcloc files
             Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path 
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path 
+                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Ukrainian @denysocheck/Mac Mouse Fix Website.xcloc'
+                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Ukrainian @denysocheck/Mac Mouse Fix Website.xcloc'
             - [x] Japanese
             - [x] Vietnamese
             - [x] French
             - [x] Spanish
             - [xxx] Simplified Chinese
-            - [ ] Ukrainian
+            - [x] Ukrainian
             - [ ] Turkish
             - [ ] Norwegian
             - [ ] Brazilian Portuguese
