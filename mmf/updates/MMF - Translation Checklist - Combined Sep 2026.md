@@ -14,7 +14,7 @@ Submissions (We haven't integrated, yet)
         - French @UYTR5: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3888010759
         - French website @Clementabcd: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3985604493
         - Spanish @manghidev: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3994798838
-        - Simpqlified Chinese Update @djzhao627: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4064750078
+        - Simplified Chinese Update @djzhao627: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4064750078
         - Ukrainian @denysocheck: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4282037521
         - Turkish update @mstersnd: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4511309127
         - Turkish update @mls0x1: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4801772821
@@ -48,13 +48,13 @@ Core:
 
         - Import .xcloc files
             Steps:
-                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Spanish @manghidev/Mac Mouse Fix.xcloc'
-                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Spanish @manghidev/Mac Mouse Fix.xcloc'
+                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Simplified Chinese @djzhao627/Mac Mouse Fix.xcloc'
+                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Simplified Chinese @djzhao627/Mac Mouse Fix.xcloc'
                 3. Update: func applyHardcodedTabWidth()
             - [x] Japanese
             - [x] Vietnamese
             - [x] French
-            - [ ] Spanish
+            - [x] Spanish
             - [ ] Simplified Chinese
             - [ ] Ukrainian
             - [ ] Turkish
@@ -65,12 +65,12 @@ Core:
 
         - Import .xcloc files
             Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Spanish @manghidev/Mac Mouse Fix Website.xcloc'
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Spanish @manghidev/Mac Mouse Fix Website.xcloc'
+                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path 
+                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path 
             - [x] Japanese
             - [x] Vietnamese
             - [x] French
-            - [ ] Spanish
+            - [x] Spanish
             - [ ] Simplified Chinese
             - [ ] Ukrainian
             - [ ] Turkish
@@ -150,7 +150,7 @@ Update Translation Guide
     - [ ] Brazilian Portuguese
 
 - [ ] Mark the root nodes of all the Localizable strings (whose children are translated) as translated
-    
+
 
 - [ ] Publish App update
     - See `MMF - Update Checklist - Template.md`
