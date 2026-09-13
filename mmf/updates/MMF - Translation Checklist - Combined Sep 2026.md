@@ -65,8 +65,8 @@ Core:
 
         - Import .xcloc files
             Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path 
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path 
+                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mls0x1/Mac Mouse Fix Website.xcloc'
+                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mls0x1/Mac Mouse Fix Website.xcloc'
             - [x] Japanese
             - [x] Vietnamese
             - [x] French
