@@ -1,47 +1,51 @@
 
+This doc is superseeded by MMF - Translation Checklist - Combined Sep 2026
+
+Translations by @mei28: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4218636133
+
 Core:
     Mac Mouse Fix.xcloc
 
         Prep/Other:
             - If **MMF UI** added/changed: 
-                - [ ] Consider updating `testTakeScreenshots_Localization()` to cover the new UI before running `./run uploadstrings`
-                - [ ] Make sure `testTakeScreenshots_Localization()` doesn't cut off tall menus on small M1 MBA screen 
+                - [xxx] Consider updating `testTakeScreenshots_Localization()` to cover the new UI before running `./run uploadstrings`
+                - [xxx] Make sure `testTakeScreenshots_Localization()` doesn't cut off tall menus on small M1 MBA screen 
                     - Nothing's cut off as of [Dec 2025]
             - If Xcloc Editor has changed:
-                - [ ] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
+                - [xxx] Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
 
         - Import .xcloc files
-            - [ ] >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
-                - >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path ...
+            - [x] >>> z mac-mouse-fix; ./run importstrings --xcloc-path /Users/Noah/Downloads/translate_japanese/Mac\ Mouse\ Fix.xcloc
+                - >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path /Users/Noah/Downloads/translate_japanese/Mac\ Mouse\ Fix.xcloc
                     - Why filter those mismatches? (--no-key-mismatches --no-source-mismatches): I think those are already caught by `./run importstrings` and/or useless.
-                - [ ] Review mismatches
-            - [ ] Update: func applyHardcodedTabWidth()
+                - [x] Review mismatches
+            - [x] Update: func applyHardcodedTabWidth()
 
         - Update Markdown files:
-            - [ ] Run ScreenshotTaker XCUITest in Xcode
+            - [x] Run ScreenshotTaker XCUITest in Xcode
                 - >>> func testTakeScreenshots_Documentation()
                 - Tip: Modify 'onlyUpdateLocales' at the top for quick update. [Dec 2025]
-            - [ ] Rebuild all the docs
+            - [x] Rebuild all the docs
                 - >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                     - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data.
 
-        - [ ] Publish App update
+        - [xxx] Publish App update
             - See `MMF - Update Checklist - Template.md`
-                - [ ] If you update existing release instead of creating a new one – still don't forget to run:
+                - [xxx] If you update existing release instead of creating a new one – still don't forget to run:
                     - >>> z mac-mouse-fix-update-feed; ./update;
                     - (Otherwise Sparkle signature will break)
 
     Mac Mouse Fix Website.xcloc
 
         - Import .xcloc files
-            - [ ] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path ...
-                - >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path ...
-                - [ ] Review mismatches
+            - [x] >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path /Users/Noah/Downloads/translate_japanese/Mac\ Mouse\ Fix\ Website.xcloc
+                - >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path /Users/Noah/Downloads/translate_japanese/Mac\ Mouse\ Fix\ Website.xcloc
+                - [x] Review mismatches
         
         - Update website
-            - [ ] `pnpm dev`
-                - [ ] Review
-            - [ ] `pnpm upload`
+            - [x] `pnpm dev`
+                - [xxx] Review
+            - [x] `pnpm upload`
 
 Add credits
     - [ ] Add credits to the Acknowledgements
@@ -52,8 +56,8 @@ Add credits
     - [ ] Add credits to Update Notes
 
 Update Translation Guide
-- [ ] Run uploadstrings on the master branch 
-    - >>> ./run uploadstrings --only-update-locale xx [--recycle-screenshots]
+- [x] Run uploadstrings on the master branch 
+    - >>> ./run uploadstrings --only-update-locale ja [--recycle-screenshots]
     -> (Will run func testTakeScreenshots_Localization() automatically)
     -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
         - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)

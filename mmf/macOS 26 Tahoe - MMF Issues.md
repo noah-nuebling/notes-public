@@ -19,7 +19,8 @@ Beta 2:
                     - See `Repro-Buttons-Too-Wide` project.
                     - See `RemapTableButton *` in the MMF source code
                     - See followup feedback: FB19958973
-                - [ ] Use NSSegmentedControl if Apple doesn't fix it
+                - [xxx] Use NSSegmentedControl if Apple doesn't fix it
+                - Update: [10 Sep 2026] Apple fixed it!
             - Keycap Symbols for " Exclusive Keys" don't show up in popupbuttons.
                 - This works under Sequoia
                 - [x] Feedback FB18785755
@@ -53,6 +54,7 @@ Beta 2:
         - App Icon
             - [ ] Liquid Glassify
             - [ ] Support Darkmode
+            - [ ] Helper Icon is round (squircle jail)
         - Menu Bar Item
             - Update the icon. (Remember the outline is based on the battery icon outline, which is now more bright and vibrant under Tahoe)
                 - [ ] Update Icon
@@ -60,6 +62,7 @@ Beta 2:
             - [ ] Is there a new API for the control center toggles? Should you use that?
                 - [ ] Update
             - Tahoe now has System Settings for hiding menu bar items. Do we need any special handling for this? Display user feedback?)
+                - [ ] Check
         - All NSPopUpButtons
             - When the pbutton has an item selected that has an image, that looks bad – image is rendered too close to text. (This doesn't happen on macOS Sequoia.)
             - [x] Feedback 
@@ -106,6 +109,7 @@ Beta 2:
                 - [ ] Fix
                 - (Idea: Maybe related to the selected-tab-restoration?)
                 - (I think I only saw this on feature-strings-catalog?)
+                - [10 Sep 2026] Not seeing this on master (MMF 3.1.0)
         - Bad menubar performance
             - Clicking "Window" menubar jankily flashes the glassy background first, before loading-in content
             - Moving cursor around to different menubar items lags and doesn't feel responsive.
