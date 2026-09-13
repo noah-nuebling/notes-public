@@ -48,8 +48,8 @@ Core:
 
         - Import .xcloc files
             Steps:
-                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mls0x1/Mac Mouse Fix.xcloc'
-                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mls0x1/Mac Mouse Fix.xcloc'
+                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) Samim Kel/Mac Mouse Fix.xcloc'
+                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) Samim Kel/Mac Mouse Fix.xcloc'
                 3. Update: func applyHardcodedTabWidth()
             - [x] Japanese
             - [x] Vietnamese
@@ -65,8 +65,8 @@ Core:
 
         - Import .xcloc files
             Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mls0x1/Mac Mouse Fix Website.xcloc'
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mls0x1/Mac Mouse Fix Website.xcloc'
+                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) Samim Kel/Mac Mouse Fix Website.xcloc'
+                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) Samim Kel/Mac Mouse Fix Website.xcloc'
             - [x] Japanese
             - [x] Vietnamese
             - [x] French
@@ -179,3 +179,7 @@ Later (after 3.1.0 release)
 
     - [ ] Update Xcode Editor (layout bugs on macOS 27)
             Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
+
+---
+
+Samim Kel diffs (I won't apply 
