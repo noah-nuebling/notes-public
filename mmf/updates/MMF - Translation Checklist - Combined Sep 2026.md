@@ -8,13 +8,13 @@ Locale addition requests
 
 Submissions (We haven't integrated, yet)
     GitHub
+        - [ ] Japanese @y-128: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4191409106
+        - [ ] Japanese update @mei28: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4218636133
         - [ ] Vietnamese @quocthangit247: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3876405270
         - [ ] French @UYTR5: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3888010759
         - [ ] French website @Clementabcd: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3985604493
         - [ ] Spanish @manghidev: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3994798838
         - [ ] Simplified Chinese Update @djzhao627: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4064750078
-        - [ ] Japanese @y-128: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4191409106
-        - [ ] Japanese update @mei28: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4218636133
         - [ ] Ukrainian @denysocheck: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4282037521
         - [ ] Turkish update @mstersnd: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4511309127
         - [ ] Turkish update @mls0x1: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4801772821
@@ -46,8 +46,8 @@ Core:
 
         - Import .xcloc files
             Steps:
-                1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path ...
-                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path ...
+                1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix.xcloc'
+                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations Vietnamese @quocthangit247/Mac Mouse Fix.xcloc'
                 3. Update: func applyHardcodedTabWidth()
             - [x] Japanese
             - [ ] Vietnamese
