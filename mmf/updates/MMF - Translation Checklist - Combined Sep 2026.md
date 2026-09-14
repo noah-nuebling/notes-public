@@ -109,15 +109,70 @@ Add credits
                 - [ ] Manually add the new entry to all the translations of `2: translations`.
                 - [ ] Update the surrounding urls
                     - >>> ./run updateackurls;
-       - [ ] Japanese
-       - [ ] Vietnamese
-       - [ ] French
-       - [ ] Spanish
-       - [ ] Simplified Chinese
-       - [ ] Ukrainian
-       - [ ] Turkish
-       - [ ] Norwegian
-       - [ ] Brazilian Portuguese
+            Add to en:
+                - [ ] Things from https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/3.1.0-Beta-1
+    				    - [ ] en,
+    				    - [ ] de,
+    				    - [ ] "zh-Hant",
+    				    - [ ] "zh-HK",
+    				    - [ ] "zh-Hans",
+    				    - [ ] ko,
+    				    - [ ] vi,
+    				    - [ ] ar,
+    				    - [ ] ca,
+    				    - [ ] cs,
+    				    - [ ] nl,
+    				    - [ ] fr,
+    				    - [ ] el,
+    				    - [ ] he,
+    				    - [ ] hu,
+    				    - [ ] it,
+    				    - [ ] ja,
+    				    - [ ] pl,
+    				    - [ ] "pt-BR",
+    				    - [ ] "pt-PT",
+    				    - [ ] ro,
+    				    - [ ] ru,
+    				    - [ ] es,
+    				    - [ ] sv,
+    				    - [ ] tr,
+    				    - [ ] uk,
+    				    - [ ] th,
+    				    - [ ] id,
+    				    - [ ] hi,
+    				    - [ ] bn,
+    				    - [ ] nb,
+    				Add the same to all other languages:
+    				    - [ ] de,
+    				    - [ ] "zh-Hant",
+    				    - [ ] "zh-HK",
+    				    - [ ] "zh-Hans",
+    				    - [ ] ko,
+    				    - [ ] vi,
+    				    - [ ] ar,
+    				    - [ ] ca,
+    				    - [ ] cs,
+    				    - [ ] nl,
+    				    - [ ] fr,
+    				    - [ ] el,
+    				    - [ ] he,
+    				    - [ ] hu,
+    				    - [ ] it,
+    				    - [ ] ja,
+    				    - [ ] pl,
+    				    - [ ] "pt-BR",
+    				    - [ ] "pt-PT",
+    				    - [ ] ro,
+    				    - [ ] ru,
+    				    - [ ] es,
+    				    - [ ] sv,
+    				    - [ ] tr,
+    				    - [ ] uk,
+    				    - [ ] th,
+    				    - [ ] id,
+    				    - [ ] hi,
+    				    - [ ] bn,
+    				    - [ ] nb,
     - Add credits to Update Notes
         - [ ] Japanese
         - [ ] Vietnamese
