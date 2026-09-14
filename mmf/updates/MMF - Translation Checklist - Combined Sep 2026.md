@@ -182,4 +182,274 @@ Later (after 3.1.0 release)
 
 ---
 
-Samim Kel diffs (I won't apply 
+Samim Kel diffs (I won't apply his changes since the strings on GitHub have been looked at by more people, but we can show him the diff and ask him to re-apply, if he wants)
+    mac-mouse-fix repo diff:
+        ~/m/mac-mouse-fix   *$+  git diff                                                                                 3341ms  Sun Sep 13 23:58:15 2026
+        diff --git a/App/UI/Main/mul.lproj/Main.xcstrings b/App/UI/Main/mul.lproj/Main.xcstrings
+        index 518beac89..6f55402fd 100644
+        --- a/App/UI/Main/mul.lproj/Main.xcstrings
+        +++ b/App/UI/Main/mul.lproj/Main.xcstrings
+        @@ -1999,7 +1999,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Mac Mouse Fix, uygulama kapatıldığında aktif kalacaktır"
+        +            "value" : "Mac Mouse Fix kapatıldığında aktif kalacaktır"
+                }
+                },
+                "uk" : {
+        @@ -6169,7 +6169,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Bir düğmeye eylem ataması yapmak için fare imlecinizi '+' alanına getirin ve bir düğmeye tıklayın.\nDilerseniz *Çift Tıklama*, *Tıklama ve Kaydırma* ve daha fazlasını yapabilirsiniz."
+        +            "value" : "Bir düğmeye aksiyon ataması yapmak için fare imlecinizi '+' alanına getirin ve bir düğmeye tıklayın.\nDilerseniz *Çift Tıklama*, *Tıklama ve Kaydırma* ve daha fazlasını yapabilirsiniz."
+                }
+                },
+                "uk" : {
+        diff --git a/Localization/Localizable.xcstrings b/Localization/Localizable.xcstrings
+        index 942fd2adb..73ef32951 100644
+        --- a/Localization/Localizable.xcstrings
+        +++ b/Localization/Localizable.xcstrings
+        @@ -2497,7 +2497,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "%@. Fare Düğmesi"
+        +            "value" : "Fare Düğmesi %@'in"
+                }
+                },
+                "uk" : {
+        @@ -3908,7 +3908,7 @@
+                        "one" : {
+                            "stringUnit" : {
+                            "state" : "translated",
+        -                      "value" : "%2$@ düğmesinin Mac Mouse Fix tarafından yakalanması sona erdi"
+        +                      "value" : "%2$@ Mac Mouse Fix tarafından yakalanması sona erdi"
+                            }
+                        },
+                        "other" : {
+        @@ -9371,7 +9371,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Uygulamanız **zaten** bu lisans ile **aktif**"
+        +            "value" : "Bu lisans **zaten aktif**!"
+                }
+                },
+                "uk" : {
+        @@ -9751,7 +9751,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "**İnternet bağlantısı yok**\n\nBilgisayarınızın çevrimiçi olduğuna ve herhangi bir güvenlik duvarının Mac Mouse Fix'in internete bağlanmasına engel olmadığından emin olun.\n\nEğer bu sorununuzu çözmez ise, bana [buradan](%@) ulaşın."
+        +            "value" : "**İnternet bağlantısı yok**\n\nBilgisayarınızın internete bağlı olduğundan ve güvenlik duvarının Mac Mouse Fix'i engellemediğinden emin olun.\n\nSorun çözülmezse benimle [buradan](%@) iletişime geçebilirsiniz."
+                }
+                },
+                "uk" : {
+        @@ -10017,7 +10017,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "*'%@'** geçerli bir lisans anahtarı değildir\n\nMac Mouse Fix anahtarınızı aldığınız gibi yazdığınızdan emin olun."
+        +            "value" : "*'%@'** geçerli bir lisans anahtarı değildir\n\nLütfen başka bir anahtarı deneyin veya elinizdeki anahtarı olduğu gibi yazın."
+                }
+                },
+                "uk" : {
+        @@ -16361,7 +16361,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "%@ düğmesine tıkla ve *Sürükle*"
+        +            "value" : "%@ düğmesine tıkla ve sürükle"
+                }
+                },
+                "uk" : {
+        @@ -16456,7 +16456,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "%@ düğmesine çift tıkla ve *Sürükle*"
+        +            "value" : "%@ düğmesine çift tıkla ve sürükle"
+                }
+                },
+                "uk" : {
+        @@ -16551,7 +16551,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "%@ düğmesine üç kez tıkla ve *Sürükle*"
+        +            "value" : "%@ düğmesine üç kez tıkla ve sürükle"
+                }
+                },
+                "uk" : {
+        @@ -16646,7 +16646,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "ve *Sürükle*"
+        +            "value" : "ve *sürükle*"
+                }
+                },
+                "uk" : {
+        @@ -17026,7 +17026,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "%@ düğmesine tıkla ve *Kaydır*"
+        +            "value" : "%@ düğmesine tıkla ve kaydır"
+                }
+                },
+                "uk" : {
+        @@ -17121,7 +17121,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "%@ düğmesine çift tıkla ve *Kaydır*"
+        +            "value" : "%@ düğmesine çift tıkla ve kaydır"
+                }
+                },
+                "uk" : {
+        @@ -17216,7 +17216,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "%@ düğmesine üç kez tıkla ve *Kaydır*"
+        +            "value" : "%@ düğmesine üç kez tıkla ve kaydır"
+                }
+                },
+                "uk" : {
+        @@ -17311,7 +17311,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "ve *Kaydır*"
+        +            "value" : "ve kaydır"
+                }
+                },
+                "uk" : {
+        diff --git a/Markdown/Strings/Readme.xcstrings b/Markdown/Strings/Readme.xcstrings
+        index 53d6b1af5..9bd95cd14 100644
+        --- a/Markdown/Strings/Readme.xcstrings
+        +++ b/Markdown/Strings/Readme.xcstrings
+        @@ -1181,7 +1181,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "[Swish]({url}) uygulaması, macOS üstünde pencere yönetimi sağlayan favori uygulamamdır. İzleme dörtgeni üzerinde yapılan basit bir kaydırma ile bir pencerenin pozisyonunu yarım, çeyrek veya tam ekran olarak pozisyonlandırabiliyorsunuz.\n\nFakat, Swish sadece İzleme Dörtgeni ile beraber çalışabiliyor. Mac Mouse Fix'i bütün üçüncü parti fareler ile kullanabilirsiniz. Herhangi bir \"Tıkla ve Sürükle\" eylemi ile \"Kaydır ve Yönlendir\" ataması yaparak siz de pencelererinizi basit bir tık ve kaydırma ile pozisyonlandırabilirsiniz.\n\nBir izleme dörtgeninde yapacağınız iki parmakla kaydırma aksiyonu Mac Mouse Fix'deki \"Kaydır ve Yönlendir\" eylemi ile başarılı bir şekilde çalışmaktadır."
+        +            "value" : "[Swish]({url}) uygulaması, macOS üstünde pencere yönetimi sağlayan favori uygulamamdır. İzleme dörtgeni üzerinde yapılan basit bir kaydırma ile bir pencerenin pozisyonunu yarım, çeyrek veya tam ekran olarak pozisyonlandırabiliyorsunuz.\n\nFakat, Swish sadece İzleme Dörtgeni ile beraber çalışabiliyor. Mac Mouse Fix'i bütün üçüncü parti fareler ile kullanabilirsiniz. Herhangi bir \"Tıkla ve Sürükle\" aksiyonu ile \"Kaydır ve Yönlendir\" ataması yaparak siz de pencelererinizi basit bir tık ve kaydırma ile pozisyonlandırabilirsiniz.\n\nBir izleme dörtgeninde yapacağınız iki parmakla kaydırma aksiyonu Mac Mouse Fix'deki \"Kaydır ve Yönlendir\" aksiyonu ile başarılı bir şekilde çalışmaktadır."
+                }
+                },
+                "uk" : {
+        @@ -1637,7 +1637,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Bir tıklama yaptığınızda, Mac Mouse Fix acaba çift tık mı gerçekleştirilecek diye kontrol edecektir.<br>\nBir butonda bu gecikmeyi kaldırmak için o butona atanmış herhangi bir  \"Çift Tık\" eylemini kaldırın."
+        +            "value" : "Bir tıklama yaptığınızda Mac Mouse Fix çift tıklama girdisini kontrol edecektir. <br>\nBir butonda bu gecikmeyi kaldırmak için o butona atanmış herhangi bir  \"Çift Tık\" aksiyonunu kaldırın.\n"
+                }
+                },
+                "uk" : {
+        @@ -1702,7 +1702,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "**Tıkla ve Sürükle eylemi ile Exposé'yi açabilir miyim?**"
+        +            "value" : "**Tıkla ve Sürükle aksiyonu ile Exposé'yi açabilir miyim?**"
+                }
+                },
+                "uk" : {
+        @@ -1767,7 +1767,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Evet! Sadece eylem olarak \"Spaces ve Mission Control\"'ü seçin ve tıkayıp aşağıya kaydırın.\n\nEğer bu çalışmaz ise Mac'inizde Exposé hareketi kapalı olabilir.<br>\nBu hareketi Sistem Ayarları üzerinden veya aşağıdaki komutu Terminal'e yapıştırarak açabilirsiniz.\n\n```\ndefaults write com.apple.Dock showAppExposeGestureEnabled -bool TRUE; killall Dock\n```\n"
+        +            "value" : "Evet! Sadece aksiyon olarak \"Spaces ve Mission Control\"'ü seçin ve tıkayıp aşağıya kaydırın.\n\nEğer bu çalışmaz ise Mac'inizde Exposé hareketi kapalı olabilir.<br>\nBu hareketi Sistem Ayarları üzerinden veya aşağıdaki komutu Terminal'e yapıştırarak açabilirsiniz.\n\n```\ndefaults write com.apple.Dock showAppExposeGestureEnabled -bool TRUE; killall Dock\n```\n"
+                }
+                },
+                "uk" : {
+        @@ -2418,7 +2418,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Bazı fareler kaydırma tekerleklerini sağa veya sola eğmenize olanak sağlar. Mac Mouse Fix bunu daha kolay ve doğal olarak kontrol etmenizi sağlar. Fakat, şu anda bu butonlar ile diğer eylemleri aktifleştiremezsiniz.\n\nTabii ki bunlar için de tam uyumluluk eklemeyi isterim ama bu çok büyük bir iş ve yakın bir zamanda gelmeyecektir."
+        +            "value" : "Bazı fareler kaydırma tekerleklerini sağa veya sola eğmenize olanak sağlar. Mac Mouse Fix bunu daha kolay ve doğal olarak kontrol etmenizi sağlar. Fakat, şu anda bu butonlar ile diğer aksiyonları aktifleştiremezsiniz.\n\nTabii ki bunlar için de tam uyumluluk eklemeyi isterim ama bu çok büyük bir iş ve yakın bir zamanda gelmeyecektir."
+                }
+                },
+                "uk" : {
+        @@ -2938,7 +2938,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Lisansınız **size ait bütün Mac'lerde** çalışır.<br>\nBuradaki amaç sizin sadece bir lisans satın aldıktan ve aktifleştirdikten sonra tekrar derdine düşmemenizdir.<br>\nEğer diğer Mac'lerde aynı Apple hesabı ile giriş yaparsanız iCloud sayesinde lisansınız diğer cihazlara da aktarılacaktır!\n\nEğer lisans aktivasyonunda problem yaşıyorsanız [bana bir E-Posta gönderin]({url}).<br>\nBazen cevaplarım gecikebiliyor, bunun için üzgünüm; ama geri dönüş yapacağım!\n\nAma bu konuda sadece bir engel bulunuyor:<br>\nLisanslar herkesle paylaşmak için değil, bir lisans bir kişi için geçerlidir. Herkese açık olarak paylaşılmış lisanslar geçersiz kılınacaktır. (Buradaki herkes örneğin anneniz değil, onunla paylaşmanız tabii ki bir sorun değildir!)"
+        +            "value" : "Lisansınız **size ait bütün Mac'lerde** çalışır.<br>\nBuradaki amaç sizin sadece bir lisans satın aldıktan ve aktifleştirdikten sonra tekrar derdine düşmemenizdir.<br>\nEğer diğer Mac'lerde aynı Apple hesabı ile giriş yaparsanız iCloud sayesinde lisansınız diğer cihazlara da aktarılacaktır!\n\nEğer lisans aktivasyonunda problem yaşıyorsanız [bana bir E-Posta gönderin]({url}).<br>\nBazen dönütlerim gecikebilir, bunun için üzgünüm; ama geri dönüş yapacağım!\n\nAma bu konuda sadece bir engel bulunuyor:<br>\nLisanslar herkesle paylaşmak için değil, bir lisans bir kişi için geçerlidir. Herkese açık olarak paylaşılmış lisanslar geçersiz kılınacaktır. (Anne-Babanız ile paylaşabilirsiniz.)"
+                }
+                },
+                "uk" : {
+        @@ -4238,7 +4238,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Blender gibi 3D uygulamalarında normalde orta düğme ile Tıkla ve Sürükle eylemiyle yörüngede hareket edebilirsiniz.<br>\nFakat, Mac Mouse Fix üzerinde orta tuşa bir eylem ayarlarsanız bu çalışmayacaktır.\n\nBunu çözmek için 2 yol billiyorum:\n1. Tıkla ve Sürükle komutunu farenizin herhangi bir düğmesine atayın. Bu özellik İzleme Dörtgeninde 2 parmakla kaydırma özelliğini simüle eder. Bu 3D uygulamalarda yörüngede dönme özelliğini sağlar.\n2. Orta düğmenin *yakalanmasını* tüm eylemleri Mac Mouse Fix üzerinden silerek kaldırın. [Buradan]({url}) daha fazla bilgi sahibi olun."
+        +            "value" : "Blender gibi 3D uygulamalarında normalde orta düğme ile Tıkla ve Sürükle aksiyonuyla yörüngede hareket edebilirsiniz.<br>\nFakat, Mac Mouse Fix üzerinde orta tuşa bir aksiyon ayarlarsanız bu çalışmayacaktır.\n\nBunu çözmek için 2 yol billiyorum:\n1. Tıkla ve Sürükle komutunu farenizin herhangi bir düğmesine atayın. Bu özellik İzleme Dörtgeninde 2 parmakla kaydırma özelliğini simüle eder. Bu 3D uygulamalarda yörüngede dönme özelliğini sağlar.\n2. Orta düğmenin *yakalanmasını* tüm aksiyonları Mac Mouse Fix üzerinden silerek kaldırın. [Buradan]({url}) daha fazla bilgi sahibi olun."
+                }
+                },
+                "uk" : {
+        diff --git a/Markdown/Strings/Support/Guides/CapturedButtonsMMF3.xcstrings b/Markdown/Strings/Support/Guides/CapturedButtonsMMF3.xcstrings
+        index 747c84cad..fda35a53b 100644
+        --- a/Markdown/Strings/Support/Guides/CapturedButtonsMMF3.xcstrings
+        +++ b/Markdown/Strings/Support/Guides/CapturedButtonsMMF3.xcstrings
+        @@ -115,7 +115,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "## Bir fare düğmesini 'yakalamak' ne anlama geliyor?\n\nBir fare düğmesinin Mac Mouse Fix tarafından yakalanması artık macOS'in veya diğer uygulamaların o düğmeyi artık göremiyor olması anlamına gelir. Bu düğmenin normalde yapacağı eylemler yakalanmış haldeyken çalışmayacaktır.\n\n**Örnek**: Normalde, farenizin yan tarafında bulunan düğmeler ile Chrome tarayıcıda geri veya ileri gidebilirsiniz. (Düğme 4 ve 5) Bu düğmeler Mac Mouse Fix ile yakalandığında önceki özellik yerine sizin tarafınızdan atanmış olan eylemlerin çalışması sağlanacaktır.\n\n**Mac Mouse Fix neden bunu yapıyor?**: Mac Mouse Fix düğmeleri diğer uygulamalardan gizleyerek atadığınız eylemler dışında uygulamaların yanlışlıkla başka eylemler gerçekleştirmesini engeller.\nÖrnek olarak, Düğme 4'ü masaüstülerinizin arasında geçiş yapmak için kullanıyorken istemsizce **aynı anda** Chrome tarayıcı üzerinden geri dönebilirsiniz."
+        +            "value" : "## Bir fare düğmesini 'yakalamak' ne anlama geliyor?\n\nBir fare düğmesinin Mac Mouse Fix tarafından yakalanması artık macOS'in veya diğer uygulamaların o düğmeyi artık göremiyor olması anlamına gelir. Bu düğmenin normalde yapacağı aksiyonlar yakalanmış haldeyken çalışmayacaktır.\n\n**Örnek**: Normalde, farenizin yan tarafında bulunan düğmeler ile Chrome tarayıcıda geri veya ileri gidebilirsiniz. (Düğme 4 ve 5) Bu düğmeler Mac Mouse Fix ile yakalandığında önceki özellik yerine sizin tarafınızdan atanmış olan aksiyonların çalışması sağlanacaktır.\n\n**Mac Mouse Fix neden bunu yapıyor?**: Mac Mouse Fix düğmeleri diğer uygulamalardan gizleyerek atadığınız aksiyonlar dışında uygulamaların yanlışlıkla başka aksiyonlar gerçekleştirmesini engeller.\nÖrnek olarak, Düğme 4'ü masaüstülerinizin arasında geçiş yapmak için kullanıyorken istemsizce **aynı anda** Chrome tarayıcı üzerinden geri dönebilirsiniz."
+                }
+                },
+                "uk" : {
+        @@ -247,7 +247,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "## Mac Mouse Fix'in bir düğmeyi yakalamasını nasıl engellerim?\n\nMac Mouse Fix'in bir düğmeyi yakalamasını engellemek için 'Düğmeler' sekmesinde o butona atanmış tüm eylemleri kaldırın.\n'Düğmeler' sekmesindeki bir eylemi, yanındaki '-' düğmesine basarak kaldırabilirsiniz.\n\nÖrneğin, bir sonraki resimde, 'Düğme 4'ün' yakalanmasını engellemek için belirtilmiş olan iki **'-'** düğmesine tıklayabilirsiniz.\n\n{screenshot_2}"
+        +            "value" : "## Mac Mouse Fix'in bir düğmeyi yakalamasını nasıl engellerim?\n\nMac Mouse Fix'in bir düğmeyi yakalamasını engellemek için 'Düğmeler' sekmesinde o butona atanmış tüm aksiyonları kaldırın.\n'Düğmeler' sekmesindeki bir aksiyonu, yanındaki '-' düğmesine basarak kaldırabilirsiniz.\n\nÖrneğin, bir sonraki resimde, 'Düğme 4'ün' yakalanmasını engellemek için belirtilmiş olan iki **'-'** düğmesine tıklayabilirsiniz.\n\n{screenshot_2}"
+                }
+                },
+                "uk" : {
+        @@ -312,7 +312,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "## Bir düğmenin orijinal fonksiyonunu nasıl geri getirebilirim?\n\nBir düğmenin Mac Mouse Fix yüklemeden önceki haline getirmek için aşağıdakileri yapabilirsiniz:\n\n1. Yukarıda belirtildiği üzere düğmenin **yakalanmasını kapatabilirsiniz**.\n\n2. Direkt **Mac Mouse Fix'i** kapatabilirsiniz. Böylece hiçbir düğme yakalanmayacaktır.\n\n3. **Mac Mouse Fix'te belirli eylemleri düğmeye atayabilirsiniz** - böylece atama yapmış olsanız dahi belirli özellikleri geri getirmiş olursunuz."
+        +            "value" : "## Bir düğmenin orijinal fonksiyonunu nasıl geri getirebilirim?\n\nBir düğmenin Mac Mouse Fix yüklemeden önceki haline getirmek için aşağıdakileri yapabilirsiniz:\n\n1. Yukarıda belirtildiği üzere düğmenin **yakalanmasını kapatabilirsiniz**.\n\n2. Direkt **Mac Mouse Fix'i** kapatabilirsiniz. Böylece hiçbir düğme yakalanmayacaktır.\n\n3. **Mac Mouse Fix'te belirli aksiyonları düğmeye atayabilirsiniz** - böylece atama yapmış olsanız dahi belirli özellikleri geri getirmiş olursunuz."
+                }
+                },
+                "uk" : {
+        @@ -444,7 +444,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Orijinal Fonksiyon"
+        +            "value" : "Orijinal Aksiyonu"
+                }
+                },
+                "uk" : {
+        @@ -516,7 +516,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "Mac Mouse Fix üzerindeki Eylem"
+        +            "value" : "Mac Mouse Fix üzerindeki aksiyonu"
+                }
+                },
+                "uk" : {
+        @@ -1367,7 +1367,7 @@
+                "tr" : {
+                "stringUnit" : {
+                    "state" : "translated",
+        -            "value" : "'Kaydır ve Yönlendir'<br> (Herhangi bir düğmeye **tıkla ve kaydır** eylemi ile eklenebilir)"
+        +            "value" : "'Kaydır ve Yönlendir'<br> (Herhangi bir düğmeye **tıkla ve kaydır** aksiyonu ile eklenebilir)"
+                }
+                },
+                "uk" : {
