@@ -184,13 +184,6 @@ Later (after 3.1.0 release)
 
 
 
-
-
-
-
-
-
-
 ---
 
 Samim Kel diffs (I won't apply his changes since the strings on GitHub have been looked at by more people, but we can show him the diff and ask him to re-apply, if he wants)
