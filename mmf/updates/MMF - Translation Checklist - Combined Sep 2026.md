@@ -107,13 +107,13 @@ Add credits
         Steps:
             1. Add
             2. To stop _buildmd.py from failing, the []({urls}) need to match in all languages:
-                - [ ] Manually add the new entry to all the translations of `2: translations`.
-                - [ ] Update the surrounding urls
+                - [x] Manually add the new entry to all the translations of `2: translations`.
+                - [x] Update the surrounding urls
                     - >>> ./run updateackurls;
             Add to en:
                 - [xxx] Things from https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/3.1.0-Beta-1
                     - Already added
-                - [ ] New translations we added (listed above)
+                - [x] New translations we added (listed above)
                     - Japanese 
                         - [x] @y-128: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4191409106
                         - [x] @mei28: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4218636133
@@ -141,37 +141,8 @@ Add credits
                         - [x] @Bertil78: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4820887178
                     - Brazilian Portuguese 
                         - [x] Eduardo Rodriguez: message:<D9DBBC48-47AD-42EC-8BE6-46D611474277@icloud.com>
-            Add the same to all other languages:
-                - [ ] de,
-                - [ ] "zh-Hant",
-                - [ ] "zh-HK",
-                - [ ] "zh-Hans",
-                - [ ] ko,
-                - [ ] vi,
-                - [ ] ar,
-                - [ ] ca,
-                - [ ] cs,
-                - [ ] nl,
-                - [ ] fr,
-                - [ ] el,
-                - [ ] he,
-                - [ ] hu,
-                - [ ] it,
-                - [ ] ja,
-                - [ ] pl,
-                - [ ] "pt-BR",
-                - [ ] "pt-PT",
-                - [ ] ro,
-                - [ ] ru,
-                - [ ] es,
-                - [ ] sv,
-                - [ ] tr,
-                - [ ] uk,
-                - [ ] th,
-                - [ ] id,
-                - [ ] hi,
-                - [ ] bn,
-                - [ ] nb,
+            - [x] Add the same to all other languages:
+    
     - Add credits to Update Notes
         - [ ] Japanese
         - [ ] Vietnamese
@@ -196,7 +167,7 @@ Update Translation Guide
     - [ ] Norwegian
     - [ ] Brazilian Portuguese
 
-- [ ] Mark the root nodes of all the Localizable strings (whose children are translated) as translated
+- [ ] Mark the root nodes of all the 'pluralizable' strings (whose children are translated) as translated
 
 
 - [ ] Publish App update
