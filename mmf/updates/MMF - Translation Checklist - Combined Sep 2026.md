@@ -23,6 +23,7 @@ Submissions (We haven't integrated, yet)
     Email
         - Turkish Eren Tomurcuk: message:<OfZ84n5--F-9@tuta.io>
         - Brazilian Portuguese Eduardo Rodriguez: message:<D9DBBC48-47AD-42EC-8BE6-46D611474277@icloud.com>
+            - I did already integrate the stuff they sent, just haven't replied.
         - Turkish Samim Kel: [mail](message:<CAG9To-p8EkFgxsaF1uLE=L2d-u8fs_dZ7iDxJQ5OB1U3t7vQhw@mail.gmail.com>)
         - Ukrainian @denysocheck: message:<78FD2C3A-E753-4DE7-AB3E-76D184334DC2@gmail.com>
     Pull requests:
@@ -60,7 +61,7 @@ Core:
             - [x] Ukrainian
             - [x] Turkish
             - [x] Norwegian
-            - [ ] Brazilian Portuguese
+            - [xxx] Brazilian Portuguese
 
     Mac Mouse Fix Website.xcloc
 
@@ -76,7 +77,7 @@ Core:
             - [x] Ukrainian
             - [x] Turkish
             - [xxx] Norwegian
-            - [ ] Brazilian Portuguese
+            - [xxx] Brazilian Portuguese
         
         - Update website
             Steps:
