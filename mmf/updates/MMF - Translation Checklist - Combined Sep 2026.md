@@ -140,19 +140,12 @@ Add credits
                     - Norwegian 
                         - [x] @Bertil78: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4820887178
                     - Brazilian Portuguese 
-                        - [x] Eduardo Rodriguez: message:<D9DBBC48-47AD-42EC-8BE6-46D611474277@icloud.com>
+                        - [xxx] Eduardo Rodriguez: message:<D9DBBC48-47AD-42EC-8BE6-46D611474277@icloud.com>
             - [x] Add the same to all other languages:
     
-    - Add credits to Update Notes
-        - [ ] Japanese
-        - [ ] Vietnamese
-        - [ ] French
-        - [ ] Spanish
-        - [ ] Simplified Chinese
-        - [ ] Ukrainian
-        - [ ] Turkish
-        - [ ] Norwegian
-        - [ ] Brazilian Portuguese
+    - [ ] Add credits to Update Notes
+        (Stuff from 3.1.0 Beta release notes + what we added to Acknowledgements (see above))
+    
 
 Update Translation Guide
 - Run uploadstrings on the master branch 
