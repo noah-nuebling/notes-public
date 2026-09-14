@@ -48,8 +48,8 @@ Core:
 
         - Import .xcloc files
             Steps:
-                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) Samim Kel/Mac Mouse Fix.xcloc'
-                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) Samim Kel/Mac Mouse Fix.xcloc'
+                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mstersnd/Mac Mouse Fix.xcloc'
+                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mstersnd/Mac Mouse Fix.xcloc'
                 3. Update: func applyHardcodedTabWidth()
             - [x] Japanese
             - [x] Vietnamese
@@ -65,8 +65,8 @@ Core:
 
         - Import .xcloc files
             Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) Samim Kel/Mac Mouse Fix Website.xcloc'
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) Samim Kel/Mac Mouse Fix Website.xcloc'
+                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mstersnd/Mac Mouse Fix Website.xcloc'
+                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/Mac Mouse Fix Translations (Turkish) @mstersnd/Mac Mouse Fix Website.xcloc'
             - [x] Japanese
             - [x] Vietnamese
             - [x] French
@@ -180,15 +180,127 @@ Later (after 3.1.0 release)
     - [ ] Update Xcode Editor (layout bugs on macOS 27)
             Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
 
+
+
+
+
+
+
+
+
+
 ---
 
 Samim Kel diffs (I won't apply his changes since the strings on GitHub have been looked at by more people, but we can show him the diff and ask him to re-apply, if he wants)
     
     mac-mouse-fix-website repo diff:
-        
+        ./run mfstrings inspect --cols key,fileid,en,tr --sortcol key --diff --pretty
+        ~ (1) 04: trackpad.intro.body
+        fileid:
+            index
+        en:
+            That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.
+        tr:
+            - Teknoloji gelişiyor. Mac Mouse Fix bir Apple İzleme Dörtgeninin tüm özelliklerini ve daha fazlasını **hassas** ve **ergonomik** üçüncü parti farenize getirir ve tüm hareketler aynı bir izleme dörtgeni kullanırmışcasına **akıcı** ve **doğal** olur.
+            + Yanlış duymadınız! Mac Mouse Fix, Apple Trackpad ve daha fazlasının özelliklerini elinizdeki **hassas** ve **ergonomik** yapıdaki farklı marka mouse'lara getiriyor. Aynı zamanda tüm etkileşimler Trackpad'deki kadar **akıcı** ve **doğal** hissettiriyor.
+
+        ~ (2) 06: trackpad.gestures.disclaimer
+        fileid:
+            index
+        en:
+            Note: Mac Mouse Fix can bring these Trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse.
+        tr:
+            - Not: Mac Mouse Fix bu şekilde görülen İzleme Dörtgeni hareketlerini sadece 5 düğmeli fareler ile destekler. Bu 5 düğme tipik olarak sol tık, sağ tık, orta tık ve iki yan düğmedir. Eğer farenizde 5'den az düğme varsa bile Mac Mouse Fix hala zengin bir işlev sunabilir ama bazı özellikler 5 düğmeli farelere göre daha kısıtlı olacaktır. Logitech Options gibi özel sürücüler kullanan farelerde Mac Mouse Fix bütün düğmeleri algılayamayabilir. Mac Mouse Fix şu anda Apple Magic Mouse'u desteklememektedir.
+            + Not: Mac Mouse Fix, burada açıklanan Trackpad özelliklerini üçüncü taraf farenize getirebilir, ancak farenizin en az 5 düğmesi olması gerekir. Bu 5 düğme genellikle sol tıklama, sağ tıklama, fare tekerleği tıklama ve 2 yan düğmedir. Farenizde 5'ten az düğme varsa, Mac Mouse Fix yine de zengin işlevsellik ve harika bir deneyim sunar, ancak bazı özelliklere 5 düğmeli bir fareye kıyasla erişmek daha zor olacaktır. Logitech Options gibi özel sürücü yazılımıyla kullanılmak üzere tasarlanmış belirli farelerde, Mac Mouse Fix şu anda tüm düğmeleri tanıyamıyor. Mac Mouse Fix şu anda Apple Magic Mouse'u desteklemiyor.
+
+        ~ (3) 29: scroll.intro.title
+        fileid:
+            index
+        en:
+            {accent}.
+            Smooth As Butter.
+        tr:
+            - {accent}
+            Yağ Gibi Kaygan.
+            + {accent}
+            Akıyor.
+
+        ~ (4) 31: scroll.intro.body
+        fileid:
+            index
+        en:
+            Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**.
+        tr:
+            - macOS üzerinde üçüncü parti bir fare ile kaydırma eylemi **teklermiş gibi** ve **zor bir şekilde kontrol ediliyor**. Artık öyle değil! **Zarif** bir şekilde **hızlanma tabanlı** kaydırma algoritması ile bilgisayarınızda gezinmek artık **eforsuz** ve **doğal**.
+            + macOS üzerinde üçüncü parti bir fare ile kaydırma aksiyonu **teklermiş gibi** ve **zor bir şekilde kontrol ediliyor**. Artık öyle değil! **Zarif** bir şekilde **hızlanma tabanlı** kaydırma algoritması ile bilgisayarınızda gezinmek artık **eforsuz** ve **doğal**.
+
+        ~ (5) 38: scroll.smoothness.off.body
+        fileid:
+            index
+        en:
+            With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.
+
+            This is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions.
+        tr:
+            - *Akıcılık: Kapalı* ile kaydırma macOS'de normalde nasık ise aynı o şekildedir ve herhangi bir animasyon veya akıcılık bulundurmaz Fakat, normalde **bir tık kaydırma eylemi ile birkaç piksel** yerine daha tutarlı ve rahat olan **bir tık kaydırma eylemi ile birkaç satır** kaydırılır.
+
+            Bu seçenek Windows, Linux ve eski macOS sürümlerindeki kaydırma gibi çalışır.
+            + *Akıcılık: Kapalı* ile kaydırma macOS'de normalde nasık ise aynı o şekildedir ve herhangi bir animasyon veya akıcılık bulundurmaz Fakat, normalde **bir tık kaydırma aksiyonu ile birkaç piksel** yerine daha tutarlı ve rahat olan **bir tık kaydırma aksiyonu ile birkaç satır** kaydırılır.
+
+            Bu seçenek Windows, Linux ve eski macOS sürümlerindeki kaydırma gibi çalışır.
+
+        ~ (6) 46: customization.intro.title
+        fileid:
+            index
+        en:
+            Amazingly {accent2}
+            {accent} Intuitive.
+        tr:
+            - Muhteşem bir şekilde {accent2}
+            {accent} bir şekilde Sezgisel.
+            + Muhteşem bir şekilde {accent2} {accent} Sezgisel.
+
+        ~ (7) 50: customization.action-table.title
+        fileid:
+            index
+        en:
+            **Add Actions** to your mouse
+        tr:
+            - Farenize **eylemler ekleyin**
+            + Farenize **aksiyonlar ekleyin**
+
+        ~ (8) 51: customization.action-table.body
+        fileid:
+            index
+        en:
+            To add an action to your mouse:
+
+            1. **Move** the mouse pointer inside the '+'-field. (Shown below)
+            2. **Click** the mouse button you want to assign an action to.
+            You can also Double Click, Click and Drag, and much more!
+            3. **Choose** an action, such as Smart Zoom.
+
+            And that's it!
+        tr:
+            - Farenize bir eylem eklemek için:
+
+            1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)
+            2. Atama yapamak istediğiniz butona **basın**.
+            Aynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!
+            3. Bir eylem **seçin**, örneğin Akıllı Yakınlaştırma.
+
+            Bu kadar!
+            + Farenize bir aksiyon eklemek için:
+
+            1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)
+            2. Atama yapamak istediğiniz butona **basın**.
+            Aynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!>
+            3. Bir aksiyon **seçin** (örn. Akıllı Yakınlaştırma).
+
+            Bu kadar!    
     
     mac-mouse-fix repo diff:
-        !  ~/m/mac-mouse-fix   *$+  ./run mfstrings inspect --cols key,fileid,en,tr --sortcol key --diff --pretty                                                                                                                                                                                                                           256ms  Mon Sep 14 00:11:53 2026
+        ./run mfstrings inspect --cols key,fileid,en,tr --sortcol key --diff --pretty
         ~ (1) 02: terminology
         fileid:
             CapturedButtonsMMF3
