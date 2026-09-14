@@ -80,35 +80,35 @@ Publish:
 		- Also see [[MMF - Bug - Mac Mouse Fix will damage your computer]]
 		- Hint: Import the code signing identity from Apple Notes into Xcode, it should contain the certificate and prevent creation of new certificates / revoking of old certificate (I hope??)
 - Other
-	- [ ] Set the correct MMF version number and version string in the Xcode project
+	- [x] Set the correct MMF version number and version string in the Xcode project
 		- Examples: "3.0.0 Beta 7", 21988
-	- [ ] Set the correct version string(s) in the prefpane info.plist
-	- [ ] Make sure Sparkle appcast URLs are correct
+	- [xxx] Set the correct version string(s) in the prefpane info.plist
+	- [xxx] Make sure Sparkle appcast URLs are correct
 
 - Build & Export
-  - [ ] Install latest Xcode version
+  - [x] Install latest Xcode version
       - Not actually sure this is necessary – I guess to avoid bugs in the toolchain?
-	- [ ] **Clean build folder** before final build
+	- [x] **Clean build folder** before final build
 		- Note that this will reset the build configuration
 		- This is still recommended even when using 'Archive' according to this [SO Post](https://stackoverflow.com/a/19202343/10601702)
-	- [ ] If not prerelease: Make sure to build the Release configuration
+	- [x] If not prerelease: Make sure to build the Release configuration
 		- So that it's fast, and assert() doesn't crash
-	- [ ] If prerelease: Make sure to either build Debug configuration, or include 'beta' or 'alpha' (case insensitive) in the short bundle version
+	- [x] If prerelease: Make sure to either build Debug configuration, or include 'beta' or 'alpha' (case insensitive) in the short bundle version
 		- So that `runningPreRelease()` works right
 		- Update: Under MMF 3, using Swift we started using Release configuration because Debug is very very slow.
-	- [ ] Remove args from `Edit Scheme... > Arguments`
-  - [ ] Make sure to build for Apple Silicon / Intel
+	- [x] Remove args from `Edit Scheme... > Arguments`
+  - [x] Make sure to build for Apple Silicon / Intel
 		- Does that automatically when building for Release. See Xcode > Build Settings > Architectures
 		- Doesn't do this automatically when building for Debug (not even when building using the "Archive" option). Choose "Any Mac (Apple Silicon, Intel)" next to the build scheme.
-	- [ ] Use the "Archive" option to export. (This will still use the build scheme and architecture configured in the Xcode menu bar)
-	- [ ] Choose 'Direct Distribution' in the Organizer to notarize the app.
+	- [x] Use the "Archive" option to export. (This will still use the build scheme and architecture configured in the Xcode menu bar)
+	- [x] Choose 'Direct Distribution' in the Organizer to notarize the app.
 	- [ ] To get the app bundle after Notarizing, use the 'Export Notarized App' button in the Organizer. 
 		- For 3.0.2 I got the app bundle directly from the .xcarchive via Finder, and I think that [broke things](https://github.com/noah-nuebling/mac-mouse-fix/issues/871). 
 	- [ ] Get dSYMs folder directly from the .xcarchive via Finder.
 		- Find the .xcarchive by going to the Xcode Organizer and right-clicking the archive in question.
 
 - Pre-Sparkle (we added sparkle in 2.0.0 iirc)
-	- [ ] Set the base remote url in the app to [kMFWebsiteAddress]/maindownload/
+	- [x] Set the base remote url in the app to [kMFWebsiteAddress]/maindownload/
 
 **Post-archive check**
 - [ ] Make sure the app launches and works ok.
