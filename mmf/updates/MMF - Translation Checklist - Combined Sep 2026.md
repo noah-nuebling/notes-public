@@ -59,7 +59,7 @@ Core:
             - [x] Simplified Chinese
             - [x] Ukrainian
             - [x] Turkish
-            - [ ] Norwegian
+            - [x] Norwegian
             - [ ] Brazilian Portuguese
 
     Mac Mouse Fix Website.xcloc
