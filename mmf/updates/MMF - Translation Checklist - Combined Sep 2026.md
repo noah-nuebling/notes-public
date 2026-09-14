@@ -157,15 +157,15 @@ Add credits
 Update Translation Guide
 - Run uploadstrings on the master branch 
     >>> ./run uploadstrings --only-update-locales ...
-    - [x] Japanese
-    - [ ] Vietnamese
-    - [ ] French
-    - [ ] Spanish
-    - [ ] Simplified Chinese
-    - [ ] Ukrainian
-    - [ ] Turkish
-    - [ ] Norwegian
-    - [ ] Brazilian Portuguese
+    - [x] Japanese (ja)
+    - [x] Vietnamese (vi)
+    - [ ] French (fr)
+    - [ ] Spanish (es)
+    - [ ] Simplified Chinese (zh-Hans)
+    - [ ] Ukrainian (uk)
+    - [ ] Turkish (tr)
+    - [ ] Norwegian (nb)
+    - [ ] Brazilian Portuguese (pt-BR)
 
 - [x] Mark the root nodes of all the 'pluralizable' strings (whose children are translated) as translated
 
