@@ -111,38 +111,37 @@ Add credits
                 - [ ] Update the surrounding urls
                     - >>> ./run updateackurls;
             Add to en:
-                - [ ] Things from https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/3.1.0-Beta-1
-    				    - [ ] en,
-    				    - [ ] de,
-    				    - [ ] "zh-Hant",
-    				    - [ ] "zh-HK",
-    				    - [ ] "zh-Hans",
-    				    - [ ] ko,
-    				    - [ ] vi,
-    				    - [ ] ar,
-    				    - [ ] ca,
-    				    - [ ] cs,
-    				    - [ ] nl,
-    				    - [ ] fr,
-    				    - [ ] el,
-    				    - [ ] he,
-    				    - [ ] hu,
-    				    - [ ] it,
-    				    - [ ] ja,
-    				    - [ ] pl,
-    				    - [ ] "pt-BR",
-    				    - [ ] "pt-PT",
-    				    - [ ] ro,
-    				    - [ ] ru,
-    				    - [ ] es,
-    				    - [ ] sv,
-    				    - [ ] tr,
-    				    - [ ] uk,
-    				    - [ ] th,
-    				    - [ ] id,
-    				    - [ ] hi,
-    				    - [ ] bn,
-    				    - [ ] nb,
+                - [xxx] Things from https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/3.1.0-Beta-1
+                    - Already added
+    				        GitHub
+        - Japanese 
+            - [x] @y-128: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4191409106
+            - [x] @mei28: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4218636133
+        - Vietnamese 
+            - [x] @quocthangit247: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3876405270
+        - French 
+            - [x] @UYTR5: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3888010759 
+            - [x] @Clementabcd (website): https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3985604493
+        - Spanish 
+            - [x] @manghidev: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3994798838
+        - Simplified Chinese 
+            - [ ] @djzhao627: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4064750078
+            - [ ] @JunhangWu: https://github.com/noah-nuebling/mac-mouse-fix/pull/1836
+        - Ukrainian 
+            - [ ] @denysocheck: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4282037521
+            - [ ] @denysocheck: message:<78FD2C3A-E753-4DE7-AB3E-76D184334DC2@gmail.com>
+        - Turkish update 
+            - [ ] @mstersnd: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4511309127
+                - We assume that @mls0x1 built on top of @mstersnd's work. but not entirely sure. Update: Claude Opus 5 confirmed.
+            - [ ] @mls0x1: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4801772821
+            - [ ] Eren Tomurcuk: message:<OfZ84n5--F-9@tuta.io>
+            - [ ] Samim Kel: [mail](message:<CAG9To-p8EkFgxsaF1uLE=L2d-u8fs_dZ7iDxJQ5OB1U3t7vQhw@mail.gmail.com>)
+        - Norwegian 
+            - [ ] @Bertil78: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4820887178
+        - Brazilian Portuguese 
+            - [ ] Eduardo Rodriguez: message:<D9DBBC48-47AD-42EC-8BE6-46D611474277@icloud.com>
+    Pull requests:
+        - Simplified Chinese 
     				Add the same to all other languages:
     				    - [ ] de,
     				    - [ ] "zh-Hant",
