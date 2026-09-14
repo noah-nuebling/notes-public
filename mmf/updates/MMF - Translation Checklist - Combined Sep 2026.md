@@ -167,7 +167,7 @@ Update Translation Guide
     - [ ] Norwegian
     - [ ] Brazilian Portuguese
 
-- [ ] Mark the root nodes of all the 'pluralizable' strings (whose children are translated) as translated
+- [x] Mark the root nodes of all the 'pluralizable' strings (whose children are translated) as translated
 
 
 - [ ] Publish App update
