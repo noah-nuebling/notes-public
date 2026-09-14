@@ -138,10 +138,10 @@ Publish:
 	- Make sure to have free line above `- bulleted lists` and `## Headings`
 		- Otherwise it won't display properly in the Sparkle Update Window
 	- Make sure to include the version string at the top of the content because it looks better in Sparkle. See [2.2.0 release notes](https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/2.2.0)
-- [ ] Zip the .app before uploading. Name it 'MacMouseFixApp.zip'
-- [ ] Also upload dSYMs.zip so you can symbolicate crash reports
+- [x] Zip the .app before uploading. Name it 'MacMouseFixApp.zip'
+- [x] Also upload dSYMs.zip so you can symbolicate crash reports
 	- dSYMs folder is inside .xcarchive for the build which you can find from the Xcode Organizer.
-- [ ] Push local changes after the final build - and before publishing the GH release!
+- [x] Push local changes after the final build - and before publishing the GH release!
 	- So that the GH release links to the correct source code commit with the right build number.
 - [ ] Update appcasts:
 	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
