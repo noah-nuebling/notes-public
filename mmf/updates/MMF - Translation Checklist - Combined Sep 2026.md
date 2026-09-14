@@ -98,17 +98,8 @@ Core:
                 - [x] Turkish
                 - [x] Norwegian
                 - [x] Brazilian Portuguese
-            - Rebuild the docs
+            - [x] Rebuild the docs
                 >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
-                - [x] Japanese
-                - [ ] Vietnamese
-                - [ ] French
-                - [ ] Spanish
-                - [ ] Simplified Chinese
-                - [ ] Ukrainian
-                - [ ] Turkish
-                - [ ] Norwegian
-                - [ ] Brazilian Portuguese
 
 Add credits
     - Add credits to the Acknowledgements
