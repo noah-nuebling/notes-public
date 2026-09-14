@@ -90,14 +90,14 @@ Core:
                     1. Modify 'onlyUpdateLocales' at the top
                     2. >>> func testTakeScreenshots_Documentation()
                 - [x] Japanese
-                - [ ] Vietnamese
-                - [ ] French
-                - [ ] Spanish
-                - [ ] Simplified Chinese
-                - [ ] Ukrainian
-                - [ ] Turkish
-                - [ ] Norwegian
-                - [ ] Brazilian Portuguese
+                - [x] Vietnamese
+                - [x] French
+                - [x] Spanish
+                - [x] Simplified Chinese
+                - [x] Ukrainian
+                - [x] Turkish
+                - [x] Norwegian
+                - [x] Brazilian Portuguese
             - Rebuild the docs
                 >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
                 - [x] Japanese
