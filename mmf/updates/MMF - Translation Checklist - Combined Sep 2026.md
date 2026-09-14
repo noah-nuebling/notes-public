@@ -1,6 +1,7 @@
 
 Also see:
     _dailynote_2026.09.10.md (This is sort of a substep of the steps in here)
+    Apple Notes > MMF Localization Todo (Fall 2024)
 
 Locale addition requests
     - [x] Add Norwegian @Bertil78: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4182846504
