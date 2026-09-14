@@ -81,8 +81,8 @@ Core:
         
         - Update website
             Steps:
-            - [ ] `pnpm dev`
-            - [ ] `pnpm upload`
+            - [x] `pnpm dev`
+            - [x] `pnpm upload`
 
         - Update Markdown files:
             - Run ScreenshotTaker XCUITest in Xcode
