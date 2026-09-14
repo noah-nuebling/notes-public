@@ -159,13 +159,13 @@ Update Translation Guide
     >>> ./run uploadstrings --only-update-locales ...
     - [x] Japanese (ja)
     - [x] Vietnamese (vi)
-    - [ ] French (fr)
-    - [ ] Spanish (es)
-    - [ ] Simplified Chinese (zh-Hans)
-    - [ ] Ukrainian (uk)
-    - [ ] Turkish (tr)
-    - [ ] Norwegian (nb)
-    - [ ] Brazilian Portuguese (pt-BR)
+    - [x] French (fr)
+    - [x] Spanish (es)
+    - [x] Simplified Chinese (zh-Hans)
+    - [x] Ukrainian (uk)
+    - [x] Turkish (tr)
+    - [x] Norwegian (nb)
+    - [x] Brazilian Portuguese (pt-BR)
 
 - [x] Mark the root nodes of all the 'pluralizable' strings (whose children are translated) as translated
 
@@ -191,7 +191,7 @@ Review:
 ---
 
 Not sure if / when to do this:
-    - [ ] Update *all* the screenshots using ./run uploadstrings (so they're on macOS 27, instead of 15)
+    - [x] Update *all* the screenshots using ./run uploadstrings (so they're on macOS 27, instead of 15)
 
 Later (after 3.1.0 release)
 
