@@ -17,6 +17,7 @@ Submissions (We haven't integrated, yet)
         - Simplified Chinese Update @djzhao627: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4064750078
         - Ukrainian @denysocheck: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4282037521
         - Turkish update @mstersnd: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4511309127
+            - We assume that @mls0x1 built on top of @mstersnd's work. but not entirely sure
         - Turkish update @mls0x1: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4801772821
         - Norwegian @Bertil78: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4820887178
     Email
