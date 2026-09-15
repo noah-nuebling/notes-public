@@ -111,8 +111,8 @@ Publish:
 	- [x] Set the base remote url in the app to [kMFWebsiteAddress]/maindownload/
 
 **Post-archive check**
-- [ ] Make sure the app launches and works ok.
-- [ ] Make sure the version numbers shown in the app are correct.
+- [x] Make sure the app launches and works ok.
+- [x] Make sure the version numbers shown in the app are correct.
 
 **GitHub**
 
@@ -143,27 +143,27 @@ Publish:
 	- dSYMs folder is inside .xcarchive for the build which you can find from the Xcode Organizer.
 - [x] Push local changes after the final build - and before publishing the GH release!
 	- So that the GH release links to the correct source code commit with the right build number.
-- [ ] Update appcasts:
+- [x] Update appcasts:
 	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
 	- ((Pull new release tags)) Edit: ./update does that automatically now
 	- Run ./update
 
 **Update stuff**
-- [ ] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
+- [x] Update [redirection-service](https://github.com/noah-nuebling/redirection-service/blob/main/index.html) if necessary
 	- The redirection-service has an mmf2-latest link which needs to be updated, when we publish a new mmf2 version.
 
 **Other Places** (We don't reallyyy care about these sites, and other ppl update them for us.)
-- [ ] x Update Mac Update Listing
-- [ ] x Update Cnet Listing
-- [ ] x Update alternativeto listing
+- [xxx] x Update Mac Update Listing
+- [xxx] x Update Cnet Listing
+- [xxx] x Update alternativeto listing
 
 **Website** (Only relevant pre Sparkle - with Sparkle we don't need to update the Website at all)
 /maindownload-app/:
-* [ ] x Update 'updatenotes-app.zip'
+* [xxx] x Update 'updatenotes-app.zip'
 	- Update 'updatenotes-source/updatenotes-app/index.html'
 	- Run the 'updatenotes-source/install' script to zip stuff up and put in the right place
-- [ ] x Update 'maindownload-app/bundleversion-app'
-- [ ] x Update 'maindownload-app/MacMouseFixApp.zip'
+- [xxx] x Update 'maindownload-app/bundleversion-app'
+- [xxx] x Update 'maindownload-app/MacMouseFixApp.zip'
 
 **Testing**
 
