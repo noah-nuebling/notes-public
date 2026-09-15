@@ -116,7 +116,7 @@ Publish:
 
 **GitHub**
 
--[ ] Write update notes
+-[x] Write update notes
   - Writing style:
       - [Jul 2025] Being detailed and honest about documenting exactly what things changed is nice and useful, and interesting to some, but try to put *user impact* first and *technical details* second, so the things people are more likely to care about are more easily accessible / skimmable.
       - [Nov 2025] Whatever, technical details are cool, if you made an impressive thing and you're excited about it!
@@ -125,7 +125,7 @@ Publish:
 			- `git log --perl-regexp --author="^(?!github-actions)"`
 	- If you want to preserve single linebreaks in update notes, use `\` at the end of the line
 		- In GitHub they are automatically preserved 
-    		- [ ] META TODO → Make it so linebreaks are preserved in the updateNotes without `\`. pandocs `--wrap=preserve` doesn't work for me.
+    		- [x] META TODO → Make it so linebreaks are preserved in the updateNotes without `\`. pandocs `--wrap=preserve` doesn't work for me.
 	- Lists with several indentation levels look a little weird with the current css. Better to avoid them. 
 		- (Or fix the CSS) Edit: fixed the CSS
 	- Links to issues of the form `#94` don't work. `[Normal markdown links](abcd)` do work though.
