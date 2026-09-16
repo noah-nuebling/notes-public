@@ -169,7 +169,7 @@ Publish:
 
 - [ ] Test if version downloaded from GitHub download works properly
 - [ ] Test on older macOS
-- [ ] Test if updating from the previous version works properly
+- [x] Test if updating from the previous version works properly
 	- Make sure the previous version has accessibility enabled and works properly before updating
 	- Make sure in-app update notes look correct
   - Maybe also check if _German_ in-app update notes look correct. (Our AI update-note-translation system.)

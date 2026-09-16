@@ -163,8 +163,8 @@ Update Translation Guide
 - [x] Mark the root nodes of all the 'pluralizable' strings (whose children are translated) as translated
 
 
-- [ ] Publish App update
-    - See `MMF - Update Checklist - Template.md`
+- [x] Publish App update
+    - See `MMF - Update Checklist - 3.1.0.md`
 
 Other:
     - Send 10 MMF licenses to translator (?) (/answer in general)
