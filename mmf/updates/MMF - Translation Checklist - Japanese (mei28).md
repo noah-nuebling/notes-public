@@ -1,5 +1,5 @@
 
-This doc is superseeded by MMF - Translation Checklist - Combined Sep 2026
+This doc is superseeded by MMF - Combined Translation Checklist - Sep 2026
 
 Translations by @mei28: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4218636133
 

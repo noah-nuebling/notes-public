@@ -1,6 +1,6 @@
 
 Also see:
-    _dailynote_2026.09.10.md (This is sort of a substep of the steps in here)
+    _dailynote_2026.09.10.md (This is sort of a substep of the steps in there)
     Apple Notes > MMF Localization Todo (Fall 2024)
 
 Locale addition requests
@@ -188,7 +188,7 @@ Not sure if / when to do this:
 
 Later (after 3.1.0 release)
 
-    - [ ] Update Xcode Editor (layout bugs on macOS 27)
+    - [x] Update Xcode Editor (layout bugs on macOS 27)
             Upload new Xcloc Editor (at "https://github.com/noah-nuebling/mf-xcloc-editor/releases/latest/download/XclocEditor.zip") before running `./run uploadstrings` [Dec 2025]
 
 
