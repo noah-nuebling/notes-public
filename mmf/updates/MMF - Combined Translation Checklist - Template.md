@@ -4,12 +4,12 @@ Also see:
     - Translating Mac Mouse Fix (GitHub Issue) https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
     - `MMF - Combined Translation Checklist - Template.md` is based on `MMF - Combined Translation Checklist - Sep 2026.md`
 
-Gather requests
+AdditionRequests
 
-    Locale addition requests
+    LocaleAdditionRequests
         <fill in or whatever, Issue, Email, Pull Requests>
 
-    New translation submissions
+    TranslationSubmissionsList
         <fill in or whatever, Issue, Email, Pull Requests>
         
 LocaleList (for copy-pasting)
@@ -32,37 +32,21 @@ Core:
 
         - Import .xcloc files
             Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path 
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path 
-            - [x] Japanese
-            - [x] Vietnamese
-            - [x] French
-            - [x] Spanish
-            - [xxx] Simplified Chinese
-            - [x] Ukrainian
-            - [x] Turkish
-            - [xxx] Norwegian
-            - [xxx] Brazilian Portuguese
-        
+                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
+                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
+            <LocaleList>
+
         - Update website
             Steps:
-            - [x] `pnpm dev`
-            - [x] `pnpm upload`
+            - [ ] `pnpm dev`
+            - [ ] `pnpm upload`
 
         - Update Markdown files:
             - Run ScreenshotTaker XCUITest in Xcode
                 Steps:
                     1. Modify 'onlyUpdateLocales' at the top
                     2. >>> func testTakeScreenshots_Documentation()
-                - [x] Japanese
-                - [x] Vietnamese
-                - [x] French
-                - [x] Spanish
-                - [x] Simplified Chinese
-                - [x] Ukrainian
-                - [x] Turkish
-                - [x] Norwegian
-                - [x] Brazilian Portuguese
+                <LocaleList>
             - [x] Rebuild the docs
                 >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
 
@@ -71,45 +55,13 @@ Add credits
         Steps:
             1. Add
             2. To stop _buildmd.py from failing, the []({urls}) need to match in all languages:
-                - [x] Manually add the new entry to all the translations of `2: translations`.
-                - [x] Update the surrounding urls
+                - [ ] Manually add the new entry to all the translations of `2: translations`.
+                - [ ] Update the surrounding urls
                     - >>> ./run updateackurls;
             Add to en:
-                - [xxx] Things from https://github.com/noah-nuebling/mac-mouse-fix/releases/tag/3.1.0-Beta-1
-                    - Already added
-                - [x] New translations we added (listed above)
-                    - Japanese 
-                        - [x] @y-128: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4191409106
-                        - [x] @mei28: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4218636133
-                    - Vietnamese 
-                        - [x] @quocthangit247: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3876405270
-                    - French 
-                        - [x] @UYTR5: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3888010759 
-                        - [x] @Clementabcd (website): https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3985604493
-                    - Spanish 
-                        - [x] @manghidev: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-3994798838
-                    - Simplified Chinese 
-                        - [x] @djzhao627: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4064750078
-                        - [x] @JunhangWu: https://github.com/noah-nuebling/mac-mouse-fix/pull/1836
-                    - Ukrainian 
-                        - [ ] @denysocheck: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4282037521
-                        - [ ] @denysocheck: message:<78FD2C3A-E753-4DE7-AB3E-76D184334DC2@gmail.com>
-                    - Turkish
-                        - [x] Eren Tomurcuk: message:<OfZ84n5--F-9@tuta.io>
-                        - [x] @mstersnd: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4511309127
-                            - We assume that @mls0x1 built on top of @mstersnd's work. but not entirely sure. Update: Claude Opus 5 confirmed.
-                        - [x] @mls0x1: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4801772821
-                        - [xxx] Samim Kel: [mail](message:<CAG9To-p8EkFgxsaF1uLE=L2d-u8fs_dZ7iDxJQ5OB1U3t7vQhw@mail.gmail.com>)
-                            - (Not accepting because their older/divergent/less eyes on it than the ones from GitHub, see bottom of this file [Sep 2026])
-                    - Norwegian 
-                        - [x] @Bertil78: https://github.com/noah-nuebling/mac-mouse-fix/issues/1638#issuecomment-4820887178
-                    - Brazilian Portuguese 
-                        - [xxx] Eduardo Rodriguez: message:<D9DBBC48-47AD-42EC-8BE6-46D611474277@icloud.com>
-            - [x] Add the same to all other languages:
-    
-    - [ ] Add credits to Update Notes
-        (Stuff from 3.1.0 Beta release notes + what we added to Acknowledgements (see above))
-    
+                <TranslationSubmissionsList>
+            Add the same to all other languages:
+                <TranslationSubmissionsList>
 
 Update Translation Guide
 - Run uploadstrings on the master branch 
