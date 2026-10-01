@@ -1,4 +1,7 @@
 
+Superseded by: [Sep 2026]
+    MMF - Combined Translation Checklist - Template.md
+
 Core:
     Mac Mouse Fix.xcloc
 
