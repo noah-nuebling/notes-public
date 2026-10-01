@@ -40,15 +40,15 @@ Core:
                 3. Update: func applyHardcodedTabWidth()
             <LocaleList>
 
-      - Update Markdown files:
-          - Run ScreenshotTaker XCUITest in Xcode
-              Steps:
-                  1. Modify 'onlyUpdateLocales' at the top
-                  2. >>> func testTakeScreenshots_Documentation()
-              <LocaleList>
-          - [x] Rebuild the docs
-              >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
-                  - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data
+    - Update Markdown files:
+        - Run ScreenshotTaker XCUITest in Xcode
+            Steps:
+                1. Modify 'onlyUpdateLocales' at the top
+                2. >>> func testTakeScreenshots_Documentation()
+            <LocaleList>
+        - [ ] Rebuild the docs
+            >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
+                - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data
 
     Mac Mouse Fix Website.xcloc
 
@@ -78,7 +78,7 @@ Add credits
 
 Update Translation Guide
 - Run uploadstrings on the master branch 
-    >>> ./run uploadstrings --recycle-screenshots --only-update-locales ...
+    >>> ./run uploadstrings [--recycle-screenshots] --only-update-locales ...
     (This runs `testTakeScreenshots_Localization`)
     -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
         - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
