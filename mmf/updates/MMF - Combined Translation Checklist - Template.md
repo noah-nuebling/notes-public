@@ -10,6 +10,10 @@ Also see:
     - MMF - Translation Checklist - Template.md (Older version)
     - MMF - Update Checklist - Template.md
 
+Preparation
+    - [ ] Update `testTakeScreenshots_Localization` if there's new UI to cover in the `./run uploadstrings` screenshots [Sep 2026]
+    - [ ] Upload new Xcloc Editor update if necessary before `./run uploadstrings`. (mf-xcloc-editor repo has a checklist for that (`PublishingUpdates.md`) [Sep 2026])
+
 AdditionRequests
 
     LocaleAdditionRequests
@@ -40,6 +44,7 @@ Core:
             Steps: 
                 >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
                 >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
+                    - Why filter those mismatches? (--no-key-mismatches --no-source-mismatches): I think those are already caught by `./run importstrings` and/or useless.
             <LocaleList>
 
         - Update website
@@ -55,6 +60,7 @@ Core:
                 <LocaleList>
             - [x] Rebuild the docs
                 >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
+                    - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data
 
 Add credits
     - Add credits to the Acknowledgements
@@ -72,6 +78,7 @@ Add credits
 Update Translation Guide
 - Run uploadstrings on the master branch 
     >>> ./run uploadstrings --only-update-locales ...
+        (This runs `testTakeScreenshots_Localization`)
     <LocaleList>
 
 - [ ] Mark the root nodes of all the 'pluralizable' strings (whose children are translated) as translated
