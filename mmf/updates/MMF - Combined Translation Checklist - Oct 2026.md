@@ -87,7 +87,7 @@ Other:
         - [ ] Italian by @Lombae
 
 Post reply at https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
-    - [ ] Export app
+    - [x] Export app
         - Choose 'App - Release' scheme, and 'Any Mac', then Archive > Organizer > Distribute App > Export Notarized App
     - [ ] Reply
         - Keep it short, nice. Point people to the places where they can check their work (copy from messages above). Try to keep calm.
