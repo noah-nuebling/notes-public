@@ -53,10 +53,10 @@ Update:
                 2. >>> ./run syncstrings (Updates .xcstrings)
                 3. Update the translations via Claude Code:
                     Claude Code prompt:
-                    The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "translated". Don't validate your work by trying to run the script. (I'll do that shortly)
+                    The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "translated".
 
     Markdown files:
-        - [ ] Rebuild markdown & take screenshots
+        - [x] Rebuild markdown & take screenshots
             >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales [all|it,es]
                 (This runs `testTakeScreenshots_Documentation`)
                 (Background: We skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data)
@@ -65,16 +65,17 @@ Update:
 
         - Import .xcloc files
             >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
-            - [ ] Spanish by @manghidev
-            - [ ] Italian by @Lombae
+            - [x] Spanish by @manghidev
+            - [x] Italian by @Lombae
 
         - Update website
             Steps:
-            - [ ] >>> pnpm dev
-            - [ ] >>> pnpm upload
+            - [x] >>> pnpm dev
+            - [x] >>> pnpm upload
                 
 
     Update Translation Guide
+        >>> export GH_API_KEY=
         >>> ./run uploadstrings --recycle-screenshots [--only-update-locales it,es]
         (This runs `testTakeScreenshots_Localization`)
         -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locales`.

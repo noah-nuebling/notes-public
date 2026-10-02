@@ -50,7 +50,7 @@ Update:
                 2. >>> ./run syncstrings (Updates .xcstrings)
                 3. Update the translations via Claude Code:
                     Claude Code prompt:
-                    The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "reviewed".
+                    The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "translated".
 
     Markdown files:
         - [ ] Rebuild markdown & take screenshots
@@ -66,24 +66,25 @@ Update:
 
         - Update website
             Steps:
-            - [ ] >>> pnpm dev
+            - [ ] >>> pnpm dev (review, I guess)
             - [ ] >>> pnpm upload
                 
 
     Update Translation Guide
+        >>> export GH_API_KEY=
         >>> ./run uploadstrings --recycle-screenshots [--only-update-locales <LocaleListCommaSeparated>]
         (This runs `testTakeScreenshots_Localization`)
         -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locales`.
             - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
-
-Other:
-    - Send 10 MMF licenses to translator (?) (/answer in general)
-        <TranslationSubmissionsList>
-    - Maybe ask them how they want to be credited exactly, if possible:
-        <TranslationSubmissionsList>
 
 Post reply at https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
     - [ ] Export app
         - Choose 'App - Release' scheme, and 'Any Mac', then Archive > Organizer > Distribute App > Export Notarized App
     - [ ] Reply
         - Keep it short, nice. Point people to the places where they can check their work (copy from messages above). Try to keep calm.
+
+Other:
+    - Send 10 MMF licenses to translator (?) (/answer in general)
+        <TranslationSubmissionsList>
+    - Maybe ask them how they want to be credited exactly, if possible:
+        <TranslationSubmissionsList>
