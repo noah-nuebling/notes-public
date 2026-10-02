@@ -40,7 +40,7 @@ Update:
             Steps:
                 1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix.xcloc'
                 2. If new locale: Update func applyHardcodedTabWidth(), and maybe run the app. (Minimal review so we can do this regularly) [Sep 2026]
-            <LocaleList>
+                <TranslationSubmissionsList>
 
         - Add credits to the Acknowledgements
             Steps:
@@ -62,7 +62,7 @@ Update:
 
         - Import .xcloc files
             >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
-            <LocaleList>
+            <TranslationSubmissionsList>
 
         - Update website
             Steps:
