@@ -45,28 +45,14 @@ Core:
     Mac Mouse Fix Website.xcloc
 
         - Import .xcloc files
-            Steps: 
-                >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
-                >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
+            >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
             <LocaleList>
 
         - Update website
             Steps:
-            - [ ] `pnpm dev`
-            - [ ] `pnpm upload`
-
-Add credits
-    - Add credits to the Acknowledgements
-        Steps:
-            1. Add
-            2. To stop _buildmd.py from failing, the []({urls}) need to match in all languages:
-                - [ ] Manually add the new entry to all the translations of `2: translations`.
-                - [ ] Update the surrounding urls
-                    - >>> ./run updateackurls;
-            Add to en:
-                <TranslationSubmissionsList>
-            Add the same to all other languages:
-                <TranslationSubmissionsList>
+            - [ ] >>> pnpm dev
+            - [ ] >>> pnpm upload
+                
 
 Update Translation Guide
 - Run uploadstrings on the master branch 
