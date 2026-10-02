@@ -30,6 +30,9 @@ Preparation
         xx,yy
 
 Update:
+    Add locale requests:
+        (Requires lots of updates in different places, not sure of all of them right now, should be rare [Sep 2026])
+        <LocaleAdditionRequests>
 
     Mac Mouse Fix.xcloc
 
