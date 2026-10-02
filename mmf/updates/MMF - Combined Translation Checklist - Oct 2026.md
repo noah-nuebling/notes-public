@@ -6,7 +6,8 @@ Overview [Sep 2026]:
 
 Also see: 
     - Translating Mac Mouse Fix (GitHub Issue) https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
-    - MMF - Combined Translation Checklist - Sep 2026.md (The combined template is based on that)
+    - MMF - Combined Translation Checklist - Template.md (This template)
+    - MMF - Combined Translation Checklist - Sep 2026.md (This template is based on that)
     - MMF - Translation Checklist - Template.md (Older version)
     - MMF - Update Checklist - Template.md
 
@@ -83,11 +84,11 @@ Update:
 
 Other:
     - Send 10 MMF licenses to translator (?) (/answer in general) (Maybe ask them how they want to be credited exactly, if possible)
-        - [ ] Spanish by @manghidev
-        - [ ] Italian by @Lombae
+        - [x] Spanish by @manghidev
+        - [x] Italian by @Lombae
 
 Post reply at https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
     - [x] Export app
         - Choose 'App - Release' scheme, and 'Any Mac', then Archive > Organizer > Distribute App > Export Notarized App
-    - [ ] Reply
+    - [x] Reply
         - Keep it short, nice. Point people to the places where they can check their work (copy from messages above). Try to keep calm.

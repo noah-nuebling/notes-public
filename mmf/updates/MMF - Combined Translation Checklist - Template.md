@@ -6,7 +6,8 @@ Overview [Sep 2026]:
 
 Also see: 
     - Translating Mac Mouse Fix (GitHub Issue) https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
-    - MMF - Combined Translation Checklist - Sep 2026.md (The combined template is based on that)
+    - MMF - Combined Translation Checklist - Template.md (This template)
+    - MMF - Combined Translation Checklist - Sep 2026.md (This template is based on that)
     - MMF - Translation Checklist - Template.md (Older version)
     - MMF - Update Checklist - Template.md
 
