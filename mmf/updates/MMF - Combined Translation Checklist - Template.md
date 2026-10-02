@@ -33,21 +33,13 @@ Core:
 
         - Import .xcloc files
             Steps:
-                1. >>> z mac-mouse-fix; ./run importstrings                            --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix.xcloc'
-                2. >>> ./run importstrings2 --no-key-mismatches --no-source-mismatches --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix.xcloc'
-                   - Mark all these as mismatches, don't do further review
-                    - Why filter those mismatches? (--no-key-mismatches --no-source-mismatches): I think those are already caught by `./run importstrings` and/or useless.
-                3. Update: func applyHardcodedTabWidth()
+                1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix.xcloc'
+                2. Update: func applyHardcodedTabWidth()
             <LocaleList>
 
     - Update Markdown files:
-        - Run ScreenshotTaker XCUITest in Xcode
-            Steps:
-                1. Modify 'onlyUpdateLocales' at the top
-                2. >>> func testTakeScreenshots_Documentation()
-            <LocaleList>
-        - [ ] Rebuild the docs
-            >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$'
+        - [ ] Rebuild the docs & take screenshots
+            >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales all
                 - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data
 
     Mac Mouse Fix Website.xcloc
