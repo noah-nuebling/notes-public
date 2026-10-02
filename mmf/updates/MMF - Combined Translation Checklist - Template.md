@@ -71,7 +71,7 @@ Update:
                 
 
     Update Translation Guide
-        >>> export GH_API_KEY=
+        >>> export GH_API_KEY=github_pat_11AJ...
         >>> ./run uploadstrings --recycle-screenshots [--only-update-locales <LocaleListCommaSeparated>]
         (This runs `testTakeScreenshots_Localization`)
         -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locales`.
@@ -79,6 +79,7 @@ Update:
 
 Post reply at https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
     - [ ] Export app
+        - Add suffix to version like `[Oct 2026]`
         - Choose 'App - Release' scheme, and 'Any Mac', then Archive > Organizer > Distribute App > Export Notarized App
     - [ ] Reply
         - Keep it short, nice. Point people to the places where they can check their work (copy from messages above). Try to keep calm.
