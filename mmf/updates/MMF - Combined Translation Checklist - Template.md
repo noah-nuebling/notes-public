@@ -10,11 +10,11 @@ Also see:
     - MMF - Translation Checklist - Template.md (Older version)
     - MMF - Update Checklist - Template.md
 
+---
+
 Preparation
     - [ ] Update `testTakeScreenshots_Localization` if there's new UI to cover in the `./run uploadstrings` screenshots [Sep 2026]
     - [ ] Upload new Xcloc Editor update if necessary before `./run uploadstrings`. (mf-xcloc-editor repo has a checklist for that (`PublishingUpdates.md`) [Sep 2026])
-
-AdditionRequests
 
     LocaleAdditionRequests
         <fill in or whatever, Issue, Email, Pull Requests>
@@ -22,9 +22,9 @@ AdditionRequests
     TranslationSubmissionsList
         <fill in or whatever, Issue, Email, Pull Requests>
         
-LocaleList (for copy-pasting)
-    - [xxx] Locale 1
-    - [xxx] Locale 2
+    LocaleList (for copy-pasting)
+        - [xxx] Locale 1
+        - [xxx] Locale 2
 
 Update:
 
@@ -34,13 +34,24 @@ Core:
         - Import .xcloc files
             Steps:
                 1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix.xcloc'
-                2. Update: func applyHardcodedTabWidth()
+                2. If new locale: Update func applyHardcodedTabWidth(), and maybe run the app. (Minimal review so we can do this regularly) [Sep 2026]
             <LocaleList>
 
-    - Update Markdown files:
-        - [ ] Rebuild the docs & take screenshots
-            >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales all
-                - Skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data
+        - Add credits to the Acknowledgements
+            Steps:
+                1. Add credits to 
+                Markdown/Templates/Acknowledgements.md
+                    <TranslationSubmissionsList>
+                2. >>> ./run syncstrings (Updates .xcstrings)
+                3. Update the translations via Claude Code:
+                    Claude Code prompt:
+                    The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "reviewed".
+
+    Markdown files:
+        - [ ] Rebuild markdown & take screenshots
+            >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales [all|<LocaleList>]
+                (This runs `testTakeScreenshots_Documentation`)
+                (Background: We skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data)
 
     Mac Mouse Fix Website.xcloc
 
@@ -56,23 +67,20 @@ Core:
 
 Update Translation Guide
 - Run uploadstrings on the master branch 
-    >>> ./run uploadstrings [--recycle-screenshots] --only-update-locales ...
+    >>> ./run uploadstrings --recycle-screenshots [--only-update-locales <LocaleList>]
     (This runs `testTakeScreenshots_Localization`)
-    -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locale`.
-        - (Tip: Maybe on a second computer cause this takes a while if you update all the locales.)
+    -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locales`.
         - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
     <LocaleList>
-
-- [ ] Mark the root nodes of all the 'pluralizable' strings (whose children are translated) as translated
 
 Other:
     - Send 10 MMF licenses to translator (?) (/answer in general)
         <TranslationSubmissionsList>
-    - Maybe ask them how they want to be credited exactly, if I can manage.
+    - Maybe ask them how they want to be credited exactly, if possible:
         <TranslationSubmissionsList>
 
 Post reply at https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
     - [ ] Export app
-        - Choose 'App - Release' scheme, 'Any Mac' > Archive > Organizer > Distribute App > Export Notarized App
+        - Choose 'App - Release' scheme, and 'Any Mac', then Archive > Organizer > Distribute App > Export Notarized App
     - [ ] Reply
-        - Keep it short, nice. Point people to the places where they can check their work (copy from messages above). Try not to get crazy or anxious about it.
+        - Keep it short, nice. Point people to the places where they can check their work (copy from messages above). Try to keep calm.
