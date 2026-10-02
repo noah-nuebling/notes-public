@@ -16,19 +16,21 @@ Preparation
     - [ ] Update `testTakeScreenshots_Localization` if there's new UI to cover in the `./run uploadstrings` screenshots [Sep 2026]
     - [ ] Upload new Xcloc Editor update if necessary before `./run uploadstrings`. (mf-xcloc-editor repo has a checklist for that (`PublishingUpdates.md`) [Sep 2026])
 
-    LocaleAdditionRequests
+    LocaleAdditionRequests (for copy-pasting below)
         <fill in or whatever, Issue, Email, Pull Requests>
 
-    TranslationSubmissionsList
+    TranslationSubmissionsList (for copy-pasting below)
         <fill in or whatever, Issue, Email, Pull Requests>
         
-    LocaleList (for copy-pasting)
+    LocaleList (for copy-pasting below)
         - [xxx] Locale 1
         - [xxx] Locale 2
+    
+    LocaleListCommaSeparated (for copy-pasting below)
+        xx,yy
 
 Update:
 
-Core:
     Mac Mouse Fix.xcloc
 
         - Import .xcloc files
@@ -49,7 +51,7 @@ Core:
 
     Markdown files:
         - [ ] Rebuild markdown & take screenshots
-            >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales [all|<LocaleList>]
+            >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales [all|<LocaleListCommaSeparated>]
                 (This runs `testTakeScreenshots_Documentation`)
                 (Background: We skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data)
 
@@ -65,13 +67,11 @@ Core:
             - [ ] >>> pnpm upload
                 
 
-Update Translation Guide
-- Run uploadstrings on the master branch 
-    >>> ./run uploadstrings --recycle-screenshots [--only-update-locales <LocaleList>]
-    (This runs `testTakeScreenshots_Localization`)
-    -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locales`.
-        - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
-    <LocaleList>
+    Update Translation Guide
+        >>> ./run uploadstrings --recycle-screenshots [--only-update-locales <LocaleListCommaSeparated>]
+        (This runs `testTakeScreenshots_Localization`)
+        -> If new UI added (or anything in the app changed that affects all locales), omit `--only-update-locales`.
+            - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
 Other:
     - Send 10 MMF licenses to translator (?) (/answer in general)
