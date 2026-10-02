@@ -64,7 +64,7 @@ Update:
     Mac Mouse Fix Website.xcloc
 
         - Import .xcloc files
-            >>> z mac-mouse-fix-website; ./run importstrings                    --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
+            >>> z mac-mouse-fix-website; ./run importstrings --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix Website.xcloc'
             - [ ] Spanish by @manghidev
             - [ ] Italian by @Lombae
 
