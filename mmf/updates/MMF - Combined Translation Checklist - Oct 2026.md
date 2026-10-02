@@ -48,12 +48,12 @@ Update:
             Steps:
                 1. Add credits to 
                 Markdown/Templates/Acknowledgements.md
-                   - [ ] Spanish by @manghidev
-                   - [ ] Italian by @Lombae
+                   - [x] Spanish by @manghidev
+                   - [x] Italian by @Lombae
                 2. >>> ./run syncstrings (Updates .xcstrings)
                 3. Update the translations via Claude Code:
                     Claude Code prompt:
-                    The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "reviewed".
+                    The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "translated". Don't validate your work by trying to run the script. (I'll do that shortly)
 
     Markdown files:
         - [ ] Rebuild markdown & take screenshots

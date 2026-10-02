@@ -34,7 +34,7 @@ The template: [[MMF - Update Checklist - Template]]
 
 **GitHub**
 - [ ] Do `MMF - Combined Translation Checklist - Template` if necessary
-- [ ] Credit all the new localizers in the update notes. (Diff ./Acknowledgements against the last release tag) (This maybe should be below under `**GitHub**`)
+- [ ] Credit all the new localizers in the update notes. (Maybe ask Claude to look at the `git log`) (Diff ./Acknowledgements against the last release tag will miss updates by known localizers) (This maybe should be below under `**GitHub**`)
 
 **App**
 
