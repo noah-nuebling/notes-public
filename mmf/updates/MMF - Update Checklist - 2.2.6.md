@@ -129,9 +129,8 @@ The template: [[MMF - Update Checklist - Template]]
 	- dSYMs folder is inside .xcarchive for the build which you can find from the Xcode Organizer.
 - [x] Push local changes after the final build - and before publishing the GH release!
 	- So that the GH release links to the correct source code commit with the right build number.
-- [ ] Update appcasts:
+- [x] Update appcasts:
 	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
-
 	- Run ./update
 
 **Update stuff**
@@ -139,17 +138,17 @@ The template: [[MMF - Update Checklist - Template]]
 	- The redirection-service has an mmf2-latest link which needs to be updated, when we publish a new mmf2 version.
 
 **Other Places** (We don't reallyyy care about these sites, and other ppl update them for us.)
-- [ ] x Update Mac Update Listing
-- [ ] x Update Cnet Listing
-- [ ] x Update alternativeto listing
+- [x] x Update Mac Update Listing
+- [x] x Update Cnet Listing
+- [x] x Update alternativeto listing
 
 **Website** (Only relevant pre Sparkle - with Sparkle we don't need to update the Website at all)
 /maindownload-app/:
-* [ ] x Update 'updatenotes-app.zip'
+* [x] x Update 'updatenotes-app.zip'
 	- Update 'updatenotes-source/updatenotes-app/index.html'
 	- Run the 'updatenotes-source/install' script to zip stuff up and put in the right place
-- [ ] x Update 'maindownload-app/bundleversion-app'
-- [ ] x Update 'maindownload-app/MacMouseFixApp.zip'
+- [x] x Update 'maindownload-app/bundleversion-app'
+- [x] x Update 'maindownload-app/MacMouseFixApp.zip'
 
 **Testing**
 
