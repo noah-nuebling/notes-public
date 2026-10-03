@@ -131,7 +131,7 @@ The template: [[MMF - Update Checklist - Template]]
 	- So that the GH release links to the correct source code commit with the right build number.
 - [ ] Update appcasts:
 	- Switch to mac-mouse-fix-update-feed folder (Which should have update-feed branch of mac-mouse-fix repo checked out)
-	- ((Pull new release tags)) Edit: ./update does that automatically now
+
 	- Run ./update
 
 **Update stuff**
