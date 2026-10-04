@@ -171,3 +171,9 @@ Where to file feedback?
 
 References:
     - WWDC 25 - Build an AppKit app with the new design - https://developer.apple.com/videos/play/wwdc2025/310/
+
+---
+
+[Sep 2026] macOS 27 (not sure these also apply to Tahoe)
+
+- The 'Apple Exclusive Keys' are off center [Sep 2026]
