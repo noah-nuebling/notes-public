@@ -20,11 +20,11 @@ Find GCD stuff to remove using:
 ```
 (Use 'No External/Vendored' filter in Xcode)
 
--> Replace with GlobalEventTapThread / mainThread / MFCFRunLoopPerform
--> Maybe add thread asserts (assertIOThread()) where appropriate (Everywhere?)
--> Remove all the `_Unsafe` variants and other stuff that's no longer necessary
+-> [ ] Replace with GlobalEventTapThread / mainThread / MFCFRunLoopPerform
+-> [ ] Maybe add thread asserts (assertIOThread()) where appropriate (Everywhere?)
+-> [x] Remove all the `_Unsafe` variants and other stuff that's no longer necessary
     - _Unsafe variant was often the direct call and the public one was the deferred call, so callsites can't all be unified
--> Remove the `start(params:` stuff
+-> [x] Remove the `start(params:` stuff
     - Exists to avoid races by injecting caller code onto the Animator's queue
 
 Anticipated to be complicated: 
@@ -32,19 +32,19 @@ Anticipated to be complicated:
     - ModifiedDragOutputTwoFingerSwipe.m dispatch_group_leave stuff
     - PointerFreeze timing stuff
 
-Maybe also replace unrelated uses of 'dispatch'. Ideas:
+- [xxx] Maybe also replace unrelated uses of 'dispatch'. Ideas:
     - hand off, offload, 
     - route, handle, select
 
 # 3
 
-- Move event handling stuff off of mainThread to GlobalEventTapThread.
+- [x] Move event handling stuff off of mainThread to GlobalEventTapThread.
     - (CFRunLoopGetCurrent(), CFRunLoopGetMain()) (No occurrences of NSRunLoop, it seems)
     - doOnMain
 
 Question: What things should stay on main? (non event-processing stuff)
     Config.m, DeviceManager.m
-    -> Probably just move them to GlobalEventTapThread to avoid synchronization? 
+    -> [x] Probably just move them to GlobalEventTapThread to avoid synchronization? 
         (But stuff has to be drawn on main and at least needs to access Config.m, so there'd have to be some synchronization?)
 
 
@@ -54,13 +54,13 @@ Question: What things should stay on main? (non event-processing stuff)
 Other stuff that's sneakily on other threads
 
 Old: ('sneakily on main')
-    - NSWorkspace.sessionDidBecomeActiveNotification and NSWorkspace.sessionDidResignActiveNotification (due to `queue: nil`)
-    - displayReconfigurationCallback is posted on main by CVDisplayLink API (says Claude)
-    - Licensing's lockDown() runs from a @MainActor Task.
+    - [x] NSWorkspace.sessionDidBecomeActiveNotification and NSWorkspace.sessionDidResignActiveNotification (due to `queue: nil`)
+    - [xxx] displayReconfigurationCallback is posted on main by CVDisplayLink API (says Claude)
+    - [x] Licensing's lockDown() runs from a @MainActor Task.
         - (All the stuff in licensing module needs extra testing since it only runs rarely / won't be caught in normal tests)
-    - Config.m asserts main
+    - [x] Config.m asserts main
 
-Updated plan: (These things will still be on other threads after refactor)
+- [xxx] Updated plan: (These things will still be on other threads after refactor)
     On main:
         - MenuBarItem
         - PointerFreeze and/or ScreenDrawer
@@ -71,7 +71,10 @@ Updated plan: (These things will still be on other threads after refactor)
 
 # 3.7
 
+
 Might need locking (due to access from both IOThread and mainThread)
+
+- [xxx] Managed to avoid locking
 
 - Config.m
     - Also note the caches (`+[Config updateDerivedStates]`)
@@ -86,7 +89,7 @@ Might need locking (due to access from both IOThread and mainThread)
 
 # 4
 
-Cleanup docs and comments talking about GlobalEventTapThread (which we'll implement now)
+-[ ] Cleanup docs and comments talking about GlobalEventTapThread (which we'll implement now)
 
 Names for the unified thread idea in MMF source code that I'm aware of: 
     (unified to: all lowercase, with spaces between all words)
@@ -105,46 +108,46 @@ Bonus:
 
 # 4.5
 
-Minor cleanup
+- [ ] Minor cleanup
     - Maybe remove 'atomic' stuff that's no longer needed
 
 # 5
 
-- At end, rename 'GlobalEventTapThread' to IOThread or something
+- [x] At end, rename 'GlobalEventTapThread' to IOThread or something
 
 # 6
 
-Do TODOs from GlobalEventTapThread.m. Add autoreleasepool, use thread_policy_set to increase priority.
+- [x] Do TODOs from GlobalEventTapThread.m. Add autoreleasepool, use thread_policy_set to increase priority.
     (Also do thread_policy_set on the other 2 threads - main and CVDisplayLink, possibly)
 
 # 7 
 
 Post-refactor polish
 
-- drawPuppetCursor: might make IOThread wait for main every frame in a way that's slow
-- PointerFreeze might not need sync dispatch at all (can be async API) (currently freezeAtPosition: blocks until it's hidden the pointer / drawn the puppet for the first time)
+- [x] drawPuppetCursor: might make IOThread wait for main every frame in a way that's slow
+- [x] PointerFreeze might not need sync dispatch at all (can be async API) (currently freezeAtPosition: blocks until it's hidden the pointer / drawn the puppet for the first time)
     - -> If so can live completely on main (if that helps performance) (the usleep can't block main tho, otherwise flicker comes back) (Claude says `The warp should probably stay on the IOThread.` in case main is more busy, which it probably is.)
-- There seems to be (unrelated) bug where twoFingerSwipe frozen pointer jumps towards middle of the screen on `becameInUse`
+- [x] There seems to be (unrelated) bug where twoFingerSwipe frozen pointer jumps towards middle of the screen on `becameInUse`
 
 # 8
 
 More detailed implementation plans for tricky parts: 
-- twoFingerSwipe > momentumScroll-waiting needs to turn into a continuation to not block IOThread - will cause reentrancy races that we have to deal with at entry points.
-- PointerFreeze should probably be owned by IOThread only dispatching to mainThread for ScreenDrawer.
-- In DisplayLink, use runLoopSource instead of blocks to dispatch frame-workload to IOThread - that should give natural coalescing like probably CADisplayLink also does it
+- [x] twoFingerSwipe > momentumScroll-waiting needs to turn into a continuation to not block IOThread - will cause reentrancy races that we have to deal with at entry points.
+- [x] PointerFreeze should probably be owned by IOThread only dispatching to mainThread for ScreenDrawer.
+- [xxx] In DisplayLink, use runLoopSource instead of blocks to dispatch frame-workload to IOThread - that should give natural coalescing like probably CADisplayLink also does it
 
 # 9 
 
 Some more concerns by Claude
-    - IOThread would be using some AppKit APIs like NSScreen.mainScreen.
+    - [ ] IOThread would be using some AppKit APIs like NSScreen.mainScreen.
         -> I'm pretty sure that any NSScreen APIs that are actually unsafe to call off main crashes at runtime, and that these are safe, but not 100%
-    - (HelperUtility appUnderMousePointerWithEvent:) can 'block for seconds if the app is hung', fixed by `AXUIElementSetMessagingTimeout`
+    - [ ] (HelperUtility appUnderMousePointerWithEvent:) can 'block for seconds if the app is hung', fixed by `AXUIElementSetMessagingTimeout`
         - (Why have I never experienced any issues due to this, ever?)
 
 # 10 
 
 Concerns coming up during refactor
 
-- MFCFRunLoopPerform_sync could cause deadlocks.
+- [xxx] MFCFRunLoopPerform_sync could cause deadlocks.
 
 
