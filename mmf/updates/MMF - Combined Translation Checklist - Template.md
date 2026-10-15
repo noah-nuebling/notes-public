@@ -31,23 +31,18 @@ Preparation
         xx,yy
 
 Update:
-    Add locale requests: [Oct 2026]
+    Add new locales / locale requests: [Oct 2026]
         For each new locales: (empty and non-empty)
             Add locales to lists:
                 1. Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
                 (Make sure to update the submodule in all the other repos)
                 2. Add locale in mac-mouse-fix Xcode project
                 3. Add locale in  mac-mouse-fix-website Xcode project
-                4. Add locale at LocalizationUtility.m > informationDensity and InformationDensity.md
         For each new locales: (only empty) (For non-empty do the rest of the update steps normally instead)
-            Regenerate things:
-                - `Rebuild markdown` (see below [Oct 2026])
-                - `Update website` (see below [Oct 2026])
-                - `Update Translation Guide` (see below [Oct 2026])
-        For going from empty locale -> non-empty:
-            Add locales to list:
-                1. Add locale in branch update-feed > generate_releases.py > locales = []
-            Do import steps (below)
+            Regenerate things: (Selected steps from below, skip rest)
+                1. `Rebuild markdown` (see below [Oct 2026])
+                2. `Update website` (see below [Oct 2026])
+                3. `Update Translation Guide` (see below [Oct 2026])
         <LocaleAdditionRequests>
 
     Mac Mouse Fix.xcloc
@@ -55,7 +50,9 @@ Update:
         - Import .xcloc files
             Steps:
                 1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix.xcloc'
-                2. If new locale: Update func applyHardcodedTabWidth(), and maybe run the app. (Minimal review so we can do this regularly) [Sep 2026]
+                2. If new locale: 
+                   1. Update func applyHardcodedTabWidth(), and maybe run the app. (Minimal review so we can do this regularly) [Sep 2026]
+                   2. Update InformationDensity.md and LocalizationUtility.m > informationDensity
                 <TranslationSubmissionsList>
 
         - Add credits to the Acknowledgements
@@ -85,6 +82,8 @@ Update:
             - [ ] >>> pnpm dev (review, I guess)
             - [ ] >>> pnpm upload
                 
+    update-feed branch
+        Add newly-non-empty locales at generate_releases.py > locales
 
     Update Translation Guide
         >>> export GH_API_KEY=github_pat_11AJ...
