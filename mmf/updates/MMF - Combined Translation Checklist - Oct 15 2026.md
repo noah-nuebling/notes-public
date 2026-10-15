@@ -40,9 +40,9 @@ Update:
                 3. [x] Add locale in  mac-mouse-fix-website Xcode project
         For each new locales: (only empty) (For non-empty do the rest of the update steps normally instead, note the `newly-non-empty` steps)
             Regenerate things: (Selected steps from below, skip rest) [Oct 2026]
-                1. [x] `Rebuild markdown` (see below [Oct 2026])
-                2. [x] `Update website` (see below [Oct 2026])
-                3. [x] `Update Translation Guide` (see below [Oct 2026])
+                1. [x] `Rebuild markdown`           (see below [Oct 2026]) (Omit `--take-screenshots-for-locales` - it'll take (unused) screenshots for empty locales [Oct 2026])
+                2. [x] `Update website`             (see below [Oct 2026])
+                3. [x] `Update Translation Guide`   (see below [Oct 2026])
         - [x] da
 
     Mac Mouse Fix.xcloc
@@ -96,7 +96,7 @@ Post reply at https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
     - [xxx] Export app
         - Add suffix to version like `[Oct 2026]`
         - Choose 'App - Release' scheme, and 'Any Mac', then Archive > Organizer > Distribute App > Export Notarized App
-    - [ ] Reply
+    - [x] Reply
         - Keep it short, nice. Point people to the places where they can check their work (copy from messages above). Try to keep calm.
 
 Other:
