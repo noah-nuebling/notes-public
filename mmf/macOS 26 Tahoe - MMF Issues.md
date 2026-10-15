@@ -177,3 +177,4 @@ References:
 [Sep 2026] macOS 27 (not sure these also apply to Tahoe)
 
 - The 'Apple Exclusive Keys' are off center [Sep 2026]
+- 'Accessibility Access' should be 'Device Control Acess' now (And the icon is now folder.badge.gearshape) [Oct 2026]
