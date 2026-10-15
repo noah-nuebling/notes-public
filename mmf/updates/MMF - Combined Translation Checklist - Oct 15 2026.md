@@ -18,22 +18,23 @@ Preparation
     - [x] Upload new Xcloc Editor update if necessary before `./run uploadstrings`. (mf-xcloc-editor repo has a checklist for that (`PublishingUpdates.md`) [Sep 2026])
 
     LocaleAdditionRequests (for copy-pasting below)
-        <fill in or whatever, Issue, Email, Pull Requests>
+        - [ ] Danish
 
     TranslationSubmissionsList (for copy-pasting below)
-        <fill in or whatever, Issue, Email, Pull Requests>
+        - ---
         
     LocaleList (for copy-pasting below)
-        - [xxx] Locale 1
-        - [xxx] Locale 2
+        - ---
     
     LocaleListCommaSeparated (for copy-pasting below)
-        xx,yy
+        - ---
 
 Update:
     Add locale requests:
-        (Requires lots of updates in different places, not sure of all of them right now, should be rare [Sep 2026])
-        <LocaleAdditionRequests>
+        1. Add locale in mac-mouse-fix Xcode project
+        2. Add locale in  mac-mouse-fix-website Xcode project
+        3. Add locale in branch `update-feed`
+        - [ ] Danish
 
     Mac Mouse Fix.xcloc
 
