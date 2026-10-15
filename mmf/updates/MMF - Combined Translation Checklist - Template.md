@@ -34,15 +34,15 @@ Update:
     Add locale requests: [Oct 2026]
         For each new locales: (empty and non-empty)
             Add locales to lists:
-                1. [x] Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
+                1. Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
                     (Make sure to update the submodule in all the other repos -> mac-mouse-fix, mac-mouse-fix-website, update-feed branch [Oct 2026])
-                2. [x] Add locale in mac-mouse-fix Xcode project
-                3. [x] Add locale in  mac-mouse-fix-website Xcode project
+                2. Add locale in mac-mouse-fix Xcode project
+                3. Add locale in  mac-mouse-fix-website Xcode project
         For each new locales: (only empty) (For non-empty do the rest of the update steps normally instead, note the `newly-non-empty` steps)
             Regenerate things: (Selected steps from below, skip rest) [Oct 2026]
-                1. [x] `Rebuild markdown` (see below [Oct 2026])
-                2. [x] `Update website` (see below [Oct 2026])
-                3. [ ] `Update Translation Guide` (see below [Oct 2026])
+                4. `Rebuild markdown` (see below [Oct 2026])
+                5. `Update website` (see below [Oct 2026])
+                6. `Update Translation Guide` (see below [Oct 2026])
         <LocaleAdditionRequests>
 
     Mac Mouse Fix.xcloc
@@ -66,7 +66,7 @@ Update:
                     The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "translated".
 
     Markdown files:
-        - [x] Rebuild markdown & take screenshots
+        - [ ] Rebuild markdown & take screenshots
             >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales [all|<LocaleListCommaSeparated>]
                 (This runs `testTakeScreenshots_Documentation`)
                 (Background: We skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data)
@@ -79,8 +79,8 @@ Update:
 
         - Update website
             Steps:
-            - [x] >>> pnpm dev (review, I guess)
-            - [x] >>> pnpm upload
+            - [ ] >>> pnpm dev (review, I guess)
+            - [ ] >>> pnpm upload
                 
     update-feed branch
         Add newly-non-empty locales at generate_releases.py > locales

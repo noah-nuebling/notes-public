@@ -14,8 +14,8 @@ Also see:
 ---
 
 Preparation
-    - [ ] Update `testTakeScreenshots_Localization` if there's new UI to cover in the `./run uploadstrings` screenshots [Sep 2026]
-    - [ ] Upload new Xcloc Editor update if necessary before `./run uploadstrings`. (mf-xcloc-editor repo has a checklist for that (`PublishingUpdates.md`) [Sep 2026])
+    - [xxx] Update `testTakeScreenshots_Localization` if there's new UI to cover in the `./run uploadstrings` screenshots [Sep 2026]
+    - [xxx] Upload new Xcloc Editor update if necessary before `./run uploadstrings`. (mf-xcloc-editor repo has a checklist for that (`PublishingUpdates.md`) [Sep 2026])
 
     LocaleAdditionRequests (for copy-pasting below)
         - [ ] da
@@ -34,16 +34,16 @@ Update:
     Add locale requests: [Oct 2026]
         For each new locales: (empty and non-empty)
             Add locales to lists:
-                1. Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
+                1. [x] Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
                     (Make sure to update the submodule in all the other repos -> mac-mouse-fix, mac-mouse-fix-website, update-feed branch [Oct 2026])
-                2. Add locale in mac-mouse-fix Xcode project
-                3. Add locale in  mac-mouse-fix-website Xcode project
+                2. [x] Add locale in mac-mouse-fix Xcode project
+                3. [x] Add locale in  mac-mouse-fix-website Xcode project
         For each new locales: (only empty) (For non-empty do the rest of the update steps normally instead, note the `newly-non-empty` steps)
             Regenerate things: (Selected steps from below, skip rest) [Oct 2026]
-                1. `Rebuild markdown` (see below [Oct 2026])
-                2. `Update website` (see below [Oct 2026])
-                3. `Update Translation Guide` (see below [Oct 2026])
-        - [ ] da
+                1. [x] `Rebuild markdown` (see below [Oct 2026])
+                2. [x] `Update website` (see below [Oct 2026])
+                3. [x] `Update Translation Guide` (see below [Oct 2026])
+        - [x] da
 
     Mac Mouse Fix.xcloc
 
@@ -66,7 +66,7 @@ Update:
                     The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "translated".
 
     Markdown files:
-        - [ ] Rebuild markdown & take screenshots
+        - [x] Rebuild markdown & take screenshots
             >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales [all|<LocaleListCommaSeparated>]
                 (This runs `testTakeScreenshots_Documentation`)
                 (Background: We skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data)
@@ -93,7 +93,7 @@ Update:
             - (Note: If this gets annoying, look into automating with GitHub Actions runner.)
 
 Post reply at https://github.com/noah-nuebling/mac-mouse-fix/issues/1638
-    - [ ] Export app
+    - [xxx] Export app
         - Add suffix to version like `[Oct 2026]`
         - Choose 'App - Release' scheme, and 'Any Mac', then Archive > Organizer > Distribute App > Export Notarized App
     - [ ] Reply
