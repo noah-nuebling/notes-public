@@ -40,7 +40,7 @@ Update:
                 3. [x] Add locale in  mac-mouse-fix-website Xcode project
         For each new locales: (only empty) (For non-empty do the rest of the update steps normally instead, note the `newly-non-empty` steps)
             Regenerate things: (Selected steps from below, skip rest) [Oct 2026]
-                1. [ ] `Rebuild markdown` (see below [Oct 2026])
+                1. [x] `Rebuild markdown` (see below [Oct 2026])
                 2. [x] `Update website` (see below [Oct 2026])
                 3. [ ] `Update Translation Guide` (see below [Oct 2026])
         <LocaleAdditionRequests>
@@ -66,7 +66,7 @@ Update:
                     The translator credits at Markdown/Templates/Acknowledgements.md have been updated. To stop `./run build-markdown` from failing, the []({urls}) need to match in all languages. Please go to Acknowledgements.xcstrings, update all the translations (following existing style if possible) and set their "state" to "translated".
 
     Markdown files:
-        - [ ] Rebuild markdown & take screenshots
+        - [x] Rebuild markdown & take screenshots
             >>> ./run build-markdown --document '.*(?<!Acknowledgements\.md)$' --recycle-screenshots --take-screenshots-for-locales [all|<LocaleListCommaSeparated>]
                 (This runs `testTakeScreenshots_Documentation`)
                 (Background: We skip Acknowledgements.md since we don't want to wait for Gumroad data downloads – The GitHub Actions runner will later regenerate Acknowledgements.md with the latest data)
