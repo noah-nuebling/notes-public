@@ -31,15 +31,15 @@ Preparation
         xx,yy
 
 Update:
-    Add new locales / locale requests: [Oct 2026]
+    Add locale requests: [Oct 2026]
         For each new locales: (empty and non-empty)
             Add locales to lists:
                 1. Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
-                (Make sure to update the submodule in all the other repos)
+                    (Make sure to update the submodule in all the other repos)
                 2. Add locale in mac-mouse-fix Xcode project
                 3. Add locale in  mac-mouse-fix-website Xcode project
-        For each new locales: (only empty) (For non-empty do the rest of the update steps normally instead)
-            Regenerate things: (Selected steps from below, skip rest)
+        For each new locales: (only empty) (For non-empty do the rest of the update steps normally instead, note the `newly-non-empty` steps)
+            Regenerate things: (Selected steps from below, skip rest) [Oct 2026]
                 1. `Rebuild markdown` (see below [Oct 2026])
                 2. `Update website` (see below [Oct 2026])
                 3. `Update Translation Guide` (see below [Oct 2026])
@@ -50,7 +50,7 @@ Update:
         - Import .xcloc files
             Steps:
                 1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix.xcloc'
-                2. If new locale: 
+                2. For newly-non-empty locales: 
                    1. Update func applyHardcodedTabWidth(), and maybe run the app. (Minimal review so we can do this regularly) [Sep 2026]
                    2. Update InformationDensity.md and LocalizationUtility.m > informationDensity
                 <TranslationSubmissionsList>

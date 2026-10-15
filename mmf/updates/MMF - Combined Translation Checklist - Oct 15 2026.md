@@ -14,36 +14,45 @@ Also see:
 ---
 
 Preparation
-    - [x] Update `testTakeScreenshots_Localization` if there's new UI to cover in the `./run uploadstrings` screenshots [Sep 2026]
-    - [x] Upload new Xcloc Editor update if necessary before `./run uploadstrings`. (mf-xcloc-editor repo has a checklist for that (`PublishingUpdates.md`) [Sep 2026])
+    - [ ] Update `testTakeScreenshots_Localization` if there's new UI to cover in the `./run uploadstrings` screenshots [Sep 2026]
+    - [ ] Upload new Xcloc Editor update if necessary before `./run uploadstrings`. (mf-xcloc-editor repo has a checklist for that (`PublishingUpdates.md`) [Sep 2026])
 
     LocaleAdditionRequests (for copy-pasting below)
-        - [ ] Danish
+        - [ ] da
 
     TranslationSubmissionsList (for copy-pasting below)
-        - ---
+        <fill in or whatever, Issue, Email, Pull Requests>
         
     LocaleList (for copy-pasting below)
-        - ---
+        - [xxx] Locale 1
+        - [xxx] Locale 2
     
     LocaleListCommaSeparated (for copy-pasting below)
-        - ---
+        xx,yy
 
 Update:
     Add locale requests: [Oct 2026]
-        1. Add locale in mac-mouse-fix Xcode project
-        2. Add locale in  mac-mouse-fix-website Xcode project
-        3. Add locale in branch update-feed > generate_releases.py > locales = []
-           (Only seems to contain locales that actually have translations [Oct 2026])
-        4. Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
-        - [ ] Danish
+        For each new locales: (empty and non-empty)
+            Add locales to lists:
+                1. Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
+                    (Make sure to update the submodule in all the other repos -> main, website, update-feed [Oct 2026])
+                2. Add locale in mac-mouse-fix Xcode project
+                3. Add locale in  mac-mouse-fix-website Xcode project
+        For each new locales: (only empty) (For non-empty do the rest of the update steps normally instead, note the `newly-non-empty` steps)
+            Regenerate things: (Selected steps from below, skip rest) [Oct 2026]
+                4. `Rebuild markdown` (see below [Oct 2026])
+                5. `Update website` (see below [Oct 2026])
+                6. `Update Translation Guide` (see below [Oct 2026])
+        - [ ] da
 
     Mac Mouse Fix.xcloc
 
         - Import .xcloc files
             Steps:
                 1. >>> z mac-mouse-fix; ./run importstrings --xcloc-path '/Users/Noah/Downloads/XXX/Mac Mouse Fix.xcloc'
-                2. If new locale: Update func applyHardcodedTabWidth(), and maybe run the app. (Minimal review so we can do this regularly) [Sep 2026]
+                2. For newly-non-empty locales: 
+                   1. Update func applyHardcodedTabWidth(), and maybe run the app. (Minimal review so we can do this regularly) [Sep 2026]
+                   2. Update InformationDensity.md and LocalizationUtility.m > informationDensity
                 <TranslationSubmissionsList>
 
         - Add credits to the Acknowledgements
@@ -73,6 +82,8 @@ Update:
             - [ ] >>> pnpm dev (review, I guess)
             - [ ] >>> pnpm upload
                 
+    update-feed branch
+        Add newly-non-empty locales at generate_releases.py > locales
 
     Update Translation Guide
         >>> export GH_API_KEY=github_pat_11AJ...
