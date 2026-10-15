@@ -178,3 +178,4 @@ References:
 
 - The 'Apple Exclusive Keys' are off center [Sep 2026]
 - 'Accessibility Access' should be 'Device Control Acess' now (And the icon is now folder.badge.gearshape) [Oct 2026]
+    - Opus 5.5: `[[NSWorkspace sharedWorkspace] iconForFileType: @"com.apple.settings.PrivacySecurity.extension.privacy-accessibility"]`
