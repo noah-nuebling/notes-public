@@ -31,8 +31,18 @@ Preparation
         xx,yy
 
 Update:
-    Add locale requests:
-        (Requires lots of updates in different places, not sure of all of them right now, should be rare [Sep 2026])
+    Add locale requests: [Oct 2026]
+        Add locales to lists:
+            1. Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
+               (Make sure to update the submodule in all the other repos)
+            2. Add locale in mac-mouse-fix Xcode project
+            3. Add locale in  mac-mouse-fix-website Xcode project
+            4. Add locale in branch update-feed > generate_releases.py > locales = []
+               (Only seems to contain locales that actually have translations [Oct 2026])
+        Regenerate things: (If you add a new empty locale - if the locale has strings, skip this, and do the import steps below)
+            - `Rebuild markdown` (see below [Oct 2026])
+            - `Update website` (see below [Oct 2026])
+            - `Update Translation Guide` (see below [Oct 2026])
         <LocaleAdditionRequests>
 
     Mac Mouse Fix.xcloc

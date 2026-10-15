@@ -30,10 +30,12 @@ Preparation
         - ---
 
 Update:
-    Add locale requests:
+    Add locale requests: [Oct 2026]
         1. Add locale in mac-mouse-fix Xcode project
         2. Add locale in  mac-mouse-fix-website Xcode project
-        3. Add locale in branch `update-feed`
+        3. Add locale in branch update-feed > generate_releases.py > locales = []
+           (Only seems to contain locales that actually have translations [Oct 2026])
+        4. Add locale at mac-mouse-fix-scripts > mflocales.py > locales_to_plural_variants
         - [ ] Danish
 
     Mac Mouse Fix.xcloc
