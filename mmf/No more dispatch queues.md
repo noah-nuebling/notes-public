@@ -20,8 +20,8 @@ Find GCD stuff to remove using:
 ```
 (Use 'No External/Vendored' filter in Xcode)
 
--> [ ] Replace with GlobalEventTapThread / mainThread / MFCFRunLoopPerform
--> [ ] Maybe add thread asserts (assertIOThread()) where appropriate (Everywhere?)
+-> [x] Replace with GlobalEventTapThread / mainThread / MFCFRunLoopPerform
+-> [xxx] Maybe add thread asserts (assertIOThread()) where appropriate (Everywhere?)
 -> [x] Remove all the `_Unsafe` variants and other stuff that's no longer necessary
     - _Unsafe variant was often the direct call and the public one was the deferred call, so callsites can't all be unified
 -> [x] Remove the `start(params:` stuff
@@ -89,7 +89,7 @@ Might need locking (due to access from both IOThread and mainThread)
 
 # 4
 
--[ ] Cleanup docs and comments talking about GlobalEventTapThread (which we'll implement now)
+-x ] Cleanup docs and comments talking about GlobalEventTapThread (which we'll implement now)
 
 Names for the unified thread idea in MMF source code that I'm aware of: 
     (unified to: all lowercase, with spaces between all words)
@@ -108,7 +108,7 @@ Bonus:
 
 # 4.5
 
-- [ ] Minor cleanup
+- [x] Minor cleanup
     - Maybe remove 'atomic' stuff that's no longer needed
 
 # 5
@@ -139,9 +139,9 @@ More detailed implementation plans for tricky parts:
 # 9 
 
 Some more concerns by Claude
-    - [ ] IOThread would be using some AppKit APIs like NSScreen.mainScreen.
+    - [x] IOThread would be using some AppKit APIs like NSScreen.mainScreen.
         -> I'm pretty sure that any NSScreen APIs that are actually unsafe to call off main crashes at runtime, and that these are safe, but not 100%
-    - [ ] (HelperUtility appUnderMousePointerWithEvent:) can 'block for seconds if the app is hung', fixed by `AXUIElementSetMessagingTimeout`
+    - [xxx] (HelperUtility appUnderMousePointerWithEvent:) can 'block for seconds if the app is hung', fixed by `AXUIElementSetMessagingTimeout`
         - (Why have I never experienced any issues due to this, ever?)
 
 # 10 
