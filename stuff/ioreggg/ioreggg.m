@@ -203,15 +203,15 @@ auto matchDictKeys = @[
     @ kIOMatchedServiceCountKey,    // @"IOMatchedServiceCountMatch",
 ];
 auto matchDictKeysWithDescriptions = (@""
-    "    \"IOProviderClass\"               (Super)class of the desired IOService\n"
-    "    \"IONameMatch\"                   Name of the desired IOService\n"
-    "    \"IOPropertyMatch\"               Key-value-pairs that should be present on the desired IOService\n"
-    "    \"IOPropertyExistsMatch\"         Keys that should be present on the desired IOService\n"
-    "    \"IOPathMatch\"                   Path of the desired IOService\n"
-    "    \"IOLocationMatch\"               Location of the desired IOService\n"
-    "    \"IOParentMatch\"                 Nested matchDict that the desired IOService's parent needs to match\n"
-    "    \"IOResourceMatch\"               Not sure\n"
-    "    \"IOMatchedServiceCountMatch\"    Not sure\n"
+    "    \"IOProviderClass\"               (Super)class of the desired IOService [kIOProviderClassKey]\n"
+    "    \"IONameMatch\"                   Name of the desired IOService [kIONameMatchKey]\n"
+    "    \"IOPropertyMatch\"               Key-value-pairs that should be present on the desired IOService [kIOPropertyMatchKey]\n"
+    "    \"IOPropertyExistsMatch\"         Keys that should be present on the desired IOService [kIOPropertyExistsMatchKey]\n"
+    "    \"IOPathMatch\"                   Path of the desired IOService [kIOPathMatchKey]\n"
+    "    \"IOLocationMatch\"               Location of the desired IOService [kIOLocationMatchKey]\n"
+    "    \"IOParentMatch\"                 Nested matchDict that the desired IOService's parent needs to match [kIOParentMatchKey]\n"
+    "    \"IOResourceMatch\"               Not sure [kIOResourceMatchKey]\n"
+    "    \"IOMatchedServiceCountMatch\"    Not sure [kIOMatchedServiceCountKey]\n"
 );
 
 #define invalidArgs(reason...) { mflog(@"Couldn't parse args as matchDict: " reason); exit(1); }
@@ -228,38 +228,47 @@ int main(void) {
     
     NSArray<NSString *> *args = [[NSProcessInfo processInfo] arguments];
     
-    if (args.count > 1) {
-        NSString *matchDictString = [[args subarrayWithRange: NSMakeRange(1, args.count-1)] componentsJoinedByString: @" "];
-        
-        NSError *errJSON = nil;
-        NSError *errPlist = nil;
-        NSDictionary *matchDict = nil;
-        matchDict = [NSPropertyListSerialization propertyListWithData: [matchDictString dataUsingEncoding: NSUTF8StringEncoding] options: 0 format: nil error: &errPlist];
-        if (!matchDict)
-        matchDict = [NSJSONSerialization JSONObjectWithData: [matchDictString dataUsingEncoding: NSUTF8StringEncoding]  options: NSJSONReadingJSON5Allowed | NSJSONReadingTopLevelDictionaryAssumed error: &errJSON];
-        
-        if (!isclass(matchDict, NSDictionary)) invalidArgs("Not a valid dict (Plist or JSON).\nPlist error: %@.\nJSON error: %@.\nDecoded class (should be dict): %@.", errPlist, errJSON, matchDict.class);
-        
-        validateMatchDict(matchDict);
-        
-        io_iterator_t iterator = IO_OBJECT_NULL;
-        kern_return_t ret = IOServiceGetMatchingServices(kIOMainPortDefault, CFBridgingRetain(matchDict), &iterator);
-        mfrequire(!ret, "IOServiceGetMatchingServices failed");
-        
-        __block int i = 0;
-        IOIterator_ForEach(iterator, ^(io_service_t service, bool *stop) {
-            mflog(@"\nmatchDict match %d:\n", i+1);
-            IORegistryEntryShow(service, /*depth*/0);
-            i++;
-        });
-        
-        mflog(@"\n---\n\nSummary: Found %d matches for matchDict: %@", i, description(matchDict));
-        
+    if (args.count <= 1) {
+        mflog(@""
+            "Usage: \n"
+            "Pass 'root' or a matchDict (plist or JSON string) with the following keys:\n"
+            "%@"
+            ,matchDictKeysWithDescriptions
+        );
     }
     else {
-        
-        io_registry_entry_t rootEntry = IORegistryGetRootEntry(kIOMainPortDefault);
-        IORegistryEntryShow(rootEntry, /*depth*/0);
+        NSString *concatenatedArgs = [[args subarrayWithRange: NSMakeRange(1, args.count-1)] componentsJoinedByString: @" "];
+        if ([concatenatedArgs isEqual: @"root"]) {
+            io_registry_entry_t rootEntry = IORegistryGetRootEntry(kIOMainPortDefault);
+            IORegistryEntryShow(rootEntry, /*depth*/0);
+        }
+        else {
+            NSString *matchDictString = concatenatedArgs;
+
+            NSError *errJSON = nil;
+            NSError *errPlist = nil;
+            NSDictionary *matchDict = nil;
+            matchDict = [NSPropertyListSerialization propertyListWithData: [matchDictString dataUsingEncoding: NSUTF8StringEncoding] options: 0 format: nil error: &errPlist];
+            if (!matchDict)
+            matchDict = [NSJSONSerialization JSONObjectWithData: [matchDictString dataUsingEncoding: NSUTF8StringEncoding]  options: NSJSONReadingJSON5Allowed | NSJSONReadingTopLevelDictionaryAssumed error: &errJSON];
+            
+            if (!isclass(matchDict, NSDictionary)) invalidArgs("Not a valid dict (Plist or JSON).\nPlist error: %@.\nJSON error: %@.\nDecoded class (should be dict): %@.", errPlist, errJSON, matchDict.class);
+            
+            validateMatchDict(matchDict);
+            
+            io_iterator_t iterator = IO_OBJECT_NULL;
+            kern_return_t ret = IOServiceGetMatchingServices(kIOMainPortDefault, CFBridgingRetain(matchDict), &iterator);
+            mfrequire(!ret, "IOServiceGetMatchingServices failed");
+            
+            __block int i = 0;
+            IOIterator_ForEach(iterator, ^(io_service_t service, bool *stop) {
+                mflog(@"\nmatchDict match %d:\n", i+1);
+                IORegistryEntryShow(service, /*depth*/0);
+                i++;
+            });
+            
+            mflog(@"\n---\n\nSummary: Found %d matches for matchDict: %@", i, description(matchDict));
+        }
     }
     
     return 0;
