@@ -203,15 +203,15 @@ auto matchDictKeys = @[
     @ kIOMatchedServiceCountKey,    // @"IOMatchedServiceCountMatch",
 ];
 auto matchDictKeysWithDescriptions = (@""
-    "    \"IOProviderClass\"               (Super)class of the desired IOService [kIOProviderClassKey]\n"
-    "    \"IONameMatch\"                   Name of the desired IOService [kIONameMatchKey]\n"
-    "    \"IOPropertyMatch\"               Key-value-pairs that should be present on the desired IOService [kIOPropertyMatchKey]\n"
-    "    \"IOPropertyExistsMatch\"         Keys that should be present on the desired IOService [kIOPropertyExistsMatchKey]\n"
-    "    \"IOPathMatch\"                   Path of the desired IOService [kIOPathMatchKey]\n"
-    "    \"IOLocationMatch\"               Location of the desired IOService [kIOLocationMatchKey]\n"
-    "    \"IOParentMatch\"                 Nested matchDict that the desired IOService's parent needs to match [kIOParentMatchKey]\n"
-    "    \"IOResourceMatch\"               Not sure [kIOResourceMatchKey]\n"
-    "    \"IOMatchedServiceCountMatch\"    Not sure [kIOMatchedServiceCountKey]\n"
+    "    \"IOProviderClass\"               [kIOProviderClassKey]           (Super)class of the desired IOService\n"
+    "    \"IONameMatch\"                   [kIONameMatchKey]               Name of the desired IOService\n"
+    "    \"IOPropertyMatch\"               [kIOPropertyMatchKey]           Key-value-pairs that should be present on the desired IOService\n"
+    "    \"IOPropertyExistsMatch\"         [kIOPropertyExistsMatchKey]     Keys that should be present on the desired IOService\n"
+    "    \"IOPathMatch\"                   [kIOPathMatchKey]               Path of the desired IOService\n"
+    "    \"IOLocationMatch\"               [kIOLocationMatchKey]           Location of the desired IOService\n"
+    "    \"IOParentMatch\"                 [kIOParentMatchKey]             Nested matchDict that the desired IOService's parent needs to match\n"
+    "    \"IOResourceMatch\"               [kIOResourceMatchKey]           Not sure\n"
+    "    \"IOMatchedServiceCountMatch\"    [kIOMatchedServiceCountKey]     Not sure\n"
 );
 
 #define invalidArgs(reason...) { mflog(@"Couldn't parse args as matchDict: " reason); exit(1); }
