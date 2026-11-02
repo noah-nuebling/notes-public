@@ -168,15 +168,15 @@ Update Translation Guide
 
 Other:
     - Send 10 MMF licenses to translator (?) (/answer in general)
-        - [ ] Japanese
-        - [ ] Vietnamese
-        - [ ] French
-        - [ ] Spanish
-        - [ ] Simplified Chinese
-        - [ ] Ukrainian
-        - [ ] Turkish
-        - [ ] Norwegian
-        - [ ] Brazilian Portuguese
+    GitHub
+        - [x] done
+    Email
+        - [x] Turkish Eren Tomurcuk: message:<OfZ84n5--F-9@tuta.io>
+        - [ ] Brazilian Portuguese Eduardo Rodriguez: message:<D9DBBC48-47AD-42EC-8BE6-46D611474277@icloud.com>
+        - [ ] Turkish Samim Kel: [mail](message:<CAG9To-p8EkFgxsaF1uLE=L2d-u8fs_dZ7iDxJQ5OB1U3t7vQhw@mail.gmail.com>)
+        - [ ] Ukrainian @denysocheck: message:<78FD2C3A-E753-4DE7-AB3E-76D184334DC2@gmail.com>
+    Pull requests:
+        - Simplified Chinese @JunhangWu: https://github.com/noah-nuebling/mac-mouse-fix/pull/1836
 
 Review: 
     Don't have time / nerves to do the review steps from `MMF - Translation Checklist - Template.md`
